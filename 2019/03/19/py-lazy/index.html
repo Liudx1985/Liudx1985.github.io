@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="FP,Python,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="​    本文介绍了python 的生成器，构造一些有趣的惰性计算程序，可以作为python函数式的基础。 1. iterator and generator​    众所周知，python3里面的range返回是一个对象而不是列表，它的前身是python 2的xrange。python 2里面的range会生成一个列表，当这个列表很大时，会有严重的性能问题: 12for x in range(0">
+<meta name="keywords" content="FP,Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python 迭代器和惰性计算、函数式编程基础">
+<meta property="og:url" content="http://liudx1985.github.io/2019/03/19/py-lazy/index.html">
+<meta property="og:site_name" content="不恋过往，不惧将来">
+<meta property="og:description" content="​    本文介绍了python 的生成器，构造一些有趣的惰性计算程序，可以作为python函数式的基础。 1. iterator and generator​    众所周知，python3里面的range返回是一个对象而不是列表，它的前身是python 2的xrange。python 2里面的range会生成一个列表，当这个列表很大时，会有严重的性能问题: 12for x in range(0">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://liudx1985.github.io/2019/03/19/py-lazy/struct.png">
+<meta property="og:updated_time" content="2019-10-22T02:16:49.953Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python 迭代器和惰性计算、函数式编程基础">
+<meta name="twitter:description" content="​    本文介绍了python 的生成器，构造一些有趣的惰性计算程序，可以作为python函数式的基础。 1. iterator and generator​    众所周知，python3里面的range返回是一个对象而不是列表，它的前身是python 2的xrange。python 2里面的range会生成一个列表，当这个列表很大时，会有严重的性能问题: 12for x in range(0">
+<meta name="twitter:image" content="http://liudx1985.github.io/2019/03/19/py-lazy/struct.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://liudx1985.github.io/2019/03/19/py-lazy/">
+
+
+
+
+
+  <title>python 迭代器和惰性计算、函数式编程基础 | 不恋过往，不惧将来</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">不恋过往，不惧将来</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://liudx1985.github.io/2019/03/19/py-lazy/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liudx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="不恋过往，不惧将来">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python 迭代器和惰性计算、函数式编程基础</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-19T17:02:29+08:00">
+                2019-03-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/FP/" itemprop="url" rel="index">
+                    <span itemprop="name">FP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/03/19/py-lazy/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/19/py-lazy/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>​    本文介绍了python 的生成器，构造一些有趣的惰性计算程序，可以作为python函数式的基础。</p>
+<h3 id="1-iterator-and-generator"><a href="#1-iterator-and-generator" class="headerlink" title="1. iterator and generator"></a>1. iterator and generator</h3><p>​    众所周知，python3里面的range返回是一个对象而不是列表，它的前身是python 2的xrange。python 2里面的range会生成一个列表，当这个列表很大时，会有严重的性能问题:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">100000</span>):</span><br><span class="line">    print(x)</span><br></pre></td></tr></table></figure>
+<p>​    可以使用<code>iter(range(0,100000))</code>将range对象转换为可迭代实例（iterator），下面的代码是和上面代码等价的：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">lst=iter(range(<span class="number">0</span>,<span class="number">10</span>))</span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        b = next(lst) <span class="comment"># 调用lst.__next__()</span></span><br><span class="line">        print(b)</span><br><span class="line">    <span class="keyword">except</span> StopIteration:</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+<p>​    显而易见，其实python的for循环其实是个语法糖，首先隐式将<code>list</code>（<strong>可迭代对象</strong>）转换为<code>list_iterator</code>，然后不断调用迭代器的<code>__next__</code>函数，直到出现<code>StopIteration</code>为止；下面是一个迭代器的实例（注意内部函数__next__）：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">fibonacci</span>:</span></span><br><span class="line">    <span class="string">'''To use this class like this</span></span><br><span class="line"><span class="string">    for n in fibonacci(100):</span></span><br><span class="line"><span class="string">        print(n, end=',')</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, max)</span>:</span></span><br><span class="line">        self.max = max</span><br><span class="line"></span><br><span class="line">    <span class="comment">#可迭代对象实现了__iter__方法，str、list、set、dict、file、sockets等容器都有这个内部函数</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__iter__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.a = <span class="number">1</span></span><br><span class="line">        self.b = <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__next__</span><span class="params">(self)</span>:</span></span><br><span class="line">        fib = self.a</span><br><span class="line">        <span class="keyword">if</span> fib &gt; self.max:</span><br><span class="line">            <span class="keyword">raise</span> StopIteration</span><br><span class="line"></span><br><span class="line">        self.a, self.b = self.b, self.a + self.b</span><br><span class="line">        <span class="keyword">return</span> fib</span><br></pre></td></tr></table></figure>
+<p>​    使用也很简单，首先生成一个迭代器对象,然后调用<code>next</code>函数就可以了,我们这里使用<code>enumerate</code>函数生成组合迭代器返回索引和内部迭代器返回值(类似的api还有zip、reversed)：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fib = fibonacci(<span class="number">20</span>)</span><br><span class="line">print(next(fib))</span><br><span class="line"><span class="comment"># more next(fib)...</span></span><br><span class="line"><span class="keyword">for</span> i,n <span class="keyword">in</span> enumerate(fibonacci(<span class="number">20</span>)): <span class="comment"># 不能重复使用fib对象！</span></span><br><span class="line">	print(<span class="string">'fib['</span>, i, <span class="string">']='</span>, n, end=<span class="string">'\n'</span>)</span><br></pre></td></tr></table></figure>
+<p>​    根据python doc的描述，迭代器内部是有状态的，每次取一个值都会消耗迭代器的状态。需要注意的是range并不是一个迭代器，因此可以重复使用，其长度并不会因为遍历过而变化。因此并重复使用一个range对象是安全的，而上面的fib对象并不能重复从fib(0)计算。</p>
+<p>​    另一个普遍使用产生迭代器的方法是生成器（generator)，即使用<code>yield</code>返回值;还有少见的生成器表达式也能构造生成器：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">FibonacciIter</span><span class="params">(n)</span>:</span></span><br><span class="line">    a, b, c = <span class="number">1</span>, <span class="number">1</span>, n</span><br><span class="line">    <span class="keyword">while</span> c &gt; <span class="number">-1</span>:</span><br><span class="line">        <span class="keyword">yield</span> a</span><br><span class="line">        a, b, c = b, a + b, c - <span class="number">1</span></span><br><span class="line"><span class="comment"># a is a &lt;class 'generator'&gt;</span></span><br><span class="line">a = (x*x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>))</span><br></pre></td></tr></table></figure>
+<p>​    上面的fibonacci generator和迭代器对象(iterable)使用方法一样，都可以使用next取出下个返回值，当生成<code>n</code>个fibonacci数后，会耗尽并返回。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">fib_gen = FibonacciIter(<span class="number">6</span>)</span><br><span class="line">b = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        b = next(fib_gen)</span><br><span class="line">    <span class="keyword">except</span> StopIteration:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    print(b, end=<span class="string">' '</span>)</span><br></pre></td></tr></table></figure>
+<p>​    除了使用for循环取值，还可以使用生成器构造list，或使用<code>map、filter、reduce</code>等函数进行计算：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用generator构造list</span></span><br><span class="line">list(FibonacciIter(<span class="number">6</span>)) <span class="comment"># [1, 1, 2, 3, 5, 8, 13]</span></span><br><span class="line"></span><br><span class="line">a = FibonacciIter(<span class="number">6</span>)</span><br><span class="line">print(list(map(<span class="keyword">lambda</span> x: x**<span class="number">2</span>, a))) <span class="comment"># [1, 1, 4, 9, 25, 64, 169]</span></span><br></pre></td></tr></table></figure>
+<p>​    为了验证生成器是惰性的，我们使用一个筛法生成素数数列:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 奇数生成器</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_odd_iter</span><span class="params">()</span>:</span></span><br><span class="line">    n = <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">        n = n + <span class="number">2</span></span><br><span class="line">        <span class="keyword">yield</span> n</span><br><span class="line"><span class="comment"># 整除</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_not_divisible</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">lambda</span> x: x % n != <span class="number">0</span></span><br><span class="line"><span class="comment"># a generator for prime number</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">PrimesIter</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment">#素数不包括1，从2开始</span></span><br><span class="line">    <span class="keyword">yield</span> <span class="number">2</span></span><br><span class="line">    it = _odd_iter()</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">        n = next(it)</span><br><span class="line">        <span class="keyword">yield</span> n</span><br><span class="line">        it = filter(_not_divisible(n), it)</span><br></pre></td></tr></table></figure>
+<p>​    生成器PrimesIter首次返回2（2是特殊素数，其他素数全为奇数），然后在奇数生成器的基础上进行过滤运算(筛法)：首先奇数生成器返回3, 这个是素数，<code>yield n</code>处返回，it看做一个惰性数列(现在是3之后的奇数)，使用<code>filter</code>函数将这个数列里面所有被3整除的奇数全部过滤掉，并返回一个迭代器重新赋值给it，里面包含所有素数。继续下次循环会过滤掉所有5整除的奇数…实际上这个it会被重复包裹成<strong><code>...filter(__not_divisible(5), filter(__not_divisible(3),it)</code></strong>,while每循环一次，就多加一层filter。</p>
+<h3 id="2-itertools-and-basical-usage"><a href="#2-itertools-and-basical-usage" class="headerlink" title="2. itertools and basical usage"></a>2. itertools and basical usage</h3><p>​    无限生成器可以永久运行下去，很容易造成死循环，幸好python库提供了itertools用于处理这些情况, 我们参考python doc编写了一些使用的itertools扩展 api：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> islice,takewhile</span><br><span class="line"></span><br><span class="line"><span class="comment"># get first n elements from iter,#take(itertools.count(1,2), 5) will get [1,3,5,7,9]</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">take</span><span class="params">(iter, n)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> list(islice(iter, n))</span><br><span class="line"></span><br><span class="line"><span class="comment"># takeWhile elements &#123;x&#125; from iter, until f(x) is false</span></span><br><span class="line"><span class="comment"># iter should be a infinate generator</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">takeWhile</span><span class="params">(iter, f)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> list(takewhile(f, iter))</span><br><span class="line"><span class="comment"># return a list contains prime numbers</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">takePrimesBy</span><span class="params">(flt)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> takeWhile(PrimesIter(), flt)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">isPrime</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> takePrimesBy(<span class="keyword">lambda</span> x: x &lt; math.sqrt(n)):</span><br><span class="line">        <span class="keyword">if</span> n % i == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># generate N primes.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">takePrimes</span><span class="params">(N)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> take(PrimesIter(), N)</span><br><span class="line"></span><br><span class="line"><span class="comment"># generate prime less then N.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getPrimes</span><span class="params">(N)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> takePrimesBy(<span class="keyword">lambda</span> x: x &lt; N)</span><br></pre></td></tr></table></figure>
+<p>​    有了素数生成器，很容易构造一个正整数分解生成器（参考我写的fold/unfold文章）:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># decompose N into \Mult&#123;x_i&#125;, x_i is prime</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">DecomposeIter</span><span class="params">(N)</span>:</span></span><br><span class="line">    c = N</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">        p = takePrimesBy(<span class="keyword">lambda</span> x: x &lt;= math.sqrt(c))</span><br><span class="line">        s = [x <span class="keyword">for</span> x <span class="keyword">in</span> p <span class="keyword">if</span> c % x == <span class="number">0</span>] <span class="comment"># 取出所有可能的素因子</span></span><br><span class="line">        <span class="keyword">if</span> len(s) &lt; <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">yield</span> c <span class="comment"># c是素数</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            c = int(c / s[<span class="number">0</span>]) <span class="comment"># 第一个素因子s[0]</span></span><br><span class="line">            <span class="keyword">yield</span> s[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+<p>​    验证方法是使用list取出生成器的值:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(list(DecomposeIter(<span class="number">123</span>))) <span class="comment"># [3, 41]</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-container-and-iterators"><a href="#3-container-and-iterators" class="headerlink" title="3 container and iterators"></a>3 container and iterators</h3><p>​    除了list，其他所有容器set/dict都能使用for循环遍历，即说明这些容器是可迭代的(iterable),另外字符串、文件、socket等容器也是可以生成迭代器的。除了使用for循环遍历容器/迭代器，我们还可以使用迭代器/生成器构造容器,第2节里面已经出现很多使用list读取生成器内容的用法，当然也可以用结合enumerate生成dict:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">iter = PrimesIter()</span><br><span class="line">dict(enumerate(islice(iter, <span class="number">10</span>))) <span class="comment">#&#123;0: 2, 1: 3, 2: 5, 3: 7, 4: 11, 5: 13, 6: 17, 7: 19, 8: 23, 9: 29&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># get first 10 fibonacci number</span></span><br><span class="line"><span class="keyword">import</span> profile</span><br><span class="line">a = range(<span class="number">0</span>,<span class="number">10</span>)</span><br><span class="line">profile.run(<span class="string">'list(zip(a,PrimesIter()))'</span>)</span><br></pre></td></tr></table></figure>
+<p>​    我们在使用filter/map/reduce等函数将容器进行转换时，实际上可看做是对容器的迭代器进行操作（注意他们并不直接返回结果，而是返回另一个迭代器！），比较接近于FP风格。</p>
+<p><img src="/2019/03/19/py-lazy/struct.png" alt=""></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/FP/" rel="tag"># FP</a>
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/16/fold-and-unfold/" rel="next" title="fold and unfold">
+                <i class="fa fa-chevron-left"></i> fold and unfold
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/08/modulo/" rel="prev" title="同余和整除判定">
+                同余和整除判定 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Liudx</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-iterator-and-generator"><span class="nav-number">1.</span> <span class="nav-text">1. iterator and generator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-itertools-and-basical-usage"><span class="nav-number">2.</span> <span class="nav-text">2. itertools and basical usage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-container-and-iterators"><span class="nav-number">3.</span> <span class="nav-text">3 container and iterators</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Liudx</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'bhCs80fQJM6MqoDtO47zYfoT-gzGzoHsz',
+        appKey: 'kzQ2bigd8pslL96pQIpOj2hr',
+        placeholder: 'Comment here!',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

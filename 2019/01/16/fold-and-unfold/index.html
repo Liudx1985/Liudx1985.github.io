@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Haskell,FP,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="​    Haskell里面有两个著名的fold函数:foldr/foldl，这两个函数非常具有函数式编程的特点(递归)，几户所有的Haskell教程都会使用foldr/foldl来完成一些命令式语言的循环语句。还有个更少见的unfoldr函数,可以完成一些匪夷所思的操作。 1 fold​    几乎所有的函数式语言都有类似的函数，如Javascript的对应是reduce[^1]reduceRi">
+<meta name="keywords" content="Haskell,FP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="fold and unfold">
+<meta property="og:url" content="http://liudx1985.github.io/2019/01/16/fold-and-unfold/index.html">
+<meta property="og:site_name" content="不恋过往，不惧将来">
+<meta property="og:description" content="​    Haskell里面有两个著名的fold函数:foldr/foldl，这两个函数非常具有函数式编程的特点(递归)，几户所有的Haskell教程都会使用foldr/foldl来完成一些命令式语言的循环语句。还有个更少见的unfoldr函数,可以完成一些匪夷所思的操作。 1 fold​    几乎所有的函数式语言都有类似的函数，如Javascript的对应是reduce[^1]reduceRi">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-10-22T02:16:49.902Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="fold and unfold">
+<meta name="twitter:description" content="​    Haskell里面有两个著名的fold函数:foldr/foldl，这两个函数非常具有函数式编程的特点(递归)，几户所有的Haskell教程都会使用foldr/foldl来完成一些命令式语言的循环语句。还有个更少见的unfoldr函数,可以完成一些匪夷所思的操作。 1 fold​    几乎所有的函数式语言都有类似的函数，如Javascript的对应是reduce[^1]reduceRi">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://liudx1985.github.io/2019/01/16/fold-and-unfold/">
+
+
+
+
+
+  <title>fold and unfold | 不恋过往，不惧将来</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">不恋过往，不惧将来</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://liudx1985.github.io/2019/01/16/fold-and-unfold/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liudx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="不恋过往，不惧将来">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">fold and unfold</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-16T14:14:33+08:00">
+                2019-01-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/16/fold-and-unfold/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/01/16/fold-and-unfold/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>​    Haskell里面有两个著名的fold函数:foldr/foldl，这两个函数非常具有函数式编程的特点(递归)，几户所有的Haskell教程都会使用foldr/foldl来完成一些命令式语言的循环语句。还有个更少见的unfoldr函数,可以完成一些匪夷所思的操作。</p>
+<h2 id="1-fold"><a href="#1-fold" class="headerlink" title="1 fold"></a>1 fold</h2><p>​    几乎所有的函数式语言都有类似的函数，如Javascript的对应是<code>reduce</code>[^1]<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/reduceRight" target="_blank" rel="noopener"><code>reduceRight()</code></a>;Haskell的fold有两个版本，分别是foldr和foldl，两个函数主要区别在后缀上，一个从右折叠，一个从左折叠，位于Data.List,常见的教程里面定义的简单版本如下：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">foldr</span> :: (a -&gt; b -&gt; b) -&gt; b -&gt; [a] -&gt; b</span><br><span class="line"><span class="title">foldr</span> step zero (x:xs) = step x (foldr step zero xs)</span><br><span class="line"><span class="title">foldr</span> _ zero []        = zero</span><br><span class="line"></span><br><span class="line"><span class="title">foldl</span> :: (a -&gt; b -&gt; a) -&gt; a -&gt; [b] -&gt; a</span><br><span class="line"><span class="title">foldl</span> step zero (x:xs) = foldl step (step zero x) xs</span><br><span class="line"><span class="title">foldl</span> _ zero []        = zero</span><br></pre></td></tr></table></figure>
+<p>​    fold的参数依次为step函数、初始值、列表，返回值为一个和初始值类型一样的值。注意foldr和foldl的step函数都是二元函数，foldr的step参数顺序为<strong>列表元素、折叠变量</strong>,foldl的刚好反过来！这点很容易搞混淆。一般我们直接使用预定义的就行，当然对于Data.Tree等可折叠的类型，foldr/foldl也可以适用，方法类似。</p>
+<p>​    众所周知，Haskell构造列表只能向头部插入元素：<code>1:[2,3]</code>,连接链表也可以使用<code>concat</code>函数或者<code>++</code>：<code>[1..5]++[6..10] &amp; concat [[1..5],[6..10]]</code>,但是没有向尾部插入元素的函数(insert只能向已排序的插入值)，我们希望构造一个函数，调用方式为<code>append list newElem</code>，这个函数需要从尾部开始折叠，需要使用foldr:</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">append</span>:: <span class="type">Foldable</span> t =&gt; t a -&gt; a -&gt; [a]</span><br><span class="line"><span class="title">append</span> xs x = foldr (\r e -&gt; r:e) [x] xs</span><br></pre></td></tr></table></figure>
+<p>​    运行一下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Prelude&gt; append [1..3] 5</span><br><span class="line">[1,2,3,5]</span><br></pre></td></tr></table></figure>
+<p>​    上述例子只是为了说明fold的应用方式，其运行效率不是很高，生产环境一般不会直接这样做(使用Array等代替)。基本上，使用foldr/foldl可以完成对列表元素的遍历+归一求值,下面的例子给出一个翻转字符串的函数,使用foldl实现：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">reverse'</span> = foldl (\r e-&gt; e:r) []</span><br><span class="line"><span class="title">main</span> = <span class="keyword">do</span> </span><br><span class="line">	print$reverse' [<span class="number">1.</span><span class="number">.10</span>]</span><br><span class="line">	print$reverse' <span class="string">"welcome to hell!"</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-unfold"><a href="#2-unfold" class="headerlink" title="2 unfold"></a>2 unfold</h2><p>​    unfoldr<a href="http://hackage.haskell.org/package/base-4.12.0.0/docs/Data-List.html#v:unfoldr" target="_blank" rel="noopener">^2</a>是Haskell独有的函数，是foldr反向的操作，即从一个源构造一个列表，定义比foldr难一点:<code>unfoldr :: (b -&gt; Maybe (a, b)) -&gt; b -&gt; [a]</code>,接受一个迭代函数和一个初始值，产生一个列表，这个迭代函数的定义是<code>b-&gt; Maybe(a,b)</code>,可以预见此函数第一步从初始值生成一个<code>Maybe Monad</code>，内涵类型是<code>(a,b)</code>，即一个元组，fst为新的元素，snd为下次迭代使用变量(初始值类型)。使用例子如下：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">unfoldr</span> (\b -&gt; <span class="keyword">if</span> b == <span class="number">0</span> <span class="keyword">then</span> <span class="type">Nothing</span> <span class="keyword">else</span> <span class="type">Just</span> (b, b<span class="number">-1</span>)) <span class="number">10</span> =&gt;[<span class="number">10</span>,<span class="number">9.</span><span class="number">.1</span>]</span><br></pre></td></tr></table></figure>
+<p>​    当然这个例子用语法糖<code>[10,9..1]</code>更容易理解。我们下面举一个比较复杂也很实用的例子：将某些值如timestamp、字节数转换为可读性较高的字符串。timestamp是一个长整型，大部分人类更容易理解”x小时y分钟z秒”这种可读性更好的字符串，类似字节数，<code>1234567890Byte</code>可能会给人造成困惑，而”1G,153M,384KB,722Byte”更容易用来和硬盘容量做对比。可以看到上面的字符串是由一个列表和单位混合而成,如[x,y,z] [‘小时’,’分钟’,’秒’]；为了获取[x,y,z]我们需要一个函数，将大整数k按照某进制分解为一个列表：</p>
+<blockquote>
+<p>$$K=\sum_{i=0}^n{U^i*x_i}$$</p>
+</blockquote>
+<p>​    其中$K$为需要分解的数，$U$是进制（两个相邻单位进制一样没有，考虑特殊的如天数-小时-分钟这种），$x_i$为第$i$个单位下的数量。观察上述公式，很明显可以对$K$取$U$的余数来获取$x_0$，递归求值得到：<br>$$<br>\frac{K_i}{U}=K_{i+1} \cdots\cdots x_i，i = 0,..n\\<br>specially,K_0=K<br>$$<br>​    结合unfoldr的递归函数，先给出对应分解函数依次求出$x_0…x_n$：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">digits</span> :: <span class="type">Integral</span> p =&gt; p -&gt; p -&gt; [p]</span><br><span class="line"><span class="title">digits</span> n = unfoldr f <span class="keyword">where</span></span><br><span class="line">    f <span class="number">0</span> = <span class="type">Nothing</span> <span class="comment">-- terminate</span></span><br><span class="line">    f r = <span class="type">Just</span> . swap $ r `divMod` n <span class="comment">-- divMod will generate (temp-result and x_i),x_i will be inserted to result</span></span><br></pre></td></tr></table></figure>
+<p>​    其中参数$n$为进制，由于unfoldr向右方生成元素，$x_0$将被放置在第一个元素。下面我们写几个例子看看效果：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Predule</span>&gt; digits <span class="number">10</span> <span class="number">123</span></span><br><span class="line">[<span class="number">3</span>,<span class="number">2</span>，<span class="number">1</span>]</span><br><span class="line"><span class="type">Predule</span>&gt; digits <span class="number">1024</span> <span class="number">2500</span></span><br><span class="line">[<span class="number">452</span>，<span class="number">2</span>]</span><br></pre></td></tr></table></figure>
+<p>​    完成上述分解之后，需要将单位和值整合为字符串，需要传入一个值、单位进制和单位描述：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">conv_units_humansize</span> :: <span class="type">Int</span> -&gt; <span class="type">Int</span> -&gt; [<span class="type">String</span>] -&gt; <span class="type">String</span></span><br><span class="line"><span class="title">conv_units_humansize</span> x n units = intercalate <span class="string">","</span> $ map (\a-&gt;show (fst a) ++ (snd a)) k <span class="keyword">where</span></span><br><span class="line">    k = reverse $ zip(digits n x) units</span><br></pre></td></tr></table></figure>
+<p>​    我们没有一开始将<code>digits</code>函数加上reverse，是为了方便zip自动适配两个列表长度，数量不够大单位时会自动截断右侧大单位。实际使用例子：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">units_conv</span> = <span class="keyword">do</span> </span><br><span class="line">    print $ conv_units_humansize <span class="number">61</span> <span class="number">60</span> [<span class="string">"Second"</span>,<span class="string">"Minute"</span>,<span class="string">"Hour"</span>] <span class="comment">-- "1Minute,1Second"</span></span><br><span class="line">    print $ conv_units_humansize <span class="number">1234567890</span> <span class="number">1024</span> [<span class="string">"Byte"</span>,<span class="string">"K"</span>,<span class="string">"M"</span>,<span class="string">"G"</span>,<span class="string">"T"</span>]<span class="comment">-- 1G,153M,384K,722Byte</span></span><br><span class="line">    print $ conv_units_humansize <span class="number">1717194</span> <span class="number">1000</span> [<span class="string">"g"</span>,<span class="string">"Kg"</span>,<span class="string">"t"</span>] <span class="comment">-- 1t,717Kg,194g</span></span><br></pre></td></tr></table></figure>
+<p>​    思考:<em>利用fold如何进行反向转换?</em></p>
+<h2 id="3-More…"><a href="#3-More…" class="headerlink" title="3 More…"></a>3 More…</h2><p>​    下面我们来尝试使用unfoldr来实现一个整数分解的函数，即将任意正整数分解为素数乘积的列表，如10分解为[2,5],因为任意整数都包含1因子，所以1不应进行分解，可设为终止条件.另外，素数只可分解为自身，即5-&gt;[5]。</p>
+<p>$$<br>\forall x&gt;1,x \in \mathbb{N}^+:x=\prod_{i=1}^n{p_i^{t_i}},p_i \in \phi;t_i,n\in \mathbb{N}^+<br>$$</p>
+<p>​    首先，我们需要得到一个素数列表$\phi$来辅助计算.目前比较高效的方法是利用Haskell的惰性计算，通过Eratosthenes筛法获得一个无限列表<a href="https://en.wikipedia.org/wiki/Eratosthenes" target="_blank" rel="noopener">^3</a>，然后再根据实际需要获取前N个素数。代码如下:</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Eratosthenes筛法</span></span><br><span class="line"><span class="title">sieve</span> (p:xs) = p : sieve [x| x &lt;- xs , x `mod` p /=<span class="number">0</span> ]</span><br><span class="line"><span class="title">primes</span> = sieve [<span class="number">2.</span>.] <span class="comment">-- maxBound::Int</span></span><br></pre></td></tr></table></figure>
+<p>​    对primes列表使用take，可获取前100个素数：<code>take 100 primes</code>；也可以使用takeWhile函数获取小于100的所有素数:<code>takeWhile (&lt; 100) primes</code>：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">*<span class="type">Main</span>&gt; print $ take <span class="number">10</span> primes</span><br><span class="line">[<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">11</span>,<span class="number">13</span>,<span class="number">17</span>,<span class="number">19</span>,<span class="number">23</span>,<span class="number">29</span>]</span><br><span class="line">*<span class="type">Main</span>&gt; print $ takeWhile (&lt; <span class="number">100</span>) primes</span><br><span class="line">[<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">11</span>,<span class="number">13</span>,<span class="number">17</span>,<span class="number">19</span>,<span class="number">23</span>,<span class="number">29</span>,<span class="number">31</span>,<span class="number">37</span>,<span class="number">41</span>,<span class="number">43</span>,<span class="number">47</span>,<span class="number">53</span>,<span class="number">59</span>,<span class="number">61</span>,<span class="number">67</span>,<span class="number">71</span>,<span class="number">73</span>,<span class="number">79</span>,<span class="number">83</span>,<span class="number">89</span>,<span class="number">97</span>]</span><br></pre></td></tr></table></figure>
+<p>​    分解的算法也很简单，假设迭代函数处理整数$x$，如果$x=1$则返回<code>Nothing</code>终止迭代；否则从小于$\sqrt x$的素数集合查找第一个可以整除$x$的素数，如果找到此素数$y$，$x\equiv 0\mod{y}$，就将$y$放入分解结果，并设置$x=x/y$，进入下次迭代；还有一种情况，即$x$本身就是素数，那么素数集合中必然找不到$y$将其整除，这种情况可将$x$放入分解结果，并设置$x=1$，下次分解会自动终止。代码如下：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 任意整数的因数分解</span></span><br><span class="line"><span class="title">decompose</span> :: <span class="type">Integer</span> -&gt; [<span class="type">Integer</span>]</span><br><span class="line"><span class="title">decompose</span> x = unfoldr f x <span class="keyword">where</span></span><br><span class="line">    f <span class="number">1</span> = <span class="type">Nothing</span></span><br><span class="line">    f t = <span class="keyword">case</span> find (\j -&gt; t `mod` j == <span class="number">0</span>) (takeWhile (\y-&gt; y ^<span class="number">2</span> &lt;= t) primes) <span class="keyword">of</span></span><br><span class="line">        <span class="type">Nothing</span> -&gt; <span class="type">Just</span> (t, <span class="number">1</span>)</span><br><span class="line">        <span class="type">Just</span> a -&gt; <span class="type">Just</span> (a, t `div` a)</span><br></pre></td></tr></table></figure>
+<p>​    测试结果如下：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">*<span class="type">Main</span>&gt; decompose <span class="number">1</span></span><br><span class="line">[]</span><br><span class="line">*<span class="type">Main</span>&gt; decompose <span class="number">5</span></span><br><span class="line">[<span class="number">5</span>]</span><br><span class="line">*<span class="type">Main</span>&gt; decompose <span class="number">55</span></span><br><span class="line">[<span class="number">5</span>,<span class="number">11</span>]</span><br><span class="line">*<span class="type">Main</span>&gt; decompose <span class="number">550</span></span><br><span class="line">[<span class="number">2</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">11</span>]</span><br></pre></td></tr></table></figure>
+<p>​    利用素数相互互斥的性质:$\forall i\neq j: p_i \equiv 1\mod{p_j}$，我们在迭代函数里可一次取出多个素数因子，以提高效率：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">decompose</span> x = concat $ unfoldr f x <span class="keyword">where</span></span><br><span class="line">    f <span class="number">1</span> = <span class="type">Nothing</span></span><br><span class="line">    f t = <span class="keyword">case</span> [y | y&lt;-takeWhile (\y-&gt; y ^<span class="number">2</span> &lt;= t) primes, t `mod` y == <span class="number">0</span>] <span class="keyword">of</span></span><br><span class="line">        [] -&gt; <span class="type">Just</span> ([t], <span class="number">1</span>)</span><br><span class="line">        xs -&gt; <span class="type">Just</span> (xs, foldl div t xs)</span><br></pre></td></tr></table></figure>
+<p>​    不过这个函数对于多重因子($t_i&gt;1$)是多次迭代获取的,如<code>decompose 12</code>$\rightarrow$<code>[2,3,2]</code>。可以在获取结果之后再进行一次排序，获得和原来函数一致的结果:<code>decompose = sort.concat$unfoldr...</code>，当然你也可以使用group将相同的因子合并一下:<code>group decompose 12--[[2,2,2],[3]]</code></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Haskell/" rel="tag"># Haskell</a>
+          
+            <a href="/tags/FP/" rel="tag"># FP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/15/Dynamic-planning-begining/" rel="next" title="Dynamic Programming">
+                <i class="fa fa-chevron-left"></i> Dynamic Programming
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/19/py-lazy/" rel="prev" title="python 迭代器和惰性计算、函数式编程基础">
+                python 迭代器和惰性计算、函数式编程基础 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Liudx</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-fold"><span class="nav-number">1.</span> <span class="nav-text">1 fold</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-unfold"><span class="nav-number">2.</span> <span class="nav-text">2 unfold</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-More…"><span class="nav-number">3.</span> <span class="nav-text">3 More…</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Liudx</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'bhCs80fQJM6MqoDtO47zYfoT-gzGzoHsz',
+        appKey: 'kzQ2bigd8pslL96pQIpOj2hr',
+        placeholder: 'Comment here!',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="math,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1.  Geometry​    几何学源自古代农业生产活动中发展的测量土地技术，欧几里得的《几何原本》是古典几何的集大成。中国古代很早就发现了勾股定理、掌握了割圆术等一系列几何学知识，可惜受制于封建统治阶级的意思形态，科学技术对没有对社会生产力产生直接的推动，近现代几何学一直为西方主导。随着数学三大基础方向的发展，代数学和几何学的融合，导致解析几何的产生，分析学在几何方向催生出曲面几何、拓扑学等">
+<meta name="keywords" content="math">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Think in geometry (part I)">
+<meta property="og:url" content="http://liudx1985.github.io/2019/07/02/geometry01/index.html">
+<meta property="og:site_name" content="不恋过往，不惧将来">
+<meta property="og:description" content="1.  Geometry​    几何学源自古代农业生产活动中发展的测量土地技术，欧几里得的《几何原本》是古典几何的集大成。中国古代很早就发现了勾股定理、掌握了割圆术等一系列几何学知识，可惜受制于封建统治阶级的意思形态，科学技术对没有对社会生产力产生直接的推动，近现代几何学一直为西方主导。随着数学三大基础方向的发展，代数学和几何学的融合，导致解析几何的产生，分析学在几何方向催生出曲面几何、拓扑学等">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://liudx1985.github.io/2019/07/02/geometry01/Line.png">
+<meta property="og:image" content="http://liudx1985.github.io/2019/07/02/geometry01/Line_dist.png">
+<meta property="og:updated_time" content="2019-10-22T02:16:49.903Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Think in geometry (part I)">
+<meta name="twitter:description" content="1.  Geometry​    几何学源自古代农业生产活动中发展的测量土地技术，欧几里得的《几何原本》是古典几何的集大成。中国古代很早就发现了勾股定理、掌握了割圆术等一系列几何学知识，可惜受制于封建统治阶级的意思形态，科学技术对没有对社会生产力产生直接的推动，近现代几何学一直为西方主导。随着数学三大基础方向的发展，代数学和几何学的融合，导致解析几何的产生，分析学在几何方向催生出曲面几何、拓扑学等">
+<meta name="twitter:image" content="http://liudx1985.github.io/2019/07/02/geometry01/Line.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://liudx1985.github.io/2019/07/02/geometry01/">
+
+
+
+
+
+  <title>Think in geometry (part I) | 不恋过往，不惧将来</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">不恋过往，不惧将来</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://liudx1985.github.io/2019/07/02/geometry01/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liudx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="不恋过往，不惧将来">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Think in geometry (part I)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-02T15:11:49+08:00">
+                2019-07-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/07/02/geometry01/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/02/geometry01/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-Geometry"><a href="#1-Geometry" class="headerlink" title="1.  Geometry"></a>1.  Geometry</h2><p>​    几何学源自古代农业生产活动中发展的测量土地技术，欧几里得的《几何原本》是<strong>古典几何</strong>的集大成。中国古代很早就发现了勾股定理、掌握了割圆术等一系列几何学知识，可惜受制于封建统治阶级的意思形态，科学技术对没有对社会生产力产生直接的推动，近现代几何学一直为西方主导。随着数学三大基础方向的发展，代数学和几何学的融合，导致解析几何的产生，分析学在几何方向催生出曲面几何、拓扑学等。几何学自身也在蓬勃发展，在欧氏几何上发展出非欧几何（黎曼几何）、微分几何、分形等科学分支。本文主要记录一些笔者在解析几何的思考。</p>
+<h2 id="2-Line-in-2d"><a href="#2-Line-in-2d" class="headerlink" title="2 Line in 2d"></a>2 Line in 2d</h2><p>​    初中我们就学过平面的直线方程：</p>
+<p>$$<br>y = kx+b\quad\quad (1)<br>$$</p>
+<p>​    老师会告诉我们这个公式(1)斜率是$k$，$b$是$y$轴偏移，但是很不幸的是，这个方程并不能表示所有的平面直线，像$x=1$这类与$x$轴平行的直线是没有办法写成(1)的，因为斜率不能为’$\infty $’!。所以在计算两点$A(x_1,y_1),B(x_1,y_1)$构成的直线时，我们需要分情况判断：<br>$$<br>\begin{cases}<br>    x=x_1,\quad x_1=x_2 \\<br>    y=\dfrac{y_1-y_2}{x_1-x_2}x+\dfrac{x_1y_2-x_2y_1}{x_1-x_2},\quad x_1\ne x_2<br>\end{cases}<br>$$<br>​    那么，有没有<code>高级</code>的方程，可以不用搞这么麻烦呢？答案是有的，高中老师告诉我们，直线有一般方程，可以统一描述所有直线：<br>$$<br>ax+by+c = 0\quad\quad (2)<br>$$<br>​    这个方程倒是解决了上述问题，但是初次接触是不如（1）式直观，参数$a、b、c$在当时看来没有几何意义的，对比（1）里面的斜率和截距$k、b$就很直观，而且参数还多了一个。一般方程的几何意义在学习了向量之后才会比较明确，我们先回忆下向量相关的基础知识，向量也叫矢量，具有方向，一般第一次接触都是用笛卡尔坐标来描述，就是$x-o-y$轴上的分量来给定向量坐标，大部分高中生都默认这个为向量的定义，但其实向量在代数学中是和向量空间一起定义的，一组向量基构成一个向量空间，而向量是这些基的线性组合，由于向量空间具备封闭性，向量的线性组合仍然位于空间内，直观解释就是，将平面内的任意向量线性相加仍然在平面内，三维的向量$\bar{v}$在基坐标$(1,0,0)、(0,1,0)、(0,0,1)$的线性组合下仍然位于三维空间内，这个<strong>线性组合的系数正是向量坐标</strong>：<br>$$<br>\vec{v} = x\cdot(1,0,0)+y\cdot(0,1,0)+z\cdot(0,0,1)<br>$$<br>​    向量具备一些基本性质，如线性性、交换性等，这些都是向量空间的基本性质，只不过限于初次接触时知识不够，没有办法了解，到后面学习了高等代数和向量空间，这些都是自然而然的结论。向量有两种重要的运算，即内积和外积，向量内积的定义为：<br>$$<br>\vec{a}\cdot \vec{b}  = |a|\cdot |b|cos&lt;a,b&gt;\quad \quad (3)<br>$$<br>​    内积是一个标量，其大小等于两个向量的长度积乘两向量夹角的余弦。向量长度定义为$\sqrt{x^2+y^2}$，几何意义就是距离坐标原点的距离（由勾股定理得）。内积也可以写成:<br>$$<br>(a,b)\cdot(c,d) = ac+bd    \quad\quad (4)<br>$$<br>​    （3）和（4）是如何等价的？这个也困扰了我很久，直到我知道了欧拉公式：<br>$$<br>e^{ix}=cosx+isinx \quad\quad (5)<br>$$<br>​    将$\vec{a}\cdot \vec{b}$写成$\vec{a}=r_1(\cos \alpha ,\sin \alpha)=r_1e^{i\alpha},\vec{b}=r_2(\cos \beta,\sin \beta)=r_2e^{i\beta}$，内积可以写成：<br>$$<br>\vec{a}\cdot \vec{b} = r_1\cdot r_2\cdot e^{i(\alpha-\beta)} = r_1 cos\alpha \cdot r_2 cos\beta + r_1 sin\alpha \cdot r_2 sin\beta + i r_1 r_2sin(\alpha-\beta)\quad\quad (6)<br>$$<br>​    上式中的实数部分(位于平面内)正好就是$ac+bd$，虚数部分的含义有点迷，暂时也不用管了（这个是外积部分，在平面外）。</p>
+<p>​    内积可以推导出一些有用的结论，其中常用的是同方向和垂直的判定：</p>
+<blockquote>
+<p>1.如果两个向量方向一致，那么它们内积为其长度积:$\vec{a}\cdot \vec{b}  = |a|\cdot |b|$.<br>2.如果两个向量互相垂直，那么它们内积为0:$\vec{a}\cdot \vec{b}  = 0$,若$\vec{a}=(a,b),\vec{b}=(c,d)\Rightarrow a/b=-c/d$<br>3.向量和自身的内积为其长度的平方:$\vec{a}\cdot \vec{a}  = |a|^2$<br>4.向量$\vec{a}$在另一个向量$\vec{b}$的投影可由内积计算，$Prj_{a_b}  =\dfrac{\vec{a}\cdot \vec{b}}{|\vec{b}|}$，其中$\dfrac{\vec{b}}{|\vec{b}|}$为$\vec{b}$同向的单位向量。</p>
+</blockquote>
+<p>​    这些结论都是显而易见的，依据这些结论，我们可以发现(1)(2)之间的联系，并找到(2)中参数$a,b,c$的几何意义。</p>
+<p><img src="/2019/07/02/geometry01/Line.png" alt="line"></p>
+<p>​    如上图所示，我们可以修改直线定义为：L为满足下条件点的集合$给定L上一点P,\forall Q \in L:Q\ne P,st.\vec{PQ} \perp \lambda$，其中的$\lambda$是<strong>法向量</strong>：由于$\lambda$垂直于L的平行线(从（1）易知斜率相等的直线平行)：$ax+by=0$,取一点$S(b,-a),st. \lambda \perp SO$，可得$\lambda\cdot(b,-a)=0\Rightarrow\lambda=(a,b)$，不失一般性，可将$P$定义为L距离原点最近的点，有:</p>
+<p>$$<br>\because \vec{OP} \parallel \lambda，P\in L,let \space P=k\lambda=k(a，b)\\<br>\therefore (ka)a+(kb)b+c=0 \Rightarrow k = \dfrac{c}{a^2+b^2}\\<br>let\space d=\sqrt{a^2+b^2},then \space P=(\dfrac{-ac}{d^2},\dfrac{-bc}{d^2})\\<br>\forall Q= (x,y)\in L,PQ\perp\lambda\Rightarrow(QO-PO)\cdot\lambda=0\\<br>\therefore (x-\dfrac{-ac}{d^2})a + (y-\dfrac{-bc}{d^2})b = 0,ie：ax+by+c=0\\<br>especially,|OP|=|（\dfrac{-ac}{d^2},\dfrac{-bc}{d^2})|=|\dfrac{c}{d}|=\dfrac{|c|}{\sqrt{a^2+b^2}}<br>$$<br>​    综上所述，（2）里面的参数其实是有具体的几何意义的：$(a,b)是法向量，c和直线离原点的距离相关$。在计算时为了方便，会将$a，b，c$除以$d=\sqrt{a^2+b^2}$标准化后为单位法向量和距离。</p>
+<p>​    还有一种形式的直线方程，将P点在<strong>方向矢量</strong>$(b,-a)$上进行延展，即直线<strong>的参数方程</strong>$L(x,y)=P+t(b,-a)$:<br>$$<br>L=\begin{cases}<br>    x=\dfrac{-ac}{d^2}+bt \\<br>    y=\dfrac{-bc}{d^2}-at<br>\end{cases},t\in (-\infty,\infty);当t=0时，为离原点最近点P \quad\quad (7)<br>$$<br>​    点$Q（x’,y’’)与L$的距离可使用向量方法求解，如下图示，$P(x,y)$为L上任意一点，$Q’$为Q在直线L上最近点:</p>
+<p><img src="/2019/07/02/geometry01/Line_dist.png" alt="dist"></p>
+<p>$$<br>\because P \in L,\therefore ax+by=-c\\<br>\vec{QP}=(x’-x,y’-y),|\vec{QQ’}|为我们要求的距离,可看做\vec{QP}在L单位法向量上的投影：\\<br>\because \vec{QQ’} \parallel (a,b)\\<br>\therefore |\vec{QQ’}|=|\vec{QP}\cdot \dfrac{(a,b)}{d}| =|\dfrac{ax’+by’-(ax+by)}{d}|= \dfrac{|ax’+by’+c|}{\sqrt{a^2+b^2}}.\blacksquare<br>$$<br>​    特例是$dist=0$时P’在L上。上面的方法也可推广到3维空间。</p>
+<p>​    一般来说，普通计算使用（1）就够了，如果涉及到证明或者向量计算会用（2）,这个也是使用最广泛的（因为可以推广到3维平面），参数方程是使用的较少，一般用于绘制图形，比如在python的matplotlib库中，需要给定两个数组<code>[x]、[y]</code>给<code>plot</code>函数,使用参数方程就很方便（也可以使用斜率方程， 但是参数方程一般是靠近原点方便查看）:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> style</span><br><span class="line"></span><br><span class="line"><span class="comment">#创建画布</span></span><br><span class="line">fig = plt.figure(figsize=(<span class="number">6</span>, <span class="number">5</span>)) <span class="comment">#set figure size.should accord axis range! </span></span><br><span class="line">ax = plt.gca()<span class="comment">#axisartist.Subplot(fig, 111)# get current axis 获得坐标轴对象</span></span><br><span class="line">ax.axis([<span class="number">-1</span>, <span class="number">5</span>, <span class="number">-1</span>, <span class="number">4</span>]) <span class="comment"># 设置坐标范围[x_min,x_max,y_min,y_max]</span></span><br><span class="line"></span><br><span class="line">plt.xlabel(<span class="string">'X'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'Y'</span>)                                <span class="comment">#设置坐标轴的文字标签</span></span><br><span class="line"></span><br><span class="line">ax.spines[<span class="string">'right'</span>].set_color(<span class="string">'none'</span>) </span><br><span class="line">ax.spines[<span class="string">'top'</span>].set_color(<span class="string">'none'</span>)         <span class="comment"># 将右边 上边的两条边颜色设置为空 其实就相当于抹掉这两条边</span></span><br><span class="line"></span><br><span class="line">ax.xaxis.set_ticks_position(<span class="string">'bottom'</span>)   </span><br><span class="line">ax.yaxis.set_ticks_position(<span class="string">'left'</span>)          <span class="comment"># 指定下边的边作为 x 轴   指定左边的边为 y 轴</span></span><br><span class="line"></span><br><span class="line">ax.spines[<span class="string">'bottom'</span>].set_position((<span class="string">'data'</span>, <span class="number">0</span>))   <span class="comment">#指定 data  设置的bottom(也就是指定的x轴)绑定到y轴的0这个点上</span></span><br><span class="line">ax.spines[<span class="string">'left'</span>].set_position((<span class="string">'data'</span>, <span class="number">0</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># solve the L :3x+4y-12=0 param-equation</span></span><br><span class="line">t = np.arange(<span class="number">-5</span>,<span class="number">5</span>,<span class="number">0.1</span>)</span><br><span class="line">x = <span class="number">36</span>/<span class="number">25</span> - <span class="number">4</span>*t</span><br><span class="line">y = <span class="number">48</span>/<span class="number">25</span> + <span class="number">3</span>*t</span><br><span class="line">plt.plot(x,y)</span><br><span class="line"><span class="comment"># set line markert</span></span><br><span class="line">plt.legend([<span class="string">'L:3x+4y=12'</span>], loc=<span class="string">'best'</span>)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/math/" rel="tag"># math</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/25/category/" rel="next" title="category">
+                <i class="fa fa-chevron-left"></i> category
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Liudx</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Geometry"><span class="nav-number">1.</span> <span class="nav-text">1.  Geometry</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Line-in-2d"><span class="nav-number">2.</span> <span class="nav-text">2 Line in 2d</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Liudx</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'bhCs80fQJM6MqoDtO47zYfoT-gzGzoHsz',
+        appKey: 'kzQ2bigd8pslL96pQIpOj2hr',
+        placeholder: 'Comment here!',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

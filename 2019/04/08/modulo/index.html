@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="math,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1. 同余(congruence modulo)​    同余是指两个整数a、b，若它们除以整数m所得的余数相等，则称a与b对于模m同余或a同余于b模m。同余的符号是$\equiv$。常用的记法是$$a\equiv c\space mod(n)$$​    一般默认$n$为非零整数，$a、c$为非负整数，当然，对于所有的整数，同余的定义和相关性质都是成立的。$$10\equiv 3\space m">
+<meta name="keywords" content="math">
+<meta property="og:type" content="article">
+<meta property="og:title" content="同余和整除判定">
+<meta property="og:url" content="http://liudx1985.github.io/2019/04/08/modulo/index.html">
+<meta property="og:site_name" content="不恋过往，不惧将来">
+<meta property="og:description" content="1. 同余(congruence modulo)​    同余是指两个整数a、b，若它们除以整数m所得的余数相等，则称a与b对于模m同余或a同余于b模m。同余的符号是$\equiv$。常用的记法是$$a\equiv c\space mod(n)$$​    一般默认$n$为非零整数，$a、c$为非负整数，当然，对于所有的整数，同余的定义和相关性质都是成立的。$$10\equiv 3\space m">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-10-22T02:16:49.908Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="同余和整除判定">
+<meta name="twitter:description" content="1. 同余(congruence modulo)​    同余是指两个整数a、b，若它们除以整数m所得的余数相等，则称a与b对于模m同余或a同余于b模m。同余的符号是$\equiv$。常用的记法是$$a\equiv c\space mod(n)$$​    一般默认$n$为非零整数，$a、c$为非负整数，当然，对于所有的整数，同余的定义和相关性质都是成立的。$$10\equiv 3\space m">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://liudx1985.github.io/2019/04/08/modulo/">
+
+
+
+
+
+  <title>同余和整除判定 | 不恋过往，不惧将来</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">不恋过往，不惧将来</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://liudx1985.github.io/2019/04/08/modulo/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liudx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="不恋过往，不惧将来">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">同余和整除判定</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-08T10:40:01+08:00">
+                2019-04-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/04/08/modulo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/08/modulo/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-同余-congruence-modulo"><a href="#1-同余-congruence-modulo" class="headerlink" title="1. 同余(congruence modulo)"></a>1. 同余(congruence modulo)</h2><p>​    同余是指两个整数a、b，若它们除以整数m所得的<a href="https://baike.baidu.com/item/%E4%BD%99%E6%95%B0" target="_blank" rel="noopener">余数</a>相等，则称a与b对于模m同余或a同余于b模m。同余的符号是$\equiv$。常用的记法是<br>$$<br>a\equiv c\space mod(n)<br>$$<br>​    一般默认$n$为非零整数，$a、c$为非负整数，当然，<strong>对于所有的整数，同余的定义和相关性质都是成立的。</strong><br>$$<br>10\equiv 3\space mod\space 7\\<br>1\equiv 10\space mod\space 3<br>$$</p>
+<h2 id="2-同余的性质及证明方法"><a href="#2-同余的性质及证明方法" class="headerlink" title="2.同余的性质及证明方法"></a>2.同余的性质及证明方法</h2><p>​    同余基本性质有反身性，对称性，传递性和线性可加性,分别如下:<br>$$<br>a\equiv a\space mod(n) \\<br>a\equiv b\space mod(n) \Leftrightarrow b\equiv a\space mod(n) \\<br>a\equiv b\space mod(n)，b\equiv c\space mod(n) \Rightarrow b\equiv c\space mod(n) \\<br>a\equiv b\space mod(n)，c\equiv d\space mod(n) \Rightarrow a\pm c\equiv b\pm d\space mod(n) \\<br>a\equiv b\space mod(n)，c\equiv d\space mod(n) \Rightarrow ac\equiv bd\space mod(n)<br>$$</p>
+<p>​    证明方法大同小异，都是把同余写成乘法形式来证明，以同余乘法性质为例：<br>$$<br>\forall \space a\equiv b\space mod(n)，c\equiv d\space mod(n)\\<br>a = nx + b,c = ny+d \Rightarrow ac = (nx+b)\cdot（ny+d） = n(nxy+by+dx)+bd\\<br>\because \quad n(nxy+by+dx)能被n整除,\\<br>\therefore\quad ac\equiv bd\space mod(n)<br>$$</p>
+<h2 id="3-整除判定方法"><a href="#3-整除判定方法" class="headerlink" title="3.整除判定方法"></a>3.整除判定方法</h2><p>​    当右侧和0同余时，根据2节的同余性质，我们可以得到如下公式:<br>$$<br>a_i\equiv 0\space mod(n)，k_i\equiv 0\space mod(n) \Rightarrow \sum{a_i*k_i}\equiv 0 \space mod(n)<br>$$<br>​    下面我们来利用该式做整除判定(对于2/5/10这些容易证明的略过)：</p>
+<h3 id="3-1-被3整除的数"><a href="#3-1-被3整除的数" class="headerlink" title="3.1 被3整除的数"></a>3.1 被3整除的数</h3><p>​    我们知道<strong>被3整除的数，将其所有位数相加，也可以被3 整除</strong>，即<br>$$<br>\sum{a_i\cdot10^i}\equiv 0 \space mod(3) \Leftrightarrow \sum{a_i}\equiv 0 \space mod(3)<br>$$<br>​    证明如下：<br>$$<br>由\sum{a_i\cdot 10^i}\equiv 0 \space mod(3)\quad\quad （1）\\<br>将其拆分得到:\\<br>a_0+a_1+9a_1+a_2+99a_2+\dots \equiv 0\space mod(3)\quad\quad （2）\\<br>即:\sum{a_i}+\sum{（10^i-1)a_i}\equiv 0 \space mod(3),显然左边第二个式中(10^i-1)都是3(和9)的倍数，所以必定有：\\<br>\sum{a_i}\equiv 0 \space mod(3)<br>$$<br>​    根据上面证明方法，我们顺便可以推出可被9整除的数:<br>$$<br>\sum{a_i*10^i}\equiv 0 \space mod(9) \Leftrightarrow \sum{a_i}\equiv 0 \space mod(9)<br>$$</p>
+<h3 id="3-2-被7整除的数"><a href="#3-2-被7整除的数" class="headerlink" title="3.2 被7整除的数"></a>3.2 被7整除的数</h3><p>​    被7整除的数计算方法有点复杂，网上给出的方法是:</p>
+<blockquote>
+<p> <strong>将一个整数的个位数字截去，再从余下的数中，减去个位数的2倍，如果差是7的倍数，则原数能被7整除。</strong>如果差太大或心算不易看出是否7的倍数，就需要继续上述「截尾、倍大、相减、验差」的过程，直到能清楚判断为止。例如，判断133是否7的倍数的过程如下：13－3×2＝7，所以133是7的倍数；又例如判断6139是否7的倍数的过程如下：613－9×2＝595 ， 59－5×2＝49，所以6139是7的倍数，其余类推.</p>
+</blockquote>
+<p>​    即:<br>$$<br>10a+b\equiv 0\space mod(7)\Leftrightarrow a-2b\equiv 0 \space mod(7)，b \in [0..9]\quad\quad\quad（3）<br>$$<br>​    我在计算中发现还有类似的公式也可以判断被7整除的数：<br>$$<br>10a+b\equiv 0\space mod(7)\Leftrightarrow 3a+b\equiv 0 \space mod(7)\quad\quad\quad（4）<br>$$<br>​    其实，根据同余性质，可以很容易推出：<br>$$<br>由10a+b\equiv 0\space mod(7) 可得:\\<br>10(a-2b)+21b\equiv0\space mod(7)\\<br>易知,21b可被7整除，所以有<br>10（a-2b）\equiv 0 \space mod (7)\\<br>将两边除以和7互质的数10，得到公式(3)\\<br>a-2b\equiv 0\space mod (7)<br>$$<br>​    同理我们也可以推导公式(4)<br>$$<br>由10a+b\equiv 0\space mod (7) 可得:\\<br>(3a+b)+7a\equiv0\space mod(7) \Rightarrow 3a+b\equiv 0 \space mod(7)<br>$$<br>​    依据相关证明方法，我们还可以<code>发明</code>很多类似的公式。</p>
+<h3 id="3-3-更多整除判定"><a href="#3-3-更多整除判定" class="headerlink" title="3.3 更多整除判定"></a>3.3 更多整除判定</h3><p>​    根据3.2节里描述的方法，我们轻而易举可以得到11整除的判断方法：<br>$$<br>由10a+b\equiv 0\space mod (11) 可得:\\<br>11a-(a-b)\equiv0\space mod(11) \Rightarrow a-b\equiv 0 \space mod(11)<br>$$<br>​    用人可以读懂的方法就是：<strong>将一个整数的个位数字截去，再从余下的数中，减去个位数，如果差是11的倍数，则原数能被11整除。</strong></p>
+<p>​    类似的，<strong>若一个整数的个位数字截去，再从余下的数中，加上个位数的4倍，如果差是13的倍数，则原数能被13整除</strong>:<br>$$<br>由10a+b\equiv 0\space mod (13) 可得:\\<br>10(a+4b)-39b\equiv 0 \space mod(13) \Rightarrow a+4b\equiv 0 \space mod(13)<br>$$<br>​    <strong>若一个整数的个位数字截去，再从余下的数中，减去个位数的5倍，如果差是17的倍数，则原数能被17整除</strong>：<br>$$<br>由10a+b\equiv 0\space mod (17) 可得:\\<br>10(a-5b)+（17*3)b\equiv 0 \space mod(17)\Rightarrow a-5b\equiv 0 \space mod(17)<br>$$</p>
+<h3 id="3-4-4和8的整除判定"><a href="#3-4-4和8的整除判定" class="headerlink" title="3.4 4和8的整除判定"></a>3.4 4和8的整除判定</h3><p>​    4的整除判定方法为：<strong>取整数后2位数字，如果其能被4整除，则原数字可被4整除</strong>(<em>100a被4整除</em>)：<br>$$<br>\forall x=100a+b\equiv 0\space mod(4) \Rightarrow b\equiv 0\space mod(4),\forall b \in [0,99)<br>$$<br>​    同理可得8的整除判定方法：<strong>取整数后3位数字，如果其能被8整除，则原数字可被8整除</strong>(<em>1000a被8整除</em>)：<br>$$<br>\forall x=1000a+b\equiv 0\space mod(8) \Rightarrow b\equiv 0\space mod(8),\forall b \in [0,999)<br>$$</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/math/" rel="tag"># math</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/19/py-lazy/" rel="next" title="python 迭代器和惰性计算、函数式编程基础">
+                <i class="fa fa-chevron-left"></i> python 迭代器和惰性计算、函数式编程基础
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/29/py-animation/" rel="prev" title="python绘制参数方程的动画">
+                python绘制参数方程的动画 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Liudx</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-同余-congruence-modulo"><span class="nav-number">1.</span> <span class="nav-text">1. 同余(congruence modulo)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-同余的性质及证明方法"><span class="nav-number">2.</span> <span class="nav-text">2.同余的性质及证明方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-整除判定方法"><span class="nav-number">3.</span> <span class="nav-text">3.整除判定方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-被3整除的数"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 被3整除的数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-被7整除的数"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 被7整除的数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-更多整除判定"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 更多整除判定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-4和8的整除判定"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 4和8的整除判定</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Liudx</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'bhCs80fQJM6MqoDtO47zYfoT-gzGzoHsz',
+        appKey: 'kzQ2bigd8pslL96pQIpOj2hr',
+        placeholder: 'Comment here!',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

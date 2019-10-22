@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="haskell,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="群论、范畴论入门&amp;#160;&amp;#160; &amp;#160; &amp;#160;众所周知，数学的三大方向分别是代数、几何、分析，数相关的归于代数，如初等代数、数论、抽象代数-群论等；几何研究空间和形状，如解析几何、欧氏几何、非欧几何（黎曼几何）、拓扑学、微分几何(流形)等；分析则是数和形之间的纽带，主要包括微积分、实分析、复分析、泛函分析，以及在此基础上发展出的常微分、复变函数与积分变换等。另外概率论-统计、">
+<meta name="keywords" content="haskell">
+<meta property="og:type" content="article">
+<meta property="og:title" content="category">
+<meta property="og:url" content="http://liudx1985.github.io/2019/06/25/category/index.html">
+<meta property="og:site_name" content="不恋过往，不惧将来">
+<meta property="og:description" content="群论、范畴论入门&amp;#160;&amp;#160; &amp;#160; &amp;#160;众所周知，数学的三大方向分别是代数、几何、分析，数相关的归于代数，如初等代数、数论、抽象代数-群论等；几何研究空间和形状，如解析几何、欧氏几何、非欧几何（黎曼几何）、拓扑学、微分几何(流形)等；分析则是数和形之间的纽带，主要包括微积分、实分析、复分析、泛函分析，以及在此基础上发展出的常微分、复变函数与积分变换等。另外概率论-统计、">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-10-22T02:16:49.902Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="category">
+<meta name="twitter:description" content="群论、范畴论入门&amp;#160;&amp;#160; &amp;#160; &amp;#160;众所周知，数学的三大方向分别是代数、几何、分析，数相关的归于代数，如初等代数、数论、抽象代数-群论等；几何研究空间和形状，如解析几何、欧氏几何、非欧几何（黎曼几何）、拓扑学、微分几何(流形)等；分析则是数和形之间的纽带，主要包括微积分、实分析、复分析、泛函分析，以及在此基础上发展出的常微分、复变函数与积分变换等。另外概率论-统计、">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://liudx1985.github.io/2019/06/25/category/">
+
+
+
+
+
+  <title>category | 不恋过往，不惧将来</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">不恋过往，不惧将来</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://liudx1985.github.io/2019/06/25/category/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liudx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="不恋过往，不惧将来">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">category</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-25T10:20:32+08:00">
+                2019-06-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/06/25/category/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/25/category/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="群论、范畴论入门"><a href="#群论、范畴论入门" class="headerlink" title="群论、范畴论入门"></a>群论、范畴论入门</h1><p>&#160;&#160; &#160; &#160;众所周知，数学的三大方向分别是<strong>代数</strong>、<strong>几何</strong>、<strong>分析</strong>，数相关的归于代数，如初等代数、数论、抽象代数-群论等；几何研究空间和形状，如解析几何、欧氏几何、非欧几何（黎曼几何）、拓扑学、微分几何(流形)等；分析则是数和形之间的纽带，主要包括微积分、实分析、复分析、泛函分析，以及在此基础上发展出的常微分、复变函数与积分变换等。另外概率论-统计、逻辑学、离散数学都可看做三大方向的复合学科。现代数学抽象化程度更高，为了将集合论、群论、向量空间与拓扑中有很多相似的概念统一地表示出来，发展出一门新的学科即范畴论(<strong><em>Category</em></strong>） 。</p>
+<h2 id="1-群的基本概念-1"><a href="#1-群的基本概念-1" class="headerlink" title="1 群的基本概念^1"></a>1 群的基本概念<a href="群\环\域https://blog.csdn.net/u013281331/article/details/28233961">^1</a></h2><p>&#160;&#160; &#160; &#160;群定义为满足如下条件的封闭集合G：</p>
+<ol>
+<li>定义一种二元代数运算$\forall a \in G, \exists f:a\mapsto b,b \in G$</li>
+<li>运算满足结合律:$f:a\mapsto b，g:b\mapsto c， f\circ g：a\mapsto c$</li>
+<li>存在单位元：$\exists e, f(e)= e$</li>
+<li>存在逆元：$\forall a \in G, f(a)=b,\exists f^{-1}(b)=a$</li>
+</ol>
+<p>&#160;&#160; &#160; &#160;当集合满足1、2时，称为<strong>半群</strong>，满足1、2、3时称为<strong>幺半群</strong>(单位半群，$\frac{3}{4}$群)；如果1,2,3,4再附加一个交换律$ f\circ g= g\circ f$则称为<strong>Abel交换群</strong>。常见有的整数加法群(Z,0,+)、实数乘法群(Q,1,*)，以及S2(平面旋转群等)。整数加群是一个Abel交换群。</p>
+<h2 id="2-偏序关系"><a href="#2-偏序关系" class="headerlink" title="2 偏序关系"></a>2 偏序关系</h2><p>&#160;&#160; &#160; &#160;偏序关系（partial order relation）的定义是集合P 与一个二元关系运算’$\le$’定义的，这个二元关系需要满足：</p>
+<ol>
+<li>自反性：$x\le x$</li>
+<li>反对称性：$x \le y 且y \le x \Rightarrow x = y$</li>
+<li>传递性：$x \le y 且y \le z \Rightarrow x \le z$  </li>
+</ol>
+<p>&#160;&#160; &#160; &#160;那么集合P 中的每个元素都可以对应一个范畴上的对象，$\le$ 对应态射，首先就满足了 范畴上每个对象都有id 映射，由于这个关系是可以传递的，所以它是可复合的，例如$f$ 为  $x \le y$，$g$ 为$y\le z$，那么$f \circ g$ 就得到了 $x\le z$，当然这种复合也是可结合的。</p>
+<blockquote>
+<p><em>范畴并没有对态射、对象是什么做出明确的规定。只要能满足每个对象有id 态射，态射可复合，复合可结合这些性质。</em></p>
+</blockquote>
+<h2 id="3-范畴-2"><a href="#3-范畴-2" class="headerlink" title="3 范畴^2"></a>3 范畴<a href="Haskell函数式编程入门">^2</a></h2><p>&#160;&#160; &#160; &#160;范畴在群的定义上进一步抽象化，一个范畴C由下面两个要素构成：</p>
+<ol>
+<li><p>一组对象Object:A,B,C…组成，记做$Ob(C)$.</p>
+<blockquote>
+<p>对象可以是任意的，可以为值，可以是类型，还可以是其他更高阶的数学对象，甚至对象可以是一个范畴.</p>
+</blockquote>
+</li>
+<li><p>一组态射(Morphism,arrow),该范畴上<strong>全部态射集合</strong>记为$Arr(C)$,对应对象$A,B$，都可以得到一个态射的集合，记为$C(A,B)$，并且$A\neq A′ $且$B\neq B′ $ 时,C(A,B) 与C(A′,B′) 无交集.对于一个A 到B 的态射<strong>$f$</strong>，我们可以写成 :$f: A \mapsto B$，这些态射满足：</p>
+<ol>
+<li><p>复合运算（Composite)，对于一对态射$f:A\mapsto B$ 与$g:B\mapsto C$（$g$ 的定义域与$f$ 的值域相等），存在一个复合的态射$g\circ f：A\mapsto C$,$\circ$ 是态射复合的运算符.</p>
+</li>
+<li><p>态射的复合操作满足结合律（associativity），若$A, B, C, D \in Ob(C)$，那么态射$f : A \mapsto B, g : B \mapsto C,h : C \mapsto D$ 都有$g \circ (g \circ f) = (h \circ g) \circ f$.</p>
+</li>
+<li><p>对于每一个对象$A \in Ob(C)$ 都存在一个单位态射（identity morphism）$1_A \in C(A,A)$ 使得对于任意的态射$f \in C(A,B) 与g \in(C,A) $都有:</p>
+<p>​            $$f \circ 1_A = f , 1_A \circ g = g$$     (<em>因为$1_A$ 分别是$f$ 与$g$ 右单位元与左单位元，所以$1_A$ 称为<strong>单位态射</strong></em>)</p>
+</li>
+</ol>
+</li>
+</ol>
+<p>&#160;&#160; &#160; &#160;复习下高中阶段函数映射的相关定义,$集合A,B，映射f：A\mapsto B$：</p>
+<ul>
+<li><p><strong>单射</strong>（injection）：如果$\forall a, b \in A, f(a) = f(b) \Rightarrow a = b$,那么则说$f$ 为单射函数。</p>
+<blockquote>
+<p>评论25.1.5. 如果一个函数是单射的，那么则说明定义域内不会有两个不同的值对应值域内<br>同一个值。例如$f = x^2$ 就不是单射的，因为$+1$ 与$-1$ 都对应1，而$f(x) = x+1$ 则是单射的。</p>
+</blockquote>
+</li>
+<li><p><strong>满射</strong>（surjection）：如果对于所有的$y \in B,\exists x \in A,st. f(x) = y$，那么则说$f$ 为满射。</p>
+<blockquote>
+<p>如果一个函数是满射的，那么所有值域中的值在定义域都会有至少一个原象。</p>
+</blockquote>
+</li>
+<li><p><strong>双射</strong>（bijection）：如果函数$f$ 既是单射又是满射，那么$f$ 为双射。</p>
+<blockquote>
+<p> 部分书籍称为<code>一一映射</code></p>
+</blockquote>
+</li>
+</ul>
+<p>&#160;&#160; &#160; &#160;态射将上述三种函数映射在范畴论上的推广为：</p>
+<ul>
+<li><p><strong>完全态射</strong>（epimorphism）：若$g\circ f = h \circ  f \Rightarrow g = h$，则$f$ 是完全态射。</p>
+<blockquote>
+<p>这种特性被称为右消除（right cancellation）或右可约。</p>
+</blockquote>
+</li>
+<li><p><strong>单一态射</strong>（monomorphism）：若$f\circ g = f \circ  h \Rightarrow g = h$，则$f$ 是单一态射。</p>
+<blockquote>
+<p>这种特性被称为左消除（left cancellation）或者左可约。</p>
+</blockquote>
+</li>
+<li><p><strong>同构态射</strong>（isomorphism）：若对于$f，\exists f^{-1},st.f \circ f^{-1} = id \space and\space f^{-1} \circ f = id$，则$f$ 为同构态射。</p>
+</li>
+</ul>
+<blockquote>
+<p>三种函数映射可看做是在集合范畴上的特例【单一态射-&gt;单射、完全态射-&gt;满射、同构态射~&gt;双射】.比如单一态射且完全态射被称为双态射（bimorphism），但它可能不是同构的。</p>
+</blockquote>
+<h2 id="4-函子-Functor"><a href="#4-函子-Functor" class="headerlink" title="4 函子(Functor )"></a>4 函子(Functor )</h2><p>&#160;&#160;&#160;&#160;Functor 是<strong>范畴间的态射</strong>,定义为:C 与D 为范畴，那么函子$F : C \mapsto D$ 会把C 中的所有对象与态射对应到D上，并且保留了复合运算与单位元：</p>
+<ul>
+<li>F 既会映射对象又会映射态射:$F(f : A \mapsto B) = F(f) : F(A) \mapsto F(B)$</li>
+<li>保留了恒值映射:$F(id_A) = id_{F(A)}$</li>
+<li>在函子上保留了映射的复合:$F(g \circ _C f) = F(g) \circ _D F(f)$</li>
+</ul>
+<hr style="width: 91%; height: 2px; border: none; background-color: #f00">
+
+<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/haskell/" rel="tag"># haskell</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/29/py-animation/" rel="next" title="python绘制参数方程的动画">
+                <i class="fa fa-chevron-left"></i> python绘制参数方程的动画
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/02/geometry01/" rel="prev" title="Think in geometry (part I)">
+                Think in geometry (part I) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Liudx</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#群论、范畴论入门"><span class="nav-number">1.</span> <span class="nav-text">群论、范畴论入门</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-群的基本概念-1"><span class="nav-number">1.1.</span> <span class="nav-text">1 群的基本概念^1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-偏序关系"><span class="nav-number">1.2.</span> <span class="nav-text">2 偏序关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-范畴-2"><span class="nav-number">1.3.</span> <span class="nav-text">3 范畴^2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-函子-Functor"><span class="nav-number">1.4.</span> <span class="nav-text">4 函子(Functor )</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文档"><span class="nav-number">1.5.</span> <span class="nav-text">参考文档</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Liudx</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'bhCs80fQJM6MqoDtO47zYfoT-gzGzoHsz',
+        appKey: 'kzQ2bigd8pslL96pQIpOj2hr',
+        placeholder: 'Comment here!',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
