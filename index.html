@@ -1,1995 +1,567 @@
-<!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next pisces use-motion" lang="">
-<head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="Hexo, NexT">
-
-
-
-
-
-
-
-
-
-
-<meta property="og:type" content="website">
-<meta property="og:title" content="不恋过往，不惧将来">
-<meta property="og:url" content="http://liudx1985.github.io/index.html">
-<meta property="og:site_name" content="不恋过往，不惧将来">
-<meta property="og:locale" content="default">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="不恋过往，不惧将来">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-
-  <link rel="canonical" href="http://liudx1985.github.io/">
-
-
-
-
-
-  <title>不恋过往，不惧将来</title>
-  
-
-
-
-
-
-
-
-
+<!doctype html>
+<html lang="en-us">
+<head>
+	<meta name="generator" content="Hugo 0.96.0" />
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>清风竹影 | 前C&#43;&#43;码农 ，Python和Javascript练习两年半. 会耍一点Haskell、数据分析、略懂系统架构设计；</title>
+    <meta property="og:title" content="清风竹影 | 前C&#43;&#43;码农 ，Python和Javascript练习两年半. 会耍一点Haskell、数据分析、略懂系统架构设计；">
+    <meta property="og:type" content="website">
+    <meta name="Keywords" content="清风竹影,Javascript,c&#43;&#43;,Haskell,python,软件架构,数据分析,小程序">
+    <meta name="description" content="前C&#43;&#43;码农 ，Python和Javascript练习两年半. 会耍一点Haskell、数据分析、略懂系统架构设计；">
+    <meta property="og:url" content="https://liudx1985.gitee.io/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <link rel="alternate" type="application/rss+xml" href="https://liudx1985.gitee.io/index.xml" title="清风竹影" />
+    <meta name="MediaType" content="application/octet-stream">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link href="/kityminder/mindmap.css?_=1416390706100" type="text/css" rel="stylesheet" />
+    <link href="/kityminder/kityminder.core.css?_=1416390706100" type="text/css" rel="stylesheet" />
+    <script src="/kityminder/kity.min.js?_=1416390706100" charset="utf-8"></script>
+    <script src="/kityminder/kityminder.core.min.js?_=1416390706100" charset="utf-8"></script>
+    <script src="/kityminder/mindmap.min.js?_=1416390706100" charset="utf-8"></script>
+
+    
+
+
+    
+    
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
 
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left 
-  page-home">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">不恋过往，不惧将来</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <h1>
+                        <a id="logo" href="https://liudx1985.gitee.io/">
+                            清风竹影
+                        </a>
+                    </h1>
+                
+                <p class="description">前C&#43;&#43;码农 ，Python和Javascript练习两年半. 会耍一点Haskell、数据分析、略懂系统架构设计；</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://liudx1985.gitee.io/">首页</a>
+                    
+                    <a  href="https://liudx1985.gitee.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://liudx1985.gitee.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
     </div>
-      
-        <p class="site-subtitle"></p>
-      
-  </div>
+</header>
 
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://liudx1985.gitee.io/post/andriod/" title="Andriod开发从入门到放弃">Andriod开发从入门到放弃</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2024年3月6日
+        </date>
+        
+        <div class="post-content">
+            1 安装  安装android-studio,如android-studio-2020.3.1.26-windows.exe 1 安装SDK！建议找比较完整的SDK目录压缩包下载 第一步不装avd（andriod模拟器)，下载雷电模拟器来替代 下载必要的依赖库okhttp-3.8.1.jar\okio-1.14.0.jar等（吐槽下JAVA这个服务器开发语言，居然没有好用的HTTP封装类，和C++没有标准的网络库一样，属实难崩） *安装postman等工具用于测试  2 配置  首先配置SDK目录：   配置gradle（大坑一个，参考2）
+  step-1：修改hosts文件，附加：
+# dl.google.com fucking andriod 58.254.149.225 dl.google.com 220.181.174.97 dl.google.com 180.163.151.161 dl.google.com 220.181.174.33 dl.google.com 58.254.137.161 dl.google.com 203.208.39.193 dl.google.com   step-2:创建 C:\Users\Liudx1985\.gradle\init.gradle
+allprojects{  repositories {  def ALIYUN_REPOSITORY_URL = &#39;https://maven.aliyun.com/repository/public&#39;  def ALIYUN_JCENTER_URL = &#39;https://maven.aliyun.com/repository/public&#39;  def ALIYUN_GOOGLE_URL = &#39;https://maven.aliyun.com/repository/google&#39;  def ALIYUN_GRADLE_PLUGIN_URL = &#39;https://maven.aliyun.com/repository/gradle-plugin&#39;  all { ArtifactRepository repo -&gt;  if(repo instanceof MavenArtifactRepository){  def url = repo.……
+        </div>
+        <p class="readmore"><a href="https://liudx1985.gitee.io/post/andriod/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://liudx1985.gitee.io/post/electron/" title="electron-vite-vue开发指北">electron-vite-vue开发指北</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2024年2月4日
+        </date>
+        
+        <div class="post-content">
+            1. 准备nodejs环境   set up nvm via Releases · coreybutler/nvm-windows (github.com)
+  config mirror
+#设置npm_mirror: nvm npm_mirror https://npmmirror.com/mirrors/npm/ #设置node_mirror: nvm node_mirror https://npmmirror.com/mirrors/node/   install nodejs @Previous Releases | Node.js (nodejs.org)
+nvm uninstall 10.13.0 # 删掉低版本的 10.13.0 nvm list available# check nodejs available @ nvm install 14.21.3 # version 16.XX nvm install lts #最新的 LTS 版本 nvm install latest # 安装最新版本的 Node.js，也就是 Current 版本：   use nodejs……
+        </div>
+        <p class="readmore"><a href="https://liudx1985.gitee.io/post/electron/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://liudx1985.gitee.io/post/vue3/" title="Vue3高阶组件技术">Vue3高阶组件技术</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2024年1月5日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/web'>web</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1.Props | Vue.js (vuejs.org) ​	父组件需要向子组件注入数据，可以使用props，类似于attrs:&lt;comp label=&quot;xxxx&quot;&gt;
+ 特别注意！
+  props是单向从父到子数据流，如果是子组件修改父组件属性，需要用#3 event
+  props在子组件是只读的，意味我们无法修改props！
+   &lt;script setup&gt;  const props = defineProps([&#39;foo&#39;]) console.log(props.foo)  const props2 = defineProps({  label: {  type: String,  require: true,  },  name: {  type: String,  require: true,  }  }) &lt;/script&gt; 通常prop的玩法是： 1，通过父组件直接修改props绑定的变量，子组件内props自动更新界面！2、初始化给内部的原生组件，然后在原生组件事件里把prop值更新回去，所谓的v-model模式。
+PS,如果我们要强行额外写入属性怎么办呢，可以利用provide\inject跨层级传输接口依赖注入 | Vue.js (vuejs.org)！:
+provide(&#39;currentTab&#39;, currentTab) # 父组件写变量 inject(&#34;currentTab&#34;) # 子组件注入变量，注意，这个变量是Ref，并不位于props! 2.……
+        </div>
+        <p class="readmore"><a href="https://liudx1985.gitee.io/post/vue3/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://liudx1985.gitee.io/post/tesseractocr/" title="利用Tesseract对图片或pdf进行OCR">利用Tesseract对图片或pdf进行OCR</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2023年10月21日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/ai'>AI</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1. 准备  下载OCR核心工具包Tesseract并安装，参考Tesseract OCR 下载及安装教程 （中英文语言包）_eng.traineddata下载-CSDN博客，注意中文语言包需要下载，如果不下载语言包，可能无法识别中文。 下载PDF转图片工具包Releases · oschwartz10612/poppler-windows (github.com);如果仅仅是OCR图片，可以不用下载这个 完成后，将上述两个的（tesseract.exe&amp;pdfimages.exe）目录加入到电脑的环境变量PATH中：  2 安装python 依赖 下面安装Python 的依赖
+pip install pytesseract pip install pdf2image 3 识别图片 def ocr_image():  from PIL import Image  # 打开图片  image = Image.open(&#39;demo.png&#39;)  # 使用pytesseract进行OCR识别  text = pytesseract.image_to_string(image, lang=&#39;chi_sim&#39;) # lang设置为中文  # 输出识别结果  print(text) 4 识别pdf def ocr_pdf(pdf):  from pdf2image import convert_from_path  # 设置tesseract.exe的路径  pytesseract.pytesseract.tesseract_cmd = r&#39;D:\Games\TesseractOCR5\tesseract.……
+        </div>
+        <p class="readmore"><a href="https://liudx1985.gitee.io/post/tesseractocr/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://liudx1985.gitee.io/post/js_module/" title="JavaScript 模块：CommonJS VS Es6">JavaScript 模块：CommonJS VS Es6</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2023年9月20日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/web'>web</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            [TOC]
+JavaScript 模块有两种：CommonJS和ES6模块化规范12：
+1. CommonJS 模块规范 node.js的默认方式，使用exports(aka. global.module.exports) 对象导出，使用require 函数导入，下面是一个简单的示例（上面是模块，下面是调用）：
+// circle.js const PI = 3.1415 function area(r) {  return PI * r * r } // exports exports.PI = PI exports.area = area // 也可以写成下面的方式： exports.PI = 3.14;exports.area=(r)=&gt; PI * r * r // 或者：exports = {PI, area} // main.js const circle = require(&#34;./circle.js&#34;)// 就是上面模块的exports对象。 console.log(circle.PI) console.log(circle.area(5))  // 或者，结合对象解构赋值写成 const {area,PI} = require(&#39;./circle&#39;) // 可省略.js console.log(PI) console.log(area(5)) 2 ES6模块规范 ​	ES6新增export、import 关键字用于支持模块化。注意前后台都可以使用ES6模块，有一些细微的不同。……
+        </div>
+        <p class="readmore"><a href="https://liudx1985.gitee.io/post/js_module/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://liudx1985.gitee.io/post/js_generator/" title="Javascript迭代器、生成器、异步">Javascript迭代器、生成器、异步</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2023年7月26日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/web'>web</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 Javascript 迭代器 ES6 新增了一个新玩具iterator:迭代器iterator协议1主要规定了可迭代协议允许 JavaScript 对象定义或定制它们的迭代行为，例如，在一个 for..of 结构中，哪些值可以被遍历到。一些内置类型同时是内置的可迭代对象，并且有默认的迭代行为，比如 Array 或者 Map，而其他内置类型则不是（比如 Object）。下面是一个简单的fibonacci迭代器，可以无限生产一个数列1,1,2,3,5,8....
+/** * @description function *迭代器对象 * @returns a fibonacci iterable object */ const fib = {  [Symbol.iterator]() {  let n1 = 1, n2 = 1  return {  // 使迭代器编程iterable  [Symbol.iterator]() { return this; },  next() {  let c = n2;  n2 = n1  n1 = n1 + c  return { value: c, done: false };  },  return(v) {  console.……
+        </div>
+        <p class="readmore"><a href="https://liudx1985.gitee.io/post/js_generator/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://liudx1985.gitee.io/post/pygui/" title="PySide6界面程序编写及打包">PySide6界面程序编写及打包</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2023年7月12日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/python'>Python</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1. setup  安装Pyside6,建议使用tsinghua源anaconda | 镜像站使用帮助 | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror  # 创建env conda create --name gui # 激活env conda active gui # 安装PySide6框架~ pip install --upgrade pip pip install pyqt6-tools # 安装UI 设计工具，for QTDesigner, PyUIC pip install pyside6 # +打包工具+ pip install pyinstaller auto-py-to-exe   设置pyCharm解释器
+​	参考1 配置external Tools，在菜单中方便使用：目录类似:
+  C:\Users\37556\anaconda3\envs\gui\Lib\site-packages\PySide6\designer.exe
+  C:\Users\37556\anaconda3\envs\gui\Scripts\auto-py-to-exe.exe
+    2 编写代码 2.1 打开QtDesigner,设计界面： ​ 运行工具QtDesinger，设计一个界面led.……
+        </div>
+        <p class="readmore"><a href="https://liudx1985.gitee.io/post/pygui/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://liudx1985.gitee.io/post/argsort/" title="Argsort 以及Rank的Javascript代码练习">Argsort 以及Rank的Javascript代码练习</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2023年5月23日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/algorithm'>algorithm</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 引言：argsort以及rank排序问题 $\P$ argsort-定义
+假设一个数组$a$由$$\underbrace{[x_0,x_1,\dots,x_i, \dots,x_n]}_{0\dots n乱序}$$构成,那么$b=argsort(a)$定义为：经过排序后a中元素（即$0..n$）的索引数组：
+$$ \underbrace{[a中第0大数的索引,\dots,a中第i大数的索引, \dots,a中第n大数的索引]}_{0\dots n} $$
+我们假设$a[i]= x$,由于$i是a中第x大的数$，那么$i在b中位置就是x$,${b[x]=i}$,如图所示：
+消去x,可得: $$ b[x]=b[a[i]]=i $$
+$\S$如果对a进行两次argsort，会发生神魔事情呢,这里由一个文章回答为什么对数列使用两次argsort后能得到原数列的rank数列？ - 知乎 (zhihu.com)，摘抄如下:
+ 对于一个从0~k-1组成序列a来说，执行argsort得到序列b就是b[a[i]]=i，再执行一次得到c就是c[b[j]]=j，代入j=a[i]得c[b[a[i]]]=a[i]，c[i]=a[i],所以一个rank序列两次argsort之后自然会变回原样
+ 结合上面的假设a是一个0&hellip;n 乱序而来的数组，那么a里面存储的正好是数组a中各元素的排名。推广到任意乱序的序列S，我们只需要将S里的元素一一映射到$[(S_i,a_i)],a_i\in {0..n}$，然后对$S_i$排序,$argsort.argsort(a)=rank(a)$。
+2. Show me the code! // a[i],b[i] = &gt; {...a[i]:b[i]...} zip = function (a, b) {  let r = []  for (let i in a) {  r.push([a[i], b[i]])  }  return r; } // argsort返回的是索引 r，[a[r[0]]..a[r[n]]] 就是将a排序好的数组 function argsort(arr, cmp = (a, b) =&gt; a - b) {  let arr_ind = zip(arr, range(arr.……
+        </div>
+        <p class="readmore"><a href="https://liudx1985.gitee.io/post/argsort/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://liudx1985.gitee.io/post/css_animate/" title="CSS3动画入门">CSS3动画入门</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2023年4月18日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/web'>web</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 CSS 3 动画简介 ​	我们平时看到的动画是由一张一张静态的画面拼接而成的，我们通常用帧数来体现出动画效果的好与坏。 每一帧都是静止的图象，快速连续地显示帧便形成了运动的假象。 高的帧率可以得到更流畅、更逼真的动画。1
+​	​	css中实现动画有两种方式：过渡动画transitions|自定义动画animation;两者均可以通过元素的旋转(rotate)，缩放(scale)，倾斜（skew)或平移translate（*也可使用较复杂的矩阵API：(transform)）、颜色(color|background)、透明度(opcaticy)完成帧动画效果。下列示例是一个旋转的实例，可查阅MDN文档学习其他位置变换属性、颜色背景等。
+&lt;html&gt;  &lt;head&gt;  &lt;style&gt;  #arrow-right{  display: inline-block; /*修改未行内元素、可修改高&amp;宽*/  margin:4px;  width: 10px;  height: 10px;  border-right:2px solid black;  border-bottom:2px solid black;  transform-origin: 0% 100%; /*中心*/  transform: rotate(-45deg); /*然后逆时针旋转45°*/  }   #arrow-left{  display: inline-block;  margin:4px;  width: 10px;  height: 10px;  border-top:2px solid black;  border-left:2px solid black;  transform: rotate(-45deg); /*原地逆时针旋转45°*/  }  .……
+        </div>
+        <p class="readmore"><a href="https://liudx1985.gitee.io/post/css_animate/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://liudx1985.gitee.io/post/mysql/" title="Mysql绿色安装方法">Mysql绿色安装方法</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2022年11月1日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/database'>Database</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1. install   下载MySQLXX.zip, visitMySQL :: Download MySQL Community Server
+For further information on MySQL or additional documentation, visit http://dev.mysql.com/doc/
+  添加 MYSQL/bin到环境变量
+  在mysql根目录增加my.ini如下：
+[mysqld] #设置3306端口号 port=3306 #设置MySQL的安装目录 basedir=D:\Games\mysql-8.0.31 #设置MySQL数据库的数据存放目录 datadir=D:\Games\mysql-8.0.31\data #运行最大连接数 max_connections=200 #运行连接失败的次数。这也是为了防止有人从该主机试图攻击数据库系统 max_connect_errors=10 #服务端使用的字符集默认为utf-8 character-set-server=utf8 [mysql] #客户端使用的字符集默认为utf8 default-character-set=utf8 [client] #客户端默认端口号为3306 port=3306   以管理员身份打开命令行!,进入mysql/bin目录 执行
+# 安装服务 mysqld -remove MySQL mysqld --install mysql57 # 初始化data；这里，初始化会产生一个随机密码后面初次登录会使用！YD;W2Q9Tj,bs mysqld --initialize --console # 如果报错，试试这个 mysqld --initialize-insecure --console   开启mysql的服务net start mysql57……
+        </div>
+        <p class="readmore"><a href="https://liudx1985.gitee.io/post/mysql/">阅读全文</a></p>
+    </article>
+    
+    
+
+
+
+<ol class="page-navigator">
+    
+
+    
+    <li  class="current">
+        <a href="https://liudx1985.gitee.io/">1</a>
+    </li>
+    
+    <li >
+        <a href="https://liudx1985.gitee.io/page/2/">2</a>
+    </li>
+    
+    <li >
+        <a href="https://liudx1985.gitee.io/page/3/">3</a>
+    </li>
+    
+    <li >
+        <a href="https://liudx1985.gitee.io/page/4/">4</a>
+    </li>
+    
+
+    
+    <li class="next">
+        <a href="https://liudx1985.gitee.io/page/2/">下一页</a>
+    </li>
+    
+</ol>
+
+
+
 </div>
 
-<nav class="site-nav">
-  
 
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
-            
-            Home
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
-            
-            Archives
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
-            
-            Categories
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-            
-            Tags
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
-            
-            About
-          </a>
-        </li>
-      
+                </div>
 
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='//cn.bing.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="site" value="https://liudx1985.gitee.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/andriod/" title="Andriod开发从入门到放弃">Andriod开发从入门到放弃</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/electron/" title="electron-vite-vue开发指北">electron-vite-vue开发指北</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/vue3/" title="Vue3高阶组件技术">Vue3高阶组件技术</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/tesseractocr/" title="利用Tesseract对图片或pdf进行OCR">利用Tesseract对图片或pdf进行OCR</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/js_module/" title="JavaScript 模块：CommonJS VS Es6">JavaScript 模块：CommonJS VS Es6</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/js_generator/" title="Javascript迭代器、生成器、异步">Javascript迭代器、生成器、异步</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/pygui/" title="PySide6界面程序编写及打包">PySide6界面程序编写及打包</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/argsort/" title="Argsort 以及Rank的Javascript代码练习">Argsort 以及Rank的Javascript代码练习</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/css_animate/" title="CSS3动画入门">CSS3动画入门</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/mysql/" title="Mysql绿色安装方法">Mysql绿色安装方法</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li><a href="https://liudx1985.gitee.io/categories/ai/">AI (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/algorithm/">algorithm (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/c&#43;&#43;/">C&#43;&#43; (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/database/">Database (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/fp/">FP (3)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/math/">math (8)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/misc/">misc (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/programming/">Programming (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/python/">Python (3)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/se/">SE (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/test/">test (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/web/">web (9)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://liudx1985.gitee.io/tags/algorithm/">algorithm</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/bigdata/">bigdata</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/fp/">FP</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/gui/">GUI</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/haskell/">haskell</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/html/">html</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/java/">java</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/javascript/">javascript</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/js/">js</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/latex/">latex</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/math/">math</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/misc/">misc</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/mysql/">mysql</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/nodejs/">nodejs</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/program/">Program</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/python/">python</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/se/">SE</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/vue/">vue</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/web/">web</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/%E6%99%AE%E9%80%9A%E8%AF%9D/">普通话</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://ife.baidu.com/introduction.html" title="百度前端技术学园ife.baidu.com "> 百度前端技术学园ife.baidu.com  </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.runoob.com/" title="菜鸟教程 runoob.com "> 菜鸟教程 runoob.com </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://developer.mozilla.org/zh-CN/docs/Web" title="Web 开发者文档MDN "> Web 开发者文档MDN </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.liaoxuefeng.com/" title="廖雪峰的官方网站"> 廖雪峰的JAVA、python、JS教程</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.processon.com/" title="ProcessOn 在线流程图思维导图">ProcessOn 在线流程图思维导图</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://zhongguose.com/" title="中国色 - 中国传统颜色色卡">中国色 - 中国传统颜色色卡</a>
+        </li>
+        
     </ul>
-  
-
-  
-</nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-  <section id="posts" class="posts-expand">
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://liudx1985.github.io/2019/07/02/geometry01/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Liudx">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="不恋过往，不惧将来">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/02/geometry01/" itemprop="url">Think in geometry (part I)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-02T15:11:49+08:00">
-                2019-07-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/07/02/geometry01/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/02/geometry01/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1-Geometry"><a href="#1-Geometry" class="headerlink" title="1.  Geometry"></a>1.  Geometry</h2><p>​    几何学源自古代农业生产活动中发展的测量土地技术，欧几里得的《几何原本》是<strong>古典几何</strong>的集大成。中国古代很早就发现了勾股定理、掌握了割圆术等一系列几何学知识，可惜受制于封建统治阶级的意思形态，科学技术对没有对社会生产力产生直接的推动，近现代几何学一直为西方主导。随着数学三大基础方向的发展，代数学和几何学的融合，导致解析几何的产生，分析学在几何方向催生出曲面几何、拓扑学等。几何学自身也在蓬勃发展，在欧氏几何上发展出非欧几何（黎曼几何）、微分几何、分形等科学分支。本文主要记录一些笔者在解析几何的思考。</p>
-<h2 id="2-Line-in-2d"><a href="#2-Line-in-2d" class="headerlink" title="2 Line in 2d"></a>2 Line in 2d</h2><p>​    初中我们就学过平面的直线方程：</p>
-<p>$$<br>y = kx+b\quad\quad (1)<br>$$</p>
-<p>​    老师会告诉我们这个公式(1)斜率是$k$，$b$是$y$轴偏移，但是很不幸的是，这个方程并不能表示所有的平面直线，像$x=1$这类与$x$轴平行的直线是没有办法写成(1)的，因为斜率不能为’$\infty $’!。所以在计算两点$A(x_1,y_1),B(x_1,y_1)$构成的直线时，我们需要分情况判断：<br>$$<br>\begin{cases}<br>    x=x_1,\quad x_1=x_2 \\<br>    y=\dfrac{y_1-y_2}{x_1-x_2}x+\dfrac{x_1y_2-x_2y_1}{x_1-x_2},\quad x_1\ne x_2<br>\end{cases}<br>$$<br>​    那么，有没有<code>高级</code>的方程，可以不用搞这么麻烦呢？答案是有的，高中老师告诉我们，直线有一般方程，可以统一描述所有直线：<br>$$<br>ax+by+c = 0\quad\quad (2)<br>$$<br>​    这个方程倒是解决了上述问题，但是初次接触是不如（1）式直观，参数$a、b、c$在当时看来没有几何意义的，对比（1）里面的斜率和截距$k、b$就很直观，而且参数还多了一个。一般方程的几何意义在学习了向量之后才会比较明确，我们先回忆下向量相关的基础知识，向量也叫矢量，具有方向，一般第一次接触都是用笛卡尔坐标来描述，就是$x-o-y$轴上的分量来给定向量坐标，大部分高中生都默认这个为向量的定义，但其实向量在代数学中是和向量空间一起定义的，一组向量基构成一个向量空间，而向量是这些基的线性组合，由于向量空间具备封闭性，向量的线性组合仍然位于空间内，直观解释就是，将平面内的任意向量线性相加仍然在平面内，三维的向量$\bar{v}$在基坐标$(1,0,0)、(0,1,0)、(0,0,1)$的线性组合下仍然位于三维空间内，这个<strong>线性组合的系数正是向量坐标</strong>：<br>$$<br>\vec{v} = x\cdot(1,0,0)+y\cdot(0,1,0)+z\cdot(0,0,1)<br>$$<br>​    向量具备一些基本性质，如线性性、交换性等，这些都是向量空间的基本性质，只不过限于初次接触时知识不够，没有办法了解，到后面学习了高等代数和向量空间，这些都是自然而然的结论。向量有两种重要的运算，即内积和外积，向量内积的定义为：<br>$$<br>\vec{a}\cdot \vec{b}  = |a|\cdot |b|cos&lt;a,b&gt;\quad \quad (3)<br>$$<br>​    内积是一个标量，其大小等于两个向量的长度积乘两向量夹角的余弦。向量长度定义为$\sqrt{x^2+y^2}$，几何意义就是距离坐标原点的距离（由勾股定理得）。内积也可以写成:<br>$$<br>(a,b)\cdot(c,d) = ac+bd    \quad\quad (4)<br>$$<br>​    （3）和（4）是如何等价的？这个也困扰了我很久，直到我知道了欧拉公式：<br>$$<br>e^{ix}=cosx+isinx \quad\quad (5)<br>$$<br>​    将$\vec{a}\cdot \vec{b}$写成$\vec{a}=r_1(\cos \alpha ,\sin \alpha)=r_1e^{i\alpha},\vec{b}=r_2(\cos \beta,\sin \beta)=r_2e^{i\beta}$，内积可以写成：<br>$$<br>\vec{a}\cdot \vec{b} = r_1\cdot r_2\cdot e^{i(\alpha-\beta)} = r_1 cos\alpha \cdot r_2 cos\beta + r_1 sin\alpha \cdot r_2 sin\beta + i r_1 r_2sin(\alpha-\beta)\quad\quad (6)<br>$$<br>​    上式中的实数部分(位于平面内)正好就是$ac+bd$，虚数部分的含义有点迷，暂时也不用管了（这个是外积部分，在平面外）。</p>
-<p>​    内积可以推导出一些有用的结论，其中常用的是同方向和垂直的判定：</p>
-<blockquote>
-<p>1.如果两个向量方向一致，那么它们内积为其长度积:$\vec{a}\cdot \vec{b}  = |a|\cdot |b|$.<br>2.如果两个向量互相垂直，那么它们内积为0:$\vec{a}\cdot \vec{b}  = 0$,若$\vec{a}=(a,b),\vec{b}=(c,d)\Rightarrow a/b=-c/d$<br>3.向量和自身的内积为其长度的平方:$\vec{a}\cdot \vec{a}  = |a|^2$<br>4.向量$\vec{a}$在另一个向量$\vec{b}$的投影可由内积计算，$Prj_{a_b}  =\dfrac{\vec{a}\cdot \vec{b}}{|\vec{b}|}$，其中$\dfrac{\vec{b}}{|\vec{b}|}$为$\vec{b}$同向的单位向量。</p>
-</blockquote>
-<p>​    这些结论都是显而易见的，依据这些结论，我们可以发现(1)(2)之间的联系，并找到(2)中参数$a,b,c$的几何意义。</p>
-<p><img src="/2019/07/02/geometry01/Line.png" alt="line"></p>
-<p>​    如上图所示，我们可以修改直线定义为：L为满足下条件点的集合$给定L上一点P,\forall Q \in L:Q\ne P,st.\vec{PQ} \perp \lambda$，其中的$\lambda$是<strong>法向量</strong>：由于$\lambda$垂直于L的平行线(从（1）易知斜率相等的直线平行)：$ax+by=0$,取一点$S(b,-a),st. \lambda \perp SO$，可得$\lambda\cdot(b,-a)=0\Rightarrow\lambda=(a,b)$，不失一般性，可将$P$定义为L距离原点最近的点，有:</p>
-<p>$$<br>\because \vec{OP} \parallel \lambda，P\in L,let \space P=k\lambda=k(a，b)\\<br>\therefore (ka)a+(kb)b+c=0 \Rightarrow k = \dfrac{c}{a^2+b^2}\\<br>let\space d=\sqrt{a^2+b^2},then \space P=(\dfrac{-ac}{d^2},\dfrac{-bc}{d^2})\\<br>\forall Q= (x,y)\in L,PQ\perp\lambda\Rightarrow(QO-PO)\cdot\lambda=0\\<br>\therefore (x-\dfrac{-ac}{d^2})a + (y-\dfrac{-bc}{d^2})b = 0,ie：ax+by+c=0\\<br>especially,|OP|=|（\dfrac{-ac}{d^2},\dfrac{-bc}{d^2})|=|\dfrac{c}{d}|=\dfrac{|c|}{\sqrt{a^2+b^2}}<br>$$<br>​    综上所述，（2）里面的参数其实是有具体的几何意义的：$(a,b)是法向量，c和直线离原点的距离相关$。在计算时为了方便，会将$a，b，c$除以$d=\sqrt{a^2+b^2}$标准化后为单位法向量和距离。</p>
-<p>​    还有一种形式的直线方程，将P点在<strong>方向矢量</strong>$(b,-a)$上进行延展，即直线<strong>的参数方程</strong>$L(x,y)=P+t(b,-a)$:<br>$$<br>L=\begin{cases}<br>    x=\dfrac{-ac}{d^2}+bt \\<br>    y=\dfrac{-bc}{d^2}-at<br>\end{cases},t\in (-\infty,\infty);当t=0时，为离原点最近点P \quad\quad (7)<br>$$<br>​    点$Q（x’,y’’)与L$的距离可使用向量方法求解，如下图示，$P(x,y)$为L上任意一点，$Q’$为Q在直线L上最近点:</p>
-<p><img src="/2019/07/02/geometry01/Line_dist.png" alt="dist"></p>
-<p>$$<br>\because P \in L,\therefore ax+by=-c\\<br>\vec{QP}=(x’-x,y’-y),|\vec{QQ’}|为我们要求的距离,可看做\vec{QP}在L单位法向量上的投影：\\<br>\because \vec{QQ’} \parallel (a,b)\\<br>\therefore |\vec{QQ’}|=|\vec{QP}\cdot \dfrac{(a,b)}{d}| =|\dfrac{ax’+by’-(ax+by)}{d}|= \dfrac{|ax’+by’+c|}{\sqrt{a^2+b^2}}.\blacksquare<br>$$<br>​    特例是$dist=0$时P’在L上。上面的方法也可推广到3维空间。</p>
-<p>​    一般来说，普通计算使用（1）就够了，如果涉及到证明或者向量计算会用（2）,这个也是使用最广泛的（因为可以推广到3维平面），参数方程是使用的较少，一般用于绘制图形，比如在python的matplotlib库中，需要给定两个数组<code>[x]、[y]</code>给<code>plot</code>函数,使用参数方程就很方便（也可以使用斜率方程， 但是参数方程一般是靠近原点方便查看）:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> style</span><br><span class="line"></span><br><span class="line"><span class="comment">#创建画布</span></span><br><span class="line">fig = plt.figure(figsize=(<span class="number">6</span>, <span class="number">5</span>)) <span class="comment">#set figure size.should accord axis range! </span></span><br><span class="line">ax = plt.gca()<span class="comment">#axisartist.Subplot(fig, 111)# get current axis 获得坐标轴对象</span></span><br><span class="line">ax.axis([<span class="number">-1</span>, <span class="number">5</span>, <span class="number">-1</span>, <span class="number">4</span>]) <span class="comment"># 设置坐标范围[x_min,x_max,y_min,y_max]</span></span><br><span class="line"></span><br><span class="line">plt.xlabel(<span class="string">'X'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'Y'</span>)                                <span class="comment">#设置坐标轴的文字标签</span></span><br><span class="line"></span><br><span class="line">ax.spines[<span class="string">'right'</span>].set_color(<span class="string">'none'</span>) </span><br><span class="line">ax.spines[<span class="string">'top'</span>].set_color(<span class="string">'none'</span>)         <span class="comment"># 将右边 上边的两条边颜色设置为空 其实就相当于抹掉这两条边</span></span><br><span class="line"></span><br><span class="line">ax.xaxis.set_ticks_position(<span class="string">'bottom'</span>)   </span><br><span class="line">ax.yaxis.set_ticks_position(<span class="string">'left'</span>)          <span class="comment"># 指定下边的边作为 x 轴   指定左边的边为 y 轴</span></span><br><span class="line"></span><br><span class="line">ax.spines[<span class="string">'bottom'</span>].set_position((<span class="string">'data'</span>, <span class="number">0</span>))   <span class="comment">#指定 data  设置的bottom(也就是指定的x轴)绑定到y轴的0这个点上</span></span><br><span class="line">ax.spines[<span class="string">'left'</span>].set_position((<span class="string">'data'</span>, <span class="number">0</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># solve the L :3x+4y-12=0 param-equation</span></span><br><span class="line">t = np.arange(<span class="number">-5</span>,<span class="number">5</span>,<span class="number">0.1</span>)</span><br><span class="line">x = <span class="number">36</span>/<span class="number">25</span> - <span class="number">4</span>*t</span><br><span class="line">y = <span class="number">48</span>/<span class="number">25</span> + <span class="number">3</span>*t</span><br><span class="line">plt.plot(x,y)</span><br><span class="line"><span class="comment"># set line markert</span></span><br><span class="line">plt.legend([<span class="string">'L:3x+4y=12'</span>], loc=<span class="string">'best'</span>)</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://liudx1985.github.io/2019/06/25/category/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Liudx">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="不恋过往，不惧将来">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/25/category/" itemprop="url">category</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-25T10:20:32+08:00">
-                2019-06-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/06/25/category/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/25/category/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="群论、范畴论入门"><a href="#群论、范畴论入门" class="headerlink" title="群论、范畴论入门"></a>群论、范畴论入门</h1><p>&#160;&#160; &#160; &#160;众所周知，数学的三大方向分别是<strong>代数</strong>、<strong>几何</strong>、<strong>分析</strong>，数相关的归于代数，如初等代数、数论、抽象代数-群论等；几何研究空间和形状，如解析几何、欧氏几何、非欧几何（黎曼几何）、拓扑学、微分几何(流形)等；分析则是数和形之间的纽带，主要包括微积分、实分析、复分析、泛函分析，以及在此基础上发展出的常微分、复变函数与积分变换等。另外概率论-统计、逻辑学、离散数学都可看做三大方向的复合学科。现代数学抽象化程度更高，为了将集合论、群论、向量空间与拓扑中有很多相似的概念统一地表示出来，发展出一门新的学科即范畴论(<strong><em>Category</em></strong>） 。</p>
-<h2 id="1-群的基本概念-1"><a href="#1-群的基本概念-1" class="headerlink" title="1 群的基本概念^1"></a>1 群的基本概念<a href="群\环\域https://blog.csdn.net/u013281331/article/details/28233961">^1</a></h2><p>&#160;&#160; &#160; &#160;群定义为满足如下条件的封闭集合G：</p>
-<ol>
-<li>定义一种二元代数运算$\forall a \in G, \exists f:a\mapsto b,b \in G$</li>
-<li>运算满足结合律:$f:a\mapsto b，g:b\mapsto c， f\circ g：a\mapsto c$</li>
-<li>存在单位元：$\exists e, f(e)= e$</li>
-<li>存在逆元：$\forall a \in G, f(a)=b,\exists f^{-1}(b)=a$</li>
-</ol>
-<p>&#160;&#160; &#160; &#160;当集合满足1、2时，称为<strong>半群</strong>，满足1、2、3时称为<strong>幺半群</strong>(单位半群，$\frac{3}{4}$群)；如果1,2,3,4再附加一个交换律$ f\circ g= g\circ f$则称为<strong>Abel交换群</strong>。常见有的整数加法群(Z,0,+)、实数乘法群(Q,1,*)，以及S2(平面旋转群等)。整数加群是一个Abel交换群。</p>
-<h2 id="2-偏序关系"><a href="#2-偏序关系" class="headerlink" title="2 偏序关系"></a>2 偏序关系</h2><p>&#160;&#160; &#160; &#160;偏序关系（partial order relation）的定义是集合P 与一个二元关系运算’$\le$’定义的，这个二元关系需要满足：</p>
-<ol>
-<li>自反性：$x\le x$</li>
-<li>反对称性：$x \le y 且y \le x \Rightarrow x = y$</li>
-<li>传递性：$x \le y 且y \le z \Rightarrow x \le z$  </li>
-</ol>
-<p>&#160;&#160; &#160; &#160;那么集合P 中的每个元素都可以对应一个范畴上的对象，$\le$ 对应态射，首先就满足了 范畴上每个对象都有id 映射，由于这个关系是可以传递的，所以它是可复合的，例如$f$ 为  $x \le y$，$g$ 为$y\le z$，那么$f \circ g$ 就得到了 $x\le z$，当然这种复合也是可结合的。</p>
-<blockquote>
-<p><em>范畴并没有对态射、对象是什么做出明确的规定。只要能满足每个对象有id 态射，态射可复合，复合可结合这些性质。</em></p>
-</blockquote>
-<h2 id="3-范畴-2"><a href="#3-范畴-2" class="headerlink" title="3 范畴^2"></a>3 范畴<a href="Haskell函数式编程入门">^2</a></h2><p>&#160;&#160; &#160; &#160;范畴在群的定义上进一步抽象化，一个范畴C由下面两个要素构成：</p>
-<ol>
-<li><p>一组对象Object:A,B,C…组成，记做$Ob(C)$.</p>
-<blockquote>
-<p>对象可以是任意的，可以为值，可以是类型，还可以是其他更高阶的数学对象，甚至对象可以是一个范畴.</p>
-</blockquote>
-</li>
-<li><p>一组态射(Morphism,arrow),该范畴上<strong>全部态射集合</strong>记为$Arr(C)$,对应对象$A,B$，都可以得到一个态射的集合，记为$C(A,B)$，并且$A\neq A′ $且$B\neq B′ $ 时,C(A,B) 与C(A′,B′) 无交集.对于一个A 到B 的态射<strong>$f$</strong>，我们可以写成 :$f: A \mapsto B$，这些态射满足：</p>
-<ol>
-<li><p>复合运算（Composite)，对于一对态射$f:A\mapsto B$ 与$g:B\mapsto C$（$g$ 的定义域与$f$ 的值域相等），存在一个复合的态射$g\circ f：A\mapsto C$,$\circ$ 是态射复合的运算符.</p>
-</li>
-<li><p>态射的复合操作满足结合律（associativity），若$A, B, C, D \in Ob(C)$，那么态射$f : A \mapsto B, g : B \mapsto C,h : C \mapsto D$ 都有$g \circ (g \circ f) = (h \circ g) \circ f$.</p>
-</li>
-<li><p>对于每一个对象$A \in Ob(C)$ 都存在一个单位态射（identity morphism）$1_A \in C(A,A)$ 使得对于任意的态射$f \in C(A,B) 与g \in(C,A) $都有:</p>
-<p>​            $$f \circ 1_A = f , 1_A \circ g = g$$     (<em>因为$1_A$ 分别是$f$ 与$g$ 右单位元与左单位元，所以$1_A$ 称为<strong>单位态射</strong></em>)</p>
-</li>
-</ol>
-</li>
-</ol>
-<p>&#160;&#160; &#160; &#160;复习下高中阶段函数映射的相关定义,$集合A,B，映射f：A\mapsto B$：</p>
-<ul>
-<li><p><strong>单射</strong>（injection）：如果$\forall a, b \in A, f(a) = f(b) \Rightarrow a = b$,那么则说$f$ 为单射函数。</p>
-<blockquote>
-<p>评论25.1.5. 如果一个函数是单射的，那么则说明定义域内不会有两个不同的值对应值域内<br>同一个值。例如$f = x^2$ 就不是单射的，因为$+1$ 与$-1$ 都对应1，而$f(x) = x+1$ 则是单射的。</p>
-</blockquote>
-</li>
-<li><p><strong>满射</strong>（surjection）：如果对于所有的$y \in B,\exists x \in A,st. f(x) = y$，那么则说$f$ 为满射。</p>
-<blockquote>
-<p>如果一个函数是满射的，那么所有值域中的值在定义域都会有至少一个原象。</p>
-</blockquote>
-</li>
-<li><p><strong>双射</strong>（bijection）：如果函数$f$ 既是单射又是满射，那么$f$ 为双射。</p>
-<blockquote>
-<p> 部分书籍称为<code>一一映射</code></p>
-</blockquote>
-</li>
-</ul>
-<p>&#160;&#160; &#160; &#160;态射将上述三种函数映射在范畴论上的推广为：</p>
-<ul>
-<li><p><strong>完全态射</strong>（epimorphism）：若$g\circ f = h \circ  f \Rightarrow g = h$，则$f$ 是完全态射。</p>
-<blockquote>
-<p>这种特性被称为右消除（right cancellation）或右可约。</p>
-</blockquote>
-</li>
-<li><p><strong>单一态射</strong>（monomorphism）：若$f\circ g = f \circ  h \Rightarrow g = h$，则$f$ 是单一态射。</p>
-<blockquote>
-<p>这种特性被称为左消除（left cancellation）或者左可约。</p>
-</blockquote>
-</li>
-<li><p><strong>同构态射</strong>（isomorphism）：若对于$f，\exists f^{-1},st.f \circ f^{-1} = id \space and\space f^{-1} \circ f = id$，则$f$ 为同构态射。</p>
-</li>
-</ul>
-<blockquote>
-<p>三种函数映射可看做是在集合范畴上的特例【单一态射-&gt;单射、完全态射-&gt;满射、同构态射~&gt;双射】.比如单一态射且完全态射被称为双态射（bimorphism），但它可能不是同构的。</p>
-</blockquote>
-<h2 id="4-函子-Functor"><a href="#4-函子-Functor" class="headerlink" title="4 函子(Functor )"></a>4 函子(Functor )</h2><p>&#160;&#160;&#160;&#160;Functor 是<strong>范畴间的态射</strong>,定义为:C 与D 为范畴，那么函子$F : C \mapsto D$ 会把C 中的所有对象与态射对应到D上，并且保留了复合运算与单位元：</p>
-<ul>
-<li>F 既会映射对象又会映射态射:$F(f : A \mapsto B) = F(f) : F(A) \mapsto F(B)$</li>
-<li>保留了恒值映射:$F(id_A) = id_{F(A)}$</li>
-<li>在函子上保留了映射的复合:$F(g \circ _C f) = F(g) \circ _D F(f)$</li>
-</ul>
-<hr style="width: 91%; height: 2px; border: none; background-color: #f00">
-
-<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://liudx1985.github.io/2019/04/29/py-animation/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Liudx">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="不恋过往，不惧将来">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/29/py-animation/" itemprop="url">python绘制参数方程的动画</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-29T16:22:50+08:00">
-                2019-04-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/04/29/py-animation/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/29/py-animation/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>&copy; 2018 *<u>All rights reserved by liudx .</u>:smile:  </p>
-<p>​        Python的<a href="https://matplotlib.org/index.html" target="_blank" rel="noopener">matplotlib</a>是一个功能强大的绘图库，可以很方便的绘制数学图形。官方给出了很多简单的实例，结合中文翻译的示例<a href="http://reverland.org/python/2012/09/07/matplotlib-tutorial/" target="_blank" rel="noopener">Tutorial</a>，可以满足日常工作的大部分需求了。但是实际工作中，一些有趣的东西很难使用常规方程（笛卡尔坐标和极坐标）方式绘制，事实上，大部分工程上都是使用参数方程来描述曲线。本文给出一些参数方程绘制的实例，之后会扩展为动画形式绘制，可以看到这些复杂的方程是如何简单优美的绘制出来。</p>
-<h2 id="1-参数方程绘制"><a href="#1-参数方程绘制" class="headerlink" title="1 参数方程绘制"></a>1 参数方程绘制</h2><p>​    首先介绍下椭圆的参数方程：</p>
-<p>$$<br>\begin{cases}<br>x = a \cdot \cos(t)\\<br>y = b \cdot \sin(t)<br>\end{cases}<br>$$</p>
-<p>​    其中$a,b$分别是椭圆的长轴、短轴。绘制椭圆的python代码如下:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np  </span><br><span class="line"></span><br><span class="line">fig = plt.figure()</span><br><span class="line">ax = plt.gca()</span><br><span class="line"><span class="comment">#椭圆参数方程</span></span><br><span class="line">r1 = <span class="number">1.1</span></span><br><span class="line">r2 = <span class="number">1</span></span><br><span class="line">t = np.linspace(<span class="number">0</span>, np.pi*<span class="number">2</span>, <span class="number">1000</span>) <span class="comment"># 生成参数t的数组</span></span><br><span class="line">x = r1 * np.cos(t)</span><br><span class="line">y = r2 * np.sin(t)</span><br><span class="line">plt.plot(x, y, color=<span class="string">'blue'</span>, linewidth=<span class="number">2</span>, label=<span class="string">'ellipse'</span>)  </span><br><span class="line">plt.xlabel(<span class="string">'x'</span>)  </span><br><span class="line">plt.ylabel(<span class="string">'y'</span>)  </span><br><span class="line">plt.ylim(<span class="number">-2</span>, <span class="number">2</span>)  </span><br><span class="line">plt.xlim(<span class="number">-1.5</span>,<span class="number">1.5</span>)</span><br><span class="line">ax.grid()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p>​    结果如下:</p>
-<p><img src="/2019/04/29/py-animation/ellipse.png" alt=""></p>
-<p>​    </p>
-<p>​    下面我们来个复杂点的例子，绘制炮弹的弹道曲线（当然是理想情况的），我们先根据公式推算一把，首先我们设炮弹出口速度$v_0(m/s)$,向上仰角为$\theta$ &deg;，时间为$t(s)$,  大炮的筒口初始坐标初始为(0,0)，则有：</p>
-<p>$$<br>\begin{cases}<br>x=v_0\cdot\sin(\theta)\cdot t \\<br>y=v_0\cdot\cos(\theta)\cdot t - v_0\cdot\cos(\theta)\cdot g \cdot t^2<br>\end{cases}<br>$$</p>
-<p>​    对应python代码為：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Parabolic</span><span class="params">(v0, theta_x)</span>:</span> <span class="comment"># 模拟炮弹飞行曲线</span></span><br><span class="line">    g = <span class="number">9.80665</span> <span class="comment"># m/s^2</span></span><br><span class="line">    v0_x = v0*np.cos(theta_x)</span><br><span class="line">    v0_y = v0*np.sin(theta_x)</span><br><span class="line">    t_m = (v0_y / g) <span class="comment"># 飞行时间</span></span><br><span class="line">    <span class="comment">#h = g*t_m**2/2</span></span><br><span class="line">    t = np.linspace(<span class="number">0</span>, v0_x * t_m * <span class="number">2</span>, v0*<span class="number">1000</span>)</span><br><span class="line">    x = v0_x * t</span><br><span class="line">    y = v0_y *t - v0_y *g * t**<span class="number">2</span> / <span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> x,y</span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    linestyles = [<span class="string">'-'</span>, <span class="string">'--'</span>, <span class="string">'-.'</span>, <span class="string">':'</span>]</span><br><span class="line">    x1, y1 = Parabolic(<span class="number">100</span>, np.deg2rad(<span class="number">45</span>))</span><br><span class="line">    x2, y2 = Parabolic(<span class="number">100</span>, np.deg2rad(<span class="number">30</span>))</span><br><span class="line">    x3, y3 = Parabolic(<span class="number">100</span>, np.deg2rad(<span class="number">60</span>))</span><br><span class="line">    plt.plot(x1, y1, color=<span class="string">'r'</span>, linewidth=<span class="number">1</span>, linestyle=<span class="string">"--"</span>,label=<span class="string">'45deg'</span>)</span><br><span class="line">    plt.plot(x2, y2, color=<span class="string">'y'</span>, linewidth=<span class="number">1</span>, linestyle=<span class="string">"-."</span>, label=<span class="string">'30deg'</span>)</span><br><span class="line">    plt.plot(x3, y3, color=<span class="string">'c'</span>, linewidth=<span class="number">1</span>, linestyle=<span class="string">":"</span>, label=<span class="string">'60deg'</span>)</span><br><span class="line">    plt.xlabel(<span class="string">'x'</span>)</span><br><span class="line">    plt.ylabel(<span class="string">'h'</span>)</span><br><span class="line">    </span><br><span class="line">    plt.xlim(<span class="number">0</span>, <span class="number">20</span>)</span><br><span class="line">    plt.ylim(<span class="number">0</span>, <span class="number">8</span>)</span><br><span class="line">    plt.legend(loc=<span class="string">'upper center'</span>) </span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
-<p>​    为了方便示意，我分别绘制了初速为$100m/s$时，仰角为45&deg;、30&deg;、60&deg;的炮弹落地曲线：</p>
-<p><img src="/2019/04/29/py-animation/boom!.png" alt=""></p>
-<p>​    验证了我们高中物理中的一个结论：这货不就是抛物线嘛。</p>
-<h2 id="2-动画animation"><a href="#2-动画animation" class="headerlink" title="2 动画animation"></a>2 动画<a href="https://matplotlib.org/api/animation_api.html" target="_blank" rel="noopener">animation</a></h2><p>​    看完静态的参数方程，还是不过瘾，我们来做个动画玩玩。首先是绘制一个<a href="https://zh.wikipedia.org/wiki/内旋轮线" target="_blank" rel="noopener">内旋轮</a>，引用下这位老哥的<a href="https://blog.csdn.net/u013180339/article/details/77002254" target="_blank" rel="noopener">例子</a>：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"><span class="keyword">import</span> matplotlib</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt </span><br><span class="line"><span class="keyword">import</span> matplotlib.animation <span class="keyword">as</span> animation</span><br><span class="line">fig = plt.figure(figsize=(<span class="number">6</span>, <span class="number">6</span>)) <span class="comment"># 图像大小</span></span><br><span class="line">ax = plt.gca()</span><br><span class="line">ax.grid()</span><br><span class="line">ln1, = ax.plot([], [], <span class="string">'-'</span>, color=<span class="string">'b'</span>, lw=<span class="number">2</span>) <span class="comment"># 注意逗号，取出plot数据:plot return A list of Line2D objects representing the plotted data.</span></span><br><span class="line">ln2, = ax.plot([], [], <span class="string">'-'</span>, color=<span class="string">'r'</span>, lw=<span class="number">1</span>)</span><br><span class="line">theta = np.linspace(<span class="number">0</span>, <span class="number">2</span>*np.pi, <span class="number">100</span>) <span class="comment"># 参数t的数组</span></span><br><span class="line">r_out = <span class="number">1</span> <span class="comment"># 静态圆的半径</span></span><br><span class="line">r_in = <span class="number">0.5</span> <span class="comment"># 动态圆的半径</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">init</span><span class="params">()</span>:</span></span><br><span class="line">    ax.set_xlim(<span class="number">-2</span>, <span class="number">2</span>)</span><br><span class="line">    ax.set_ylim(<span class="number">-2</span>, <span class="number">2</span>)</span><br><span class="line">    x_out = [r_out*np.cos(theta[i]) <span class="keyword">for</span> i <span class="keyword">in</span> range(len(theta))]</span><br><span class="line">    y_out = [r_out*np.sin(theta[i]) <span class="keyword">for</span> i <span class="keyword">in</span> range(len(theta))]</span><br><span class="line">    ln1.set_data(x_out, y_out) <span class="comment"># 静圆</span></span><br><span class="line">    <span class="keyword">return</span> ln1, <span class="comment"># 此处返回tuple</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">update</span><span class="params">(i)</span>:</span> <span class="comment"># 每次回调时，传入索引`0~range(len(theta))`,注意repeat时索引会归0</span></span><br><span class="line">    x_in = [(r_out-r_in)*np.cos(theta[i])+r_in*np.cos(theta[j]) <span class="keyword">for</span> j <span class="keyword">in</span> range(len(theta))]</span><br><span class="line">    y_in = [(r_out-r_in)*np.sin(theta[i])+r_in*np.sin(theta[j]) <span class="keyword">for</span> j <span class="keyword">in</span> range(len(theta))]</span><br><span class="line">    ln2.set_data(x_in, y_in) <span class="comment"># 动圆</span></span><br><span class="line">    <span class="keyword">return</span> ln2,</span><br><span class="line"></span><br><span class="line">ani = animation.FuncAnimation(fig, update, range(len(theta)), init_func=init, interval=<span class="number">30</span>)</span><br><span class="line"><span class="comment">#ani.save('roll.gif', writer='imagemagick', fps=100)</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p>​    看起来很不错，能动(这里发现了<code>init</code>函数可以绘制下静态的大圆ln1，<code>update</code>函数只对动圆<code>ln2</code>的plot对象数据进行更新)：</p>
-<p><img src="/2019/04/29/py-animation/roll2circle.gif" alt=""></p>
-<p>​    最后研究下<a href="https://zh.wikipedia.org/wiki/%E6%91%86%E7%BA%BF" target="_blank" rel="noopener">旋轮线</a>, 看看能否绘制出wiki页面上那个动画效果。先列出参数方程：<br>$$<br>选轮线参数方程：<br>\begin{cases}<br>x = r\cdot(t-\sin t)    \\<br>y = r \cdot (1-\cos t)<br>\end{cases}<br>\\<br>圆心的坐标为:(t,r)<br>$$<br>​    经过观察摸索，发现需要绘制3部分，一个是滚动的圆，一个是摆线，还有个圆心到绘制曲线的支点。坐标都可直接从参数方程推算出来，不多说，直接上代码和注释吧：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#def wheel_line():</span></span><br><span class="line">fig = plt.figure(figsize=(<span class="number">8</span>,<span class="number">2</span>))</span><br><span class="line">ax = plt.gca()</span><br><span class="line">ax.grid()</span><br><span class="line">ln, = ax.plot([], [], <span class="string">'o-'</span>, color=<span class="string">'g'</span>, lw=<span class="number">1</span>) <span class="comment"># 圆心连线 @center -&gt; curve</span></span><br><span class="line">circle, = ax.plot([], [], <span class="string">'-'</span>, color=<span class="string">'b'</span>, lw=<span class="number">1</span>) <span class="comment"># 滚动的圆</span></span><br><span class="line">curve, =  ax.plot([], [], <span class="string">'-'</span>, color=<span class="string">'r'</span>, lw=<span class="number">1</span>) <span class="comment"># 摆线</span></span><br><span class="line">curve_x, curve_y = [], [] </span><br><span class="line">r = <span class="number">1</span></span><br><span class="line">t = np.linspace(<span class="number">0</span>, math.pi*<span class="number">2</span>, <span class="number">1000</span>)</span><br><span class="line">L = <span class="number">4</span>*np.pi*r</span><br><span class="line">theta = np.linspace(<span class="number">0</span>, L, <span class="number">250</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">init</span><span class="params">()</span>:</span></span><br><span class="line">    ax.set_xlim(-r, L + r)</span><br><span class="line">    ax.set_ylim(<span class="number">0</span>, L/<span class="number">4</span> + r/<span class="number">2</span>)</span><br><span class="line">    ln.set_data([<span class="number">0</span>,<span class="number">0</span>], [<span class="number">0</span>,<span class="number">1</span>])</span><br><span class="line">    x_out = r*np.cos(t)</span><br><span class="line">    y_out = r*np.sin(t) + r</span><br><span class="line">    circle.set_data(x_out, y_out)</span><br><span class="line">    <span class="keyword">return</span> circle,ln</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">update</span><span class="params">(frame)</span>:</span></span><br><span class="line">    tt = theta[frame]    <span class="comment"># 获取参数t</span></span><br><span class="line">    x=r*(tt-np.sin(tt))</span><br><span class="line">    y=r*(<span class="number">1</span>-np.cos(tt))</span><br><span class="line">    curve_x.append(x)</span><br><span class="line">    curve_y.append(y)</span><br><span class="line">    curve.set_data(curve_x, curve_y) <span class="comment"># 更新摆线</span></span><br><span class="line">    <span class="keyword">if</span> i == len(theta) - <span class="number">1</span>:</span><br><span class="line">        curve_x.clear()</span><br><span class="line">        curve_y.clear()</span><br><span class="line">    <span class="comment"># update circle</span></span><br><span class="line">    x_out = r*np.cos(t) + tt</span><br><span class="line">    y_out = r*np.sin(t) + r</span><br><span class="line">    circle.set_data(x_out, y_out)</span><br><span class="line">    <span class="comment"># new circle center @(tt,r)</span></span><br><span class="line">    ln.set_data([tt,x],[r,y])</span><br><span class="line">    <span class="keyword">return</span> curve,circle,ln</span><br><span class="line"></span><br><span class="line">ani = animation.FuncAnimation(fig, update, frames=range(len(theta)), init_func=init, interval=<span class="number">1</span>)</span><br><span class="line">ani.save(<span class="string">'roll.gif'</span>, writer=<span class="string">'imagemagick'</span>, fps=<span class="number">60</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p>​    大功告成:</p>
-<p><img src="/2019/04/29/py-animation/roll.gif" alt=""></p>
-<h2 id="3-后记"><a href="#3-后记" class="headerlink" title="3 后记"></a>3 后记</h2><p>​    在摸索过程中，还是有很多坑需要注意的，最初那个摆线的例子，我没有计算好图形范围，画出来的圆是扁扁的，后来通过改<code>figsize</code>和<code>ax.set_xlim/set_ylim</code>为相同比例解决的；保存动画那个<code>ani.save(&#39;roll.gif&#39;, writer=&#39;imagemagick&#39;, fps=60)</code>总是报错，经过查找资料，解决方案是安装<a href="http://www.imagemagick.org/script/download.php#macosx" target="_blank" rel="noopener">imagemagic</a>，下载安装后第2节的例子都能顺利保存动图为gif。还有需要注意是的<code>save</code>函数里面的fps参数不能调太低，否则会出现动画卡顿的现象，太高又会出现动画速度很快的问题，这个参数需要配合<code>frames</code>即动画的总帧数，以及<code>FuncAnimation</code>里面的<code>interval</code>帧间隔时间参数(单位是ms)，总动画时间(秒)公式为：$frames * interval/1000+frames/fps$。<br>​    读完这篇文章，相信绘制参数方程和动画不是一件难事吧:smile:。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://liudx1985.github.io/2019/04/08/modulo/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Liudx">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="不恋过往，不惧将来">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/08/modulo/" itemprop="url">同余和整除判定</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-08T10:40:01+08:00">
-                2019-04-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/04/08/modulo/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/08/modulo/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1-同余-congruence-modulo"><a href="#1-同余-congruence-modulo" class="headerlink" title="1. 同余(congruence modulo)"></a>1. 同余(congruence modulo)</h2><p>​    同余是指两个整数a、b，若它们除以整数m所得的<a href="https://baike.baidu.com/item/%E4%BD%99%E6%95%B0" target="_blank" rel="noopener">余数</a>相等，则称a与b对于模m同余或a同余于b模m。同余的符号是$\equiv$。常用的记法是<br>$$<br>a\equiv c\space mod(n)<br>$$<br>​    一般默认$n$为非零整数，$a、c$为非负整数，当然，<strong>对于所有的整数，同余的定义和相关性质都是成立的。</strong><br>$$<br>10\equiv 3\space mod\space 7\\<br>1\equiv 10\space mod\space 3<br>$$</p>
-<h2 id="2-同余的性质及证明方法"><a href="#2-同余的性质及证明方法" class="headerlink" title="2.同余的性质及证明方法"></a>2.同余的性质及证明方法</h2><p>​    同余基本性质有反身性，对称性，传递性和线性可加性,分别如下:<br>$$<br>a\equiv a\space mod(n) \\<br>a\equiv b\space mod(n) \Leftrightarrow b\equiv a\space mod(n) \\<br>a\equiv b\space mod(n)，b\equiv c\space mod(n) \Rightarrow b\equiv c\space mod(n) \\<br>a\equiv b\space mod(n)，c\equiv d\space mod(n) \Rightarrow a\pm c\equiv b\pm d\space mod(n) \\<br>a\equiv b\space mod(n)，c\equiv d\space mod(n) \Rightarrow ac\equiv bd\space mod(n)<br>$$</p>
-<p>​    证明方法大同小异，都是把同余写成乘法形式来证明，以同余乘法性质为例：<br>$$<br>\forall \space a\equiv b\space mod(n)，c\equiv d\space mod(n)\\<br>a = nx + b,c = ny+d \Rightarrow ac = (nx+b)\cdot（ny+d） = n(nxy+by+dx)+bd\\<br>\because \quad n(nxy+by+dx)能被n整除,\\<br>\therefore\quad ac\equiv bd\space mod(n)<br>$$</p>
-<h2 id="3-整除判定方法"><a href="#3-整除判定方法" class="headerlink" title="3.整除判定方法"></a>3.整除判定方法</h2><p>​    当右侧和0同余时，根据2节的同余性质，我们可以得到如下公式:<br>$$<br>a_i\equiv 0\space mod(n)，k_i\equiv 0\space mod(n) \Rightarrow \sum{a_i*k_i}\equiv 0 \space mod(n)<br>$$<br>​    下面我们来利用该式做整除判定(对于2/5/10这些容易证明的略过)：</p>
-<h3 id="3-1-被3整除的数"><a href="#3-1-被3整除的数" class="headerlink" title="3.1 被3整除的数"></a>3.1 被3整除的数</h3><p>​    我们知道<strong>被3整除的数，将其所有位数相加，也可以被3 整除</strong>，即<br>$$<br>\sum{a_i\cdot10^i}\equiv 0 \space mod(3) \Leftrightarrow \sum{a_i}\equiv 0 \space mod(3)<br>$$<br>​    证明如下：<br>$$<br>由\sum{a_i\cdot 10^i}\equiv 0 \space mod(3)\quad\quad （1）\\<br>将其拆分得到:\\<br>a_0+a_1+9a_1+a_2+99a_2+\dots \equiv 0\space mod(3)\quad\quad （2）\\<br>即:\sum{a_i}+\sum{（10^i-1)a_i}\equiv 0 \space mod(3),显然左边第二个式中(10^i-1)都是3(和9)的倍数，所以必定有：\\<br>\sum{a_i}\equiv 0 \space mod(3)<br>$$<br>​    根据上面证明方法，我们顺便可以推出可被9整除的数:<br>$$<br>\sum{a_i*10^i}\equiv 0 \space mod(9) \Leftrightarrow \sum{a_i}\equiv 0 \space mod(9)<br>$$</p>
-<h3 id="3-2-被7整除的数"><a href="#3-2-被7整除的数" class="headerlink" title="3.2 被7整除的数"></a>3.2 被7整除的数</h3><p>​    被7整除的数计算方法有点复杂，网上给出的方法是:</p>
-<blockquote>
-<p> <strong>将一个整数的个位数字截去，再从余下的数中，减去个位数的2倍，如果差是7的倍数，则原数能被7整除。</strong>如果差太大或心算不易看出是否7的倍数，就需要继续上述「截尾、倍大、相减、验差」的过程，直到能清楚判断为止。例如，判断133是否7的倍数的过程如下：13－3×2＝7，所以133是7的倍数；又例如判断6139是否7的倍数的过程如下：613－9×2＝595 ， 59－5×2＝49，所以6139是7的倍数，其余类推.</p>
-</blockquote>
-<p>​    即:<br>$$<br>10a+b\equiv 0\space mod(7)\Leftrightarrow a-2b\equiv 0 \space mod(7)，b \in [0..9]\quad\quad\quad（3）<br>$$<br>​    我在计算中发现还有类似的公式也可以判断被7整除的数：<br>$$<br>10a+b\equiv 0\space mod(7)\Leftrightarrow 3a+b\equiv 0 \space mod(7)\quad\quad\quad（4）<br>$$<br>​    其实，根据同余性质，可以很容易推出：<br>$$<br>由10a+b\equiv 0\space mod(7) 可得:\\<br>10(a-2b)+21b\equiv0\space mod(7)\\<br>易知,21b可被7整除，所以有<br>10（a-2b）\equiv 0 \space mod (7)\\<br>将两边除以和7互质的数10，得到公式(3)\\<br>a-2b\equiv 0\space mod (7)<br>$$<br>​    同理我们也可以推导公式(4)<br>$$<br>由10a+b\equiv 0\space mod (7) 可得:\\<br>(3a+b)+7a\equiv0\space mod(7) \Rightarrow 3a+b\equiv 0 \space mod(7)<br>$$<br>​    依据相关证明方法，我们还可以<code>发明</code>很多类似的公式。</p>
-<h3 id="3-3-更多整除判定"><a href="#3-3-更多整除判定" class="headerlink" title="3.3 更多整除判定"></a>3.3 更多整除判定</h3><p>​    根据3.2节里描述的方法，我们轻而易举可以得到11整除的判断方法：<br>$$<br>由10a+b\equiv 0\space mod (11) 可得:\\<br>11a-(a-b)\equiv0\space mod(11) \Rightarrow a-b\equiv 0 \space mod(11)<br>$$<br>​    用人可以读懂的方法就是：<strong>将一个整数的个位数字截去，再从余下的数中，减去个位数，如果差是11的倍数，则原数能被11整除。</strong></p>
-<p>​    类似的，<strong>若一个整数的个位数字截去，再从余下的数中，加上个位数的4倍，如果差是13的倍数，则原数能被13整除</strong>:<br>$$<br>由10a+b\equiv 0\space mod (13) 可得:\\<br>10(a+4b)-39b\equiv 0 \space mod(13) \Rightarrow a+4b\equiv 0 \space mod(13)<br>$$<br>​    <strong>若一个整数的个位数字截去，再从余下的数中，减去个位数的5倍，如果差是17的倍数，则原数能被17整除</strong>：<br>$$<br>由10a+b\equiv 0\space mod (17) 可得:\\<br>10(a-5b)+（17*3)b\equiv 0 \space mod(17)\Rightarrow a-5b\equiv 0 \space mod(17)<br>$$</p>
-<h3 id="3-4-4和8的整除判定"><a href="#3-4-4和8的整除判定" class="headerlink" title="3.4 4和8的整除判定"></a>3.4 4和8的整除判定</h3><p>​    4的整除判定方法为：<strong>取整数后2位数字，如果其能被4整除，则原数字可被4整除</strong>(<em>100a被4整除</em>)：<br>$$<br>\forall x=100a+b\equiv 0\space mod(4) \Rightarrow b\equiv 0\space mod(4),\forall b \in [0,99)<br>$$<br>​    同理可得8的整除判定方法：<strong>取整数后3位数字，如果其能被8整除，则原数字可被8整除</strong>(<em>1000a被8整除</em>)：<br>$$<br>\forall x=1000a+b\equiv 0\space mod(8) \Rightarrow b\equiv 0\space mod(8),\forall b \in [0,999)<br>$$</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://liudx1985.github.io/2019/03/19/py-lazy/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Liudx">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="不恋过往，不惧将来">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/19/py-lazy/" itemprop="url">python 迭代器和惰性计算、函数式编程基础</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-19T17:02:29+08:00">
-                2019-03-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/FP/" itemprop="url" rel="index">
-                    <span itemprop="name">FP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/03/19/py-lazy/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/19/py-lazy/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>​    本文介绍了python 的生成器，构造一些有趣的惰性计算程序，可以作为python函数式的基础。</p>
-<h3 id="1-iterator-and-generator"><a href="#1-iterator-and-generator" class="headerlink" title="1. iterator and generator"></a>1. iterator and generator</h3><p>​    众所周知，python3里面的range返回是一个对象而不是列表，它的前身是python 2的xrange。python 2里面的range会生成一个列表，当这个列表很大时，会有严重的性能问题:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">100000</span>):</span><br><span class="line">    print(x)</span><br></pre></td></tr></table></figure>
-<p>​    可以使用<code>iter(range(0,100000))</code>将range对象转换为可迭代实例（iterator），下面的代码是和上面代码等价的：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">lst=iter(range(<span class="number">0</span>,<span class="number">10</span>))</span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        b = next(lst) <span class="comment"># 调用lst.__next__()</span></span><br><span class="line">        print(b)</span><br><span class="line">    <span class="keyword">except</span> StopIteration:</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
-<p>​    显而易见，其实python的for循环其实是个语法糖，首先隐式将<code>list</code>（<strong>可迭代对象</strong>）转换为<code>list_iterator</code>，然后不断调用迭代器的<code>__next__</code>函数，直到出现<code>StopIteration</code>为止；下面是一个迭代器的实例（注意内部函数__next__）：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">fibonacci</span>:</span></span><br><span class="line">    <span class="string">'''To use this class like this</span></span><br><span class="line"><span class="string">    for n in fibonacci(100):</span></span><br><span class="line"><span class="string">        print(n, end=',')</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, max)</span>:</span></span><br><span class="line">        self.max = max</span><br><span class="line"></span><br><span class="line">    <span class="comment">#可迭代对象实现了__iter__方法，str、list、set、dict、file、sockets等容器都有这个内部函数</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__iter__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.a = <span class="number">1</span></span><br><span class="line">        self.b = <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__next__</span><span class="params">(self)</span>:</span></span><br><span class="line">        fib = self.a</span><br><span class="line">        <span class="keyword">if</span> fib &gt; self.max:</span><br><span class="line">            <span class="keyword">raise</span> StopIteration</span><br><span class="line"></span><br><span class="line">        self.a, self.b = self.b, self.a + self.b</span><br><span class="line">        <span class="keyword">return</span> fib</span><br></pre></td></tr></table></figure>
-<p>​    使用也很简单，首先生成一个迭代器对象,然后调用<code>next</code>函数就可以了,我们这里使用<code>enumerate</code>函数生成组合迭代器返回索引和内部迭代器返回值(类似的api还有zip、reversed)：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fib = fibonacci(<span class="number">20</span>)</span><br><span class="line">print(next(fib))</span><br><span class="line"><span class="comment"># more next(fib)...</span></span><br><span class="line"><span class="keyword">for</span> i,n <span class="keyword">in</span> enumerate(fibonacci(<span class="number">20</span>)): <span class="comment"># 不能重复使用fib对象！</span></span><br><span class="line">	print(<span class="string">'fib['</span>, i, <span class="string">']='</span>, n, end=<span class="string">'\n'</span>)</span><br></pre></td></tr></table></figure>
-<p>​    根据python doc的描述，迭代器内部是有状态的，每次取一个值都会消耗迭代器的状态。需要注意的是range并不是一个迭代器，因此可以重复使用，其长度并不会因为遍历过而变化。因此并重复使用一个range对象是安全的，而上面的fib对象并不能重复从fib(0)计算。</p>
-<p>​    另一个普遍使用产生迭代器的方法是生成器（generator)，即使用<code>yield</code>返回值;还有少见的生成器表达式也能构造生成器：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">FibonacciIter</span><span class="params">(n)</span>:</span></span><br><span class="line">    a, b, c = <span class="number">1</span>, <span class="number">1</span>, n</span><br><span class="line">    <span class="keyword">while</span> c &gt; <span class="number">-1</span>:</span><br><span class="line">        <span class="keyword">yield</span> a</span><br><span class="line">        a, b, c = b, a + b, c - <span class="number">1</span></span><br><span class="line"><span class="comment"># a is a &lt;class 'generator'&gt;</span></span><br><span class="line">a = (x*x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>))</span><br></pre></td></tr></table></figure>
-<p>​    上面的fibonacci generator和迭代器对象(iterable)使用方法一样，都可以使用next取出下个返回值，当生成<code>n</code>个fibonacci数后，会耗尽并返回。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">fib_gen = FibonacciIter(<span class="number">6</span>)</span><br><span class="line">b = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        b = next(fib_gen)</span><br><span class="line">    <span class="keyword">except</span> StopIteration:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    print(b, end=<span class="string">' '</span>)</span><br></pre></td></tr></table></figure>
-<p>​    除了使用for循环取值，还可以使用生成器构造list，或使用<code>map、filter、reduce</code>等函数进行计算：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用generator构造list</span></span><br><span class="line">list(FibonacciIter(<span class="number">6</span>)) <span class="comment"># [1, 1, 2, 3, 5, 8, 13]</span></span><br><span class="line"></span><br><span class="line">a = FibonacciIter(<span class="number">6</span>)</span><br><span class="line">print(list(map(<span class="keyword">lambda</span> x: x**<span class="number">2</span>, a))) <span class="comment"># [1, 1, 4, 9, 25, 64, 169]</span></span><br></pre></td></tr></table></figure>
-<p>​    为了验证生成器是惰性的，我们使用一个筛法生成素数数列:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 奇数生成器</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_odd_iter</span><span class="params">()</span>:</span></span><br><span class="line">    n = <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">        n = n + <span class="number">2</span></span><br><span class="line">        <span class="keyword">yield</span> n</span><br><span class="line"><span class="comment"># 整除</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_not_divisible</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">lambda</span> x: x % n != <span class="number">0</span></span><br><span class="line"><span class="comment"># a generator for prime number</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">PrimesIter</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment">#素数不包括1，从2开始</span></span><br><span class="line">    <span class="keyword">yield</span> <span class="number">2</span></span><br><span class="line">    it = _odd_iter()</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">        n = next(it)</span><br><span class="line">        <span class="keyword">yield</span> n</span><br><span class="line">        it = filter(_not_divisible(n), it)</span><br></pre></td></tr></table></figure>
-<p>​    生成器PrimesIter首次返回2（2是特殊素数，其他素数全为奇数），然后在奇数生成器的基础上进行过滤运算(筛法)：首先奇数生成器返回3, 这个是素数，<code>yield n</code>处返回，it看做一个惰性数列(现在是3之后的奇数)，使用<code>filter</code>函数将这个数列里面所有被3整除的奇数全部过滤掉，并返回一个迭代器重新赋值给it，里面包含所有素数。继续下次循环会过滤掉所有5整除的奇数…实际上这个it会被重复包裹成<strong><code>...filter(__not_divisible(5), filter(__not_divisible(3),it)</code></strong>,while每循环一次，就多加一层filter。</p>
-<h3 id="2-itertools-and-basical-usage"><a href="#2-itertools-and-basical-usage" class="headerlink" title="2. itertools and basical usage"></a>2. itertools and basical usage</h3><p>​    无限生成器可以永久运行下去，很容易造成死循环，幸好python库提供了itertools用于处理这些情况, 我们参考python doc编写了一些使用的itertools扩展 api：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> islice,takewhile</span><br><span class="line"></span><br><span class="line"><span class="comment"># get first n elements from iter,#take(itertools.count(1,2), 5) will get [1,3,5,7,9]</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">take</span><span class="params">(iter, n)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> list(islice(iter, n))</span><br><span class="line"></span><br><span class="line"><span class="comment"># takeWhile elements &#123;x&#125; from iter, until f(x) is false</span></span><br><span class="line"><span class="comment"># iter should be a infinate generator</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">takeWhile</span><span class="params">(iter, f)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> list(takewhile(f, iter))</span><br><span class="line"><span class="comment"># return a list contains prime numbers</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">takePrimesBy</span><span class="params">(flt)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> takeWhile(PrimesIter(), flt)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">isPrime</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> takePrimesBy(<span class="keyword">lambda</span> x: x &lt; math.sqrt(n)):</span><br><span class="line">        <span class="keyword">if</span> n % i == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># generate N primes.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">takePrimes</span><span class="params">(N)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> take(PrimesIter(), N)</span><br><span class="line"></span><br><span class="line"><span class="comment"># generate prime less then N.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getPrimes</span><span class="params">(N)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> takePrimesBy(<span class="keyword">lambda</span> x: x &lt; N)</span><br></pre></td></tr></table></figure>
-<p>​    有了素数生成器，很容易构造一个正整数分解生成器（参考我写的fold/unfold文章）:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># decompose N into \Mult&#123;x_i&#125;, x_i is prime</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">DecomposeIter</span><span class="params">(N)</span>:</span></span><br><span class="line">    c = N</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">        p = takePrimesBy(<span class="keyword">lambda</span> x: x &lt;= math.sqrt(c))</span><br><span class="line">        s = [x <span class="keyword">for</span> x <span class="keyword">in</span> p <span class="keyword">if</span> c % x == <span class="number">0</span>] <span class="comment"># 取出所有可能的素因子</span></span><br><span class="line">        <span class="keyword">if</span> len(s) &lt; <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">yield</span> c <span class="comment"># c是素数</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            c = int(c / s[<span class="number">0</span>]) <span class="comment"># 第一个素因子s[0]</span></span><br><span class="line">            <span class="keyword">yield</span> s[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
-<p>​    验证方法是使用list取出生成器的值:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(list(DecomposeIter(<span class="number">123</span>))) <span class="comment"># [3, 41]</span></span><br></pre></td></tr></table></figure>
-<h3 id="3-container-and-iterators"><a href="#3-container-and-iterators" class="headerlink" title="3 container and iterators"></a>3 container and iterators</h3><p>​    除了list，其他所有容器set/dict都能使用for循环遍历，即说明这些容器是可迭代的(iterable),另外字符串、文件、socket等容器也是可以生成迭代器的。除了使用for循环遍历容器/迭代器，我们还可以使用迭代器/生成器构造容器,第2节里面已经出现很多使用list读取生成器内容的用法，当然也可以用结合enumerate生成dict:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">iter = PrimesIter()</span><br><span class="line">dict(enumerate(islice(iter, <span class="number">10</span>))) <span class="comment">#&#123;0: 2, 1: 3, 2: 5, 3: 7, 4: 11, 5: 13, 6: 17, 7: 19, 8: 23, 9: 29&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># get first 10 fibonacci number</span></span><br><span class="line"><span class="keyword">import</span> profile</span><br><span class="line">a = range(<span class="number">0</span>,<span class="number">10</span>)</span><br><span class="line">profile.run(<span class="string">'list(zip(a,PrimesIter()))'</span>)</span><br></pre></td></tr></table></figure>
-<p>​    我们在使用filter/map/reduce等函数将容器进行转换时，实际上可看做是对容器的迭代器进行操作（注意他们并不直接返回结果，而是返回另一个迭代器！），比较接近于FP风格。</p>
-<p><img src="/2019/03/19/py-lazy/struct.png" alt=""></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://liudx1985.github.io/2019/01/16/fold-and-unfold/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Liudx">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="不恋过往，不惧将来">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/16/fold-and-unfold/" itemprop="url">fold and unfold</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-16T14:14:33+08:00">
-                2019-01-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/01/16/fold-and-unfold/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/01/16/fold-and-unfold/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>​    Haskell里面有两个著名的fold函数:foldr/foldl，这两个函数非常具有函数式编程的特点(递归)，几户所有的Haskell教程都会使用foldr/foldl来完成一些命令式语言的循环语句。还有个更少见的unfoldr函数,可以完成一些匪夷所思的操作。</p>
-<h2 id="1-fold"><a href="#1-fold" class="headerlink" title="1 fold"></a>1 fold</h2><p>​    几乎所有的函数式语言都有类似的函数，如Javascript的对应是<code>reduce</code>[^1]<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/reduceRight" target="_blank" rel="noopener"><code>reduceRight()</code></a>;Haskell的fold有两个版本，分别是foldr和foldl，两个函数主要区别在后缀上，一个从右折叠，一个从左折叠，位于Data.List,常见的教程里面定义的简单版本如下：</p>
-<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">foldr</span> :: (a -&gt; b -&gt; b) -&gt; b -&gt; [a] -&gt; b</span><br><span class="line"><span class="title">foldr</span> step zero (x:xs) = step x (foldr step zero xs)</span><br><span class="line"><span class="title">foldr</span> _ zero []        = zero</span><br><span class="line"></span><br><span class="line"><span class="title">foldl</span> :: (a -&gt; b -&gt; a) -&gt; a -&gt; [b] -&gt; a</span><br><span class="line"><span class="title">foldl</span> step zero (x:xs) = foldl step (step zero x) xs</span><br><span class="line"><span class="title">foldl</span> _ zero []        = zero</span><br></pre></td></tr></table></figure>
-<p>​    fold的参数依次为step函数、初始值、列表，返回值为一个和初始值类型一样的值。注意foldr和foldl的step函数都是二元函数，foldr的step参数顺序为<strong>列表元素、折叠变量</strong>,foldl的刚好反过来！这点很容易搞混淆。一般我们直接使用预定义的就行，当然对于Data.Tree等可折叠的类型，foldr/foldl也可以适用，方法类似。</p>
-<p>​    众所周知，Haskell构造列表只能向头部插入元素：<code>1:[2,3]</code>,连接链表也可以使用<code>concat</code>函数或者<code>++</code>：<code>[1..5]++[6..10] &amp; concat [[1..5],[6..10]]</code>,但是没有向尾部插入元素的函数(insert只能向已排序的插入值)，我们希望构造一个函数，调用方式为<code>append list newElem</code>，这个函数需要从尾部开始折叠，需要使用foldr:</p>
-<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">append</span>:: <span class="type">Foldable</span> t =&gt; t a -&gt; a -&gt; [a]</span><br><span class="line"><span class="title">append</span> xs x = foldr (\r e -&gt; r:e) [x] xs</span><br></pre></td></tr></table></figure>
-<p>​    运行一下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Prelude&gt; append [1..3] 5</span><br><span class="line">[1,2,3,5]</span><br></pre></td></tr></table></figure>
-<p>​    上述例子只是为了说明fold的应用方式，其运行效率不是很高，生产环境一般不会直接这样做(使用Array等代替)。基本上，使用foldr/foldl可以完成对列表元素的遍历+归一求值,下面的例子给出一个翻转字符串的函数,使用foldl实现：</p>
-<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">reverse'</span> = foldl (\r e-&gt; e:r) []</span><br><span class="line"><span class="title">main</span> = <span class="keyword">do</span> </span><br><span class="line">	print$reverse' [<span class="number">1.</span><span class="number">.10</span>]</span><br><span class="line">	print$reverse' <span class="string">"welcome to hell!"</span></span><br></pre></td></tr></table></figure>
-<h2 id="2-unfold"><a href="#2-unfold" class="headerlink" title="2 unfold"></a>2 unfold</h2><p>​    unfoldr<a href="http://hackage.haskell.org/package/base-4.12.0.0/docs/Data-List.html#v:unfoldr" target="_blank" rel="noopener">^2</a>是Haskell独有的函数，是foldr反向的操作，即从一个源构造一个列表，定义比foldr难一点:<code>unfoldr :: (b -&gt; Maybe (a, b)) -&gt; b -&gt; [a]</code>,接受一个迭代函数和一个初始值，产生一个列表，这个迭代函数的定义是<code>b-&gt; Maybe(a,b)</code>,可以预见此函数第一步从初始值生成一个<code>Maybe Monad</code>，内涵类型是<code>(a,b)</code>，即一个元组，fst为新的元素，snd为下次迭代使用变量(初始值类型)。使用例子如下：</p>
-<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">unfoldr</span> (\b -&gt; <span class="keyword">if</span> b == <span class="number">0</span> <span class="keyword">then</span> <span class="type">Nothing</span> <span class="keyword">else</span> <span class="type">Just</span> (b, b<span class="number">-1</span>)) <span class="number">10</span> =&gt;[<span class="number">10</span>,<span class="number">9.</span><span class="number">.1</span>]</span><br></pre></td></tr></table></figure>
-<p>​    当然这个例子用语法糖<code>[10,9..1]</code>更容易理解。我们下面举一个比较复杂也很实用的例子：将某些值如timestamp、字节数转换为可读性较高的字符串。timestamp是一个长整型，大部分人类更容易理解”x小时y分钟z秒”这种可读性更好的字符串，类似字节数，<code>1234567890Byte</code>可能会给人造成困惑，而”1G,153M,384KB,722Byte”更容易用来和硬盘容量做对比。可以看到上面的字符串是由一个列表和单位混合而成,如[x,y,z] [‘小时’,’分钟’,’秒’]；为了获取[x,y,z]我们需要一个函数，将大整数k按照某进制分解为一个列表：</p>
-<blockquote>
-<p>$$K=\sum_{i=0}^n{U^i*x_i}$$</p>
-</blockquote>
-<p>​    其中$K$为需要分解的数，$U$是进制（两个相邻单位进制一样没有，考虑特殊的如天数-小时-分钟这种），$x_i$为第$i$个单位下的数量。观察上述公式，很明显可以对$K$取$U$的余数来获取$x_0$，递归求值得到：<br>$$<br>\frac{K_i}{U}=K_{i+1} \cdots\cdots x_i，i = 0,..n\\<br>specially,K_0=K<br>$$<br>​    结合unfoldr的递归函数，先给出对应分解函数依次求出$x_0…x_n$：</p>
-<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">digits</span> :: <span class="type">Integral</span> p =&gt; p -&gt; p -&gt; [p]</span><br><span class="line"><span class="title">digits</span> n = unfoldr f <span class="keyword">where</span></span><br><span class="line">    f <span class="number">0</span> = <span class="type">Nothing</span> <span class="comment">-- terminate</span></span><br><span class="line">    f r = <span class="type">Just</span> . swap $ r `divMod` n <span class="comment">-- divMod will generate (temp-result and x_i),x_i will be inserted to result</span></span><br></pre></td></tr></table></figure>
-<p>​    其中参数$n$为进制，由于unfoldr向右方生成元素，$x_0$将被放置在第一个元素。下面我们写几个例子看看效果：</p>
-<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Predule</span>&gt; digits <span class="number">10</span> <span class="number">123</span></span><br><span class="line">[<span class="number">3</span>,<span class="number">2</span>，<span class="number">1</span>]</span><br><span class="line"><span class="type">Predule</span>&gt; digits <span class="number">1024</span> <span class="number">2500</span></span><br><span class="line">[<span class="number">452</span>，<span class="number">2</span>]</span><br></pre></td></tr></table></figure>
-<p>​    完成上述分解之后，需要将单位和值整合为字符串，需要传入一个值、单位进制和单位描述：</p>
-<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">conv_units_humansize</span> :: <span class="type">Int</span> -&gt; <span class="type">Int</span> -&gt; [<span class="type">String</span>] -&gt; <span class="type">String</span></span><br><span class="line"><span class="title">conv_units_humansize</span> x n units = intercalate <span class="string">","</span> $ map (\a-&gt;show (fst a) ++ (snd a)) k <span class="keyword">where</span></span><br><span class="line">    k = reverse $ zip(digits n x) units</span><br></pre></td></tr></table></figure>
-<p>​    我们没有一开始将<code>digits</code>函数加上reverse，是为了方便zip自动适配两个列表长度，数量不够大单位时会自动截断右侧大单位。实际使用例子：</p>
-<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">units_conv</span> = <span class="keyword">do</span> </span><br><span class="line">    print $ conv_units_humansize <span class="number">61</span> <span class="number">60</span> [<span class="string">"Second"</span>,<span class="string">"Minute"</span>,<span class="string">"Hour"</span>] <span class="comment">-- "1Minute,1Second"</span></span><br><span class="line">    print $ conv_units_humansize <span class="number">1234567890</span> <span class="number">1024</span> [<span class="string">"Byte"</span>,<span class="string">"K"</span>,<span class="string">"M"</span>,<span class="string">"G"</span>,<span class="string">"T"</span>]<span class="comment">-- 1G,153M,384K,722Byte</span></span><br><span class="line">    print $ conv_units_humansize <span class="number">1717194</span> <span class="number">1000</span> [<span class="string">"g"</span>,<span class="string">"Kg"</span>,<span class="string">"t"</span>] <span class="comment">-- 1t,717Kg,194g</span></span><br></pre></td></tr></table></figure>
-<p>​    思考:<em>利用fold如何进行反向转换?</em></p>
-<h2 id="3-More…"><a href="#3-More…" class="headerlink" title="3 More…"></a>3 More…</h2><p>​    下面我们来尝试使用unfoldr来实现一个整数分解的函数，即将任意正整数分解为素数乘积的列表，如10分解为[2,5],因为任意整数都包含1因子，所以1不应进行分解，可设为终止条件.另外，素数只可分解为自身，即5-&gt;[5]。</p>
-<p>$$<br>\forall x&gt;1,x \in \mathbb{N}^+:x=\prod_{i=1}^n{p_i^{t_i}},p_i \in \phi;t_i,n\in \mathbb{N}^+<br>$$</p>
-<p>​    首先，我们需要得到一个素数列表$\phi$来辅助计算.目前比较高效的方法是利用Haskell的惰性计算，通过Eratosthenes筛法获得一个无限列表<a href="https://en.wikipedia.org/wiki/Eratosthenes" target="_blank" rel="noopener">^3</a>，然后再根据实际需要获取前N个素数。代码如下:</p>
-<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Eratosthenes筛法</span></span><br><span class="line"><span class="title">sieve</span> (p:xs) = p : sieve [x| x &lt;- xs , x `mod` p /=<span class="number">0</span> ]</span><br><span class="line"><span class="title">primes</span> = sieve [<span class="number">2.</span>.] <span class="comment">-- maxBound::Int</span></span><br></pre></td></tr></table></figure>
-<p>​    对primes列表使用take，可获取前100个素数：<code>take 100 primes</code>；也可以使用takeWhile函数获取小于100的所有素数:<code>takeWhile (&lt; 100) primes</code>：</p>
-<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">*<span class="type">Main</span>&gt; print $ take <span class="number">10</span> primes</span><br><span class="line">[<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">11</span>,<span class="number">13</span>,<span class="number">17</span>,<span class="number">19</span>,<span class="number">23</span>,<span class="number">29</span>]</span><br><span class="line">*<span class="type">Main</span>&gt; print $ takeWhile (&lt; <span class="number">100</span>) primes</span><br><span class="line">[<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">11</span>,<span class="number">13</span>,<span class="number">17</span>,<span class="number">19</span>,<span class="number">23</span>,<span class="number">29</span>,<span class="number">31</span>,<span class="number">37</span>,<span class="number">41</span>,<span class="number">43</span>,<span class="number">47</span>,<span class="number">53</span>,<span class="number">59</span>,<span class="number">61</span>,<span class="number">67</span>,<span class="number">71</span>,<span class="number">73</span>,<span class="number">79</span>,<span class="number">83</span>,<span class="number">89</span>,<span class="number">97</span>]</span><br></pre></td></tr></table></figure>
-<p>​    分解的算法也很简单，假设迭代函数处理整数$x$，如果$x=1$则返回<code>Nothing</code>终止迭代；否则从小于$\sqrt x$的素数集合查找第一个可以整除$x$的素数，如果找到此素数$y$，$x\equiv 0\mod{y}$，就将$y$放入分解结果，并设置$x=x/y$，进入下次迭代；还有一种情况，即$x$本身就是素数，那么素数集合中必然找不到$y$将其整除，这种情况可将$x$放入分解结果，并设置$x=1$，下次分解会自动终止。代码如下：</p>
-<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 任意整数的因数分解</span></span><br><span class="line"><span class="title">decompose</span> :: <span class="type">Integer</span> -&gt; [<span class="type">Integer</span>]</span><br><span class="line"><span class="title">decompose</span> x = unfoldr f x <span class="keyword">where</span></span><br><span class="line">    f <span class="number">1</span> = <span class="type">Nothing</span></span><br><span class="line">    f t = <span class="keyword">case</span> find (\j -&gt; t `mod` j == <span class="number">0</span>) (takeWhile (\y-&gt; y ^<span class="number">2</span> &lt;= t) primes) <span class="keyword">of</span></span><br><span class="line">        <span class="type">Nothing</span> -&gt; <span class="type">Just</span> (t, <span class="number">1</span>)</span><br><span class="line">        <span class="type">Just</span> a -&gt; <span class="type">Just</span> (a, t `div` a)</span><br></pre></td></tr></table></figure>
-<p>​    测试结果如下：</p>
-<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">*<span class="type">Main</span>&gt; decompose <span class="number">1</span></span><br><span class="line">[]</span><br><span class="line">*<span class="type">Main</span>&gt; decompose <span class="number">5</span></span><br><span class="line">[<span class="number">5</span>]</span><br><span class="line">*<span class="type">Main</span>&gt; decompose <span class="number">55</span></span><br><span class="line">[<span class="number">5</span>,<span class="number">11</span>]</span><br><span class="line">*<span class="type">Main</span>&gt; decompose <span class="number">550</span></span><br><span class="line">[<span class="number">2</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">11</span>]</span><br></pre></td></tr></table></figure>
-<p>​    利用素数相互互斥的性质:$\forall i\neq j: p_i \equiv 1\mod{p_j}$，我们在迭代函数里可一次取出多个素数因子，以提高效率：</p>
-<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">decompose</span> x = concat $ unfoldr f x <span class="keyword">where</span></span><br><span class="line">    f <span class="number">1</span> = <span class="type">Nothing</span></span><br><span class="line">    f t = <span class="keyword">case</span> [y | y&lt;-takeWhile (\y-&gt; y ^<span class="number">2</span> &lt;= t) primes, t `mod` y == <span class="number">0</span>] <span class="keyword">of</span></span><br><span class="line">        [] -&gt; <span class="type">Just</span> ([t], <span class="number">1</span>)</span><br><span class="line">        xs -&gt; <span class="type">Just</span> (xs, foldl div t xs)</span><br></pre></td></tr></table></figure>
-<p>​    不过这个函数对于多重因子($t_i&gt;1$)是多次迭代获取的,如<code>decompose 12</code>$\rightarrow$<code>[2,3,2]</code>。可以在获取结果之后再进行一次排序，获得和原来函数一致的结果:<code>decompose = sort.concat$unfoldr...</code>，当然你也可以使用group将相同的因子合并一下:<code>group decompose 12--[[2,2,2],[3]]</code></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://liudx1985.github.io/2019/01/15/Dynamic-planning-begining/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Liudx">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="不恋过往，不惧将来">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/15/Dynamic-planning-begining/" itemprop="url">Dynamic Programming</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-15T15:10:09+08:00">
-                2019-01-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">algorithm</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/01/15/Dynamic-planning-begining/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/01/15/Dynamic-planning-begining/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>​    <strong>Dynamic programming</strong> is a math method for some special problems<a href="https://en.wikipedia.org/wiki/Dynamic_programming" target="_blank" rel="noopener">^1</a>,for any $n$ ,the problem can be reduce to sub problems recursively.the Fibonacci is a typical DP problem:</p>
-<blockquote>
-<p>$$ fib(n) = fib(n-1) + fib(n-2) $$</p>
-</blockquote>
-<p>​    For a positive integer $n$ the result $fib(n)$ can be parted into two sub problems $fib(n-1)$ and $fib(n-2)$; for $n=0,1$ the result is <code>1</code> :</p>
-<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">fib</span> n</span><br><span class="line">    | (n == <span class="number">0</span>) = a</span><br><span class="line">    | (n == <span class="number">1</span>) = b</span><br><span class="line">    | otherwise = fib (n - <span class="number">1</span>) + fib (n - <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">where</span> a = <span class="number">1</span>; b = <span class="number">1</span></span><br></pre></td></tr></table></figure>
-<p>​    or a more complex version:</p>
-<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">fibs</span> = <span class="number">1</span> : <span class="number">1</span> : zipWith (+) fibs (tail fibs) <span class="comment">-- zipWith (x:xs) xs</span></span><br></pre></td></tr></table></figure>
-<h2 id="1-A-simple-example"><a href="#1-A-simple-example" class="headerlink" title="1. A simple example"></a>1. A simple example</h2><p>​    Suppose we have a ladder with $n$ steps, you can climb up one or two steps at one time, then how many method to reach the top of the ladder?<a href="http://www.csie.ntnu.edu.tw/~u91029/DynamicProgramming.html" target="_blank" rel="noopener">^2</a></p>
-<p><img src="/2019/01/15/Dynamic-planning-begining/ladder.png" alt=""></p>
-<p>​    This problem has lots of similar version, one of them is : we have a string with $n$ <code>1</code>s:’111…1’,  give a encoding method, $a$ denotes ‘1’ and $b$ denotes ‘11’, find the methods to encode this string.<br>$$<br>S_n=\underbrace{1…1}\\<br>\qquad\;n\\<br>Encode(S_n)=\begin{cases}<br>a…,\quad’1’ \quad concat\quad Encode(S_{n-1})\\<br>b…,\quad’11’\quad concat\quad Encode(S_{n-2})\<br>\end{cases}<br>$$</p>
-<p>​    The key  to solve these problems are decompose the original $n$-th problem into sub-problems, for the first one, we denote the solution for $n$ as $L(n)$. if we stand at the $n$-th step of the ladder, we can only access there <strong>from $n-2$-th by climb 2 steps</strong> or <strong>$n-1$-th by climb 1 step</strong>; So we get $L(n) = L(n-1)+L(n-2)$, some thing looks familiar? yes, that is just a Fibonacci function!</p>
-<p>​    Obviously,The second problem is also a Fibonacci.</p>
-<h2 id="2-Generate-Permutations"><a href="#2-Generate-Permutations" class="headerlink" title="2 Generate Permutations"></a>2 Generate Permutations</h2><p>​    In this part ,we want to generate all permutation for a positive integer $n$,not just getting the number of permutations:</p>
-<blockquote>
-<p>$$P_n=n!$$</p>
-</blockquote>
-<p>​    First, suppose we already get the solution for $n-1$ permutations $Perm(n-1)$ ,we can just insert the $n$ into all possible position to generate the $n$ permutations, for example:</p>
-<p>$$<br>\begin{align}<br>Perm(2)&amp;=[[1,2],[2,1]]\\<br>Perm(3)&amp;=\begin{cases}<br>insert\space ‘3’\space into\space[1,2]=&gt;[[3,1,2],[1,3,2],[1,2,3]]\\<br>insert\space ‘3’\space into\space[2,1]=&gt;[[3,2,1],[2,3,1],[2,1,3]]\\<br>\end{cases}\\<br>&amp;finally,\\<br>Perm(3)&amp;=[[3,1,2],[1,3,2],[1,2,3]] + [[3,2,1],[2,3,1],[2,1,3]]<br>\end{align}<br>$$<br>​    So $Perm(n)$ can be decomposed by inserting $n$ for all $Perm(n-1)$’s children.Here we can also checking the number of permutations, given the number of $Perm(n-1)$ is $P_{n-1}=(n-1)!$, for each child we can insert $n$ at n positions(head or after $n-1$ numbers),so $P_n = n\cdot P_{n-1} = n!$,it’s the first equation of this part.</p>
-<p>​    Haskell implement as following:</p>
-<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Data.List <span class="keyword">hiding</span> (<span class="title">permutations</span>)</span><br><span class="line"><span class="title">insert_loop</span> x [] = [[x]]</span><br><span class="line"><span class="title">insert_loop</span> x (x':xs) = (x:x':xs):[x':xs'|xs'&lt;-insert_loop x xs]</span><br><span class="line"></span><br><span class="line"><span class="title">permutation</span> [] = [[]]</span><br><span class="line"><span class="title">permutation</span> (x:xs) = concat [insert_loop x perm|perm &lt;- permutation xs]</span><br></pre></td></tr></table></figure>
-<h2 id="2-Sum-of-combinations"><a href="#2-Sum-of-combinations" class="headerlink" title="2 Sum of combinations"></a>2 Sum of combinations</h2><p>​    From math lectures in high school, we known this combination formula:<br>$$<br>\sum_{i=0}^n C_n^i = 2^n, n &gt;=1\quad\quad(1)<br>$$<br>​    here is a simple prove:<br>$$<br>\because C_{n+1}^i(Choose\space i\space items\space from\space n \space items) =<br>\begin{cases}<br>C_n^{i-1} (Choose\space i-1\space items\space from \space first\space n\space items,then\space append\space the\space last\space one)\\<br>C_n^{i}(Choose\space i\space items\space from \space first\space n\space items)\\<br>\end{cases}\\<br>\\<br>\therefore C_{n+1}^i=C_{n}^i+C_{n}^{i-1}\quad \quad(2)\\<br>for\space n=1,the\space formula(1)\space is\space obvious.\\<br>suppose\space the\space formula(1)\space is\space right\space for\space n:\sum_{i=0}^{n}C_{n}^i+C_n^{n+1}=2^n;\\<br>we\space check\space the\space n+1:\\<br>\sum_{i=0}^{n+1} C_{n+1}^{i} = \sum_{i=0}^{n+1}(C_{n}^i+C_{n}^{i-1})<br>=\sum_{i=0}^{n+1}C_{n}^i +\sum_{i=0}^{n+1}C_{n}^{i-1}\\<br>for\space the\space first\space part\space above,\sum_{i=0}^{n+1}C_{n}^i=\sum_{i=0}^{n}C_{n}^i+C_n^{n+1}=2^n\\<br>for\space the \space second\space part,let \space j = i-1(j=0…n),we\space get:\\<br>\sum_{i=0}^{n+1}C_{n}^{i-1}=\sum_{i=1}^{n+1}C_{n}^{i-1}=\sum_{j=0}^{n}C_{n}^{j}=2^n\\<br>\therefore \sum_{i=0}^{n+1} C_{n+1}^{i}=2^n+2^n=2^{n+1}\\<br>\blacksquare QED.<br>$$</p>
-<p>​    </p>
-<hr>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://liudx1985.github.io/2019/01/11/hello-world/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Liudx">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="不恋过往，不惧将来">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/11/hello-world/" itemprop="url">Start 2019</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-11T11:12:34+08:00">
-                2019-01-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/01/11/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/01/11/hello-world/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>&copy; 2018 <em><u>All rights reserved by liudx .</u>:smile: </em> </p>
-<p>==No body can live without H~2~0 and knowledge==</p>
-<h2 id="1-Tools"><a href="#1-Tools" class="headerlink" title="1 Tools"></a>1 Tools</h2><ul>
-<li>MicroSoft&reg; VScode用来写前端代码，推荐安装插件Markdown All in One写文档，Preview用于预览HTML;SublimeText Keymap用于替换vscode的快捷键</li>
-<li><a href="https://www.listary.com/" target="_blank" rel="noopener">listary</a>和everything一样，是一个强大的windows快速本地搜索工具</li>
-<li>ripgrep是windows下的grep命令行工具,使用方法:<code>rg text</code>or <code>rg --maxdepth 1 text</code></li>
-<li>systemd:<code>systemctl hostnamectl loginctl</code> <a href="https://linuxtools-rst.readthedocs.io/zh_CN/latest/index.html" target="_blank" rel="noopener">ref</a></li>
-</ul>
-<h2 id="2-Python"><a href="#2-Python" class="headerlink" title="2 Python"></a>2 Python</h2><p>Python:第三方库：scipy,matplotlib,fabric(remote batch),requests(network)</p>
-<ul>
-<li><p>pip upgrade: <code>$Python\Scripts\easy_install.exe pip==8.1.2</code>,修改国内源：新建文件C:\Users\Admin\pip\pip.ini:</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[global]</span></span><br><span class="line"><span class="attr">index-url</span> = https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Jupyter notebook:用于交互式编写python脚本,支持markdown语法，安装方法<code>$pip install jupyter -i https://pypi.tuna.tsinghua.edu.cn/simple</code> </p>
-</li>
-<li><p>启动<code>jupyter notebook --no-browser</code>,访问 <code>http://localhost:8888</code></p>
-</li>
-<li><p>new python3 notebook,save as *.ipynb file</p>
-<ul>
-<li><code>%magic</code>支持魔术命令如 <code>%run script.py</code>=<code>!python script.py</code></li>
-<li>引用系统命令eg:<code>!echo %cd%</code></li>
-</ul>
-</li>
-</ul>
-<h2 id="3-Hexo-1"><a href="#3-Hexo-1" class="headerlink" title="3 Hexo^1"></a>3 Hexo<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">^1</a></h2><p>A blog system<a href="https://zhuanlan.zhihu.com/p/26625249" target="_blank" rel="noopener">^2</a>, recommand <a href="https://github.com/theme-next" target="_blank" rel="noopener">nexT</a> theme, if you want to suppoer letax, modify next/_config.yml:<em>mathjax</em> </p>
-<h2 id="4-Typora-hearts"><a href="#4-Typora-hearts" class="headerlink" title="4 Typora &hearts;"></a>4 Typora &hearts;</h2><p>The best markdown editor.</p>
-<hr>
-<ul>
-<li>修改行宽度_@C:\Users\ADMIN\AppData\Roaming\Typora\themes\newsprint.css ==max-width: 1920px;==}</li>
-</ul>
-<hr>
-<p>Draw graph example:</p>
-<ul>
-<li><p>flow</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">st=&gt;start: 开始框</span><br><span class="line">op=&gt;operation: 处理框</span><br><span class="line">cond=&gt;condition: 判断框(是或否?)</span><br><span class="line">sub1=&gt;subroutine: 子流程</span><br><span class="line">io=&gt;inputoutput: 输入输出框</span><br><span class="line">e=&gt;end: 结束框</span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;io-&gt;e</span><br><span class="line">cond(no)-&gt;sub1(right)-&gt;op</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>mermaid <a href="https://mermaidjs.github.io/" target="_blank" rel="noopener">^</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">    </span><br><span class="line">    subgraph *开源代码协议*</span><br><span class="line">    	open_source[他人修改源码后 &lt;br/&gt; 是否可以闭源?]-- no --&gt;add_with_same_lic[新增代码是否&lt;br/&gt;采用同样许可证?]</span><br><span class="line">    	open_source-- yes --&gt;mod_with_lic[每一个修改过的文件&lt;br&gt;是否都必须&lt;/br&gt;放置版权说明?]</span><br><span class="line">    	add_with_same_lic--no--&gt;mod_need_doc[是否需要对源码的&lt;br&gt;修改之处,&lt;/br&gt;提供说明文档?]    	</span><br><span class="line">    	mod_need_doc--no--&gt;LGPL(LGPL许可证)</span><br><span class="line">    	mod_need_doc--yes--&gt;Moz(Mozilla许可证)</span><br><span class="line">    	add_with_same_lic--yes--&gt;GPL(GPL许可证)</span><br><span class="line">    	mod_with_lic--no--&gt;sale_with_ownname[衍生软件的广告是否可以&lt;br/&gt;使用你的名字促销?]</span><br><span class="line">    	sale_with_ownname--no--&gt;BSD(BSD许可证)</span><br><span class="line">    	sale_with_ownname--yes--&gt;MIT(MIT许可证)</span><br><span class="line">    	mod_with_lic--yes--&gt;Apache(Apache许可证)</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line">    %% Notice following class def </span><br><span class="line">     classDef green fill:#9f6,stroke:#333,stroke-width:2px;</span><br><span class="line">     classDef orange fill:#f96,stroke:#333,stroke-width:4px;</span><br><span class="line">     class open_source,add_with_same_lic,mod_with_lic,mod_need_doc,sale_with_ownname green</span><br><span class="line">     class LGPL,Moz,GPL,BSD,MIT,Apache orange</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">gantt</span><br><span class="line">        dateFormat  YYYY-MM-DD</span><br><span class="line">        title Adding GANTT diagram functionality to mermaid</span><br><span class="line">	section A section</span><br><span class="line">        Completed task            :done,    des1, 2014-01-06,2014-01-08</span><br><span class="line">        Active task               :active,  des2, 2014-01-09, 3d</span><br><span class="line">        Future task               :         des3, after des2, 5d</span><br><span class="line">        Future task2              :         des4, after des2, 7d</span><br><span class="line">	section Critical tasks</span><br><span class="line">        Completed task in the critical line :crit, done, 2014-01-06,24h</span><br><span class="line">        Implement parser and jison          :crit, done, after des1, 2d</span><br><span class="line">        Create tests for parser             :crit, active, 3d</span><br><span class="line">        Future task in critical line        :crit, 5d</span><br><span class="line">        Create tests for renderer           :after des3,2d</span><br><span class="line">        Add to mermaid                      :1d</span><br></pre></td></tr></table></figure>
-<h2 id="5-LaTeX-Code"><a href="#5-LaTeX-Code" class="headerlink" title="5 $\LaTeX$ Code"></a>5 $\LaTeX$ Code</h2><h3 id="1-二次方程求根公式"><a href="#1-二次方程求根公式" class="headerlink" title="1. 二次方程求根公式:"></a>1. 二次方程求根公式:</h3><blockquote>
-<p>$$<br>x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}<br>$$</p>
-</blockquote>
-<h3 id="2-三角和公式"><a href="#2-三角和公式" class="headerlink" title="2. 三角和公式:"></a>2. 三角和公式:</h3><blockquote>
-<p>$$<br>\sin(\alpha+\beta) = \sin(\alpha)\cdot\cos(\beta)+\cos(\alpha)\cdot\sin(\beta)<br>$$</p>
-</blockquote>
-<p>​    简单证明如下：</p>
-<p>​    平面上两个单位向量，与x轴正向夹角分别为$x$和$y$，则这两个向量分别为$\vec{\alpha}(\cos x,\sin x),\quad\vec{\beta}(\cos y,\sin y)$。则这两个向量的点积为$\cos x\cos y+\sin x\sin y$,而点积又可以表示为$|\vec{\alpha}|\cdot|\vec{\beta}|\cdot\cos|x-y|=\cos(x-y)$,于是我们得到了以下公式：</p>
-<p>$$<br>\cos(x-y)=\cos x\cos y+\sin x\sin y \quad\quad (1)<br>$$<br>​    将(1)中的$\boldsymbol{y}$换成$\boldsymbol{-y}$得到：</p>
-<p>$$<br>\cos(x+y)=\cos x\cos y-\sin x\sin y \quad\quad(2)<br>$$<br>​    将(1)中的$\boldsymbol{x}$用$\frac{\pi}{2} -x$代入，得到：</p>
-<p>$$<br>\sin(x+y)=\sin x\cos y+\sin y\cos x\quad\quad(3)<br>$$<br>​    将(3)中的$\boldsymbol{y}$用$\boldsymbol{-y}$代入，得到:</p>
-<p>$$<br>\sin(x-y)=\cos y\sin x-\cos x\sin y\quad\quad(4)<br>$$</p>
-<h3 id="3-欧拉公式-棣莫弗公式"><a href="#3-欧拉公式-棣莫弗公式" class="headerlink" title="3. 欧拉公式\棣莫弗公式:"></a>3. 欧拉公式\棣莫弗公式:</h3><blockquote>
-<p>$$<br>z = r\cdot e^{2\pi i},\quad e^{ix}=cosx+isinx \to e^{i\pi}+1=0\\<br>de\space Moivre’s\space Formula: (cos(x)+isin(x))^n=cos(nx)+isin(nx) = e^{i(nx)},x \in C,n \in R<br>$$</p>
-</blockquote>
-<h3 id="4-常用公式"><a href="#4-常用公式" class="headerlink" title="4. 常用公式:"></a>4. 常用公式:</h3><blockquote>
-<p>$$<br>复数域C；实数域R；有理数域Q \<br>自然常数：e =\lim_{x\to \infty}(1+1/x)^x，e^x =1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+\dots\\<br>欧拉定理： a^{\psi(n)}\equiv 1\space mod(n)，(\psi(n)欧拉函数为小于n的素数个数);特别有a^{p-1}\equiv 1\space mod(p)，当p为素数，a&gt;2\\<br>正太分布(高斯分布,probability\space density\space function)：p(x|\mu,\sigma^2)=\frac{1}{\sqrt{2\pi}\sigma}e^{\dfrac{-（x-\mu）^2}{2\sigma^2}}\\<br>概率分布(或称CDF:累积分布,cumulative\space distribution\space  function):F_X(a) = P(x\le a)\\<br>傅里叶变换：\hat{f}(\xi)=\int_{-\infty}^{\infty}{f(x)e^{-2\pi ix \xi}}dx,\xi \in R\\<br>fourier逆变换:{f}(x)=\int_{-\infty}^{\infty}{\hat{f}(\xi)e^{2\pi i\xi x}}d\xi, x \in R\\<br>离散傅里叶变换(DFT):X_k=\sum_{n=0}^{N-1}x_ne^{-i2\pi k\dfrac{n}{N}},k=0,1\dots,N-1,x_n \in C.\\<br>离散余弦变换(DCT-II):f_m=\sum_{k=0}^{n-1}x_kcos\Big[\dfrac{\pi}{n}m(k+\frac{1}{2})\Big],k=0,1\dots,N-1,x_n \in C.\\<br>Gamma function:\Gamma (x)=\int_{0}^{\infty}t^{x-1}e^{-t}dt = (x-1)!\\<br>Beta Function:B(x,y)=\dfrac{\Gamma(x)\Gamma(y)}{\Gamma(x+y)}=\int_{0}^{1}{t^x(1-t)^y}dt<br>$$</p>
-</blockquote>
-<h3 id="5-积分-求导More-Basical-Equation"><a href="#5-积分-求导More-Basical-Equation" class="headerlink" title="5. 积分\求导More Basical Equation"></a>5. 积分\求导<a href="https://zhuanlan.zhihu.com/p/44016474" target="_blank" rel="noopener">More Basical Equation</a></h3><blockquote>
-<p>$$<br>Dirak\space function:\delta(x)=\begin{cases}<br>    0,x=0 \\<br>    \infty,x \neq 0\end{cases} \quad s.t.\int_{-\infty}^{\infty}{\delta(x)}dx = 1 \\<br>Hooke\space theroy:F=-kx=\dfrac {dx^2}{dt^2}<br>$$</p>
-</blockquote>
-<h3 id="6-fibonacci若干性质"><a href="#6-fibonacci若干性质" class="headerlink" title="6. fibonacci若干性质"></a>6. fibonacci若干性质</h3><blockquote>
-<p>$$<br>f(n)=f(n+1)-f(n-1)\\<br>f(n)=[f(n+1)+f(n-2)]/2\\<br>\sum_{i=1}^{n}{f^2(i)}=f(n)\cdot f(n-1)\\<br>\lim_{x\to\infty}\frac{f(n)}{f(n+1)}=\frac{1-\sqrt{5}}{2}\approx 0.618<br>$$</p>
-</blockquote>
-<h3 id="7-MATRIX"><a href="#7-MATRIX" class="headerlink" title="7.MATRIX"></a>7.MATRIX</h3><p>​    假设单位向量$\overrightarrow{u}坐标为(\sin x,\cos x)$，旋转$\theta$后变为向量$\overrightarrow{u’}坐标为(\sin y,\cos y)$,由内积和<a href="https://zh.wikipedia.org/wiki/%E5%8F%89%E7%A7%AF" target="_blank" rel="noopener">外积</a>定义可得：</p>
-<p>$$<br>\overrightarrow{u}\cdot\overrightarrow{u’} = \cos \theta = \cos x \cos y + \sin x \sin y \quad\quad(5)\\<br>\overrightarrow{u}\times\overrightarrow{u’}=\sin \theta =<br>\begin{vmatrix}<br>i &amp; j &amp; k\\<br>\cos x &amp; \sin x  &amp;0\\<br>\cos y &amp; \sin y  &amp;0\\<br>\end{vmatrix}=<br>\cos x \sin y - \sin x \cos y \quad\quad(6)<br>$$<br>​    另有</p>
-<p>$$<br>\sin^2 \theta + \cos^2 \theta = 1\quad\quad(7)<br>$$</p>
-<p>​    由$(5)\cdot \sin x +(6)\cdot \cos x解得\sin y$;由$(5)\cdot \cos x -(6)\cdot \sin x解得\cos y$:<br>$$<br>\begin{cases}<br>\sin y = \sin x\cdot\cos\theta+ \cos x\cdot \sin \theta\\<br>\cos y = \cos x\cdot\cos\theta-\sin x\cdot\sin\theta<br>\end{cases}<br>$$<br>​    即2维旋转矩阵(S2)：</p>
-<blockquote>
-<p>$$<br>\begin{pmatrix} \cos y\\ \sin y \end{pmatrix}=\begin{vmatrix}<br>\cos\theta &amp; -\sin\theta\\<br>\sin\theta &amp; \cos\theta\\<br>\end{vmatrix}\cdot<br>\begin{pmatrix} \cos x\\ \sin x \end{pmatrix}\quad(8)<br>$$<br>​    同理可得三维旋转矩阵(S3)为:</p>
-</blockquote>
-<blockquote>
-<p>$$<br>R_x(\omega)=\begin{bmatrix}<br>1 &amp; 0 &amp; 0\\<br>0 &amp; cos\omega &amp; -sin\omega\\<br>0 &amp; sin\omega &amp; cos\omega\\<br>\end{bmatrix}，<br>R_y(\phi)=\begin{bmatrix}<br>cos\phi &amp;0 &amp; -sin\phi\\<br>0 &amp; 1 &amp; 0 \\<br>sin\phi &amp;0 &amp; cos\phi\\<br>\end{bmatrix}，<br>R_z(\kappa)=\begin{bmatrix}<br>cos\kappa &amp; -sin\kappa &amp;0\\<br>sin\kappa &amp; cos\kappa &amp;0\\<br>0 &amp;0 &amp;1 \\<br>\end{bmatrix}\\<br>R=R_z(\kappa)\cdot R_y(\phi)\cdot R_x(\omega) = \begin{bmatrix}<br>cosϕ⋅cosκ&amp; −cosϕ⋅sinκ&amp;sinϕ\\<br>cosω⋅sinκ+sinω⋅sinϕ⋅cosκ &amp; cosω⋅cosκ−sinω⋅sinϕ⋅sinκ &amp;−sinω⋅cosϕ \\<br>sinω⋅sinκ−cosω⋅sinϕ⋅cosκ &amp; sinω⋅cosκ+cosω⋅sinϕcdotsinκ &amp;cosω⋅cosϕ\end{bmatrix}<br>$$</p>
-</blockquote>
-<h3 id="8-Riemann-Function-Zeta"><a href="#8-Riemann-Function-Zeta" class="headerlink" title="8. Riemann Function (Zeta)"></a>8. Riemann Function (Zeta)</h3><p>$$<br>\zeta(s) = \sum_0^\infty \frac{1}{n^s}, s \in R\space and\space Real(s) &gt; 1\\<br>specially,\zeta(2) = \frac{\pi^2}{6}<br>$$</p>
-<h3 id="9-系统可靠性-Realibality"><a href="#9-系统可靠性-Realibality" class="headerlink" title="9.系统可靠性(Realibality)"></a>9.系统可靠性(Realibality)</h3><p>$$<br>可靠度R=\begin{cases}R=\prod_i^nR_i,串联系统\\R=\prod_i^n(1-R_i),并联系统\end{cases}<br>$$<br>失效率$\lambda$与可靠度R关系为:<br>$$<br>R=e^{-\lambda t}<br>$$</p>
-<h3 id="10-Amdahl定律"><a href="#10-Amdahl定律" class="headerlink" title="10. Amdahl定律"></a>10. Amdahl定律</h3><p>$$<br>F = \frac{1}{1-F_e + F_e/S},其中Fe为子系统占比，S为加速倍数，计算整个系统提升百分比<br>$$</p>
-<p><hr style="width: 91%; height: 2px; border: none; background-color: #f00"><br><strong>参考markdown文档链接</strong><a href="http://www.markdown.cn/#overview" target="_blank" rel="noopener">^3</a>,Markdown使用LeTax书写数学公式<a href="https://www.codecogs.com/latex/eqneditor.php?lang=zh-cn" target="_blank" rel="noopener">^4</a>:</p>
-<p>其他待办事项：</p>
-<ul>
-<li style="list-style: none"><input type="checkbox"> Using jupyter notebook, write more things using markdown &amp; LeTax</li>
-<li style="list-style: none"><input type="checkbox"> <a href="http://www.matrix67.com/blog/archives/5100" target="_blank" rel="noopener">跨越千年的RSA算法</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
-
-
-          </div>
-          
-
-
-          
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">Liudx</p>
-              <p class="site-description motion-element" itemprop="description"></p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">8</span>
-                  <span class="site-state-item-name">posts</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">categories</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">tags</span>
-                </a>
-              </div>
-            
-
-          </nav>
-
-          
-
-          
-
-          
-          
-
-          
-          
-
-          
-
-        </div>
-      </section>
-
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Liudx</span>
-
-  
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://liudx1985.gitee.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
 </div>
-
-
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
-
-
-
-
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+    <div class="container">
+        &copy; 2024 <a href="https://liudx1985.gitee.io/">清风竹影 By 清风竹影</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/flysnow-org/maupassant-hugo" target="_blank">maupassant</a>.
         
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    </div>
+</footer>
 
-  
-    <span class="site-uv">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      人次
-    </span>
-  
 
-  
-    <span class="site-pv">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      次
-    </span>
-  
-</div>
 
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
 
 
 
 
 
 
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-  </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-  
-  <script type="text/javascript">
-    var GUEST = ['nick','mail','link'];
-    var guest = 'nick,mail,link';
-    guest = guest.split(',').filter(item=>{
-      return GUEST.indexOf(item)>-1;
-    });
-    new Valine({
-        el: '#comments' ,
-        verify: false,
-        notify: false,
-        appId: 'bhCs80fQJM6MqoDtO47zYfoT-gzGzoHsz',
-        appKey: 'kzQ2bigd8pslL96pQIpOj2hr',
-        placeholder: 'Comment here!',
-        avatar:'mm',
-        guest_info:guest,
-        pageSize:'10' || 10,
-    });
-  </script>
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  
-
-
-  
-
-  
 
 </body>
+
 </html>
