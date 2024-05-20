@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Javascript迭代器、生成器、异步 | 清风竹影</title>
+    <meta property="og:title" content="Javascript迭代器、生成器、异步 - 清风竹影">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2023-07-26T16:42:51&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2023-07-26T16:42:51&#43;08:00'>
+        
+    <meta name="Keywords" content="清风竹影,Javascript,c&#43;&#43;,Haskell,python,软件架构,数据分析,小程序">
+    <meta name="description" content="Javascript迭代器、生成器、异步">
+        
+    <meta name="author" content="清风竹影">
+    <meta property="og:url" content="https://liudx1985.gitee.io/post/js_generator/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <meta name="MediaType" content="application/octet-stream">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link href="/kityminder/mindmap.css?_=1416390706100" type="text/css" rel="stylesheet" />
+    <link href="/kityminder/kityminder.core.css?_=1416390706100" type="text/css" rel="stylesheet" />
+    <script src="/kityminder/kity.min.js?_=1416390706100" charset="utf-8"></script>
+    <script src="/kityminder/kityminder.core.min.js?_=1416390706100" charset="utf-8"></script>
+    <script src="/kityminder/mindmap.min.js?_=1416390706100" charset="utf-8"></script>
+
+    
+
+
+    
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://liudx1985.gitee.io/">
+                        清风竹影
+                    </a>
+                
+                <p class="description">前C&#43;&#43;码农 ，Python和Javascript练习两年半. 会耍一点Haskell、数据分析、略懂系统架构设计；</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://liudx1985.gitee.io/">首页</a>
+                    
+                    <a  href="https://liudx1985.gitee.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://liudx1985.gitee.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">Javascript迭代器、生成器、异步</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2023年7月26日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/web'>web</a></span>
+            
+        </div>
+        
+        
+        
+        <div class="post-content">
+            <h2 id="1-javascript--迭代器">1 Javascript  迭代器</h2>
+<p>ES6 新增了一个新玩具iterator:迭代器<code>iterator</code>协议<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>主要规定了<strong>可迭代协议</strong>允许 JavaScript 对象定义或定制它们的迭代行为，例如，在一个 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/for...of"><code>for..of</code></a> 结构中，哪些值可以被遍历到。一些内置类型同时是<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Iteration_protocols#%E5%86%85%E7%BD%AE%E7%9A%84%E5%8F%AF%E8%BF%AD%E4%BB%A3%E5%AF%B9%E8%B1%A1">内置的可迭代对象</a>，并且有默认的迭代行为，比如 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array"><code>Array</code></a> 或者 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Map"><code>Map</code></a>，而其他内置类型则不是（比如 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object"><code>Object</code></a>）。下面是一个简单的fibonacci迭代器，可以无限生产一个数列<code>1,1,2,3,5,8...</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @description function *迭代器对象
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @returns a fibonacci iterable object
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">fib</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    [<span style="color:#a6e22e">Symbol</span>.<span style="color:#a6e22e">iterator</span>]() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">n1</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">n2</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// 使迭代器编程iterable
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            [<span style="color:#a6e22e">Symbol</span>.<span style="color:#a6e22e">iterator</span>]() { <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>; },
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">next</span>() {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">c</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">n2</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">n2</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">n1</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">n1</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">n1</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">c</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> { <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">c</span>, <span style="color:#a6e22e">done</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span> };
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span>(<span style="color:#a6e22e">v</span>) {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Fibonacci seq abandoned&#34;</span>)
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> { <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">v</span>, <span style="color:#a6e22e">done</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span> };
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">v</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">fib</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">v</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">v</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">50</span>) <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="2-生成器">2. 生成器</h2>
+<p>由于迭代器的语法太过繁琐，ES6为我们提供一个很甜的语法糖<code>generator function</code><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>,更容易编写和阅读。下面是那个例子的生成器实现，可以看到简单了亿点点：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @description function *生成器函数 (generator function)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @returns a fibonacci generator
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// fibonacci generator
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span><span style="color:#f92672">*</span> <span style="color:#a6e22e">fib_generator</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">n1</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">n2</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (<span style="color:#66d9ef">true</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">c</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">n2</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">n2</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">n1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">n1</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">n1</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">c</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">yield</span> <span style="color:#a6e22e">c</span> <span style="color:#75715e">// return {value=?, done=?}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">gen</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fib_generator</span>();
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">gen</span>.<span style="color:#a6e22e">next</span>().<span style="color:#a6e22e">value</span>);<span style="color:#75715e">// expected output: 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">gen</span>.<span style="color:#a6e22e">next</span>().<span style="color:#a6e22e">value</span>);<span style="color:#75715e">// expected output: 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">10</span>; <span style="color:#f92672">++</span><span style="color:#a6e22e">i</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">gen</span>.<span style="color:#a6e22e">next</span>().<span style="color:#a6e22e">value</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">v</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">fib_generator</span>()) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">v</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">v</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">50</span>) <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// take n elements from a generator
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span><span style="color:#f92672">*</span> <span style="color:#a6e22e">take</span>(<span style="color:#a6e22e">g</span>, <span style="color:#a6e22e">n</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">_g</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">g</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (<span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">n</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_g</span>.<span style="color:#a6e22e">next</span>()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">next</span>.<span style="color:#a6e22e">done</span>) <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">yield</span> <span style="color:#a6e22e">next</span>.<span style="color:#a6e22e">value</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// test take~
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">x</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">take</span>(<span style="color:#a6e22e">fib_generator</span>, <span style="color:#ae81ff">5</span>)) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">x</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// take elements from a generator , with elements `x` fullfill f(x)=true
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span><span style="color:#f92672">*</span> <span style="color:#a6e22e">take_while</span>(<span style="color:#a6e22e">g</span>, <span style="color:#a6e22e">f</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">_g</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">g</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (<span style="color:#66d9ef">true</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_g</span>.<span style="color:#a6e22e">next</span>()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">next</span>.<span style="color:#a6e22e">done</span> <span style="color:#f92672">||</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">f</span>(<span style="color:#a6e22e">next</span>.<span style="color:#a6e22e">value</span>)) <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">yield</span> <span style="color:#a6e22e">next</span>.<span style="color:#a6e22e">value</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">x</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">take_while</span>(<span style="color:#a6e22e">fib_generator</span>, (<span style="color:#a6e22e">x</span>)=&gt;<span style="color:#a6e22e">x</span><span style="color:#f92672">&lt;</span><span style="color:#ae81ff">100</span>)){
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">x</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>​	好吧，我承认是加了一些私货。下面的<code>take/take_while</code>是一个高阶函数，用于从生成器提取若干、满足条件的结果。注意他们本身也是生成器:)</p>
+<h2 id="2-异步生成器3">2 异步生成器<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></h2>
+<p>好了，现在开始上难度！来一个异步生成器锻炼下大脑。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">f</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">i</span>) =&gt; <span style="color:#66d9ef">new</span> Promise(<span style="color:#a6e22e">resolve</span> =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">setTimeout</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">resolve</span>(<span style="color:#a6e22e">i</span>)
+</span></span><span style="display:flex;"><span>    }, Math.<span style="color:#a6e22e">random</span>() <span style="color:#f92672">*</span> <span style="color:#ae81ff">1000</span>)
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 异步生成器~ [async function*]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span><span style="color:#f92672">*</span> <span style="color:#a6e22e">foo</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>; <span style="color:#f92672">--</span><span style="color:#a6e22e">i</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">yield</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">f</span>(<span style="color:#a6e22e">i</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">generate</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> <span style="color:#66d9ef">await</span> (<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">val</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">foo</span>()) { <span style="color:#75715e">// 注意 for 后面的await~
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">val</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//console.log(str);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">generate</span>();  <span style="color:#75715e">// Expected output: &#34;10 9 8 7...&#34;,模拟随机时间间隔输出。
+</span></span></span></code></pre></div><p>这里的foo没有啥特别的，就是生成器加上一个async关键字，变为返回异步Promise。主要是generate里面，for必须await，如不加这个等待，foo直接返回,无法获取到值。官网给出了一个实用的例子用于读取文件目录：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span><span style="color:#f92672">*</span> <span style="color:#a6e22e">readFiles</span>(<span style="color:#a6e22e">directory</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">files</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">readdir</span>(<span style="color:#a6e22e">directory</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">file</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">files</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">stats</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">stat</span>(<span style="color:#a6e22e">file</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">stats</span>.<span style="color:#a6e22e">isFile</span>()) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">yield</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">file</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">content</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">readFile</span>(<span style="color:#a6e22e">file</span>, <span style="color:#e6db74">&#34;utf8&#34;</span>),
+</span></span><span style="display:flex;"><span>      };
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">files</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">readFiles</span>(<span style="color:#e6db74">&#34;.&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>((<span style="color:#66d9ef">await</span> <span style="color:#a6e22e">files</span>.<span style="color:#a6e22e">next</span>()).<span style="color:#a6e22e">value</span>);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 可能的输出；{ name: &#39;file1.txt&#39;, content: &#39;...&#39; }
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>((<span style="color:#66d9ef">await</span> <span style="color:#a6e22e">files</span>.<span style="color:#a6e22e">next</span>()).<span style="color:#a6e22e">value</span>);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 可能的输出：{ name: &#39;file2.txt&#39;, content: &#39;...&#39; }
+</span></span></span></code></pre></div><h2 id="3-来实现一个生产者-消费者设计">3 来实现一个生产者-消费者设计！</h2>
+<p>首先我们需要设计一个锁来帮助同步，由<code>Promise/await</code><sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>,我们只需要偷走Promise里面的resolve（lock），放在合适的地方调用（unlock)，即可完成一个简单的锁，不多说，看注释：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">lock</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">constructor</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">locked</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">isLocked</span>() { <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">locked</span> <span style="color:#f92672">!==</span> <span style="color:#66d9ef">null</span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">lock</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">locked</span> <span style="color:#f92672">===</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">locked</span> <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// console.log(&#39;locked&#39;)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">await</span> <span style="color:#66d9ef">new</span> Promise(<span style="color:#a6e22e">resolve</span> =&gt; {
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// console.log(&#39;blocked&#39;, resolve)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">locked</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">resolve</span>) <span style="color:#75715e">// SAVE resolve【1】
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            });
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">unlock</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">locked</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">locked</span>.<span style="color:#a6e22e">length</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">//this.locked.shift()();
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">resolve</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">locked</span>.<span style="color:#a6e22e">splice</span>(Math.<span style="color:#a6e22e">random</span>() <span style="color:#f92672">*</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">locked</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>)[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// console.log(&#39;unlocked&#39;, resolve)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#a6e22e">resolve</span>() <span style="color:#75715e">//  解锁后pop的Promise 【1】处返回，继续执行。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">locked</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 休眠mili-sec.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">sleep</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">async</span> (<span style="color:#a6e22e">msec</span>) =&gt; <span style="color:#66d9ef">new</span> Promise(<span style="color:#a6e22e">resolve</span> =&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">setTimeout</span>(() =&gt; <span style="color:#a6e22e">resolve</span>(), <span style="color:#a6e22e">msec</span>)
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// test with &#39;await f()&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">f</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">sleep</span>(<span style="color:#ae81ff">1500</span>); <span style="color:#75715e">// 1.5秒后执行后面的语句
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Yoo!&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">lock</span>, <span style="color:#a6e22e">sleep</span> }
+</span></span></code></pre></div><p>利用这个锁，我们很容易设计一个生产者-消费者模型,如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">lock</span>, <span style="color:#a6e22e">sleep</span> <span style="color:#75715e">// Define a variable t.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>} <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;./lock&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">max_</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span> <span style="color:#75715e">// 队列最大值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">lck_empty</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">lock</span>(); <span style="color:#75715e">// lock if queue empty
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">lck_full</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">lock</span>();<span style="color:#75715e">// lock if queue full[&gt;max]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">msg_id</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;<span style="color:#75715e">// 消息ID
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//生产者-消费者设计模式
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Producer</span>(<span style="color:#a6e22e">id</span>, <span style="color:#a6e22e">queue</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (<span style="color:#66d9ef">true</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">queue</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">max_</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`Producer</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">id</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> 等待消费`</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">lck_full</span>.<span style="color:#a6e22e">lock</span>(); <span style="color:#75715e">// 等待消费
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`Producer </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">id</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">sleep</span>(<span style="color:#ae81ff">1000</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">queue</span>.<span style="color:#a6e22e">push</span>({ <span style="color:#a6e22e">id</span>, <span style="color:#a6e22e">msg</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">msg_id</span><span style="color:#f92672">++</span> })
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Producer#&#39;</span>, <span style="color:#a6e22e">id</span>, <span style="color:#e6db74">&#34;-&gt;&#34;</span>, <span style="color:#a6e22e">msg_id</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">lck_empty</span>.<span style="color:#a6e22e">unlock</span>(); <span style="color:#75715e">// 通知消费 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Consumer</span>(<span style="color:#a6e22e">id</span>, <span style="color:#a6e22e">queue</span>, <span style="color:#a6e22e">resolve</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (<span style="color:#66d9ef">true</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// acuire message from queue.~
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">queue</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`Consumer</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">id</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> 等待生产`</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">lck_empty</span>.<span style="color:#a6e22e">lock</span>(); <span style="color:#75715e">// 等待生产
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">sleep</span>(<span style="color:#ae81ff">2000</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">resolve</span>(<span style="color:#a6e22e">queue</span>.<span style="color:#a6e22e">shift</span>())
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">lck_full</span>.<span style="color:#a6e22e">unlock</span>(); <span style="color:#75715e">// 通知生产
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MessageQueue</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">constructor</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">queue</span> <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">async</span> <span style="color:#a6e22e">createProcuder</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">3</span>; <span style="color:#f92672">++</span><span style="color:#a6e22e">i</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;create p&#39;</span>, <span style="color:#a6e22e">i</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">Producer</span>(<span style="color:#a6e22e">i</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">queue</span>)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">async</span> <span style="color:#a6e22e">createConsumer</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">2</span>; <span style="color:#f92672">++</span><span style="color:#a6e22e">i</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;create c&#39;</span>, <span style="color:#a6e22e">i</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">Consumer</span>(<span style="color:#a6e22e">i</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">queue</span>, ({ <span style="color:#a6e22e">id</span>, <span style="color:#a6e22e">msg</span> }) =&gt; { <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`Consumer</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">id</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>,<span style="color:#e6db74">&#34;&lt;=p#&#34;</span>, <span style="color:#a6e22e">id</span>, <span style="color:#e6db74">&#34;msg:&#34;</span>, <span style="color:#a6e22e">msg</span>) })
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">clear</span>()
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mq</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">MessageQueue</span>()
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mq</span>.<span style="color:#a6e22e">createConsumer</span>();
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mq</span>.<span style="color:#a6e22e">createProcuder</span>()
+</span></span></code></pre></div><p>可能async/await模型对于新手还是有点难，我总结的规律是，async类似spawn,await就是一个同步标记。所以可以看到<code>createProcuder()</code> 里面调用<code>Producer</code>并不需要await，因为我需要生产N个并发的生产者；而<code>Producer</code>函数内部需要保证顺序执行，必须在<code>sleep,lock</code>等函数调用时加<strong>await</strong>!</p>
+<p>那么问题来了，如何将上述生产者改成异步生成器？提示：只需修改下<code>queue.push({ id, msg: msg_id++ })</code>为<code>yield {id,msg}</code>&hellip;;剩下的东西就不用我在啰嗦了吧。</p>
+<hr>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> <a href="https://www.bookstack.cn/read/es6-3rd/spilt.8.docs-fp.md">34. 函数式编程 - 参考链接 - 《阮一峰 ECMAScript 6 (ES6) 标准入门教程 第三版》 - 书栈网 · BookStack</a></li>
+<li><input checked="" disabled="" type="checkbox"> <a href="https://casualjavascript.com/">Casual JavaScript</a></li>
+</ul>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Iteration_protocols">迭代协议 - JavaScript | MDN (mozilla.org)</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Iterators_and_Generators">迭代器和生成器 - JavaScript | MDN (mozilla.org)</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3" role="doc-endnote">
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/async_function*">async function* - JavaScript | MDN (mozilla.org)</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4" role="doc-endnote">
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/await">await - JavaScript | MDN (mozilla.org)</a>&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/ajax/">express 使用ajax</a></li>
+        
+        <li><a href="/post/express/">Express 框架开发web服务器</a></li>
+        
+        <li><a href="/post/pygui/">PySide6界面程序编写及打包</a></li>
+        
+        <li><a href="/post/argsort/">Argsort 以及Rank的Javascript代码练习</a></li>
+        
+        <li><a href="/post/css_animate/">CSS3动画入门</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='https://liudx1985.gitee.io/tags/javascript'>javascript</a></li>
+                
+                <li><a href='https://liudx1985.gitee.io/tags/nodejs'>nodejs</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+</div>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='//cn.bing.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="site" value="https://liudx1985.gitee.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/andriod/" title="Andriod开发从入门到放弃">Andriod开发从入门到放弃</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/electron/" title="electron-vite-vue开发指北">electron-vite-vue开发指北</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/vue3/" title="Vue3高阶组件技术">Vue3高阶组件技术</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/tesseractocr/" title="利用Tesseract对图片或pdf进行OCR">利用Tesseract对图片或pdf进行OCR</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/js_module/" title="JavaScript 模块：CommonJS VS Es6">JavaScript 模块：CommonJS VS Es6</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/js_generator/" title="Javascript迭代器、生成器、异步">Javascript迭代器、生成器、异步</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/pygui/" title="PySide6界面程序编写及打包">PySide6界面程序编写及打包</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/argsort/" title="Argsort 以及Rank的Javascript代码练习">Argsort 以及Rank的Javascript代码练习</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/css_animate/" title="CSS3动画入门">CSS3动画入门</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/mysql/" title="Mysql绿色安装方法">Mysql绿色安装方法</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li><a href="https://liudx1985.gitee.io/categories/ai/">AI (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/algorithm/">algorithm (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/c&#43;&#43;/">C&#43;&#43; (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/database/">Database (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/fp/">FP (3)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/math/">math (8)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/misc/">misc (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/programming/">Programming (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/python/">Python (3)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/se/">SE (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/test/">test (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/web/">web (9)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://liudx1985.gitee.io/tags/algorithm/">algorithm</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/bigdata/">bigdata</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/fp/">FP</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/gui/">GUI</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/haskell/">haskell</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/html/">html</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/java/">java</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/javascript/">javascript</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/js/">js</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/latex/">latex</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/math/">math</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/misc/">misc</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/mysql/">mysql</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/nodejs/">nodejs</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/program/">Program</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/python/">python</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/se/">SE</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/vue/">vue</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/web/">web</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/%E6%99%AE%E9%80%9A%E8%AF%9D/">普通话</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://ife.baidu.com/introduction.html" title="百度前端技术学园ife.baidu.com "> 百度前端技术学园ife.baidu.com  </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.runoob.com/" title="菜鸟教程 runoob.com "> 菜鸟教程 runoob.com </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://developer.mozilla.org/zh-CN/docs/Web" title="Web 开发者文档MDN "> Web 开发者文档MDN </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.liaoxuefeng.com/" title="廖雪峰的官方网站"> 廖雪峰的JAVA、python、JS教程</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.processon.com/" title="ProcessOn 在线流程图思维导图">ProcessOn 在线流程图思维导图</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://zhongguose.com/" title="中国色 - 中国传统颜色色卡">中国色 - 中国传统颜色色卡</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://liudx1985.gitee.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+    <div class="container">
+        &copy; 2024 <a href="https://liudx1985.gitee.io/">清风竹影 By 清风竹影</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/flysnow-org/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+
+
+
+
+</body>
+
+</html>

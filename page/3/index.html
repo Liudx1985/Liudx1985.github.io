@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+	<meta name="generator" content="Hugo 0.96.0" />
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>清风竹影 | 前C&#43;&#43;码农 ，Python和Javascript练习两年半. 会耍一点Haskell、数据分析、略懂系统架构设计；</title>
+    <meta property="og:title" content="清风竹影 | 前C&#43;&#43;码农 ，Python和Javascript练习两年半. 会耍一点Haskell、数据分析、略懂系统架构设计；">
+    <meta property="og:type" content="website">
+    <meta name="Keywords" content="清风竹影,Javascript,c&#43;&#43;,Haskell,python,软件架构,数据分析,小程序">
+    <meta name="description" content="前C&#43;&#43;码农 ，Python和Javascript练习两年半. 会耍一点Haskell、数据分析、略懂系统架构设计；">
+    <meta property="og:url" content="https://liudx1985.gitee.io/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <link rel="alternate" type="application/rss+xml" href="https://liudx1985.gitee.io/index.xml" title="清风竹影" />
+    <meta name="MediaType" content="application/octet-stream">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link href="/kityminder/mindmap.css?_=1416390706100" type="text/css" rel="stylesheet" />
+    <link href="/kityminder/kityminder.core.css?_=1416390706100" type="text/css" rel="stylesheet" />
+    <script src="/kityminder/kity.min.js?_=1416390706100" charset="utf-8"></script>
+    <script src="/kityminder/kityminder.core.min.js?_=1416390706100" charset="utf-8"></script>
+    <script src="/kityminder/mindmap.min.js?_=1416390706100" charset="utf-8"></script>
+
+    
+
+
+    
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <h1>
+                        <a id="logo" href="https://liudx1985.gitee.io/">
+                            清风竹影
+                        </a>
+                    </h1>
+                
+                <p class="description">前C&#43;&#43;码农 ，Python和Javascript练习两年半. 会耍一点Haskell、数据分析、略懂系统架构设计；</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://liudx1985.gitee.io/">首页</a>
+                    
+                    <a  href="https://liudx1985.gitee.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://liudx1985.gitee.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://liudx1985.gitee.io/post/data-analyze/" title="Python数据分析简介&amp;环境准备">Python数据分析简介&amp;环境准备</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2021年3月30日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/ai'>AI</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 概览   数据分析定义：数据分析是指用适当的统计分析方法对收集来的大量数据进行分析，提取有用信息和形成结论而对数据加以详细研究和概括总结的过程。
+  思维导图
+  数据分析完整流程：
+start=&gt;start: 明确分析目的fetch=&gt;operation: 数据获取pre_oper=&gt;operation: 数据预处理(清洗/转换)analyze=&gt;operation: 数据分析show=&gt;operation: 数据展现(报表、图表)report=&gt;end: 决策start(right)-&gt;fetch(right)-&gt;pre_oper-&gt;analyze-&gt;show(right)-&gt;report   主流数据分析语言:python以及相关的数据分析库[numpy]、pandas等。
+  相关领域：数据挖掘、深度学习（机器学习)、人工智能等
+  职业发展：算法工程师、数据分析员(师)、数据产品经理、ETL工程师、数据挖掘工程师；数据科学家等
+  准备工作 ​	课程使用anaconda作为实验环境。Anaconda是一个开源的Python发行版本，其包含了conda、Python等180多个科学包及其依赖项。先下载Anaconda安装包。推荐跟随Anaconda下载页面的Windows安装指导,;确认设置是否正确方法：打开命令行窗口（cmd.exe），输入python以打开Python解释器。可以看到类似下面的Anaconda版本的输出：
+C:\Users\wesm&gt;python Python 3.5.2 |Anaconda 4.1.1 (64-bit)| (default, Jul 5 2016, 11:41:13) [MSC v.1900 64 bit (AMD64)] on win32 &gt;&gt;&gt; 要退出shell，按Ctrl-D（Linux或macOS上），Ctrl-Z（Windows上），或输入命令exit()，再按Enter。
+​	我们主要使用jupyter-notebook编写代码。
+jupyter notebook起始目录修改方法
+ 打开anaconda SHELL，输入命令jupyter notebook --generate-config，将生成 jupyter_notebook_config.py文件 打开上一步生成的文件:C:\Users\liudx\.jupyter\jupyter_notebook_config.py,找到c.NotebookApp.notebook_dir 前面的“#”符号（#表示注释的意思）,修改为起始目录 **重启jupyter notebook **  3 resources 1.……
+        </div>
+        <p class="readmore"><a href="https://liudx1985.gitee.io/post/data-analyze/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://liudx1985.gitee.io/post/fibnocci/" title="fibnocci">fibnocci</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2021年1月30日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/math'>math</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            0 Fibonacci定义 ​	&gt; $ f(n+1)=f(n)+f(n-1),\space n &gt;= 1$
+1. $\sum(f(n)^2) = f(n)\cdot f(n+1)$ ​	面积之和相等:
+证明aka.绘图代码如下
+import matplotlib.pyplot as plt from matplotlib.path import Path import matplotlib.patches as patches import numpy as np  def fib(max): 	a, b = 1, 1; 	while a &lt; max: 	yield a; 	a, b = b, a + b; 	verts = [  ] codes = [ # Path.MOVETO, # Path.……
+        </div>
+        <p class="readmore"><a href="https://liudx1985.gitee.io/post/fibnocci/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://liudx1985.gitee.io/post/latex/" title="Latex公式">Latex公式</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2021年1月30日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/math'>math</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            $\LaTeX$ Symbol   $$ z = r\cdot e^{2\pi i} \quad \sqrt{x} \quad \frac{1}{2} $$ $$z = r\cdot e^{2\pi i} \quad \sqrt{x} \quad \frac{1}{2} $$
+  $$ \pm \quad \times \quad \div \quad \cdot \quad \cap \quad \cup \quad $$ $$ &gt; \quad&lt; \quad\geq \quad \leq \quad \neq \quad \approx \quad \equiv $$ $$ \pm \quad \times \quad \div \quad \cdot \quad \cap \quad \cup \\ \quad&gt; \quad&lt; \quad\geq \quad \leq \quad \neq \quad \approx \quad \equiv $$……
+        </div>
+        <p class="readmore"><a href="https://liudx1985.gitee.io/post/latex/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://liudx1985.gitee.io/post/mpi/" title="MPI实践">MPI实践</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2021年1月30日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/c&#43;&#43;'>C&#43;&#43;</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1. setup mpich2 mpiexec -remove to remove account for each computer node mpiexec -register to add account for each computer &#39;node&#39; mpiexec -validate to validate the account Notice ,you must create a account(username/password all same) for all nodes on windows.
+2. build boost.mpi 修改boost_1_47_0\tools\build\v2\tools\mpi.jam文件，修改的地方如下：
+ #local cluster_pack_path_native = &#34;C:\\Program Files\\Microsoft Compute Cluster Pack&#34; ;local cluster_pack_path_native = &#34;D:\\Program Files\\MPICH2&#34; ; ...options = &lt;include&gt;$(cluster_pack_path)/Include &lt;address-model&gt;64:&lt;library-path&gt;$(cluster_pack_path)/Lib/amd64&lt;library-path&gt;$(cluster_pack_path)/Lib&lt;find-static-library&gt;mpich2d&lt;toolset&gt;msvc:&lt;define&gt;_SECURE_SCL=0 找到 需要在boost_1_47_0\tools\build\v2\user-config.jam中加入（注意空格！！！）……
+        </div>
+        <p class="readmore"><a href="https://liudx1985.gitee.io/post/mpi/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://liudx1985.gitee.io/post/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%95%B0%E4%B9%98%E6%B3%95/" title="最小二乘法">最小二乘法</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年4月30日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/math'>math</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            Optimize Program 最小二乘法 OLS (https://zhuanlan.zhihu.com/p/38128785)  Define 1.要求函数$f$ 在$g$ 约束下的极值这种问题 $$ minmax\quad f(x)\ s.t.(subject\space to)\space g_i(x)=0 $$
+拉格朗日数乘法求极值 Example 1 $已知x&gt;0,y&gt;0, x+2y+2xy = 8, 求x+2y最小值$
+等同于求$L(x) = x+2y+\lambda(x+2y+2xy-8)$的最小值(无论$\lambda$取何值，后面部分都是0)，由极值条件有：
+$$ \begin{cases} L&rsquo;_x=1+λ+2λ y = 0 \\ L&rsquo;_y=2+2λ +2λ x = 0 \\ L&rsquo;_λ= x+2y+2xy-8 = 0 \end{cases} \Rightarrow \begin{cases} x=2\\ y=1 \end{cases}\\ \therefore min(L(x)) = 4 $$……
+        </div>
+        <p class="readmore"><a href="https://liudx1985.gitee.io/post/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%95%B0%E4%B9%98%E6%B3%95/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://liudx1985.gitee.io/post/geometry01/" title="Think in geometry (part I)">Think in geometry (part I)</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2019年7月2日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/math'>math</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1. Geometry ​	几何学源自古代农业生产活动中发展的测量土地技术，欧几里得的《几何原本》是古典几何的集大成。中国古代很早就发现了勾股定理、掌握了割圆术等一系列几何学知识，可惜受制于封建统治阶级的意思形态，科学技术对没有对社会生产力产生直接的推动，近现代几何学一直为西方主导。随着数学三大基础方向的发展，代数学和几何学的融合，导致解析几何的产生，分析学在几何方向催生出曲面几何、拓扑学等。几何学自身也在蓬勃发展，在欧氏几何上发展出非欧几何（黎曼几何）、微分几何、分形等科学分支。本文主要记录一些笔者在解析几何的思考。
+2 Line in 2d ​	初中我们就学过平面的直线方程：
+$$ y = kx+b\quad\quad (1) $$
+​	老师会告诉我们这个公式(1)斜率是$k$，$b$是$y$轴偏移，但是很不幸的是，这个方程并不能表示所有的平面直线，像$x=1$这类与$x$轴平行的直线是没有办法写成(1)的，因为斜率不能为&rsquo;$\infty $&rsquo;!。所以在计算两点$A(x_1,y_1),B(x_1,y_1)$构成的直线时，我们需要分情况判断： $$ \begin{cases} x=x_1,\quad x_1=x_2 \\ y=\dfrac{y_1-y_2}{x_1-x_2}x+\dfrac{x_1y_2-x_2y_1}{x_1-x_2},\quad x_1\ne x_2 \end{cases} $$ ​	那么，有没有高级的方程，可以不用搞这么麻烦呢？答案是有的，高中老师告诉我们，直线有一般方程，可以统一描述所有直线： $$ ax+by+c = 0\quad\quad (2) $$ ​	这个方程倒是解决了上述问题，但是初次接触是不如（1）式直观，参数$a、b、c$在当时看来没有几何意义的，对比（1）里面的斜率和截距$k、b$就很直观，而且参数还多了一个。一般方程的几何意义在学习了向量之后才会比较明确，我们先回忆下向量相关的基础知识，向量也叫矢量，具有方向，一般第一次接触都是用笛卡尔坐标来描述，就是$x-o-y$轴上的分量来给定向量坐标，大部分高中生都默认这个为向量的定义，但其实向量在代数学中是和向量空间一起定义的，一组向量基构成一个向量空间，而向量是这些基的线性组合，由于向量空间具备封闭性，向量的线性组合仍然位于空间内，直观解释就是，将平面内的任意向量线性相加仍然在平面内，三维的向量$\bar{v}$在基坐标$(1,0,0)、(0,1,0)、(0,0,1)$的线性组合下仍然位于三维空间内，这个线性组合的系数正是向量坐标： $$ \vec{v} = x\cdot(1,0,0)+y\cdot(0,1,0)+z\cdot(0,0,1) $$ ​	向量具备一些基本性质，如线性性、交换性等，这些都是向量空间的基本性质，只不过限于初次接触时知识不够，没有办法了解，到后面学习了高等代数和向量空间，这些都是自然而然的结论。向量有两种重要的运算，即内积和外积，向量内积的定义为： $$ \vec{a}\cdot \vec{b} = |a|\cdot |b|cos&lt;a,b&gt;\quad \quad (3) $$ ​	内积是一个标量，其大小等于两个向量的长度积乘两向量夹角的余弦。向量长度定义为$\sqrt{x^2+y^2}$，几何意义就是距离坐标原点的距离（由勾股定理得）。内积也可以写成: $$ (a,b)\cdot(c,d) = ac+bd	\quad\quad (4) $$ ​	（3）和（4）是如何等价的？这个也困扰了我很久，直到我知道了欧拉公式： $$ e^{ix}=cosx+isinx \quad\quad (5) $$ ​	将$\vec{a}\cdot \vec{b}$写成$\vec{a}=r_1(\cos \alpha ,\sin \alpha)=r_1e^{i\alpha},\vec{b}=r_2(\cos \beta,\sin \beta)=r_2e^{i\beta}$，内积可以写成： $$ \vec{a}\cdot \vec{b} = r_1\cdot r_2\cdot e^{i(\alpha-\beta)} = r_1 cos\alpha \cdot r_2 cos\beta + r_1 sin\alpha \cdot r_2 sin\beta + i r_1 r_2sin(\alpha-\beta)\quad\quad (6) $$ ​	上式中的实数部分(位于平面内)正好就是$ac+bd$，虚数部分的含义有点迷，暂时也不用管了（这个是外积部分，在平面外）。……
+        </div>
+        <p class="readmore"><a href="https://liudx1985.gitee.io/post/geometry01/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://liudx1985.gitee.io/post/category/" title="category">category</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2019年6月25日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/math'>math</a></span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/fp'>FP</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            群论、范畴论入门  众所周知，数学的三大方向分别是代数、几何、分析，数相关的归于代数，如初等代数、数论、抽象代数-群论等；几何研究空间和形状，如解析几何、欧氏几何、非欧几何（黎曼几何）、拓扑学、微分几何(流形)等；分析则是数和形之间的纽带，主要包括微积分、实分析、复分析、泛函分析，以及在此基础上发展出的常微分、复变函数与积分变换等。另外概率论-统计、逻辑学、离散数学都可看做三大方向的复合学科。现代数学抽象化程度更高，为了将集合论、群论、向量空间与拓扑中有很多相似的概念统一地表示出来，发展出一门新的学科即范畴论(Category） 。
+1 群的基本概念1  群定义为满足如下条件的封闭集合G：
+ 定义一种二元代数运算$\forall a \in G, \exists f:a\mapsto b,b \in G$ 运算满足结合律:$f:a\mapsto b，g:b\mapsto c， f\circ g：a\mapsto c$ 存在单位元：$\exists e, f(e)= e$ 存在逆元：$\forall a \in G, f(a)=b,\exists f^{-1}(b)=a$   当集合满足1、2时，称为半群，满足1、2、3时称为幺半群(单位半群，$\frac{3}{4}$群)；如果1,2,3,4再附加一个交换律$ f\circ g= g\circ f$则称为Abel交换群。常见有的整数加法群(Z,0,+)、实数乘法群(Q,1,*)，以及S2(平面旋转群等)。整数加群是一个Abel交换群。
+2 偏序关系  偏序关系（partial order relation）的定义是集合P 与一个二元关系运算&rsquo;$\le$&lsquo;定义的，这个二元关系需要满足：
+ 自反性：$x\le x$ 反对称性：$x \le y 且y \le x \Rightarrow x = y$ 传递性：$x \le y 且y \le z \Rightarrow x \le z$   那么集合P 中的每个元素都可以对应一个范畴上的对象，$\le$ 对应态射，首先就满足了 范畴上每个对象都有id 映射，由于这个关系是可以传递的，所以它是可复合的，例如$f$ 为 $x \le y$，$g$ 为$y\le z$，那么$f \circ g$ 就得到了 $x\le z$，当然这种复合也是可结合的。……
+        </div>
+        <p class="readmore"><a href="https://liudx1985.gitee.io/post/category/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://liudx1985.gitee.io/post/gnu/" title="gcc gdb">gcc gdb</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2019年4月30日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/test'>test</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1、GNU Assoc 1.1 GCC options std c++lib
+$ g++ -O2 -Wall -Wextra -pthread -I./include -std=C++11 prog.cc
+1.2 GDB usage Start  https://www.ibm.com/developerworks/cn/linux/sdk/gdb/index.html
+ gcc option: -g
+gcc -g a.c -o a
+**mount to remote server ** mount -t nfs -o nolock 10.82.20.97:/home/crash /tmp/crash
+gdb start:
+gdb exe [pid|-c core-dump-file]
+basical command  run ; start prog break 22 ; create a breakpoint at line 21 next ; step next line continue ; go exec print val ; display variable &lsquo;val&rsquo; info break ; display all break bt ; backtrace: display stack frames frame 1 ; switch to frame 1{current frame 0} set val=1 ; set variable &lsquo;val&rsquo; to 1 quit ; exit gdb  ……
+        </div>
+        <p class="readmore"><a href="https://liudx1985.gitee.io/post/gnu/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://liudx1985.gitee.io/post/py-animation/" title="python绘制参数方程的动画">python绘制参数方程的动画</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2019年4月29日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/python'>Python</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            © 2018 *All rights reserved by liudx .:smile:
+​	Python的matplotlib是一个功能强大的绘图库，可以很方便的绘制数学图形。官方给出了很多简单的实例，结合中文翻译的示例Tutorial，可以满足日常工作的大部分需求了。但是实际工作中，一些有趣的东西很难使用常规方程（笛卡尔坐标和极坐标）方式绘制，事实上，大部分工程上都是使用参数方程来描述曲线。本文给出一些参数方程绘制的实例，之后会扩展为动画形式绘制，可以看到这些复杂的方程是如何简单优美的绘制出来。
+1 参数方程绘制 ​	首先介绍下椭圆的参数方程：
+$$ \begin{cases} x = a \cdot \cos(t)\\ y = b \cdot \sin(t) \end{cases} $$
+​	其中$a,b$分别是椭圆的长轴、短轴。绘制椭圆的python代码如下:
+import matplotlib.pyplot as plt import numpy as np  fig = plt.figure() ax = plt.gca() #椭圆参数方程 r1 = 1.1 r2 = 1 t = np.linspace(0, np.pi*2, 1000) # 生成参数t的数组 x = r1 * np.cos(t) y = r2 * np.sin(t) plt.plot(x, y, color=&#39;blue&#39;, linewidth=2, label=&#39;ellipse&#39;) plt.……
+        </div>
+        <p class="readmore"><a href="https://liudx1985.gitee.io/post/py-animation/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://liudx1985.gitee.io/post/modulo/" title="同余和整除判定">同余和整除判定</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2019年4月8日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/math'>math</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1. 同余(congruence modulo) ​	同余是指两个整数a、b，若它们除以整数m所得的余数相等，则称a与b对于模m同余或a同余于b模m。同余的符号是$\equiv$。常用的记法是 $$ a\equiv c\space mod(n) $$ ​	一般默认$n$为非零整数，$a、c$为非负整数，当然，对于所有的整数，同余的定义和相关性质都是成立的。 $$ 10\equiv 3\space mod\space 7\\ 1\equiv 10\space mod\space 3 $$
+2.同余的性质及证明方法 ​	同余基本性质有反身性，对称性，传递性和线性可加性,分别如下: $$ a\equiv a\space mod(n) \\ a\equiv b\space mod(n) \Leftrightarrow b\equiv a\space mod(n) \\ a\equiv b\space mod(n)，b\equiv c\space mod(n) \Rightarrow b\equiv c\space mod(n) \\ a\equiv b\space mod(n)，c\equiv d\space mod(n) \Rightarrow a\pm c\equiv b\pm d\space mod(n) \\ a\equiv b\space mod(n)，c\equiv d\space mod(n) \Rightarrow ac\equiv bd\space mod(n) $$……
+        </div>
+        <p class="readmore"><a href="https://liudx1985.gitee.io/post/modulo/">阅读全文</a></p>
+    </article>
+    
+    
+
+
+
+<ol class="page-navigator">
+    
+    <li class="prev">
+        <a href="https://liudx1985.gitee.io/page/2/">上一页</a>
+    </li>
+    
+
+    
+    <li >
+        <a href="https://liudx1985.gitee.io/">1</a>
+    </li>
+    
+    <li >
+        <a href="https://liudx1985.gitee.io/page/2/">2</a>
+    </li>
+    
+    <li  class="current">
+        <a href="https://liudx1985.gitee.io/page/3/">3</a>
+    </li>
+    
+    <li >
+        <a href="https://liudx1985.gitee.io/page/4/">4</a>
+    </li>
+    
+
+    
+    <li class="next">
+        <a href="https://liudx1985.gitee.io/page/4/">下一页</a>
+    </li>
+    
+</ol>
+
+
+
+</div>
+
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='//cn.bing.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="site" value="https://liudx1985.gitee.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/andriod/" title="Andriod开发从入门到放弃">Andriod开发从入门到放弃</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/electron/" title="electron-vite-vue开发指北">electron-vite-vue开发指北</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/vue3/" title="Vue3高阶组件技术">Vue3高阶组件技术</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/tesseractocr/" title="利用Tesseract对图片或pdf进行OCR">利用Tesseract对图片或pdf进行OCR</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/js_module/" title="JavaScript 模块：CommonJS VS Es6">JavaScript 模块：CommonJS VS Es6</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/js_generator/" title="Javascript迭代器、生成器、异步">Javascript迭代器、生成器、异步</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/pygui/" title="PySide6界面程序编写及打包">PySide6界面程序编写及打包</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/argsort/" title="Argsort 以及Rank的Javascript代码练习">Argsort 以及Rank的Javascript代码练习</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/css_animate/" title="CSS3动画入门">CSS3动画入门</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/mysql/" title="Mysql绿色安装方法">Mysql绿色安装方法</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li><a href="https://liudx1985.gitee.io/categories/ai/">AI (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/algorithm/">algorithm (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/c&#43;&#43;/">C&#43;&#43; (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/database/">Database (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/fp/">FP (3)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/math/">math (8)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/misc/">misc (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/programming/">Programming (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/python/">Python (3)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/se/">SE (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/test/">test (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/web/">web (9)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://liudx1985.gitee.io/tags/algorithm/">algorithm</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/bigdata/">bigdata</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/fp/">FP</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/gui/">GUI</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/haskell/">haskell</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/html/">html</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/java/">java</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/javascript/">javascript</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/js/">js</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/latex/">latex</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/math/">math</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/misc/">misc</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/mysql/">mysql</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/nodejs/">nodejs</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/program/">Program</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/python/">python</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/se/">SE</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/vue/">vue</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/web/">web</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/%E6%99%AE%E9%80%9A%E8%AF%9D/">普通话</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://ife.baidu.com/introduction.html" title="百度前端技术学园ife.baidu.com "> 百度前端技术学园ife.baidu.com  </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.runoob.com/" title="菜鸟教程 runoob.com "> 菜鸟教程 runoob.com </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://developer.mozilla.org/zh-CN/docs/Web" title="Web 开发者文档MDN "> Web 开发者文档MDN </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.liaoxuefeng.com/" title="廖雪峰的官方网站"> 廖雪峰的JAVA、python、JS教程</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.processon.com/" title="ProcessOn 在线流程图思维导图">ProcessOn 在线流程图思维导图</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://zhongguose.com/" title="中国色 - 中国传统颜色色卡">中国色 - 中国传统颜色色卡</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://liudx1985.gitee.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+    <div class="container">
+        &copy; 2024 <a href="https://liudx1985.gitee.io/">清风竹影 By 清风竹影</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/flysnow-org/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+
+
+
+
+</body>
+
+</html>

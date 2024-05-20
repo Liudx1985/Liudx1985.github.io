@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nodejs on 清风竹影</title>
+    <link>https://liudx1985.gitee.io/tags/nodejs/</link>
+    <description>Recent content in nodejs on 清风竹影</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 20 Sep 2023 19:10:36 +0800</lastBuildDate><atom:link href="https://liudx1985.gitee.io/tags/nodejs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaScript 模块：CommonJS VS Es6</title>
+      <link>https://liudx1985.gitee.io/post/js_module/</link>
+      <pubDate>Wed, 20 Sep 2023 19:10:36 +0800</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/js_module/</guid>
+      <description>[TOC]
+JavaScript 模块有两种：CommonJS和ES6模块化规范12：
+1. CommonJS 模块规范 node.js的默认方式，使用exports(aka. global.module.exports) 对象导出，使用require 函数导入，下面是一个简单的示例（上面是模块，下面是调用）：
+// circle.js const PI = 3.1415 function area(r) {  return PI * r * r } // exports exports.PI = PI exports.area = area // 也可以写成下面的方式： exports.PI = 3.14;exports.area=(r)=&amp;gt; PI * r * r // 或者：exports = {PI, area} // main.js const circle = require(&amp;#34;./circle.js&amp;#34;)// 就是上面模块的exports对象。 console.log(circle.PI) console.log(circle.area(5))  // 或者，结合对象解构赋值写成 const {area,PI} = require(&amp;#39;./circle&amp;#39;) // 可省略.js console.log(PI) console.log(area(5)) 2 ES6模块规范 ​	ES6新增export、import 关键字用于支持模块化。注意前后台都可以使用ES6模块，有一些细微的不同。</description>
+    </item>
+    
+    <item>
+      <title>Javascript迭代器、生成器、异步</title>
+      <link>https://liudx1985.gitee.io/post/js_generator/</link>
+      <pubDate>Wed, 26 Jul 2023 16:42:51 +0800</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/js_generator/</guid>
+      <description>1 Javascript 迭代器 ES6 新增了一个新玩具iterator:迭代器iterator协议1主要规定了可迭代协议允许 JavaScript 对象定义或定制它们的迭代行为，例如，在一个 for..of 结构中，哪些值可以被遍历到。一些内置类型同时是内置的可迭代对象，并且有默认的迭代行为，比如 Array 或者 Map，而其他内置类型则不是（比如 Object）。下面是一个简单的fibonacci迭代器，可以无限生产一个数列1,1,2,3,5,8....
+/** * @description function *迭代器对象 * @returns a fibonacci iterable object */ const fib = {  [Symbol.iterator]() {  let n1 = 1, n2 = 1  return {  // 使迭代器编程iterable  [Symbol.iterator]() { return this; },  next() {  let c = n2;  n2 = n1  n1 = n1 + c  return { value: c, done: false };  },  return(v) {  console.</description>
+    </item>
+    
+    <item>
+      <title>express 使用ajax</title>
+      <link>https://liudx1985.gitee.io/post/ajax/</link>
+      <pubDate>Fri, 22 Apr 2022 16:01:22 +0800</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/ajax/</guid>
+      <description>1. 使用XMLHttpRequest 后台代码：
+const express = require(&amp;#39;express&amp;#39;) const app = express() app.use(express.static(&amp;#34;public&amp;#34;)) // 静态资源目录 // FOR:&amp;#34;Content-type&amp;#34;:&amp;#34;application/x-www-form-urlencoded&amp;#34; app.use(express.urlencoded({extended: false })); // FOR:&amp;#34;Content-type&amp;#34;:&amp;#34;application/json&amp;#34; // app.use(express.json()) app.post(&amp;#39;/calc&amp;#39;, (req, res) =&amp;gt; { 	console.log(req.body) // MUST ADD app.use(...) 	setTimeout(()=&amp;gt;res.send(`&amp;lt;div style=&amp;#34;background-color:tomato; border-radius:50%;width:${req.body.w}px;height:${req.body.h}px&amp;#34;/&amp;gt;`), 1000) }) app.listen(8080) 在public/index.html里面可以搞一个按钮来发送ajax请求（可以使用JQUERY）:
+&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt;	&amp;lt;meta charset=&amp;#34;utf-8&amp;#34;&amp;gt;&amp;lt;title&amp;gt;&amp;lt;/title&amp;gt;  &amp;lt;script src=&amp;#34;https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; 	&amp;lt;form action=&amp;#34;post&amp;#34;&amp;gt; 	&amp;lt;div&amp;gt;宽:&amp;lt;input type=&amp;#34;text&amp;#34; id=&amp;#34;w&amp;#34; placeholder=&amp;#34;input width&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; 	&amp;lt;div&amp;gt;高:&amp;lt;input type=&amp;#34;text&amp;#34; id=&amp;#34;h&amp;#34; placeholder=&amp;#34;input height&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; 	&amp;lt;div&amp;gt;&amp;lt;input type=&amp;#34;button&amp;#34; id=&amp;#34;calc&amp;#34; onclick=&amp;#34;Calc()&amp;#34; value=&amp;#34;calc&amp;#34; /&amp;gt;&amp;lt;/div&amp;gt; 	&amp;lt;/form&amp;gt;  &amp;lt;div id=&amp;#34;result&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;script&amp;gt; 	function Calc() { 	let xhr = new XMLHttpRequest() // 创建XHR 	let w = parseFloat(document.</description>
+    </item>
+    
+    <item>
+      <title>Express 框架开发web服务器</title>
+      <link>https://liudx1985.gitee.io/post/express/</link>
+      <pubDate>Thu, 07 Apr 2022 14:13:35 +0800</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/express/</guid>
+      <description>1. 最简单版本 var express = require(&amp;#39;express&amp;#39;); var app = express(); app.get(&amp;#39;/&amp;#39;, (req, res, next) =&amp;gt; {  res.send(&amp;#34;welcome to express&amp;#34;) })  var server = app.listen(8080) 启动后打开 http://localhost:8080
+2 中间件  Express 使用get/post/use(path,callback)中间件;第一个参数为路由，第二个参数为处理中的 callback既可以是router对象又可以是函数
+   2.1 将app.use第一个参数不设置，即可处理所有的消息：
+ // 这里就是常用的网站维护，一般放在代码顶部。  app.use((req, res, next) =&amp;gt; {  if (webStop) res.send(&amp;#34;维护中&amp;#34;)  else next()  })   2.2 匹配404代码一般放在尾部,同样使用全部匹配。
+app.use((req, res, next) =&amp;gt; {  res.send(&amp;#34;404 - 页面不存在&amp;#34;) // 页面不存在了 })   2.</description>
+    </item>
+    
+  </channel>
+</rss>

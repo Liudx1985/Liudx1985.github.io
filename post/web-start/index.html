@@ -1,0 +1,1806 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Think in WEB | 清风竹影</title>
+    <meta property="og:title" content="Think in WEB - 清风竹影">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2021-11-20T16:23:51&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2021-11-20T16:23:51&#43;08:00'>
+        
+    <meta name="Keywords" content="清风竹影,Javascript,c&#43;&#43;,Haskell,python,软件架构,数据分析,小程序">
+    <meta name="description" content="Think in WEB">
+        
+    <meta name="author" content="清风竹影">
+    <meta property="og:url" content="https://liudx1985.gitee.io/post/web-start/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <meta name="MediaType" content="application/octet-stream">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link href="/kityminder/mindmap.css?_=1416390706100" type="text/css" rel="stylesheet" />
+    <link href="/kityminder/kityminder.core.css?_=1416390706100" type="text/css" rel="stylesheet" />
+    <script src="/kityminder/kity.min.js?_=1416390706100" charset="utf-8"></script>
+    <script src="/kityminder/kityminder.core.min.js?_=1416390706100" charset="utf-8"></script>
+    <script src="/kityminder/mindmap.min.js?_=1416390706100" charset="utf-8"></script>
+
+    
+
+
+    
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://liudx1985.gitee.io/">
+                        清风竹影
+                    </a>
+                
+                <p class="description">前C&#43;&#43;码农 ，Python和Javascript练习两年半. 会耍一点Haskell、数据分析、略懂系统架构设计；</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://liudx1985.gitee.io/">首页</a>
+                    
+                    <a  href="https://liudx1985.gitee.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://liudx1985.gitee.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">Think in WEB</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2021年11月20日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/web'>web</a></span>
+            
+        </div>
+        
+        
+        
+        <div class="post-content">
+            <h2 id="sect0-htmlcss基础参考">§0 HTML、CSS基础参考：</h2>
+<blockquote>
+<ol>
+<li>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web">Web 开发技术 | MDN (mozilla.org)</a></p>
+</li>
+<li>
+<p><!-- raw HTML omitted -->墙裂推荐：<!-- raw HTML omitted --><a href="https://www.jianshu.com/p/19cd9400a917">6张思维导图，帮你搞定html、css（css画QQ企鹅） - 简书 (jianshu.com)</a></p>
+</li>
+</ol>
+</blockquote>
+<ul>
+<li>
+<ol>
+<li>基本概念
+<img src="html_base.png" alt=""></li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>常用HTML标签
+<img src="HTML_TAGS.png" alt=""></li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>常用CSS属性
+<img src="CSS-ATTR.png" alt=""></li>
+</ol>
+</li>
+<li>
+<ol start="4">
+<li>表格和表单
+<img src="TABLE-FORM.png" alt=""></li>
+</ol>
+</li>
+<li>
+<ol start="5">
+<li>浮动和定位
+<img src="FLOAT-POSITION.png" alt=""></li>
+</ol>
+</li>
+<li>
+<ol start="6">
+<li>CSS3
+<img src="CSS3.png" alt=""></li>
+</ol>
+</li>
+</ul>
+<h2 id="sect1-http-status-code">§1 HTTP status code</h2>
+<table>
+<thead>
+<tr>
+<th><strong>状态码</strong></th>
+<th><strong>状态码英文名称</strong></th>
+<th><strong>中文描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100</td>
+<td>Continue</td>
+<td>继续。客户端应继续其请求</td>
+</tr>
+<tr>
+<td>101</td>
+<td>Switching Protocols</td>
+<td>切换协议。服务器根据客户端的请求切换协议。只能切换到更高级的协议，例如，切换到HTTP的新版本协议</td>
+</tr>
+<tr>
+<td>200</td>
+<td>OK</td>
+<td>请求成功。一般用于GET与POST请求</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Created</td>
+<td>已创建。成功请求并创建了新的资源</td>
+</tr>
+<tr>
+<td>202</td>
+<td>Accepted</td>
+<td>已接受。已经接受请求，但未处理完成</td>
+</tr>
+<tr>
+<td>203</td>
+<td>Non-Authoritative Information</td>
+<td>非授权信息。请求成功。但返回的meta信息不在原始的服务器，而是一个副本</td>
+</tr>
+<tr>
+<td>204</td>
+<td>No Content</td>
+<td>无内容。服务器成功处理，但未返回内容。在未更新网页的情况下，可确保浏览器继续显示当前文档</td>
+</tr>
+<tr>
+<td>205</td>
+<td>Reset Content</td>
+<td>重置内容。服务器处理成功，用户终端（例如：浏览器）应重置文档视图。可通过此返回码清除浏览器的表单域</td>
+</tr>
+<tr>
+<td>206</td>
+<td>Partial Content</td>
+<td>部分内容。服务器成功处理了部分GET请求</td>
+</tr>
+<tr>
+<td>300</td>
+<td>Multiple Choices</td>
+<td>多种选择。请求的资源可包括多个位置，相应可返回一个资源特征与地址的列表用于用户终端（例如：浏览器）选择</td>
+</tr>
+<tr>
+<td>301</td>
+<td>Moved Permanently</td>
+<td>永久移动。请求的资源已被永久的移动到新URI，返回信息会包括新的URI，浏览器会自动定向到新URI。今后任何新的请求都应使用新的URI代替</td>
+</tr>
+<tr>
+<td>302</td>
+<td>Found</td>
+<td>临时移动。与301类似。但资源只是临时被移动。客户端应继续使用原有URI</td>
+</tr>
+<tr>
+<td>303</td>
+<td>See Other</td>
+<td>查看其它地址。与301类似。使用GET和POST请求查看</td>
+</tr>
+<tr>
+<td>304</td>
+<td>Not Modified</td>
+<td>未修改。所请求的资源未修改，服务器返回此状态码时，不会返回任何资源。客户端通常会缓存访问过的资源，通过提供一个头信息指出客户端希望只返回在指定日期之后修改的资源</td>
+</tr>
+<tr>
+<td>305</td>
+<td>Use Proxy</td>
+<td>使用代理。所请求的资源必须通过代理访问</td>
+</tr>
+<tr>
+<td>306</td>
+<td>Unused</td>
+<td>已经被废弃的HTTP状态码</td>
+</tr>
+<tr>
+<td>307</td>
+<td>Temporary Redirect</td>
+<td>临时重定向。与302类似。使用GET请求重定向</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Bad Request</td>
+<td>客户端请求的语法错误，服务器无法理解</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td>请求要求用户的身份认证</td>
+</tr>
+<tr>
+<td>402</td>
+<td>Payment Required</td>
+<td>保留，将来使用</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td>服务器理解请求客户端的请求，但是拒绝执行此请求</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td>服务器无法根据客户端的请求找到资源（网页）。通过此代码，网站设计人员可设置&quot;您所请求的资源无法找到&quot;的个性页面</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed</td>
+<td>客户端请求中的方法被禁止</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable</td>
+<td>服务器无法根据客户端请求的内容特性完成请求</td>
+</tr>
+<tr>
+<td>407</td>
+<td>Proxy Authentication Required</td>
+<td>请求要求代理的身份认证，与401类似，但请求者应当使用代理进行授权</td>
+</tr>
+<tr>
+<td>408</td>
+<td>Request Time-out</td>
+<td>服务器等待客户端发送的请求时间过长，超时</td>
+</tr>
+<tr>
+<td>409</td>
+<td>Conflict</td>
+<td>服务器完成客户端的PUT请求是可能返回此代码，服务器处理请求时发生了冲突</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Gone</td>
+<td>客户端请求的资源已经不存在。410不同于404，如果资源以前有现在被永久删除了可使用410代码，网站设计人员可通过301代码指定资源的新位置</td>
+</tr>
+<tr>
+<td>411</td>
+<td>Length Required</td>
+<td>服务器无法处理客户端发送的不带Content-Length的请求信息</td>
+</tr>
+<tr>
+<td>412</td>
+<td>Precondition Failed</td>
+<td>客户端请求信息的先决条件错误</td>
+</tr>
+<tr>
+<td>413</td>
+<td>Request Entity Too Large</td>
+<td>由于请求的实体过大，服务器无法处理，因此拒绝请求。为防止客户端的连续请求，服务器可能会关闭连接。如果只是服务器暂时无法处理，则会包含一个Retry-After的响应信息</td>
+</tr>
+<tr>
+<td>414</td>
+<td>Request-URI Too Large</td>
+<td>请求的URI过长（URI通常为网址），服务器无法处理</td>
+</tr>
+<tr>
+<td>415</td>
+<td>Unsupported Media Type</td>
+<td>服务器无法处理请求附带的媒体格式</td>
+</tr>
+<tr>
+<td>416</td>
+<td>Requested range not satisfiable</td>
+<td>客户端请求的范围无效</td>
+</tr>
+<tr>
+<td>417</td>
+<td>Expectation Failed</td>
+<td>服务器无法满足Expect的请求头信息</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error</td>
+<td>服务器内部错误，无法完成请求</td>
+</tr>
+<tr>
+<td>501</td>
+<td>Not Implemented</td>
+<td>服务器不支持请求的功能，无法完成请求</td>
+</tr>
+<tr>
+<td>502</td>
+<td>Bad Gateway</td>
+<td>充当网关或代理的服务器，从远端服务器接收到了一个无效的请求</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable</td>
+<td>由于超载或系统维护，服务器暂时的无法处理客户端的请求。延时的长度可包含在服务器的Retry-After头信息中</td>
+</tr>
+<tr>
+<td>504</td>
+<td>Gateway Time-out</td>
+<td>充当网关或代理的服务器，未及时从远端服务器获取请求</td>
+</tr>
+<tr>
+<td>505</td>
+<td>HTTP Version not supported</td>
+<td>服务器不支持请求的HTTP协议的版本，无法完成处理</td>
+</tr>
+</tbody>
+</table>
+<h2 id="sect2-css-colors">§2 CSS Colors</h2>
+<p>CSS 的颜色写法有<code>color keywords</code>|<code>RGB</code>|<code>HSL</code> <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/color_value"> - CSS color_value | MDN (mozilla.org)</a> ：</p>
+<p>·<code>RGB语法</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-CSS" data-lang="CSS"><span style="display:flex;"><span><span style="color:#75715e">/* 这些语法都表示同一个颜色：a fully opaque hot pink */</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* 十六进制语法 */</span>
+</span></span><span style="display:flex;"><span>#f09
+</span></span><span style="display:flex;"><span>#F09
+</span></span><span style="display:flex;"><span>#ff0099
+</span></span><span style="display:flex;"><span>#FF0099
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* 函数语法 */</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">rgb</span><span style="color:#f92672">(</span><span style="color:#f92672">255</span><span style="color:#f92672">,</span><span style="color:#f92672">0</span><span style="color:#f92672">,</span><span style="color:#f92672">153</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">rgb</span><span style="color:#f92672">(</span><span style="color:#f92672">255</span><span style="color:#f92672">,</span> <span style="color:#f92672">0</span><span style="color:#f92672">,</span> <span style="color:#f92672">153</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">rgb</span><span style="color:#f92672">(</span><span style="color:#f92672">255</span><span style="color:#f92672">,</span> <span style="color:#f92672">0</span><span style="color:#f92672">,</span> <span style="color:#f92672">153</span>.<span style="color:#a6e22e">0</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">rgb</span><span style="color:#f92672">(</span><span style="color:#f92672">100</span><span style="color:#f92672">%,</span><span style="color:#f92672">0</span><span style="color:#f92672">%,</span><span style="color:#f92672">60</span><span style="color:#f92672">%)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">rgb</span><span style="color:#f92672">(</span><span style="color:#f92672">100</span><span style="color:#f92672">%,</span> <span style="color:#f92672">0</span><span style="color:#f92672">%,</span> <span style="color:#f92672">60</span><span style="color:#f92672">%)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">rgb</span><span style="color:#f92672">(</span><span style="color:#f92672">100</span><span style="color:#f92672">%,</span> <span style="color:#f92672">0</span><span style="color:#f92672">,</span> <span style="color:#f92672">60</span><span style="color:#f92672">%)</span> <span style="color:#75715e">/* 错误：不要混用数字和百分比 */</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">rgb</span><span style="color:#f92672">(</span><span style="color:#f92672">255</span> <span style="color:#f92672">0</span> <span style="color:#f92672">153</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* 带有alpha值的十六进制语法 */</span>
+</span></span><span style="display:flex;"><span>#f09f
+</span></span><span style="display:flex;"><span>#F09F
+</span></span><span style="display:flex;"><span>#ff0099ff
+</span></span><span style="display:flex;"><span>#FF0099FF
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* 带有alpha值的函数语法 */</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">rgb</span><span style="color:#f92672">(</span><span style="color:#f92672">255</span><span style="color:#f92672">,</span> <span style="color:#f92672">0</span><span style="color:#f92672">,</span> <span style="color:#f92672">153</span><span style="color:#f92672">,</span> <span style="color:#f92672">1</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">rgb</span><span style="color:#f92672">(</span><span style="color:#f92672">255</span><span style="color:#f92672">,</span> <span style="color:#f92672">0</span><span style="color:#f92672">,</span> <span style="color:#f92672">153</span><span style="color:#f92672">,</span> <span style="color:#f92672">100</span><span style="color:#f92672">%)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* 空格语法 */</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">rgb</span><span style="color:#f92672">(</span><span style="color:#f92672">255</span> <span style="color:#f92672">0</span> <span style="color:#f92672">153</span> <span style="color:#f92672">/</span> <span style="color:#f92672">1</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">rgb</span><span style="color:#f92672">(</span><span style="color:#f92672">255</span> <span style="color:#f92672">0</span> <span style="color:#f92672">153</span> <span style="color:#f92672">/</span> <span style="color:#f92672">100</span><span style="color:#f92672">%)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* 带有浮点值的函数语法 */</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">rgb</span><span style="color:#f92672">(</span><span style="color:#f92672">255</span><span style="color:#f92672">,</span> <span style="color:#f92672">0</span><span style="color:#f92672">,</span> <span style="color:#f92672">153</span>.<span style="color:#a6e22e">6</span><span style="color:#f92672">,</span> <span style="color:#f92672">1</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">rgb</span><span style="color:#f92672">(</span><span style="color:#f92672">1e2</span><span style="color:#f92672">,</span> .<span style="color:#a6e22e">5e1</span><span style="color:#f92672">,</span> .<span style="color:#a6e22e">5e0</span><span style="color:#f92672">,</span> <span style="color:#f92672">+</span>.<span style="color:#a6e22e">25e2</span><span style="color:#f92672">%)</span>
+</span></span></code></pre></div><p>·<code>CSS颜色名</code>：
+<img src="css-colors.png" alt=""></p>
+<h2 id="sect3-html-特殊符号also-for-markdown">§3. HTML 特殊符号(also for MARKDOWN)</h2>
+<table>
+<thead>
+<tr>
+<th><strong>符号</strong></th>
+<th><strong>说明</strong></th>
+<th><strong>对应编码(使用时去掉空格)</strong></th>
+<th><strong>英文</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&amp;</td>
+<td>AND 符号</td>
+<td>&amp; amp;</td>
+<td>ampersand</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>小于</td>
+<td>&amp; lt;</td>
+<td>little</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>大于</td>
+<td>&amp; gt;</td>
+<td>great</td>
+</tr>
+<tr>
+<td> </td>
+<td>空格</td>
+<td>&amp; nbsp;</td>
+<td>number space</td>
+</tr>
+<tr>
+<td>¿</td>
+<td>倒问号</td>
+<td>&amp; iquest;</td>
+<td>inverted question</td>
+</tr>
+<tr>
+<td>?</td>
+<td>问号</td>
+<td>&amp; quest;</td>
+<td>question</td>
+</tr>
+<tr>
+<td>«</td>
+<td>左书名号</td>
+<td>&amp; laquo;</td>
+<td>left angle quote</td>
+</tr>
+<tr>
+<td>»</td>
+<td>右书名号</td>
+<td>&amp; raquo;</td>
+<td>right angle quote</td>
+</tr>
+<tr>
+<td>&quot;</td>
+<td>引号</td>
+<td>&amp; quot;</td>
+<td>quote</td>
+</tr>
+<tr>
+<td>‘</td>
+<td>左单引号</td>
+<td>&amp; lsquo;</td>
+<td>left single quote</td>
+</tr>
+<tr>
+<td>’</td>
+<td>右单引号</td>
+<td>&amp; rsquo:</td>
+<td>right single quote</td>
+</tr>
+<tr>
+<td>“</td>
+<td>左双引号</td>
+<td>&amp; ldquo:</td>
+<td>left double quote</td>
+</tr>
+<tr>
+<td>”</td>
+<td>右双引号</td>
+<td>&amp; rdquo:</td>
+<td>right double quote</td>
+</tr>
+<tr>
+<td>¶</td>
+<td>段落符号</td>
+<td>&amp; para;</td>
+<td>paragraph</td>
+</tr>
+<tr>
+<td>§</td>
+<td>章节符</td>
+<td>&amp; sect;</td>
+<td>section</td>
+</tr>
+<tr>
+<td>×</td>
+<td>乘号</td>
+<td>&amp; times;</td>
+<td>times</td>
+</tr>
+<tr>
+<td>÷</td>
+<td>除号</td>
+<td>&amp; divide;</td>
+<td>divide</td>
+</tr>
+<tr>
+<td>±</td>
+<td>加减号</td>
+<td>&amp; plusmn;</td>
+<td>plus minus</td>
+</tr>
+<tr>
+<td>ƒ</td>
+<td>function</td>
+<td>&amp; fnof;</td>
+<td>还没查到</td>
+</tr>
+<tr>
+<td>√</td>
+<td>根号</td>
+<td>&amp; radic;</td>
+<td>radic</td>
+</tr>
+<tr>
+<td>∞</td>
+<td>无穷大</td>
+<td>&amp; infin;</td>
+<td>infinite</td>
+</tr>
+<tr>
+<td>°</td>
+<td>度</td>
+<td>&amp; deg;</td>
+<td>degree</td>
+</tr>
+<tr>
+<td>≠</td>
+<td>不等号</td>
+<td>&amp; ne;</td>
+<td>ne</td>
+</tr>
+<tr>
+<td>≡</td>
+<td>恒等于</td>
+<td>&amp; equiv;</td>
+<td>equivalent</td>
+</tr>
+<tr>
+<td>≤</td>
+<td>小于等于</td>
+<td>&amp; le;</td>
+<td>less than or equal to</td>
+</tr>
+<tr>
+<td>≥</td>
+<td>大于等于</td>
+<td>&amp; ge;</td>
+<td>great than or equal to</td>
+</tr>
+<tr>
+<td>⊥</td>
+<td>垂直符号</td>
+<td>&amp; perp;</td>
+<td>perpendicular</td>
+</tr>
+<tr>
+<td>←</td>
+<td>左箭头</td>
+<td>&amp; larr;</td>
+<td>left arrow</td>
+</tr>
+<tr>
+<td>→</td>
+<td>右箭头</td>
+<td>&amp; rarr;</td>
+<td>right arrow</td>
+</tr>
+<tr>
+<td>↑</td>
+<td>上箭头</td>
+<td>&amp; uarr;</td>
+<td>up arrow</td>
+</tr>
+<tr>
+<td>↓</td>
+<td>下箭头</td>
+<td>&amp; darr;</td>
+<td>down arrow</td>
+</tr>
+<tr>
+<td>↔</td>
+<td>水平箭头</td>
+<td>&amp; harr;</td>
+<td>horizontal arrow</td>
+</tr>
+<tr>
+<td>↕</td>
+<td>竖直箭头</td>
+<td>&amp; varr;</td>
+<td>vertical arrow</td>
+</tr>
+<tr>
+<td>⇐</td>
+<td>双线左箭头</td>
+<td>&amp; lArr;</td>
+<td>left arrow</td>
+</tr>
+<tr>
+<td>⇒</td>
+<td>双线右箭头</td>
+<td>&amp; rArr;</td>
+<td>right arrow</td>
+</tr>
+<tr>
+<td>⇑</td>
+<td>双线上箭头</td>
+<td>&amp; uArr;</td>
+<td>up arrow</td>
+</tr>
+<tr>
+<td>⇓</td>
+<td>双线上箭头</td>
+<td>&amp; dArr;</td>
+<td>down arrow</td>
+</tr>
+<tr>
+<td>⇔</td>
+<td>双线水平双箭头</td>
+<td>&amp; hArr;</td>
+<td>horizontal arrow</td>
+</tr>
+<tr>
+<td>⇕</td>
+<td>双线竖直箭头</td>
+<td>&amp; vArr;</td>
+<td>vertical arrow</td>
+</tr>
+<tr>
+<td>♠</td>
+<td>黑桃</td>
+<td>&amp; spades;</td>
+<td>spades</td>
+</tr>
+<tr>
+<td>♥</td>
+<td>红桃</td>
+<td>&amp; hearts;</td>
+<td>hearts</td>
+</tr>
+<tr>
+<td>♣</td>
+<td>梅花</td>
+<td>&amp; clubs;</td>
+<td>club</td>
+</tr>
+<tr>
+<td>♦</td>
+<td>方块</td>
+<td>&amp; diams;</td>
+<td>diamonds</td>
+</tr>
+<tr>
+<td>©</td>
+<td>版权</td>
+<td>&amp; copy;</td>
+<td>copy right</td>
+</tr>
+<tr>
+<td>®</td>
+<td>注册商标</td>
+<td>&amp; reg;</td>
+<td>registration</td>
+</tr>
+<tr>
+<td>™</td>
+<td>商标</td>
+<td>&amp; trade;</td>
+<td>trade</td>
+</tr>
+<tr>
+<td>¥</td>
+<td>人民币</td>
+<td>&amp; yen;</td>
+<td></td>
+</tr>
+<tr>
+<td>€</td>
+<td>欧元</td>
+<td>&amp; euro;</td>
+<td>euro</td>
+</tr>
+<tr>
+<td>¢</td>
+<td>美分</td>
+<td>&amp; cent;</td>
+<td>cent</td>
+</tr>
+<tr>
+<td>£</td>
+<td>英磅</td>
+<td>&amp; pound;</td>
+<td>pound</td>
+</tr>
+<tr>
+<td>⊕</td>
+<td></td>
+<td>&amp; oplus;</td>
+<td></td>
+</tr>
+<tr>
+<td>½</td>
+<td>二分之一</td>
+<td>&amp; frac12;</td>
+<td>fraction</td>
+</tr>
+<tr>
+<td>¼</td>
+<td>四分之一</td>
+<td>&amp; frac14;</td>
+<td>fraction</td>
+</tr>
+<tr>
+<td>‰</td>
+<td>千分符号</td>
+<td>&amp; permil;</td>
+<td>per mille</td>
+</tr>
+<tr>
+<td>∴</td>
+<td>所以</td>
+<td>&amp; there4;</td>
+<td>there fore</td>
+</tr>
+<tr>
+<td>π</td>
+<td>圆周率</td>
+<td>&amp; pi;</td>
+<td></td>
+</tr>
+<tr>
+<td>¹</td>
+<td>商标1</td>
+<td>&amp; sup1;</td>
+<td>super 1</td>
+</tr>
+<tr>
+<td>α</td>
+<td>alpha</td>
+<td>&amp; alpha;</td>
+<td>alpha</td>
+</tr>
+<tr>
+<td>β</td>
+<td>beta</td>
+<td>&amp; beta;</td>
+<td>beta</td>
+</tr>
+<tr>
+<td>γ</td>
+<td>gamma</td>
+<td>&amp; gamma;</td>
+<td>gamma</td>
+</tr>
+<tr>
+<td>δ</td>
+<td>delta</td>
+<td>&amp; delta;</td>
+<td>delta</td>
+</tr>
+<tr>
+<td>θ</td>
+<td>theta</td>
+<td>&amp; theta;</td>
+<td>theta</td>
+</tr>
+<tr>
+<td>λ</td>
+<td>lambda</td>
+<td>&amp; lambda;</td>
+<td>lambda</td>
+</tr>
+<tr>
+<td>σ</td>
+<td>sigma</td>
+<td>&amp; sigma;</td>
+<td>sigma</td>
+</tr>
+<tr>
+<td>τ</td>
+<td>tau</td>
+<td>&amp; tau;</td>
+<td>tau</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>UNICODE二进制符号显示：<a href="https://www.w3schools.com/charsets/ref_utf_symbols.asp">HTML Unicode UTF-8 (w3schools.com)</a></p>
+</blockquote>
+<p>eg:<code>&amp;#x2600~&amp;#x26FF;</code></p>
+<p><code>&amp;#X2600</code> : ☀<code>&amp;#X2601</code> : ☁<code>&amp;#X2602</code> : ☂ ;<code>&amp;#X2610</code> : ☐<code>&amp;#X2611</code> : ☑<code>&amp;#X2612</code> : ☒<code>&amp;#X2613</code> : ☓<code>&amp;#X2640</code> : ♀<code>&amp;#X2641</code> : ♁<code>&amp;#X2642</code> : ♂ <code>&amp;#X2699</code> : ⚙</p>
+<p><code>&amp;#10094;&amp;#10095;</code> ❮❯</p>
+<h2 id="font-colorpurebluesect4css-shortcutfont"><!-- raw HTML omitted -->§4.CSS shortcut<!-- raw HTML omitted --></h2>
+<ol>
+<li>
+<h2 id="color"><strong>color</strong></h2>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#f92672">~~</span><span style="color:#960050;background-color:#1e0010">`</span>#000000<span style="color:#960050;background-color:#1e0010">`</span><span style="color:#f92672">~~</span> <span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">`</span>#000<span style="color:#960050;background-color:#1e0010">`</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">~~</span><span style="color:#960050;background-color:#1e0010">`</span>#336699<span style="color:#960050;background-color:#1e0010">`</span><span style="color:#f92672">~~</span> <span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">`</span>#369<span style="color:#960050;background-color:#1e0010">`</span>
+</span></span></code></pre></div><ol start="2">
+<li>
+<h2 id="marginpadding-简写方式有三种"><strong>Margin</strong>/Padding 简写方式有三种</h2>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#f92672">Margin-top</span><span style="color:#f92672">:</span> <span style="color:#f92672">2px</span><span style="color:#f92672">;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Margin-right</span><span style="color:#f92672">:</span> <span style="color:#f92672">5px</span><span style="color:#f92672">;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Margin-bottom</span><span style="color:#f92672">:</span> <span style="color:#f92672">2em</span><span style="color:#f92672">;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Margin-left</span><span style="color:#f92672">:</span> <span style="color:#f92672">15px</span><span style="color:#f92672">;</span>    
+</span></span></code></pre></div><blockquote>
+<p> <code>Margin: 2px 5px 2em 15px; </code> // [top-right-bot-left]</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-CSS" data-lang="CSS"><span style="display:flex;"><span><span style="color:#f92672">Padding</span>:<span style="color:#a6e22e">2px</span> <span style="color:#f92672">5px</span> <span style="color:#f92672">2em</span> <span style="color:#f92672">15px</span><span style="color:#f92672">;</span> <span style="color:#f92672">//</span> <span style="color:#f92672">top-right-bot-left</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">padding</span>:<span style="color:#a6e22e">10px</span> <span style="color:#f92672">5px</span><span style="color:#f92672">;</span> <span style="color:#f92672">//</span> <span style="color:#f92672">top</span><span style="color:#f92672">&amp;</span><span style="color:#f92672">bot</span> <span style="color:#f92672">left</span><span style="color:#f92672">&amp;</span><span style="color:#f92672">right</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">padding</span>:<span style="color:#a6e22e">10px</span> <span style="color:#f92672">5px</span> <span style="color:#f92672">15px</span><span style="color:#f92672">;</span> <span style="color:#f92672">//</span> <span style="color:#f92672">//</span> <span style="color:#f92672">top</span> <span style="color:#f92672">left</span><span style="color:#f92672">&amp;</span><span style="color:#f92672">right</span> <span style="color:#f92672">BOT</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">padding</span>:<span style="color:#a6e22e">10px</span><span style="color:#f92672">;</span> <span style="color:#f92672">//</span> <span style="color:#f92672">left</span><span style="color:#f92672">&amp;</span><span style="color:#f92672">right</span><span style="color:#f92672">&amp;</span><span style="color:#f92672">top</span><span style="color:#f92672">&amp;</span><span style="color:#f92672">bot</span>
+</span></span></code></pre></div><ol start="3">
+<li>
+<h2 id="border"><strong>border</strong></h2>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#f92672">Border-width</span><span style="color:#f92672">:</span> <span style="color:#f92672">1px</span><span style="color:#f92672">;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Border-style</span><span style="color:#f92672">:</span> <span style="color:#f92672">solid</span><span style="color:#f92672">;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Border-color</span><span style="color:#f92672">:</span> #000 
+</span></span></code></pre></div><blockquote>
+<p> <code>border: 1px solid #000</code></p>
+</blockquote>
+<ol start="4">
+<li>
+<h2 id="font"><strong>font</strong></h2>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#f92672">Font-style</span><span style="color:#f92672">:</span> <span style="color:#f92672">italic</span><span style="color:#f92672">;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Font-variant</span><span style="color:#f92672">:</span> <span style="color:#f92672">small-caps</span><span style="color:#f92672">;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Font-weight</span><span style="color:#f92672">:</span> <span style="color:#f92672">bold</span><span style="color:#f92672">;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Font-size</span><span style="color:#f92672">:</span> <span style="color:#f92672">1em</span><span style="color:#f92672">;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Line-height</span><span style="color:#f92672">:</span> <span style="color:#f92672">140</span><span style="color:#f92672">%;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Font-family</span><span style="color:#f92672">:</span> <span style="color:#f92672">sans-serif</span><span style="color:#f92672">;</span> 
+</span></span></code></pre></div><blockquote>
+<p><code>font: italic small-caps bold 1em 140% sans-serief</code>
+<code> font: bold 15px/80% 'Microsoft Yahei';</code></p>
+</blockquote>
+<p><code>windows下一些常用的font-family</code>：</p>
+<ul>
+<li><strong>宋体（SimSun）</strong>：Win下大部分游览器的默认字体，<code>宋体</code>在小字号下（如12px、14px）的显示效果还可以接受，但是字号一大就非常糟糕了，所以使用的时候要注意。</li>
+<li><strong>微软雅黑（&ldquo;Microsoft Yahei&rdquo;）</strong>：从 Vista 开始，微软提供了这款新的字体，一款无衬线的黑体类字体，并且拥有 <em>Regular</em>、<em>Bold</em> 两种粗细的字重，显著提高了字体的显示效果。现在这款字体已经成为Windows游览器中最值得使用的中文字体。从Win8开始，<code>微软雅黑</code>又加入了 <em>Light</em> 这款更细的字重，对于喜欢细字体的设计、开发人员又多了一个新的选择。</li>
+<li><strong>Arial</strong>：Win平台上默认的无衬线西文字体（为什么要说英文字体后面会解释），有多种变体，显示效果一般。</li>
+<li><strong>Tahoma</strong>：十分常见的无衬线字体，被采用为Windows 2000、Windows XP、Windows Server 2003及Sega游戏主机Dreamcast等系统的预设字型，显示效果比<code>Arial</code>要好。</li>
+<li><strong>Verdana</strong>：无衬线字体，优点在于它在小字上仍结构清晰端整、阅读辨识容易。</li>
+<li><strong>其他</strong>：Windows 下默认字体列表：<a href="https://www.microsoft.com/typography/fonts/product.aspx?pid=161">微软官网</a>、<a href="https://en.wikipedia.org/wiki/List_of_typefaces_included_with_Microsoft_Windows">维基百科</a>、<a href="https://support.office.com/zh-cn/article/%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC%E7%9A%84-Office-%E6%8F%90%E4%BE%9B%E7%9A%84%E5%AD%97%E4%BD%93-db1101fc-5cc0-4300-91cd-de7c79d907cd?CorrelationId=e2918255-27c6-4f99-b24c-6789900e8cb2&amp;ui=zh-CN&amp;rs=zh-CN&amp;ad=CN&amp;ocmsassetID=HA010282644">Office字体</a></li>
+<li><strong>结论：微软雅黑为Win平台上最值得选择的中文字体，但非游览器默认，需要设置；西文字体的选择以Arial、Tahoma等无衬线字体为主。</strong></li>
+</ul>
+<p><a href="https://segmentfault.com/a/1190000006110417">示例:</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#f92672">font-family</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Helvetica Neue&#34;</span><span style="color:#f92672">,</span> <span style="color:#f92672">Helvetica</span><span style="color:#f92672">,</span> <span style="color:#f92672">Arial</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;PingFang SC&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;Hiragino Sans GB&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;Heiti SC&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;Microsoft YaHei&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;WenQuanYi Micro Hei&#34;</span><span style="color:#f92672">,</span> <span style="color:#f92672">sans-serif</span><span style="color:#f92672">;</span>
+</span></span></code></pre></div><ol start="5">
+<li><strong>Background</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#f92672">Background-color</span><span style="color:#f92672">:</span> #f00<span style="color:#f92672">;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Background-image</span><span style="color:#f92672">:</span> <span style="color:#f92672">url</span><span style="color:#f92672">(</span><span style="color:#f92672">background</span>.<span style="color:#a6e22e">gif</span><span style="color:#f92672">);</span> 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Background-repeat</span><span style="color:#f92672">:</span> <span style="color:#f92672">no-repeat</span><span style="color:#f92672">;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Background-attachment</span><span style="color:#f92672">:</span> <span style="color:#f92672">fixed</span><span style="color:#f92672">;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Background-position</span><span style="color:#f92672">:</span> <span style="color:#f92672">0</span> <span style="color:#f92672">0</span><span style="color:#f92672">;</span> 
+</span></span></code></pre></div><blockquote>
+<p> <code>background: #f00 url(background.gif) no-repeat fixed 0 0 </code></p>
+</blockquote>
+<ol start="6">
+<li><strong>List-style</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#f92672">list-style-type</span><span style="color:#f92672">:</span> <span style="color:#f92672">square</span><span style="color:#f92672">;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">list-style-position</span><span style="color:#f92672">:</span> <span style="color:#f92672">inside</span><span style="color:#f92672">;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">List-style-image</span><span style="color:#f92672">:</span> <span style="color:#f92672">url</span><span style="color:#f92672">(</span><span style="color:#f92672">image</span>.<span style="color:#a6e22e">gif</span><span style="color:#f92672">)</span>
+</span></span></code></pre></div><blockquote>
+<p> <code>list-style: square inside url(image.gif)</code></p>
+</blockquote>
+<hr>
+<h2 id="font-colorpurebluesect5css-selectorfont"><!-- raw HTML omitted -->§5.CSS selector<!-- raw HTML omitted --></h2>
+<h3 id="51-基本选择器">5.1 基本选择器</h3>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>选择器</th>
+<th style="text-align:left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.</td>
+<td>*</td>
+<td style="text-align:left">通用元素选择器，匹配任何元素</td>
+</tr>
+<tr>
+<td>2.</td>
+<td>E</td>
+<td style="text-align:left">标签选择器，匹配所有使用E标签的元素</td>
+</tr>
+<tr>
+<td>3.</td>
+<td>.info</td>
+<td style="text-align:left">class选择器，匹配所有class属性中包含info的元素</td>
+</tr>
+<tr>
+<td>4.</td>
+<td>#footer</td>
+<td style="text-align:left">id选择器，匹配所有id属性等于footer的元素</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#f92672">*</span> { <span style="color:#66d9ef">margin</span>:<span style="color:#ae81ff">0</span>; <span style="color:#66d9ef">padding</span>:<span style="color:#ae81ff">0</span>; }
+</span></span><span style="display:flex;"><span><span style="color:#f92672">p</span> { <span style="color:#66d9ef">font-size</span>:<span style="color:#ae81ff">2</span><span style="color:#66d9ef">em</span>; }
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">info</span> { <span style="color:#66d9ef">background</span>:<span style="color:#ae81ff">#ff0</span>; }
+</span></span><span style="display:flex;"><span><span style="color:#f92672">p</span>.<span style="color:#a6e22e">info</span> { <span style="color:#66d9ef">background</span>:<span style="color:#ae81ff">#ff0</span>; }
+</span></span><span style="display:flex;"><span><span style="color:#f92672">p</span>.<span style="color:#a6e22e">info</span>.<span style="color:#a6e22e">error</span> { <span style="color:#66d9ef">color</span>:<span style="color:#ae81ff">#900</span>; <span style="color:#66d9ef">font-weight</span>:<span style="color:#66d9ef">bold</span>; }
+</span></span><span style="display:flex;"><span>#info { <span style="color:#66d9ef">background</span>:<span style="color:#ae81ff">#ff0</span>; }
+</span></span><span style="display:flex;"><span><span style="color:#f92672">p</span>#info { <span style="color:#66d9ef">background</span>:<span style="color:#ae81ff">#ff0</span>; }
+</span></span></code></pre></div><p>~选择器优先级 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Specificity">优先级 - CSS：层叠样式表 | MDN (mozilla.org)</a></p>
+<ol>
+<li>
+<p><code>!important</code>&gt;内联样式 <code>style=&quot;font-weight:bold&quot;</code>,建议不要使用<code>!important</code></p>
+</li>
+<li>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/ID_selectors">ID 选择器</a>（例如，<code>#example</code>）。</p>
+</li>
+<li>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Class_selectors">类选择器</a>（例如，<code>.example</code>），属性选择器（例如，<code>[type=&quot;radio&quot;]</code>）和伪类（例如，<code>:hover</code>）</p>
+</li>
+<li>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Type_selectors">类型选择器</a>（例如，<code>h1</code>）和伪元素（例如，<code>::before</code>）</p>
+<p>如下面的示例，<code>.cc</code>优先级比<code>div p</code>要高，所以显示blue：但是如果使用<code>#aa p</code>则是ID选择器，会覆盖类选择器<code>.cc</code>，那么会显示红色。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;aa&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;cc&#34;</span>&gt;TEST&lt;/<span style="color:#f92672">p</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">cc</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">color</span>:<span style="color:#66d9ef">blue</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">div</span> <span style="color:#f92672">p</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">color</span>:<span style="color:#66d9ef">red</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">style</span>&gt;
+</span></span></code></pre></div></li>
+</ol>
+<h3 id="52-多元素的组合选择器">5.2 多元素的组合选择器</h3>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>选择器</th>
+<th style="text-align:left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5.</td>
+<td>E,F</td>
+<td style="text-align:left">多元素选择器，同时匹配所有E元素或F元素，E和F之间用逗号分隔</td>
+</tr>
+<tr>
+<td>6.</td>
+<td>E F</td>
+<td style="text-align:left">后代元素选择器，匹配所有属于E元素后代的F元素，E和F之间用空格分隔</td>
+</tr>
+<tr>
+<td>7.</td>
+<td>E &gt; F</td>
+<td style="text-align:left">子元素选择器，匹配所有E元素的子元素F</td>
+</tr>
+<tr>
+<td>8.</td>
+<td>E + F</td>
+<td style="text-align:left">毗邻元素选择器，匹配所有紧随E元素之后的同级元素F</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#f92672">div</span> <span style="color:#f92672">p</span> { <span style="color:#66d9ef">color</span>:<span style="color:#ae81ff">#f00</span>; }
+</span></span><span style="display:flex;"><span>#nav <span style="color:#f92672">li</span> { <span style="color:#66d9ef">display</span>:<span style="color:#66d9ef">inline</span>; }
+</span></span><span style="display:flex;"><span>#nav <span style="color:#f92672">a</span> { <span style="color:#66d9ef">font-weight</span>:<span style="color:#66d9ef">bold</span>; }
+</span></span><span style="display:flex;"><span><span style="color:#f92672">div</span> <span style="color:#f92672">&gt;</span> <span style="color:#f92672">strong</span> { <span style="color:#66d9ef">color</span>:<span style="color:#ae81ff">#f00</span>; }
+</span></span><span style="display:flex;"><span><span style="color:#f92672">p</span> <span style="color:#f92672">+</span> <span style="color:#f92672">p</span> { <span style="color:#66d9ef">color</span>:<span style="color:#ae81ff">#f00</span>; }
+</span></span></code></pre></div><h3 id="53-属性选择器">5.3 属性选择器</h3>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>选择器</th>
+<th style="text-align:left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9.</td>
+<td>E[att]</td>
+<td style="text-align:left">匹配所有具有att属性的E元素，不考虑它的值。（注意：E在此处可以省略，比如&quot;[cheacked]&quot;。以下同。）</td>
+</tr>
+<tr>
+<td>10.</td>
+<td>E[att=val]</td>
+<td style="text-align:left">匹配所有att属性等于&quot;val&quot;的E元素</td>
+</tr>
+<tr>
+<td>11.</td>
+<td>E[att~=val]</td>
+<td style="text-align:left">匹配所有att属性具有多个空格分隔的值、其中一个值等于&quot;val&quot;的E元素</td>
+</tr>
+<tr>
+<td>12.</td>
+<td>E[att|=val]</td>
+<td style="text-align:left">匹配所有att属性具有多个连字号分隔（hyphen-separated）的值、其中一个值以&quot;val&quot;开头的E元素,主要用于lang属性，比如&quot;en&quot;、&ldquo;en-us&rdquo;、&ldquo;en-gb&quot;等</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#f92672">p</span><span style="color:#f92672">[</span><span style="color:#f92672">title</span><span style="color:#f92672">]</span> { <span style="color:#66d9ef">color</span>:<span style="color:#ae81ff">#f00</span>; }
+</span></span><span style="display:flex;"><span><span style="color:#f92672">div</span><span style="color:#f92672">[</span><span style="color:#f92672">class</span><span style="color:#f92672">=</span><span style="color:#f92672">error</span><span style="color:#f92672">]</span> { <span style="color:#66d9ef">color</span>:<span style="color:#ae81ff">#f00</span>; }
+</span></span><span style="display:flex;"><span><span style="color:#f92672">td</span><span style="color:#f92672">[</span><span style="color:#f92672">headers</span><span style="color:#f92672">~=</span><span style="color:#f92672">col1</span><span style="color:#f92672">]</span> { <span style="color:#66d9ef">color</span>:<span style="color:#ae81ff">#f00</span>; }
+</span></span><span style="display:flex;"><span><span style="color:#f92672">p</span><span style="color:#f92672">[</span><span style="color:#f92672">lang</span><span style="color:#f92672">|=</span><span style="color:#f92672">en</span><span style="color:#f92672">]</span> { <span style="color:#66d9ef">color</span>:<span style="color:#ae81ff">#f00</span>; }
+</span></span><span style="display:flex;"><span><span style="color:#f92672">blockquote</span><span style="color:#f92672">[</span><span style="color:#f92672">class</span><span style="color:#f92672">=</span><span style="color:#f92672">quote</span><span style="color:#f92672">][</span><span style="color:#f92672">cite</span><span style="color:#f92672">]</span> { <span style="color:#66d9ef">color</span>:<span style="color:#ae81ff">#f00</span>; }
+</span></span></code></pre></div><h3 id="54-伪类伪元素">5.4 伪类&amp;伪元素</h3>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>选择器</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>13.</td>
+<td>E:first-child</td>
+<td>匹配父元素的第一个子元素</td>
+</tr>
+<tr>
+<td>14.</td>
+<td>E:link</td>
+<td>匹配所有未被点击的链接</td>
+</tr>
+<tr>
+<td>15.</td>
+<td>E:visited</td>
+<td>匹配所有已被点击的链接</td>
+</tr>
+<tr>
+<td>16.</td>
+<td>E:active</td>
+<td>匹配鼠标已经其上按下、还没有释放的E元素</td>
+</tr>
+<tr>
+<td>17.</td>
+<td>E:hover</td>
+<td>匹配鼠标悬停其上的E元素</td>
+</tr>
+<tr>
+<td>18.</td>
+<td>E:focus</td>
+<td>匹配获得当前焦点的E元素</td>
+</tr>
+<tr>
+<td>19.</td>
+<td>E:lang(c)</td>
+<td>匹配lang属性等于c的E元素</td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>20.</td>
+<td>E:first-line</td>
+<td>匹配E元素的第一行</td>
+</tr>
+<tr>
+<td>21.</td>
+<td>E:first-letter</td>
+<td>匹配E元素的第一个字母</td>
+</tr>
+<tr>
+<td>22.</td>
+<td>E:before</td>
+<td>在E元素之前插入生成的内容</td>
+</tr>
+<tr>
+<td>23.</td>
+<td>E:after</td>
+<td>在E元素之后插入生成的内容</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-CSS" data-lang="CSS"><span style="display:flex;"><span><span style="color:#f92672">p</span>:<span style="color:#a6e22e">first-child</span> { <span style="color:#66d9ef">font-style</span>:<span style="color:#66d9ef">italic</span>; }
+</span></span><span style="display:flex;"><span><span style="color:#f92672">input</span><span style="color:#f92672">[</span><span style="color:#f92672">type</span><span style="color:#f92672">=</span><span style="color:#f92672">text</span><span style="color:#f92672">]</span>:<span style="color:#a6e22e">focus</span> { <span style="color:#66d9ef">color</span>:<span style="color:#ae81ff">#000</span>; <span style="color:#66d9ef">background</span>:<span style="color:#ae81ff">#ffe</span>; }
+</span></span><span style="display:flex;"><span><span style="color:#f92672">input</span><span style="color:#f92672">[</span><span style="color:#f92672">type</span><span style="color:#f92672">=</span><span style="color:#f92672">text</span><span style="color:#f92672">]</span>:<span style="color:#a6e22e">focus</span>:<span style="color:#a6e22e">hover</span> { <span style="color:#66d9ef">background</span>:<span style="color:#ae81ff">#fff</span>; }
+</span></span><span style="display:flex;"><span><span style="color:#f92672">q</span>:<span style="color:#a6e22e">lang</span><span style="color:#f92672">(</span><span style="color:#f92672">sv</span><span style="color:#f92672">)</span> { <span style="color:#66d9ef">quotes</span>: <span style="color:#e6db74">&#34;\201D&#34;</span> <span style="color:#e6db74">&#34;\201D&#34;</span> <span style="color:#e6db74">&#34;\2019&#34;</span> <span style="color:#e6db74">&#34;\2019&#34;</span>; }
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/*-伪元素-*/</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">p</span>:<span style="color:#a6e22e">first-line</span> { <span style="color:#66d9ef">font-weight</span>:<span style="color:#66d9ef">bold</span>; <span style="color:#960050;background-color:#1e0010">color</span>;<span style="color:#960050;background-color:#1e0010">#600</span>; }
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">preamble</span>:<span style="color:#a6e22e">first-letter</span> { <span style="color:#66d9ef">font-size</span>:<span style="color:#ae81ff">1.5</span><span style="color:#66d9ef">em</span>; <span style="color:#66d9ef">font-weight</span>:<span style="color:#66d9ef">bold</span>; }
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">cbb</span>:<span style="color:#a6e22e">before</span> { <span style="color:#66d9ef">content</span>:<span style="color:#e6db74">&#34;&#34;</span>; <span style="color:#66d9ef">display</span>:<span style="color:#66d9ef">block</span>; <span style="color:#66d9ef">height</span>:<span style="color:#ae81ff">17</span><span style="color:#66d9ef">px</span>; <span style="color:#66d9ef">width</span>:<span style="color:#ae81ff">18</span><span style="color:#66d9ef">px</span>; <span style="color:#66d9ef">background</span>:url(<span style="color:#e6db74">top.png</span>) <span style="color:#66d9ef">no-repeat</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span>; <span style="color:#66d9ef">margin</span>:<span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">-18</span><span style="color:#66d9ef">px</span>; }
+</span></span><span style="display:flex;"><span><span style="color:#f92672">a</span>:<span style="color:#a6e22e">link</span>:<span style="color:#a6e22e">after</span> { <span style="color:#66d9ef">content</span>: <span style="color:#e6db74">&#34; (&#34;</span> attr(href) <span style="color:#e6db74">&#34;) &#34;</span>; }
+</span></span></code></pre></div><h3 id="55-css3-选择器">5.5 CSS3 选择器</h3>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>选择器</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>24.</td>
+<td>E ~ F</td>
+<td>匹配任何在E元素之后的同级F元素</td>
+</tr>
+<tr>
+<td>25.</td>
+<td>E[att^=&ldquo;val&rdquo;]</td>
+<td>属性att的值以&quot;val&quot;开头的元素</td>
+</tr>
+<tr>
+<td>26.</td>
+<td>E[att$=&ldquo;val&rdquo;]</td>
+<td>属性att的值以&quot;val&quot;结尾的元素</td>
+</tr>
+<tr>
+<td>27.</td>
+<td>E[att*=&ldquo;val&rdquo;]</td>
+<td>属性att的值包含&quot;val&quot;字符串的元素</td>
+</tr>
+<tr>
+<td>28.</td>
+<td>E:enabled</td>
+<td>匹配表单中激活的元素</td>
+</tr>
+<tr>
+<td>29.</td>
+<td>E:disabled</td>
+<td>匹配表单中禁用的元素</td>
+</tr>
+<tr>
+<td>30.</td>
+<td>E:checked</td>
+<td>匹配表单中被选中的radio（单选框）或checkbox（复选框）元素</td>
+</tr>
+<tr>
+<td>31.</td>
+<td>E::selection</td>
+<td>匹配用户当前选中的元素</td>
+</tr>
+<tr>
+<td>32.</td>
+<td>E:root</td>
+<td>匹配文档的根元素，对于HTML文档，就是HTML元素</td>
+</tr>
+<tr>
+<td>33.</td>
+<td>E:nth-child(n)</td>
+<td>匹配其父元素的第n个子元素，第一个编号为1</td>
+</tr>
+<tr>
+<td>34.</td>
+<td>E:nth-last-child(n)</td>
+<td>匹配其父元素的倒数第n个子元素，第一个编号为1</td>
+</tr>
+<tr>
+<td>35.</td>
+<td>E:nth-of-type(n)</td>
+<td>与:nth-child()作用类似，但是仅匹配使用同种标签的元素</td>
+</tr>
+<tr>
+<td>36.</td>
+<td>E:nth-last-of-type(n)</td>
+<td>与:nth-last-child() 作用类似，但是仅匹配使用同种标签的元素</td>
+</tr>
+<tr>
+<td>37.</td>
+<td>E:last-child</td>
+<td>匹配父元素的最后一个子元素，等同于:nth-last-child(1)</td>
+</tr>
+<tr>
+<td>38.</td>
+<td>E:first-of-type</td>
+<td>匹配父元素下使用同种标签的第一个子元素，等同于:nth-of-type(1)</td>
+</tr>
+<tr>
+<td>39.</td>
+<td>E:last-of-type</td>
+<td>匹配父元素下使用同种标签的最后一个子元素，等同于:nth-last-of-type(1)</td>
+</tr>
+<tr>
+<td>40.</td>
+<td>E:only-child</td>
+<td>匹配父元素下仅有的一个子元素，等同于:first-child:last-child或 :nth-child(1):nth-last-child(1)</td>
+</tr>
+<tr>
+<td>41.</td>
+<td>E:only-of-type</td>
+<td>匹配父元素下使用同种标签的唯一一个子元素，等同于:first-of-type:last-of-type或 :nth-of-type(1):nth-last-of-type(1)</td>
+</tr>
+<tr>
+<td>42.</td>
+<td>E:empty</td>
+<td>匹配一个不包含任何子元素的元素，注意，文本节点也被看作子元素</td>
+</tr>
+<tr>
+<td>43.</td>
+<td>E:not(s)</td>
+<td>匹配不符合当前选择器的任何元素</td>
+</tr>
+<tr>
+<td>44.</td>
+<td>E:target</td>
+<td>匹配文档中特定&quot;id&quot;点击后的效果</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="font-colorpurebluesect6-jsfont"><!-- raw HTML omitted -->§6. JS<!-- raw HTML omitted --></h2>
+<p>JSON&amp;OBJ</p>
+<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">graph TB 
+	JS_OBJ[JavaScript对象2]-- 序列化:JSON.stringify --&gt;JSON[JSON]
+	JSON[JSON]-- 反序列化:JSON.parse --&gt;JS_OBJ[JavaScript对象]
+</code></pre><h3 id="jquery-set-css-style">JQuery set css style.</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">$</span>(document).<span style="color:#a6e22e">ready</span>(<span style="color:#66d9ef">function</span>(){
+</span></span><span style="display:flex;"><span>    document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;elm_id&#39;</span>).<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">fontSize</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;12px&#39;</span>; <span style="color:#75715e">// modify style 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">/* recommand use querySelector: 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    document.querySelector(&#39;#elm_id&#39;)\document.querySelector(&#39;.cls_id&#39;) ,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    support complex css selector like :
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    var el = elem.querySelector(&#34;div.user-panel.main input[name=&#39;login&#39;]&#34;);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    var els = elem.querySelectorAll(&#39;div&#39;)*/</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">$</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">jQuery</span>.<span style="color:#a6e22e">noConflict</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">jQuery</span>(<span style="color:#e6db74">&#34;#id&#34;</span>).<span style="color:#a6e22e">css</span>(<span style="color:#e6db74">&#34;color&#34;</span>, <span style="color:#a6e22e">chk</span>.<span style="color:#a6e22e">checked</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;black&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;gray&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#a6e22e">OR</span><span style="color:#960050;background-color:#1e0010">：</span> document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#39;#id&#39;</span>).<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">color</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;black&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">jQuery</span>(<span style="color:#e6db74">&#34;#id&#34;</span>).<span style="color:#a6e22e">css</span>(<span style="color:#e6db74">&#34;color&#34;</span>, <span style="color:#a6e22e">chk</span>.<span style="color:#a6e22e">checked</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;black&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;gray&#34;</span>);    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">jQuery</span>(<span style="color:#e6db74">&#34;#id&#34;</span>).<span style="color:#a6e22e">prop</span>(<span style="color:#e6db74">&#34;disabled&#34;</span>, <span style="color:#66d9ef">true</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">jQuery</span>(<span style="color:#e6db74">&#34;#id&#34;</span>).<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#34;label&#34;</span>, <span style="color:#66d9ef">true</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">checked</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">jQuery</span>(<span style="color:#e6db74">&#34;#id&#34;</span>).<span style="color:#a6e22e">prop</span>(<span style="color:#e6db74">&#39;checked&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;#info_area&#34;</span>).<span style="color:#a6e22e">css</span>(<span style="color:#e6db74">&#34;padding-top&#34;</span>, <span style="color:#e6db74">&#39;20px&#39;</span>); <span style="color:#75715e">// set padding 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">//显示隐藏id:none-&gt;inline-block
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">jQuery</span>(<span style="color:#e6db74">&#34;#id&#34;</span>).<span style="color:#a6e22e">css</span>(<span style="color:#e6db74">&#34;display&#34;</span>, <span style="color:#e6db74">&#39;inline-block&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// document.getElementById(&#39;id&#39;).style.display=&#39;[none/inline/block/inline-block]&#39; 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// or: .style.visibility = &#39;hidden|visible&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// gray all button-
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">elem</span> <span style="color:#66d9ef">of</span> document.<span style="color:#a6e22e">getElementsByClassName</span>(<span style="color:#e6db74">&#34;mango_button&#34;</span>)){
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">elem</span>.<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">backgroundColor</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;gray&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//attr vs prop:具有 true 和 false 两个属性的属性，
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 如 checked, selected 或者 disabled 使用prop();
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">//其他的使用 attr()-HTML attribute
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// trigger event.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#_selecter&#39;</span>).<span style="color:#a6e22e">val</span>(<span style="color:#ae81ff">5</span>).<span style="color:#a6e22e">trigger</span>(<span style="color:#e6db74">&#39;change&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// each
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;.infoTitle[title]&#34;</span>).<span style="color:#a6e22e">each</span>(<span style="color:#66d9ef">function</span>( <span style="color:#a6e22e">index</span>,<span style="color:#a6e22e">data</span>){ <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">innerHTML</span>)} )
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">GetBirthDay</span>(<span style="color:#a6e22e">str</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;1985-11-17&#39;</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">r</span><span style="color:#f92672">=</span> <span style="color:#e6db74">/^(\d{4})-(\d{1,2})-(\d{1,2})$/</span>; <span style="color:#75715e">//正则表达式 匹配出生日期(简单匹配)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">exec</span>(<span style="color:#a6e22e">str</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">s1</span><span style="color:#f92672">=</span>RegExp.<span style="color:#a6e22e">$1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">s2</span><span style="color:#f92672">=</span>RegExp.<span style="color:#a6e22e">$2</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">s3</span><span style="color:#f92672">=</span>RegExp.<span style="color:#a6e22e">$3</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">s1</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#34; &#34;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">s2</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#34; &#34;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">s3</span>)<span style="color:#75715e">//结果为1985 10 15
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* Get search param url?key=val..*/</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">GetVars</span>(<span style="color:#a6e22e">str</span>)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">url</span><span style="color:#f92672">=</span><span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">search</span>.<span style="color:#a6e22e">substring</span>(<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">parameterList</span><span style="color:#f92672">=</span><span style="color:#a6e22e">url</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#34;&amp;&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;<span style="color:#a6e22e">i</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">parameterList</span>.<span style="color:#a6e22e">length</span>;<span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>         <span style="color:#a6e22e">parameter</span><span style="color:#f92672">=</span><span style="color:#a6e22e">parameterList</span>[<span style="color:#a6e22e">i</span>].<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#34;=&#34;</span>);
+</span></span><span style="display:flex;"><span>         <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">parameter</span>[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">==</span> <span style="color:#a6e22e">str</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> (decodeURIComponent(<span style="color:#a6e22e">parameter</span>[<span style="color:#ae81ff">1</span>]));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="jquery-attr-vs-prop">jQuery .attr VS .prop</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Attribute/Property</strong></th>
+<th><strong>attr</strong></th>
+<th><strong>prop</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>accesskey</td>
+<td>√</td>
+<td></td>
+</tr>
+<tr>
+<td>align</td>
+<td>√</td>
+<td></td>
+</tr>
+<tr>
+<td>async</td>
+<td></td>
+<td>√</td>
+</tr>
+<tr>
+<td>autofocus</td>
+<td></td>
+<td>√</td>
+</tr>
+<tr>
+<td>checked</td>
+<td></td>
+<td>√</td>
+</tr>
+<tr>
+<td>class</td>
+<td>√</td>
+<td></td>
+</tr>
+<tr>
+<td>contenteditable</td>
+<td>√</td>
+<td></td>
+</tr>
+<tr>
+<td>defaultValue</td>
+<td></td>
+<td>√</td>
+</tr>
+<tr>
+<td>draggable</td>
+<td>√</td>
+<td></td>
+</tr>
+<tr>
+<td>href</td>
+<td>√</td>
+<td></td>
+</tr>
+<tr>
+<td>id</td>
+<td>√</td>
+<td></td>
+</tr>
+<tr>
+<td>label</td>
+<td>√</td>
+<td></td>
+</tr>
+<tr>
+<td>location(ie.window.location)</td>
+<td></td>
+<td>√</td>
+</tr>
+<tr>
+<td>multiple</td>
+<td></td>
+<td>√</td>
+</tr>
+<tr>
+<td>nodeName</td>
+<td></td>
+<td>√</td>
+</tr>
+<tr>
+<td>nodeType</td>
+<td></td>
+<td>√</td>
+</tr>
+<tr>
+<td>readonly</td>
+<td></td>
+<td>√</td>
+</tr>
+<tr>
+<td>rel</td>
+<td>√</td>
+<td></td>
+</tr>
+<tr>
+<td>selected</td>
+<td></td>
+<td>√</td>
+</tr>
+<tr>
+<td>selectedIndex</td>
+<td></td>
+<td>√</td>
+</tr>
+<tr>
+<td>src</td>
+<td>√</td>
+<td></td>
+</tr>
+<tr>
+<td>tabindex</td>
+<td>√</td>
+<td></td>
+</tr>
+<tr>
+<td>tagName</td>
+<td></td>
+<td>√</td>
+</tr>
+<tr>
+<td>title</td>
+<td>√</td>
+<td></td>
+</tr>
+<tr>
+<td>type</td>
+<td>√</td>
+<td></td>
+</tr>
+<tr>
+<td>width</td>
+<td>√</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="font-colorpurebluesect7js-debugfontimportanthttpssegmentfaultcoma1190000018756503"><!-- raw HTML omitted -->§7.JS Debug<!-- raw HTML omitted --><a href="https://segmentfault.com/a/1190000018756503">!important</a></h2>
+<h3 id="71-debugger">7.1. <strong>debugger;</strong></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">test</span>(){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">thisThing</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">debugger</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>调试模式使用<code>debug(test)</code>,附加函数断点</p>
+<h3 id="72-0">7.2. <strong>$0</strong></h3>
+<p><code>$0,$1</code>分别对应浏览器<code>查看</code>元素时的选中元素</p>
+<h3 id="73-consoletableobj">7.3. <strong>console.table(obj)</strong></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">animals</span> <span style="color:#f92672">=</span> [  
+</span></span><span style="display:flex;"><span>    { <span style="color:#a6e22e">animal</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Horse&#39;</span>, <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Henry&#39;</span>, <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">43</span> },   
+</span></span><span style="display:flex;"><span>    { <span style="color:#a6e22e">animal</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Dog&#39;</span>, <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Fred&#39;</span>, <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">13</span> },    
+</span></span><span style="display:flex;"><span>    { <span style="color:#a6e22e">animal</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Cat&#39;</span>, <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Frodo&#39;</span>, <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">18</span> }
+</span></span><span style="display:flex;"><span>    ];
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">table</span>(<span style="color:#a6e22e">animals</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> [{
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;7cb1-e041b126-f3b8&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">seller</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;WAL0412&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">buyer</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;WAL3023&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">price</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">203450</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">time</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1539688433</span>
+</span></span><span style="display:flex;"><span>},
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;1d4c-31f8f14b-1571&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">seller</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;WAL0452&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">buyer</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;WAL3023&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">price</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">348299</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">time</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1539688433</span>
+</span></span><span style="display:flex;"><span>},
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;b12c-b3adf58f-809f&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">seller</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;WAL0012&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">buyer</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;WAL2025&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">price</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">59240</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">time</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1539688433</span>
+</span></span><span style="display:flex;"><span>}];
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">table</span>(<span style="color:#a6e22e">data</span>, [<span style="color:#e6db74">&#34;id&#34;</span>, <span style="color:#e6db74">&#34;price&#34;</span>]);
+</span></span></code></pre></div><p>效果图:<img src="console.table.png" alt=""></p>
+<h3 id="74-consoletime计时">7.4. <strong>console.time()计时</strong></h3>
+<p>console.time() 和 console.timeEnd() 测试循环耗时</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">time</span>(<span style="color:#e6db74">&#39;Timer1&#39;</span>); 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">items</span> <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">100000</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">items</span>.<span style="color:#a6e22e">push</span>({<span style="color:#a6e22e">index</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">i</span>});
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">timeEnd</span>(<span style="color:#e6db74">&#39;Timer1&#39;</span>);
+</span></span></code></pre></div><h3 id="75-consoleloginfowarnerror">7.5. <strong>console.log/info/warn/error/&hellip;</strong></h3>
+<p>​	console.log()打印日志|console.trace() 打印堆栈|console.dir()打印DOM|console.warn()|console.assert(exp)</p>
+<p>​	常见的占位符 <code>%o</code> (这是字母o，不是0)，它接受对象，<code>%s</code> 接受字符串，<code>%d</code> 表示小数或整数。%c带颜色打印;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">trace</span>(<span style="color:#e6db74">&#39;stack var&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#66d9ef">new</span> Error().<span style="color:#a6e22e">stack</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#34;now is %o !&#34;</span>, <span style="color:#66d9ef">new</span> Date())
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">assert</span>(<span style="color:#ae81ff">1</span><span style="color:#f92672">&gt;</span><span style="color:#ae81ff">2</span>,<span style="color:#e6db74">&#34;1&gt;2 is ok?&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;the operation was %csuccessful&#34;</span>, <span style="color:#e6db74">&#39;color:green;background-color:LightGreen;padding:3px 5px&#39;</span>) <span style="color:#75715e">// %c带颜色打印
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">clear</span>() <span style="color:#75715e">//清除console
+</span></span></span></code></pre></div><h2 id="sect8-npm-webpackhttpswwwwebpackjscomguides">§8 NPM&amp; <a href="https://www.webpackjs.com/guides/">Webpack</a></h2>
+<h3 id="81-install">8.1 install</h3>
+<p><code>-g</code> option will install packages in global scope, <code>--save-dev</code> is only for <code>devDependence</code> usage, <code>--save</code> for distribute.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install --save-dev --global babel-preset-env babel-cli <span style="color:#75715e"># instll babel @global scope</span>
+</span></span><span style="display:flex;"><span>+.babelrc file: 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span><span style="color:#e6db74">&#34;presets&#34;</span>: <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;env&#34;</span><span style="color:#f92672">]}</span>
+</span></span><span style="display:flex;"><span>npm i -g express --registry https://registry.npm.taobao.org <span style="color:#75715e">#npm临时使用淘宝镜像安装express依赖包</span>
+</span></span><span style="display:flex;"><span>mkdir webpack-demo <span style="color:#f92672">&amp;&amp;</span> cd webpack-demo
+</span></span><span style="display:flex;"><span>npm init -y
+</span></span><span style="display:flex;"><span>npm install webpack webpack-cli --save-dev <span style="color:#75715e"># 其他插件如webpack-dev-server、webpack-dev-middleware、webpack-hot-middleware</span>
+</span></span><span style="display:flex;"><span>npm install style-loader --save
+</span></span><span style="display:flex;"><span>npm install --save-dev file-loader
+</span></span><span style="display:flex;"><span>npm install --save-dev csv-loader xml-loader
+</span></span></code></pre></div><p><!-- raw HTML omitted -->npm使用<strong>package.json</strong>文件记录,npm install时会下载依赖包放在node_modules/下<!-- raw HTML omitted -->,查看方法:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm list --depth <span style="color:#ae81ff">0</span> <span style="color:#75715e"># add -g  to check global packages.</span>
+</span></span></code></pre></div><h3 id="82-adjust-project">8.2 adjust project</h3>
+<p>add directory <em>/dist/index.html &amp; /src/index.js</em></p>
+<p>install js lib ie lodash <code>npm install --save lodash</code></p>
+<p>modify <em>index.js</em> ,adding <code>import _ from 'lodash';</code></p>
+<p>add extra module: <code>build\webpack.base.conf.js</code> +</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">module</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">rules</span><span style="color:#f92672">:</span> [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">test</span><span style="color:#f92672">:</span> <span style="color:#e6db74">/\.css$/</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">use</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;style-loader&#34;</span>, <span style="color:#e6db74">&#34;css-loader&#34;</span>]
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>     ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>import module in <em>main.js</em> ie:<code>import router from &quot;./router&quot;;</code></p>
+<h3 id="83-build">8.3 build</h3>
+<p>add a file <strong>webpack.config.js</strong> 定义webpack引入的包、入口、加载器等</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">path</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;path&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">entry</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;./src/index.js&#39;</span>, <span style="color:#75715e">// input script, depends on lodash.js
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">output</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">filename</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;bundle.js&#39;</span>, <span style="color:#75715e">// output script
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">resolve</span>(<span style="color:#a6e22e">__dirname</span>, <span style="color:#e6db74">&#39;dist&#39;</span>)
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npx webpack --config webpack.config.js
+</span></span></code></pre></div><p>or just using nmp cli:</p>
+<p><code>npm run build</code></p>
+<p>MDN[^1]https://developer.mozilla.org/zh-CN/</p>
+<h2 id="sect9-vue-clihttpswwwjianshucomp2769efeaa10a">§9 <a href="https://www.jianshu.com/p/2769efeaa10a">vue-cli</a></h2>
+<h3 id="91-setup">9.1 setup</h3>
+<p>install vue-cli:   <code>npm install --global vue-cli</code></p>
+<p>check <code>C:\Users\Andminster\AppData\Roaming\npm</code></p>
+<h3 id="92-play">9.2 <strong>Play</strong></h3>
+<p><code>vue init webpack %prj_name%</code>, 配置webpack参数: <strong><code>\build\webpack.base.conf.js</code> :module.exports.entry ，添加插件（$4.2）</strong></p>
+<p>下载依赖包：cd %prj_name%; npm install;</p>
+<p>测试:<code>npm run dev</code> ，打开http://127.0.0.1:8080 测试</p>
+<p>生成:<code>npm run build</code> ，打开./dist/index.html测试</p>
+<p>移除无关包:<code>npm prune</code></p>
+
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/vuejs/">Vue3 学习大纲</a></li>
+        
+        <li><a href="/post/exclel%E5%87%BD%E6%95%B0/">excel常用的函数</a></li>
+        
+        <li><a href="/post/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90/">需求分析</a></li>
+        
+        <li><a href="/post/maven-spring/">IDEA里使用 maven搭建一个spring工程</a></li>
+        
+        <li><a href="/post/%E6%99%AE%E9%80%9A%E8%AF%9D/">普通话</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='https://liudx1985.gitee.io/tags/web'>web</a></li>
+                
+                <li><a href='https://liudx1985.gitee.io/tags/html'>html</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+</div>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='//cn.bing.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="site" value="https://liudx1985.gitee.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/andriod/" title="Andriod开发从入门到放弃">Andriod开发从入门到放弃</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/electron/" title="electron-vite-vue开发指北">electron-vite-vue开发指北</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/vue3/" title="Vue3高阶组件技术">Vue3高阶组件技术</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/tesseractocr/" title="利用Tesseract对图片或pdf进行OCR">利用Tesseract对图片或pdf进行OCR</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/js_module/" title="JavaScript 模块：CommonJS VS Es6">JavaScript 模块：CommonJS VS Es6</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/js_generator/" title="Javascript迭代器、生成器、异步">Javascript迭代器、生成器、异步</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/pygui/" title="PySide6界面程序编写及打包">PySide6界面程序编写及打包</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/argsort/" title="Argsort 以及Rank的Javascript代码练习">Argsort 以及Rank的Javascript代码练习</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/css_animate/" title="CSS3动画入门">CSS3动画入门</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/mysql/" title="Mysql绿色安装方法">Mysql绿色安装方法</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li><a href="https://liudx1985.gitee.io/categories/ai/">AI (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/algorithm/">algorithm (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/c&#43;&#43;/">C&#43;&#43; (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/database/">Database (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/fp/">FP (3)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/math/">math (8)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/misc/">misc (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/programming/">Programming (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/python/">Python (3)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/se/">SE (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/test/">test (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/web/">web (9)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://liudx1985.gitee.io/tags/algorithm/">algorithm</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/bigdata/">bigdata</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/fp/">FP</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/gui/">GUI</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/haskell/">haskell</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/html/">html</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/java/">java</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/javascript/">javascript</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/js/">js</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/latex/">latex</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/math/">math</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/misc/">misc</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/mysql/">mysql</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/nodejs/">nodejs</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/program/">Program</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/python/">python</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/se/">SE</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/vue/">vue</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/web/">web</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/%E6%99%AE%E9%80%9A%E8%AF%9D/">普通话</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://ife.baidu.com/introduction.html" title="百度前端技术学园ife.baidu.com "> 百度前端技术学园ife.baidu.com  </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.runoob.com/" title="菜鸟教程 runoob.com "> 菜鸟教程 runoob.com </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://developer.mozilla.org/zh-CN/docs/Web" title="Web 开发者文档MDN "> Web 开发者文档MDN </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.liaoxuefeng.com/" title="廖雪峰的官方网站"> 廖雪峰的JAVA、python、JS教程</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.processon.com/" title="ProcessOn 在线流程图思维导图">ProcessOn 在线流程图思维导图</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://zhongguose.com/" title="中国色 - 中国传统颜色色卡">中国色 - 中国传统颜色色卡</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://liudx1985.gitee.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+    <div class="container">
+        &copy; 2024 <a href="https://liudx1985.gitee.io/">清风竹影 By 清风竹影</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/flysnow-org/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+
+
+
+
+</body>
+
+</html>

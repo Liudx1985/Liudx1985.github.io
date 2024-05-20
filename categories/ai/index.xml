@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AI on 清风竹影</title>
+    <link>https://liudx1985.gitee.io/categories/ai/</link>
+    <description>Recent content in AI on 清风竹影</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 21 Oct 2023 08:48:55 +0800</lastBuildDate><atom:link href="https://liudx1985.gitee.io/categories/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>利用Tesseract对图片或pdf进行OCR</title>
+      <link>https://liudx1985.gitee.io/post/tesseractocr/</link>
+      <pubDate>Sat, 21 Oct 2023 08:48:55 +0800</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/tesseractocr/</guid>
+      <description>1. 准备  下载OCR核心工具包Tesseract并安装，参考Tesseract OCR 下载及安装教程 （中英文语言包）_eng.traineddata下载-CSDN博客，注意中文语言包需要下载，如果不下载语言包，可能无法识别中文。 下载PDF转图片工具包Releases · oschwartz10612/poppler-windows (github.com);如果仅仅是OCR图片，可以不用下载这个 完成后，将上述两个的（tesseract.exe&amp;amp;pdfimages.exe）目录加入到电脑的环境变量PATH中：  2 安装python 依赖 下面安装Python 的依赖
+pip install pytesseract pip install pdf2image 3 识别图片 def ocr_image():  from PIL import Image  # 打开图片  image = Image.open(&amp;#39;demo.png&amp;#39;)  # 使用pytesseract进行OCR识别  text = pytesseract.image_to_string(image, lang=&amp;#39;chi_sim&amp;#39;) # lang设置为中文  # 输出识别结果  print(text) 4 识别pdf def ocr_pdf(pdf):  from pdf2image import convert_from_path  # 设置tesseract.exe的路径  pytesseract.pytesseract.tesseract_cmd = r&amp;#39;D:\Games\TesseractOCR5\tesseract.</description>
+    </item>
+    
+    <item>
+      <title>Python数据分析简介&amp;环境准备</title>
+      <link>https://liudx1985.gitee.io/post/data-analyze/</link>
+      <pubDate>Tue, 30 Mar 2021 15:11:49 +0000</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/data-analyze/</guid>
+      <description>1 概览   数据分析定义：数据分析是指用适当的统计分析方法对收集来的大量数据进行分析，提取有用信息和形成结论而对数据加以详细研究和概括总结的过程。
+  思维导图
+  数据分析完整流程：
+start=&amp;gt;start: 明确分析目的fetch=&amp;gt;operation: 数据获取pre_oper=&amp;gt;operation: 数据预处理(清洗/转换)analyze=&amp;gt;operation: 数据分析show=&amp;gt;operation: 数据展现(报表、图表)report=&amp;gt;end: 决策start(right)-&amp;gt;fetch(right)-&amp;gt;pre_oper-&amp;gt;analyze-&amp;gt;show(right)-&amp;gt;report   主流数据分析语言:python以及相关的数据分析库[numpy]、pandas等。
+  相关领域：数据挖掘、深度学习（机器学习)、人工智能等
+  职业发展：算法工程师、数据分析员(师)、数据产品经理、ETL工程师、数据挖掘工程师；数据科学家等
+  准备工作 ​	课程使用anaconda作为实验环境。Anaconda是一个开源的Python发行版本，其包含了conda、Python等180多个科学包及其依赖项。先下载Anaconda安装包。推荐跟随Anaconda下载页面的Windows安装指导,;确认设置是否正确方法：打开命令行窗口（cmd.exe），输入python以打开Python解释器。可以看到类似下面的Anaconda版本的输出：
+C:\Users\wesm&amp;gt;python Python 3.5.2 |Anaconda 4.1.1 (64-bit)| (default, Jul 5 2016, 11:41:13) [MSC v.1900 64 bit (AMD64)] on win32 &amp;gt;&amp;gt;&amp;gt; 要退出shell，按Ctrl-D（Linux或macOS上），Ctrl-Z（Windows上），或输入命令exit()，再按Enter。
+​	我们主要使用jupyter-notebook编写代码。
+jupyter notebook起始目录修改方法
+ 打开anaconda SHELL，输入命令jupyter notebook --generate-config，将生成 jupyter_notebook_config.py文件 打开上一步生成的文件:C:\Users\liudx\.jupyter\jupyter_notebook_config.py,找到c.NotebookApp.notebook_dir 前面的“#”符号（#表示注释的意思）,修改为起始目录 **重启jupyter notebook **  3 resources 1.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,1062 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Vue3 学习大纲 | 清风竹影</title>
+    <meta property="og:title" content="Vue3 学习大纲 - 清风竹影">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2021-09-08T00:00:00&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2021-09-08T00:00:00&#43;08:00'>
+        
+    <meta name="Keywords" content="清风竹影,Javascript,c&#43;&#43;,Haskell,python,软件架构,数据分析,小程序">
+    <meta name="description" content="Vue3 学习大纲">
+        
+    <meta name="author" content="清风竹影">
+    <meta property="og:url" content="https://liudx1985.gitee.io/post/vuejs/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <meta name="MediaType" content="application/octet-stream">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link href="/kityminder/mindmap.css?_=1416390706100" type="text/css" rel="stylesheet" />
+    <link href="/kityminder/kityminder.core.css?_=1416390706100" type="text/css" rel="stylesheet" />
+    <script src="/kityminder/kity.min.js?_=1416390706100" charset="utf-8"></script>
+    <script src="/kityminder/kityminder.core.min.js?_=1416390706100" charset="utf-8"></script>
+    <script src="/kityminder/mindmap.min.js?_=1416390706100" charset="utf-8"></script>
+
+    
+
+
+    
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://liudx1985.gitee.io/">
+                        清风竹影
+                    </a>
+                
+                <p class="description">前C&#43;&#43;码农 ，Python和Javascript练习两年半. 会耍一点Haskell、数据分析、略懂系统架构设计；</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://liudx1985.gitee.io/">首页</a>
+                    
+                    <a  href="https://liudx1985.gitee.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://liudx1985.gitee.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">Vue3 学习大纲</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2021年9月8日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/web'>web</a></span>
+            
+        </div>
+        
+        
+        
+        <div class="post-content">
+            <p>[TOC]</p>
+<h2 id="1-前端工程big-front-end">1. 前端工程(Big Front End)</h2>
+<ul>
+<li>
+<p>浏览器工作原理，HTML、CSS、JavaScript(ES6)</p>
+<ul>
+<li><input disabled="" type="checkbox"> <a href="https://developer.mozilla.org/zh-CN/docs/Web">Web 开发技术 | MDN (mozilla.org)</a></li>
+<li><input disabled="" type="checkbox"> <a href="https://www.runoob.com/">菜鸟教程 -  (runoob.com)</a></li>
+<li><input disabled="" type="checkbox"> <a href="https://es6.ruanyifeng.com/">ES6 入门教程 - ECMAScript 6入门 (ruanyifeng.com)</a></li>
+<li><input disabled="" type="checkbox"> <a href="https://www.w3schools.com/howto/default.asp">W3Schools How TO - 实用的代码片段@HTML, CSS and JavaScript</a></li>
+</ul>
+</li>
+<li>
+<p>数据-视图分离：MVC、MVVM</p>
+<ul>
+<li><input disabled="" type="checkbox"> <a href="https://cn.vuejs.org/">Vue.js (vuejs.org)</a></li>
+</ul>
+<p><img src="vue-mvvc.png" alt="查看源图像"></p>
+</li>
+<li>
+<p>前端工程化：(npm、webpack)，组件技术，etc.</p>
+<ul>
+<li><input disabled="" type="checkbox"> <a href="https://www.runoob.com/vue3/vue3-tutorial.html">Vue3 教程 | 菜鸟教程 (runoob.com)</a> 、<a href="https://www.w3cschool.cn/vuejs3/">VUE3 教程_w3cschool</a></li>
+<li><input disabled="" type="checkbox"> <a href="https://www.webpackjs.com/guides/">指南 | webpack 中文网 (webpackjs.com)</a></li>
+<li><input disabled="" type="checkbox"> <a href="https://github.com/su37josephxia/vue3-study">GitHub - su37josephxia/vue3-study: vue3学习的各种实验代码</a></li>
+<li><input disabled="" type="checkbox"> <a href="https://juejin.cn/post/6912702361798443022">前端面试指南之Vue面试题总结 - 掘金 (juejin.cn)</a></li>
+<li><input disabled="" type="checkbox"> <a href="https://juejin.cn/post/7158331832512020511">vue3正式发布两年后，我才开始学—vue3+setup+ts（万字总结） - 掘金 (juejin.cn)</a></li>
+</ul>
+</li>
+<li>
+<p>工具资源：</p>
+<ul>
+<li><a href="https://code.visualstudio.com/">Visual Studio Code - Code Editing. Redefined</a></li>
+<li><a href="http://nodejs.cn/">Node.js 中文网 (nodejs.cn)</a></li>
+<li><a href="https://sx.supengjun.com/design/0">睡醒 - 资源素材库 (supengjun.com)</a></li>
+<li>ICON: <a href="https://www.iconfont.cn/">阿里iconfont</a> | <a href="https://pictogrammers.com/library/mdi/">Material Design Icons - Icon Library - Pictogrammers</a> | <a href="https://xicons.org/#/">xicons - Icons for Vue &amp; React</a></li>
+<li><a href="http://www.fontawesome.com.cn/">Font Awesome 中文网 – | 字体图标</a></li>
+<li><a href="https://icons.getbootstrap.com/">Bootstrap Icons ·  open source SVG icon</a></li>
+</ul>
+</li>
+<li>
+<p>UI库</p>
+<ul>
+<li><a href="https://www.naiveui.com/zh-CN/dark/docs/community">社区精选资源 - Naive UI</a></li>
+<li><a href="https://vuetify.cn/zh-Hans/">基于 Vue 编写的 Material Design 框架 — Vuetify.js</a></li>
+<li><a href="http://www.quasarchs.com/introduction-to-quasar">Quasar框架介绍 | Quasar Framework 中文网 (quasarchs.com)</a></li>
+<li><a href="https://bootstrap-vue.org/">BootstrapVue (bootstrap-vue.org)</a></li>
+<li><a href="https://element-plus.gitee.io/zh-CN/">一个 Vue 3 UI 框架 | Element Plus (gitee.io)</a></li>
+<li><a href="https://www.creative-tim.com/product/vue-material-kit">Vue Material Kit 2: Free VueJS 3 &amp; Bootstrap 5 Kit @ Creative Tim (creative-tim.com)</a></li>
+<li><a href="https://uniapp.dcloud.net.cn/">uni-app官网 (dcloud.net.cn)</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="2-why-vue3httpsvue3jscn">2. why <a href="https://vue3js.cn/">Vue3</a></h2>
+<ul>
+<li>
+<p>代码简洁：</p>
+</li>
+<li>
+<p>数据驱动：动态数据绑定</p>
+<p><img src="databinding.png" alt="img"></p>
+</li>
+<li>
+<p>组件化</p>
+</li>
+<li>
+<p>轻量</p>
+</li>
+<li>
+<p>fast!</p>
+</li>
+<li>
+<p>模板语法友好（vs <a href="https://reactjs.org/">React </a>）</p>
+</li>
+</ul>
+<h2 id="3-vuejs-安装">3. Vue.js 安装</h2>
+<ol>
+<li>
+<p>install <a href="https://v3.cn.vuejs.org/">Vue.js</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 使用淘宝源</span>
+</span></span><span style="display:flex;"><span>$ npm config set registry https://registry.npm.taobao.org/
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 最新稳定版 3.2.20</span>
+</span></span><span style="display:flex;"><span>$ npm install vue@next
+</span></span></code></pre></div></li>
+<li>
+<p>安装vue-Devtools【支持Edge/Chrome】</p>
+<ol>
+<li>
+<p>去<a href="https://chrome.zzzmh.cn/index">极简插件</a>下载beta版本的Vue devtools(只有beta的支持3.0)</p>
+</li>
+<li>
+<p>7z解压crx后，修改manifest.json中的 <code> &quot;persistent&quot;: true</code>，将浏览器的插件<code>允许访问文件URL</code>打开</p>
+</li>
+<li>
+<p>直接用CDN引入https://unpkg.com/vue@next ，如果需要离线调试也可将vue.js下载到本地，（正式发布修改为vue min打包)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width,initial-scale=1.0&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://unpkg.com/vue@next&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- 可选， import element+ CSS --&gt;</span>
+</span></span><span style="display:flex;"><span> &lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://unpkg.com/element-plus/dist/index.css&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!--可选， import  element+ JavaScript --&gt;</span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://unpkg.com/element-plus&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;Vue.js 3.0 <span style="color:#960050;background-color:#1e0010">&amp;</span> Element Plus demo&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">head</span>&gt;
+</span></span></code></pre></div></li>
+<li>
+<p>F12开搞</p>
+</li>
+</ol>
+<p><img src="vue-devTools.png" alt=""></p>
+</li>
+</ol>
+<h2 id="4-write-code">4. Write Code</h2>
+<h3 id="41-hello-world">4.1 hello world</h3>
+<p><code>Demo Code 1</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width,initial-scale=1.0&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://unpkg.com/vue@next&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;Hello Vue.js 3.0&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span>&gt;			
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#f92672">h1</span>&gt;{{message}}&lt;/<span style="color:#f92672">h1</span>&gt;		
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">app</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">data</span>(){
+</span></span><span style="display:flex;"><span>                  <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>                      <span style="color:#a6e22e">message</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34;hello, vue!&#34;</span>
+</span></span><span style="display:flex;"><span>                  }
+</span></span><span style="display:flex;"><span>              }
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">vm</span><span style="color:#f92672">=</span><span style="color:#a6e22e">Vue</span>.<span style="color:#a6e22e">createApp</span>(<span style="color:#a6e22e">app</span>).<span style="color:#a6e22e">mount</span>(<span style="color:#e6db74">&#39;#app&#39;</span>)		
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">body</span>&gt;	
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><h3 id="42-使用-element-plus-美化界面">4.2 使用 element-plus 美化界面</h3>
+<p><code>Demo code II</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width,initial-scale=1.0&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://unpkg.com/vue@next&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- 可选，import CSS --&gt;</span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://unpkg.com/element-plus/dist/index.css&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- 可选，import JavaScript --&gt;</span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://unpkg.com/element-plus&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;Vue.js 3.0 <span style="color:#960050;background-color:#1e0010">&amp;</span> Element Plus demo&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">el-row</span> <span style="color:#a6e22e">:gutter</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;20&#34;</span> <span style="color:#a6e22e">align</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;middle&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">el-col</span> <span style="color:#a6e22e">:span</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;4&#34;</span>&gt; &lt;<span style="color:#f92672">el-tag</span> &gt;{{ message }}&lt;/<span style="color:#f92672">el-tag</span>&gt;&lt;/<span style="color:#f92672">el-col</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">el-col</span> <span style="color:#a6e22e">:span</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;3&#34;</span>&gt; &lt;<span style="color:#f92672">el-button</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;primary&#34;</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;change&#34;</span>&gt;点我！&lt;/<span style="color:#f92672">el-button</span>&gt;&lt;/<span style="color:#f92672">el-col</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">el-col</span> <span style="color:#a6e22e">:span</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;5&#34;</span>&gt; &lt;<span style="color:#f92672">el-input</span> <span style="color:#a6e22e">v-model</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;message&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;请输入内容&#34;</span>&gt;&lt;/<span style="color:#f92672">el-input</span>&gt; &lt;/<span style="color:#f92672">el-col</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">el-col</span> <span style="color:#a6e22e">:span</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;8&#34;</span>&gt;&lt;/<span style="color:#f92672">el-col</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#f92672">el-row</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">App</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">data</span>() {
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">message</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Hello World&#34;</span>,
+</span></span><span style="display:flex;"><span>          };
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">methods</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">change</span>() {
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// `this` 指向该组件实例
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;你好！&#34;</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      };
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">app</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Vue</span>.<span style="color:#a6e22e">createApp</span>(<span style="color:#a6e22e">App</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">ElementPlus</span>); <span style="color:#75715e">// for elementUI      
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">vm</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">mount</span>(<span style="color:#e6db74">&#39;#app&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//vm.change()
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    &lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><p>Open in browser :smiley:</p>
+<h3 id="43-vue-生命周期-详解httpswwwcnblogscomhapp0p8075562htmlvue3组合式-api生命周期钩子总结---掘金-httpsjuejincnpost7136030329394954271">4.3 <a href="https://www.cnblogs.com/happ0/p/8075562.html">vue 生命周期 详解</a>|<a href="https://juejin.cn/post/7136030329394954271">Vue3组合式 API：生命周期钩子总结 - 掘金 </a></h3>
+<p>Vue实例有一个完整的生命周期，也就是从开始创建、初始化数据、编译模板、挂载Dom、渲染→更新→渲染、销毁等一系列过程，我们称这是Vue的生命周期。通俗说就是Vue实例从创建到销毁的过程，就是生命周期。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/66c9bb03288c463c9ec4ea91d49c0612~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp" alt="在这里插入图片描述"></p>
+<h3 id="43-使用sfc的船新版本-vue3-script-setuphttpswwwcnblogscomguangzanp15021560html">4.3 使用SFC的船新版本！~ <a href="https://www.cnblogs.com/guangzan/p/15021560.html">vue3 script setup</a></h3>
+<p>​	vue 3 可以直接向模板公开 <code>&lt;script setup&gt;</code> 的上下文，减少在单文件组件（<a href="https://v3.cn.vuejs.org/api/sfc-script-setup.html">SFC setup</a>.）中使用 Composition API 的繁琐程度</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">template</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>{{ <span style="color:#a6e22e">msg</span> }}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">input</span> <span style="color:#a6e22e">ref</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input1&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Foo</span> <span style="color:#f92672">:</span><span style="color:#a6e22e">count</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;count&#34;</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;inc&#34;</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">recvMsg</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;handleMsg&#34;</span> <span style="color:#a6e22e">ref</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;foo&#34;</span><span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/template&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">script</span> <span style="color:#a6e22e">setup</span><span style="color:#f92672">&gt;</span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">//直接定义变量，count不用在写`data(){return {count:0}}`
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">//响应式数据:用 ref 来定义定义基本类型；reactive定义复杂的数据类型
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">msg</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Hello!&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">ref</span>,<span style="color:#a6e22e">getCurrentInstance</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">count</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ref</span>(<span style="color:#ae81ff">0</span>)  
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">person</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">reactive</span>({<span style="color:#a6e22e">name</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34;liudx1985&#34;</span>})
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 直接定义的函数，等于`methods：{inc(){...}}`
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">inc</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">count</span>.<span style="color:#a6e22e">value</span><span style="color:#f92672">++</span> <span style="color:#75715e">// ref定义的数据访问的时候要多一个.value,reactive 不用
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">counter</span>.<span style="color:#a6e22e">value</span>,<span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">toRaw</span>(<span style="color:#a6e22e">person</span>))) <span style="color:#75715e">// 用toRaw变为普通对象，反之toRef
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  }
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// watch 侦听一个 ref
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">watch</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">count</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ref</span>(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">watch</span>(()=&gt; <span style="color:#a6e22e">count</span>, (<span style="color:#a6e22e">count</span>, <span style="color:#a6e22e">prevCount</span>) =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">/* ... */</span>
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 定义一个计算属性 item_style
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">computed</span>} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">item_style</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ref</span>(<span style="color:#a6e22e">computed</span>(      
+</span></span><span style="display:flex;"><span>      () =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#75715e">/* ... */</span>;
+</span></span><span style="display:flex;"><span>    }))
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// 可以绑定一些常用的生命周期事件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">onMounted</span>} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">onMounted</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">/* ... */</span>
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">useRouter</span>, <span style="color:#a6e22e">useRoute</span> , <span style="color:#a6e22e">onBeforeRouteUpdate</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue-router&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">router</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useRouter</span>()
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// route changed.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>   <span style="color:#a6e22e">onBeforeRouteUpdate</span>(<span style="color:#66d9ef">async</span> (<span style="color:#a6e22e">to</span>, <span style="color:#a6e22e">from</span>) =&gt; {
+</span></span><span style="display:flex;"><span>       <span style="color:#75715e">/*  router.push({
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            path: `/`,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">          }) */</span>
+</span></span><span style="display:flex;"><span>   })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//------------------------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">//			组          件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">//------------------------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">//可以使用 defineProps 和 defineEmits API 声明组件的属性和事件 props 和 emits
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">defineProps</span>, <span style="color:#a6e22e">defineEmits</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">props</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">defineProps</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">foo</span><span style="color:#f92672">:</span> String,
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Watch Props.foo!
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">watch</span>(
+</span></span><span style="display:flex;"><span>      () =&gt; <span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">foo</span>,
+</span></span><span style="display:flex;"><span>      (<span style="color:#a6e22e">newFoo</span>) =&gt; {})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">emit</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">defineEmits</span>([<span style="color:#e6db74">&#39;change&#39;</span>, <span style="color:#e6db74">&#39;delete&#39;</span>])
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">emit</span>(<span style="color:#e6db74">&#34;change&#34;</span>, <span style="color:#e6db74">&#39;data&#39;</span>) <span style="color:#75715e">// 定义&lt;component @change=&#34;xx&#34;/&gt; 接受消息~
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 组件v-modal
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// &lt;Codemirror :value=&#34;foo&#34; @blue=&#34;$emit(&#39;update:foo&#39;, $event.target.value)&#34; ref=&#34;code_editor&#34;/&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 导入的组件Foo可以直接在template中使用！
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Foo</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./Foo.vue&#39;</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Foo 内部定义属性 `props: {msg: String}`,外部通过&lt;Foo :count=&#34;count&#34;/&gt;传入 count值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// Foo 内部触发一个this.$emit(&#34;recvMsg&#34;, data),外部通过&lt;Foo @recvMsg=&#34;handleMsg&#34;/&gt;关联处理函数：
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">handleMsg</span>(<span style="color:#a6e22e">data</span>){
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">/* ... */</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 获取refs 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">input1</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ref</span>(<span style="color:#66d9ef">null</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">onMounted</span>(() =&gt; { <span style="color:#75715e">// ref ~ document.getElementById()
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">input1</span>.<span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;fuck!&#34;</span>;
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">foo</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ref</span>(<span style="color:#66d9ef">null</span>) <span style="color:#75715e">// AKA: foo.value.xx = yy
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">proxy</span> }  <span style="color:#f92672">=</span> <span style="color:#a6e22e">getCurrentInstance</span>(); 
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/*proxy.ctx 中包含了组件中由ref和reactive创建的响应式数据对象,以及以下对象及方法:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    proxy.$attrs
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    proxy.$data
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    proxy.$el
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    proxy.$emit
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    proxy.$forceUpdate
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    proxy.$nextTick
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    proxy.$options
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    proxy.$parent
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    proxy.$props
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    proxy.$refs
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    proxy.$root
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    proxy.$slots
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    proxy.$watch
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">foo</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">proxy</span>.<span style="color:#a6e22e">$refs</span>.<span style="color:#a6e22e">Foofunc</span>() <span style="color:#75715e">// 调用Foo组件的方法。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/script&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//[可选]使用单独的普通 &lt;script&gt; 块，并使用导出默认值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">script</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;CustomName&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">inheritAttrs</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">customOptions</span><span style="color:#f92672">:</span> {},
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/script&gt;</span>
+</span></span></code></pre></div><h2 id="5-vue-clihttpsclivuejsorg-快速搭建单页面应用-spa的脚手架">5. <a href="https://cli.vuejs.org/">Vue CLI</a> 快速搭建单页面应用 (SPA)的脚手架</h2>
+<p><strong>注意本节以下需要npm知识</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#install vue-cli</span>
+</span></span><span style="display:flex;"><span>$ npm install -g @vue/cli
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#create vue project</span>
+</span></span><span style="display:flex;"><span>vue create hello-world
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#install dependencies</span>
+</span></span><span style="display:flex;"><span>npm install
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#serve with hot reload at localhost:8080</span>
+</span></span><span style="display:flex;"><span>npm run serve 
+</span></span></code></pre></div><p>For a detailed explanation on how things work, check out the <a href="http://vuejs-templates.github.io/webpack/">guide</a> and <a href="http://vuejs.github.io/vue-loader">docs for vue-loader</a>.</p>
+<h2 id="6--vitehttpscnvitejsdevweb-开发构建工具墙裂推荐star">6  <a href="https://cn.vitejs.dev/">Vite</a>：web 开发构建工具(墙裂推荐！):star:</h2>
+<p><code>project-name</code>工程 <a href="https://github.com/vuejs/create-vue">GitHub - vuejs/create-vue: 🛠️ Quickly scaffold a Vue project with <code>npm init vue@3</code></a>：</p>
+<h3 id="61-不需要安装依赖包直接在指定目录搭建1">6.1. 不需要安装依赖包，直接在指定目录搭建<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 最新稳定版</span>
+</span></span><span style="display:flex;"><span>$ npm init vue@next <span style="color:#75715e"># npm 7+，后续需设定&lt;project-name&gt;，开启如typescript\lint\vue-router等</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Vue.js - The Progressive JavaScript Framework
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>√ Project name: ... a
+</span></span><span style="display:flex;"><span>√ Add TypeScript? ... No / Yes
+</span></span><span style="display:flex;"><span>√ Add JSX Support? ... No / Yes
+</span></span><span style="display:flex;"><span>√ Add Vue Router <span style="color:#66d9ef">for</span> Single Page Application development? ... No / Yes
+</span></span><span style="display:flex;"><span>√ Add Pinia <span style="color:#66d9ef">for</span> state management? ... No / Yes
+</span></span><span style="display:flex;"><span>√ Add Vitest <span style="color:#66d9ef">for</span> Unit Testing? ... No / Yes
+</span></span><span style="display:flex;"><span>√ Add Cypress <span style="color:#66d9ef">for</span> both Unit and End-to-End testing? ... No / Yes
+</span></span><span style="display:flex;"><span>√ Add ESLint <span style="color:#66d9ef">for</span> code quality? ... No / Yes
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Scaffolding project in C:<span style="color:#ae81ff">\U</span>sers<span style="color:#ae81ff">\3</span>7556<span style="color:#ae81ff">\D</span>esktop<span style="color:#ae81ff">\a</span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Done. Now run:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  cd a
+</span></span><span style="display:flex;"><span>  npm install
+</span></span><span style="display:flex;"><span>  npm run dev
+</span></span></code></pre></div><h3 id="62-write-code">6.2. Write Code</h3>
+<p><code>app.vue</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">RouterView</span>&gt;&lt;/<span style="color:#f92672">RouterView</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">template</span>&gt;
+</span></span></code></pre></div><p>Open in browser <a href="http://localhost:3000">localhost:3000</a> :smiley:</p>
+<h2 id="7-vue3-常用库的使用axiosmockjs--vue-router--vutex--pinia">7. Vue3 常用库的使用:axios|mockjs | vue-router | <em>vutex</em> → pinia</h2>
+<h3 id="7-1axios-or-mockjshttpmockjscom">7. 1.axios or <a href="http://mockjs.com/">Mock.js</a></h3>
+<blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>npm install axios vue-axios -S
+</span></span><span style="display:flex;"><span>npm i mockjs -S  
+</span></span></code></pre></div></blockquote>
+<h4 id="7-11--引入mainjs">7. 1.1  引入main.js</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">axios</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;axios&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">VueAxios</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue-axios&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;./mock.js&#39;</span> <span style="color:#75715e">// optional,for mockjs
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//app = createApp(app)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">VueAxios</span>, <span style="color:#a6e22e">axios</span>) <span style="color:#75715e">// 安装插件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//app.mount(&#34;#app&#34;)
+</span></span></span></code></pre></div><h4 id="7-12-使用">7. 1.2 使用</h4>
+<blockquote>
+<p>跨域问题：app根目录下新建文件<strong>vue/vite.config.js</strong>（vue3 才有） ,然后在里面添加：</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 跨域
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">server</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">cors</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>, <span style="color:#75715e">// 默认启用并允许任何源
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">proxy</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#39;/api&#39;</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">target</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;http://127.0.0.1:3000&#39;</span>, <span style="color:#75715e">//不要使用localhost:3000
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">changeOrigin</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">rewrite</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">path</span>) =&gt; <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">replace</span>(<span style="color:#e6db74">/^\/api/</span>, <span style="color:#e6db74">&#39;&#39;</span>)
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// src/common/config.js
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">modeUrlConfig</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#39;production&#39;</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">baseUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;https://jsonplaceholder.typicode.com/&#39;</span>
+</span></span><span style="display:flex;"><span>	},
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#39;development&#39;</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">baseUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/api&#39;</span> <span style="color:#75715e">// USE PROXY!
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// export default modeUrlConfig[&#39;process.env.NODE_ENV&#39;]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">modeUrlConfig</span>[<span style="color:#e6db74">&#39;development&#39;</span>]
+</span></span></code></pre></div><p>这里使用配置脚本设置本地调试<code>baseURL</code>,方便修改IP:PORT，发送AJAX代码：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">axios</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;axios&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">baseUrl</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;config.js&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">test</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">axios</span>
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">get</span>(<span style="color:#a6e22e">baseUrl</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#34;/todos&#34;</span>)
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">r</span>) =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;axios succeed!&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">r</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">data</span>, <span style="color:#66d9ef">null</span>, <span style="color:#ae81ff">2</span>);
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>        .<span style="color:#66d9ef">catch</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">err</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">err</span>);
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>*如果使用mock:+<code>mock/index.js</code>如下(Mock.js一定要引入到main.js)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Mock</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;mockjs&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Mock</span>.<span style="color:#a6e22e">mock</span>(<span style="color:#e6db74">&#39;/todos&#39;</span>, <span style="color:#e6db74">&#39;get&#39;</span>, {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">message</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;success&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">list</span><span style="color:#f92672">:</span> [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;id&#39;</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;title&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;xxoo&#39;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>           <span style="color:#e6db74">&#39;id&#39;</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;title&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;ooxx&#39;</span>
+</span></span><span style="display:flex;"><span>        },...
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Mock.mock(&#39;/goods&#39;, &#39;get&#39;, Mock.mock({
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//     &#39;list|20&#39;: [{
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//         &#39;id|+1&#39;: 1,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//         &#39;title&#39;: &#39;@cname&#39;,// 商品名称
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//         &#39;picUrl&#39;: &#39;@image(&#34;200x200&#34;)&#39;, // 商品图片
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//         &#39;price&#39;: &#39;@float(1, 10000, 2)&#39;,// 商品价格
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//         &#39;price_cut&#39;: &#39;@float(1, 5000, 2)&#39;, // 打折价格
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//         &#39;left&#39;: &#39;@integer(1, 1000)&#39; // 剩余个数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//     }]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// }))
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">Mock</span>;
+</span></span></code></pre></div><h3 id="7-2-vue-router">7. 2 vue-router</h3>
+<p><strong>如果在创建工程时已经引入vue-router，可直接跳过安装和引入</strong></p>
+<blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>npm install vue-router -S
+</span></span></code></pre></div></blockquote>
+<h4 id="7-21-引入新建routerindexjs和导入mainjs">7. 2.1 引入(新建router/index.js和导入main.js)</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">//-----------------[router/index.js]---------------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> {  <span style="color:#a6e22e">createRouter</span>,  <span style="color:#a6e22e">createWebHistory</span>} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue-router&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">router</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createRouter</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">history</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">createWebHistory</span>(<span style="color:#66d9ef">import</span>.<span style="color:#a6e22e">meta</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">BASE_URL</span>),
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">routes</span><span style="color:#f92672">:</span> [{
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/&#39;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Login&#39;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">component</span><span style="color:#f92672">:</span> () =&gt; <span style="color:#66d9ef">import</span>(<span style="color:#e6db74">&#39;../views/Login.vue&#39;</span>)
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/test&#39;</span>,<span style="color:#75715e">// 二级路由映射
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;test&#39;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">component</span><span style="color:#f92672">:</span> () =&gt; <span style="color:#66d9ef">import</span>(<span style="color:#e6db74">&#39;../views/TestPages/index.vue&#39;</span>),
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">children</span><span style="color:#f92672">:</span> [{
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;/TestPages/Table&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Table&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">component</span><span style="color:#f92672">:</span> () =&gt; <span style="color:#66d9ef">import</span>(<span style="color:#e6db74">&#39;../views/TestPages/Table.vue&#39;</span>),
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;/TestPages/Charts&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Charts&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">component</span><span style="color:#f92672">:</span> () =&gt; <span style="color:#66d9ef">import</span>(<span style="color:#e6db74">&#39;../views/TestPages/Charts.vue&#39;</span>),
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">router</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//-----------------------[main.js]-----------------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">router</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./router&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">router</span>) <span style="color:#75715e">// 安装插件
+</span></span></span></code></pre></div><h4 id="7-22-使用">7. 2.2 使用</h4>
+<p>两种方式：<code>router-link/router-view</code> 或者<code>router.push</code>等：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">template</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#66d9ef">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;container&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">router</span><span style="color:#f92672">-</span><span style="color:#a6e22e">link</span> <span style="color:#a6e22e">to</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/TestPages/Caledar&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Caledar</span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/router-link&gt;&lt;br&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">router</span><span style="color:#f92672">-</span><span style="color:#a6e22e">link</span> <span style="color:#a6e22e">to</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/TestPages/Weather&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Weather</span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/router-link&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">router</span><span style="color:#f92672">-</span><span style="color:#a6e22e">view</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/template&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">script</span> <span style="color:#a6e22e">setup</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useRouter</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;vue-router&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">router</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useRouter</span>();
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//B.event callback 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">jump</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">push</span>(<span style="color:#e6db74">&#34;/home&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/script&gt;</span>
+</span></span></code></pre></div><h3 id="73-使用vuex-存储状态">7.3. 使用vuex 存储状态</h3>
+<blockquote>
+<p>安装方法：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>npm i  vuex -S
+</span></span></code></pre></div><p>可以使用官方推荐的<a href="https://pinia.vuejs.org/">Home | Pinia (vuejs.org)</a>替代, 参考7.4节</p>
+</blockquote>
+<h4 id="7-31--定义变量">7. 3.1.  定义变量</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">//--[store\index.js]---
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">createStore</span>({
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">state</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">count</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Count &#39;</span>
+</span></span><span style="display:flex;"><span>	},
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//把同步操作放在mutations
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">mutations</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">inc</span>(<span style="color:#a6e22e">state</span>) {
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">count</span> <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>		},
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">dec</span>(<span style="color:#a6e22e">state</span>) {
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">count</span> <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	},
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Action 提交的是 mutation，而不是直接变更状态!
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// Action 可以包含任意异步操作
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">actions</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">incAction</span>({
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">commit</span>
+</span></span><span style="display:flex;"><span>		}) {
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">commit</span>(<span style="color:#e6db74">&#39;inc&#39;</span>)
+</span></span><span style="display:flex;"><span>		},
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">decAction</span>({
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">commit</span>
+</span></span><span style="display:flex;"><span>		}) {
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">commit</span>(<span style="color:#e6db74">&#39;dec&#39;</span>)
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	},
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><ol start="7">
+<li>3.2. 使用<code>$store</code>获取变量</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!--ax.vue--&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">template</span>&gt; 
+</span></span><span style="display:flex;"><span>	&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;about&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">h2</span>&gt;{{$store.state.count}}&lt;/<span style="color:#f92672">h2</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">button</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$store.commit(&#39;inc&#39;)&#34;</span>&gt;+&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>		&lt;<span style="color:#f92672">button</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$store.commit(&#39;dec&#39;)&#34;</span>&gt;-&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!-- or use dispatch async--&gt;</span>
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">button</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$store.dispatch(&#39;incAction&#39;)&#34;</span>&gt;+&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">button</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$store.dispatch(&#39;decAction&#39;)&#34;</span>&gt;-&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>	&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">template</span>&gt; 
+</span></span></code></pre></div><ol start="7">
+<li>3.3. <code>mapMutations,mapActions,mapState</code>映射函数[可选]</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">//@Xx.vue
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">script</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">import</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">mapMutations</span>,<span style="color:#a6e22e">mapActions</span>,<span style="color:#a6e22e">mapState</span>
+</span></span><span style="display:flex;"><span>	} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;vuex&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">methods</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>			...<span style="color:#a6e22e">mapMutations</span>([<span style="color:#e6db74">&#39;inc&#39;</span>, <span style="color:#e6db74">&#39;dec&#39;</span>]),
+</span></span><span style="display:flex;"><span>			...<span style="color:#a6e22e">mapActions</span>([<span style="color:#e6db74">&#39;incAction&#39;</span>,<span style="color:#e6db74">&#39;decAction&#39;</span>])
+</span></span><span style="display:flex;"><span>		},
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">computed</span><span style="color:#f92672">:</span> {            
+</span></span><span style="display:flex;"><span>			...<span style="color:#a6e22e">mapState</span>([<span style="color:#e6db74">&#39;name&#39;</span>]), <span style="color:#75715e">// 可以直接使用name~
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		},
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">watch</span><span style="color:#f92672">:</span> { <span style="color:#75715e">// 侦听器的写法：
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			<span style="color:#e6db74">&#39;$store.state.count&#39;</span><span style="color:#f92672">:</span><span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">oldVal</span>, <span style="color:#a6e22e">newVal</span>){
+</span></span><span style="display:flex;"><span>				<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`changed count</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">oldVal</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> to </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">newVal</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>)
+</span></span><span style="display:flex;"><span>			}
+</span></span><span style="display:flex;"><span>		},
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/script&gt;</span>
+</span></span></code></pre></div><p>7.3.4. <code>mapGetters</code>函数[可选] 映射 <code>store\index.js</code>中相应的 *<code>getter</code>*函数</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">//@store\index.js
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">createStore</span>({
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">state</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">count</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Count &#39;</span>
+</span></span><span style="display:flex;"><span>	},
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/* 定制读取函数*/</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">getters</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">countG</span>(<span style="color:#a6e22e">state</span>) {
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">count</span> <span style="color:#f92672">+=</span> <span style="color:#ae81ff">100</span>
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	},
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//------
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//-@Xx.vue
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">template</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">h2</span><span style="color:#f92672">&gt;</span>{{<span style="color:#a6e22e">name</span>}}<span style="color:#f92672">:</span>{{<span style="color:#a6e22e">count</span>}}<span style="color:#f92672">~</span>{{<span style="color:#a6e22e">getCount</span>}}<span style="color:#f92672">~</span>{{<span style="color:#a6e22e">countG</span>}}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/h2&gt; &lt;/template&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//------
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">script</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+</span></span><span style="display:flex;"><span>	...
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">computed</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">/* 使用定制读取函数*/</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">getCount</span>() {
+</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$store</span>.<span style="color:#a6e22e">getters</span>.<span style="color:#a6e22e">countG</span>
+</span></span><span style="display:flex;"><span>			},
+</span></span><span style="display:flex;"><span>			...<span style="color:#a6e22e">mapState</span>([<span style="color:#e6db74">&#39;name&#39;</span>,<span style="color:#e6db74">&#39;count&#39;</span>]), <span style="color:#75715e">// 可以直接使用count
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			...<span style="color:#a6e22e">mapGetters</span>([<span style="color:#e6db74">&#39;countG&#39;</span>])
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	...
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">script</span><span style="color:#f92672">&gt;</span>
+</span></span></code></pre></div><h2 id="74-使用-pinia-中文httpspiniaweb3doctop存储状态">7.4 使用<a href="https://pinia.web3doc.top/"> Pinia 中文</a>存储状态</h2>
+<p>安装pinia和持久化插件<code>pinia-plugin-persist</code>：</p>
+<blockquote>
+<p>npm install pinia &lsquo;pinia-plugin-persist&rsquo; -S</p>
+</blockquote>
+<h3 id="741-定义store">7.4.1 定义store</h3>
+<p>在@/store/index.js里面导出 <!-- raw HTML omitted --> pinia（根存储）store根存储,后面将其传递给应用程序；<!-- raw HTML omitted --> 和自定义的<!-- raw HTML omitted -->状态仓库store<!-- raw HTML omitted --> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// pinia usage@ https://zhuanlan.zhihu.com/p/467177317
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">createPinia</span>, <span style="color:#a6e22e">defineStore</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;pinia&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//创建一个 pinia（根存储）store
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">store</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createPinia</span>()
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">piniaPersist</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;pinia-plugin-persist&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">store</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">piniaPersist</span>) <span style="color:#75715e">// 持久化插件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 供main.js挂载应用程序app
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">store</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//参数1：定义一个状态[仓库]的唯一id名，Pinia会将所有的容器挂载到根容器；参数2：选项对象
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">useStore</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">defineStore</span>(<span style="color:#e6db74">&#39;main&#39;</span>, {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">state</span><span style="color:#f92672">:</span> () =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">counter</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">3</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">todos</span><span style="color:#f92672">:</span> [
+</span></span><span style="display:flex;"><span>                { <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;learn javasript&#39;</span> },
+</span></span><span style="display:flex;"><span>                { <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;learn vue3&#39;</span> },
+</span></span><span style="display:flex;"><span>                { <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span>, <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;learn uniapp&#39;</span> }
+</span></span><span style="display:flex;"><span>            ],
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">persist</span><span style="color:#f92672">:</span> {<span style="color:#75715e">// 开启数据缓存到Localstorage，,刷新界面会读取里面的数据，不会丢失
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">enabled</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">strategies</span><span style="color:#f92672">:</span> [
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;todos&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">storage</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">localStorage</span>,
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        ]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><h3 id="742-mainjs引入store">7.4.2 Main.js引入store</h3>
+<p>main.js导入上面定义的根存储 <code>store</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">store</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./store&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">app</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createApp</span>(<span style="color:#a6e22e">App</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">store</span>) <span style="color:#75715e">// 挂载pinia根存储对象store
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">mount</span>(<span style="color:#e6db74">&#39;#app&#39;</span>)
+</span></span></code></pre></div><h3 id="743-使用store">7.4.3 使用store</h3>
+<p>在页面使用<code>useStore</code>即可获取状态对象</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useStore</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@/store&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">storeToRefs</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;pinia&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">store</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useStore</span>()
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">counter</span>, <span style="color:#a6e22e">todos</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">storeToRefs</span>(<span style="color:#a6e22e">store</span>) <span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#a6e22e">将仓库的对象转换为响应式数据</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">方便挂载到template等</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">store</span>.<span style="color:#a6e22e">counter</span>,<span style="color:#a6e22e">todos</span>) <span style="color:#75715e">// 直接使用counter、转ref使用todos
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">counter</span>.<span style="color:#a6e22e">value</span> <span style="color:#f92672">+=</span><span style="color:#ae81ff">1</span>;
+</span></span></code></pre></div><h2 id="75-icon-图标库">7.5 icon 图标库</h2>
+<h3 id="751-iconfont-阿里巴巴矢量图标库httpswwwiconfontcn">7.5.1 <a href="https://www.iconfont.cn/">iconfont-阿里巴巴矢量图标库</a></h3>
+<ul>
+<li><a href="https://www.iconfont.cn/">iconfont-阿里巴巴矢量图标库</a> 建立项目</li>
+</ul>
+<p><img src="Iconfont_proj.png" alt=""></p>
+<ul>
+<li>
+<p>添加图标</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">找到目标图标库</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">以Chrome为例</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">F12控制台中复制以下4行代码</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">然后</span> <span style="color:#a6e22e">回车键</span><span style="color:#960050;background-color:#1e0010">。</span><span style="color:#a6e22e">这时全部的图标添加到购物车了</span><span style="color:#960050;background-color:#1e0010">。</span><span style="color:#a6e22e">图标多的话会有时间延迟</span><span style="color:#960050;background-color:#1e0010">。</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">iconList</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">querySelectorAll</span>(<span style="color:#e6db74">&#39;.icon-gouwuche1&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">iconList</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">iconList</span>[<span style="color:#a6e22e">i</span>].<span style="color:#a6e22e">click</span>();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+<li>
+<p>购物车 - 添加至项目，选择项目名称</p>
+</li>
+<li>
+<p>在我的项目选中 - 下载至本地。</p>
+</li>
+<li>
+<p>将代码放在工程的static目录：</p>
+<p><img src="Iconfont_dir.png" alt="image-20220825113945851"></p>
+</li>
+<li>
+<p>修改<code>iconfong.css</code>中引用<code>iconfont.ttf</code>的位置：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span> <span style="color:#a6e22e">url</span>(<span style="color:#e6db74">&#39;/iconfont/iconfont.ttf?t=1661398304432&#39;</span>) <span style="color:#a6e22e">format</span>(<span style="color:#e6db74">&#39;truetype&#39;</span>);
+</span></span></code></pre></div></li>
+<li>
+<p>使用icon 名称引用:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">i</span> <span style="color:#66d9ef">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;icon iconfont icon-swap&#34;</span><span style="color:#f92672">&gt;&lt;</span><span style="color:#960050;background-color:#1e0010">/i&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">u</span><span style="color:#f92672">-</span><span style="color:#a6e22e">icon</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;arrow-rightward&#34;</span> <span style="color:#a6e22e">color</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;green&#34;</span> <span style="color:#a6e22e">size</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;24&#34;</span><span style="color:#f92672">&gt;&lt;</span><span style="color:#960050;background-color:#1e0010">/u-icon&gt;</span>
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="752-使用xicons---icons-for-vue--reacthttpswwwxiconsorgzh-cn-推荐使用">7.5.2 使用<a href="https://www.xicons.org/#/zh-CN">xicons - Icons for Vue &amp; React</a> [<strong>推荐使用</strong>]</h3>
+<blockquote>
+<p>这个可以使用很多库的ICON:SVG Vue/React components integrated from <a href="https://github.com/microsoft/fluentui-system-icons"><code>fluentui-system-icons</code></a>, <a href="https://github.com/ionic-team/ionicons"><code>ionicons</code></a>, <a href="https://github.com/ant-design/ant-design-icons"><code>ant-design-icons</code></a>, <a href="https://github.com/google/material-design-icons"><code>material-design-icons</code></a>, <a href="https://github.com/FortAwesome/Font-Awesome"><code>Font-Awesome</code></a>, <a href="https://github.com/tabler/tabler-icons"><code>tabler-icons</code></a> and <a href="https://github.com/carbon-design-system/carbon/tree/main/packages/icons"><code>carbon</code></a>.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># setup with vue3 ：可选部分库</span>
+</span></span><span style="display:flex;"><span>npm i -D @vicons/fluent
+</span></span><span style="display:flex;"><span>npm i -D @vicons/ionicons4
+</span></span><span style="display:flex;"><span>npm i -D @vicons/ionicons5
+</span></span><span style="display:flex;"><span>npm i -D @vicons/antd
+</span></span><span style="display:flex;"><span>npm i -D @vicons/material
+</span></span><span style="display:flex;"><span>npm i -D @vicons/fa <span style="color:#75715e"># font awesome</span>
+</span></span><span style="display:flex;"><span>npm i -D @vicons/tabler
+</span></span><span style="display:flex;"><span>npm i -D @vicons/carbon
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 安装Utils</span>
+</span></span><span style="display:flex;"><span>npm i -D @vicons/utils  <span style="color:#75715e"># vue3</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">setup</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ts&#34;</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Icon</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@vicons/utils&#39;</span> <span style="color:#75715e">// vue3
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Album24Regular</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@vicons/fluent/Album24Regular&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// ELSE
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;wrapper&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">Icon</span> <span style="color:#a6e22e">color</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hsla(160, 100%, 37%, 1)&#34;</span> <span style="color:#a6e22e">size</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;36&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">Album24Regular</span> /&gt;
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">Icon</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">template</span>&gt;
+</span></span></code></pre></div><section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>Use Vite:<a href="https://www.mybj123.com/13814.html">Vue 团队全新脚手架工具 create-vue，未来将替代 Vue-CLI，才300余行代码-码云笔记 (mybj123.com)</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90/">需求分析</a></li>
+        
+        <li><a href="/post/maven-spring/">IDEA里使用 maven搭建一个spring工程</a></li>
+        
+        <li><a href="/post/%E6%99%AE%E9%80%9A%E8%AF%9D/">普通话</a></li>
+        
+        <li><a href="/post/data-analyze/">Python数据分析简介&amp;环境准备</a></li>
+        
+        <li><a href="/post/latex/">Latex公式</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='https://liudx1985.gitee.io/tags/web'>web</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+</div>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='//cn.bing.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="site" value="https://liudx1985.gitee.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/andriod/" title="Andriod开发从入门到放弃">Andriod开发从入门到放弃</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/electron/" title="electron-vite-vue开发指北">electron-vite-vue开发指北</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/vue3/" title="Vue3高阶组件技术">Vue3高阶组件技术</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/tesseractocr/" title="利用Tesseract对图片或pdf进行OCR">利用Tesseract对图片或pdf进行OCR</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/js_module/" title="JavaScript 模块：CommonJS VS Es6">JavaScript 模块：CommonJS VS Es6</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/js_generator/" title="Javascript迭代器、生成器、异步">Javascript迭代器、生成器、异步</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/pygui/" title="PySide6界面程序编写及打包">PySide6界面程序编写及打包</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/argsort/" title="Argsort 以及Rank的Javascript代码练习">Argsort 以及Rank的Javascript代码练习</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/css_animate/" title="CSS3动画入门">CSS3动画入门</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/mysql/" title="Mysql绿色安装方法">Mysql绿色安装方法</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li><a href="https://liudx1985.gitee.io/categories/ai/">AI (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/algorithm/">algorithm (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/c&#43;&#43;/">C&#43;&#43; (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/database/">Database (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/fp/">FP (3)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/math/">math (8)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/misc/">misc (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/programming/">Programming (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/python/">Python (3)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/se/">SE (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/test/">test (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/web/">web (9)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://liudx1985.gitee.io/tags/algorithm/">algorithm</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/bigdata/">bigdata</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/fp/">FP</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/gui/">GUI</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/haskell/">haskell</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/html/">html</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/java/">java</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/javascript/">javascript</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/js/">js</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/latex/">latex</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/math/">math</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/misc/">misc</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/mysql/">mysql</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/nodejs/">nodejs</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/program/">Program</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/python/">python</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/se/">SE</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/vue/">vue</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/web/">web</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/%E6%99%AE%E9%80%9A%E8%AF%9D/">普通话</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://ife.baidu.com/introduction.html" title="百度前端技术学园ife.baidu.com "> 百度前端技术学园ife.baidu.com  </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.runoob.com/" title="菜鸟教程 runoob.com "> 菜鸟教程 runoob.com </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://developer.mozilla.org/zh-CN/docs/Web" title="Web 开发者文档MDN "> Web 开发者文档MDN </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.liaoxuefeng.com/" title="廖雪峰的官方网站"> 廖雪峰的JAVA、python、JS教程</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.processon.com/" title="ProcessOn 在线流程图思维导图">ProcessOn 在线流程图思维导图</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://zhongguose.com/" title="中国色 - 中国传统颜色色卡">中国色 - 中国传统颜色色卡</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://liudx1985.gitee.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+    <div class="container">
+        &copy; 2024 <a href="https://liudx1985.gitee.io/">清风竹影 By 清风竹影</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/flysnow-org/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+
+
+
+
+</body>
+
+</html>

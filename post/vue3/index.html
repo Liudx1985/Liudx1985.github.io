@@ -1,0 +1,779 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Vue3高阶组件技术 | 清风竹影</title>
+    <meta property="og:title" content="Vue3高阶组件技术 - 清风竹影">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2024-01-05T15:37:17&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2024-01-05T15:37:17&#43;08:00'>
+        
+    <meta name="Keywords" content="清风竹影,Javascript,c&#43;&#43;,Haskell,python,软件架构,数据分析,小程序">
+    <meta name="description" content="Vue3高阶组件技术">
+        
+    <meta name="author" content="清风竹影">
+    <meta property="og:url" content="https://liudx1985.gitee.io/post/vue3/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <meta name="MediaType" content="application/octet-stream">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link href="/kityminder/mindmap.css?_=1416390706100" type="text/css" rel="stylesheet" />
+    <link href="/kityminder/kityminder.core.css?_=1416390706100" type="text/css" rel="stylesheet" />
+    <script src="/kityminder/kity.min.js?_=1416390706100" charset="utf-8"></script>
+    <script src="/kityminder/kityminder.core.min.js?_=1416390706100" charset="utf-8"></script>
+    <script src="/kityminder/mindmap.min.js?_=1416390706100" charset="utf-8"></script>
+
+    
+
+
+    
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://liudx1985.gitee.io/">
+                        清风竹影
+                    </a>
+                
+                <p class="description">前C&#43;&#43;码农 ，Python和Javascript练习两年半. 会耍一点Haskell、数据分析、略懂系统架构设计；</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://liudx1985.gitee.io/">首页</a>
+                    
+                    <a  href="https://liudx1985.gitee.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://liudx1985.gitee.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">Vue3高阶组件技术</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2024年1月5日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/web'>web</a></span>
+            
+        </div>
+        
+        
+        
+        <div class="post-content">
+            <h2 id="1props--vuejs-vuejsorghttpscnvuejsorgguidecomponentspropshtml">1.<a href="https://cn.vuejs.org/guide/components/props.html">Props | Vue.js (vuejs.org)</a></h2>
+<p>​	父组件需要向子组件注入数据，可以使用props，类似于attrs:<code>&lt;comp label=&quot;xxxx&quot;&gt;</code></p>
+<blockquote>
+<p>特别注意！</p>
+<ol>
+<li>
+<p>props是单向从父到子数据流，如果是子组件修改父组件属性，需要用#3 event</p>
+</li>
+<li>
+<p>props在子组件是只读的，意味我们无法修改props！</p>
+</li>
+</ol>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">setup</span>&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">props</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">defineProps</span>([<span style="color:#e6db74">&#39;foo&#39;</span>])  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">foo</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">props2</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">defineProps</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">label</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> String,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">require</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> String,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">require</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span></code></pre></div><p>通常prop的玩法是： 1，通过父组件直接修改props绑定的变量，子组件内props自动更新界面！2、初始化给内部的原生组件，然后在原生组件事件里把prop值更新回去，所谓的<code>v-model</code>模式。</p>
+<p>PS,如果我们要强行额外写入属性怎么办呢，可以利用<code>provide\inject</code>跨层级传输接口<a href="https://cn.vuejs.org/guide/components/provide-inject.html">依赖注入 | Vue.js (vuejs.org)</a>！:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">provide</span>(<span style="color:#e6db74">&#39;currentTab&#39;</span>, <span style="color:#a6e22e">currentTab</span>)  <span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#a6e22e">父组件写变量</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">inject</span>(<span style="color:#e6db74">&#34;currentTab&#34;</span>)   <span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#a6e22e">子组件注入变量</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">注意</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">这个变量是Ref</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">并不位于props</span><span style="color:#f92672">!</span>
+</span></span></code></pre></div><h2 id="2插槽-slots--vuejs-vuejsorghttpscnvuejsorgguidecomponentsslotshtml">2.<a href="https://cn.vuejs.org/guide/components/slots.html">插槽 Slots | Vue.js (vuejs.org)</a></h2>
+<p>​	父组件需要向子组件注入代码使用slots。插槽就是父组件自定义代码，甚至可以是其他组件：</p>
+<p><img src="https://cn.vuejs.org/assets/slots.inBPF2Hb.png" alt="插槽图示"></p>
+<p>上图中红色的部分可以是任意html代码！子组件的蓝色slot区域只进行简单替换！</p>
+<p>代码对应就是（父、子）：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">FancyButton</span>&gt;
+</span></span><span style="display:flex;"><span>	&lt;<span style="color:#f92672">template</span> <span style="color:#960050;background-color:#1e0010">#</span>&gt;Click Me&lt;/<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">FancyButton</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">slot</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;default&#34;</span>&gt;&lt;/<span style="color:#f92672">slot</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">template</span>&gt;
+</span></span></code></pre></div><blockquote>
+<ol>
+<li>
+<p>父组件里面的<code>&lt;template #&gt;</code>等价于<code>&lt;template v-slot:default&gt;</code>，而且缺省的插槽可以不用写<code>template</code>，所以简化为<code>&lt;FancyButton/&gt;</code></p>
+</li>
+<li>
+<p>子组件的<code>&lt;slot name&gt;</code>是具名插槽，不加<code>name就是default</code>插槽！</p>
+</li>
+<li>
+<p>可以有多个具名插槽，只能有一个default 插槽！</p>
+</li>
+<li>
+<p>还可以将子组件的数据<strong>回传</strong>给父组件：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">MyComponent</span> <span style="color:#a6e22e">v-slot</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{ text, count }&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  {{ text }} {{ count }}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">MyComponent</span>&gt; 
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">setup</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">greetingMessage</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;hello&#39;</span>
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  	&lt;<span style="color:#f92672">slot</span> <span style="color:#a6e22e">:text</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;greetingMessage&#34;</span> <span style="color:#a6e22e">:count</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1&#34;</span>&gt;&lt;/<span style="color:#f92672">slot</span>&gt;
+</span></span><span style="display:flex;"><span>	&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">template</span>&gt;
+</span></span></code></pre></div><p>上述的用法，我们在el-table里面可以用来设置列特殊显示！</p>
+</li>
+</ol>
+</blockquote>
+<h2 id="3-event组件事件--vuejs-vuejsorghttpscnvuejsorgguidecomponentseventshtml-双向数据绑定">3. event<a href="https://cn.vuejs.org/guide/components/events.html">组件事件 | Vue.js (vuejs.org)</a>-&gt;双向数据绑定</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span><span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">v-model在组件上正常工作需要：
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">1.将内部原生 &lt;input&gt; 元素的 value attribute 绑定到 modelValue prop
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">2.当原生的 input 事件触发时，触发一个携带了新值的 update:modelValue 自定义事件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">setup</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">ref</span>,<span style="color:#a6e22e">defineEmits</span>,<span style="color:#a6e22e">defineProps</span>} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;vue&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">styleObj</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ref</span>({
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">margin</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;5px&#39;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">font</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;1em bold Consoles&#39;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;26px&#39;</span>
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">defineEmits</span>([<span style="color:#e6db74">&#39;update:value&#39;</span>])
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">defineProps</span>( [<span style="color:#e6db74">&#39;title&#39;</span>, <span style="color:#e6db74">&#39;options&#39;</span>, <span style="color:#e6db74">&#39;value&#39;</span>])
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>	&lt;<span style="color:#f92672">div</span> <span style="color:#f92672">:style</span><span style="color:#e6db74">=&#34;styleObj&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>		&lt;<span style="color:#f92672">label</span>&gt;{{ <span style="color:#a6e22e">title</span> }}&lt;/<span style="color:#f92672">label</span>&gt;<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">nbsp</span>;
+</span></span><span style="display:flex;"><span>		&lt;<span style="color:#f92672">select</span> <span style="color:#f92672">:value</span><span style="color:#e6db74">=&#34;value&#34;</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">change</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$emit(&#39;update:value&#39;, $event.target.value)&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>			&lt;<span style="color:#f92672">option</span> <span style="color:#f92672">v-for</span><span style="color:#e6db74">=&#34;(value, key) in options&#34; </span><span style="color:#f92672">:value</span><span style="color:#e6db74">=&#34;key&#34;</span>&gt;{{ <span style="color:#a6e22e">value</span> }}&lt;/<span style="color:#f92672">option</span>&gt;
+</span></span><span style="display:flex;"><span>		&lt;/<span style="color:#f92672">select</span>&gt;
+</span></span><span style="display:flex;"><span>	&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">template</span>&gt;
+</span></span></code></pre></div><p>上面@change调用<code>emits</code>将值更新回<code>value</code>，实现双向绑定！</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">setup</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">ref</span>} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;vue&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">MyComponent</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./MyComponent.vue&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">options</span><span style="color:#f92672">=</span> { <span style="color:#e6db74">&#39;A&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Move&#39;</span>, <span style="color:#e6db74">&#39;B&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Stop&#39;</span>, <span style="color:#e6db74">&#39;C&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Pause&#39;</span> }
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ref</span>(<span style="color:#e6db74">&#39;A&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">submmit</span>(){	<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">value</span>)}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">template</span>&gt;	
+</span></span><span style="display:flex;"><span>	&lt;<span style="color:#f92672">MyComponent</span> <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Status&#34;</span> <span style="color:#f92672">:options</span><span style="color:#e6db74">=&#34;options&#34;</span> <span style="color:#a6e22e">v</span><span style="color:#f92672">-model:value</span><span style="color:#e6db74">=&#34;value&#34;</span>/&gt;
+</span></span><span style="display:flex;"><span>	&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;button&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Submmit&#34;</span> <span style="color:#f92672">@click</span><span style="color:#e6db74">=&#34;submmit&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">template</span>&gt;
+</span></span></code></pre></div><h2 id="3-实现高阶组件tabs-标签页--element-plus-giteeiohttpselement-plusgiteeiozh-cncomponenttabshtml">3 实现高阶组件：<a href="https://element-plus.gitee.io/zh-CN/component/tabs.html">Tabs 标签页 | Element Plus (gitee.io)</a></h2>
+<p><img src="tabs.png" alt="image-20240105154421455"></p>
+<p>如上图中，我们定义一个<code>tabs</code>一级组件，内部又需要动态生成若干二级组件（外部slot注入二级组件内容！），使用方式为：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">tabs</span> <span style="color:#a6e22e">:active</span><span style="color:#f92672">=</span><span style="color:#e6db74">0</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">tab-click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;handleClick&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">tab-pane</span> <span style="color:#a6e22e">label</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;User&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;first&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!--Some Real Complex HTML CODE HER--&gt;</span>
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">H1</span>&gt;
+</span></span><span style="display:flex;"><span>            [1]-what&#39;s up 
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#f92672">H1</span>&gt;
+</span></span><span style="display:flex;"><span>     &lt;/<span style="color:#f92672">tab-pane</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">tab-pane</span> <span style="color:#a6e22e">label</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Config&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;second&#34;</span>&gt;Config&lt;/<span style="color:#f92672">tab-pane</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">tab-pane</span> <span style="color:#a6e22e">label</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Role&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;third&#34;</span>&gt;Role&lt;/<span style="color:#f92672">tab-pane</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">tab-pane</span> <span style="color:#a6e22e">label</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Task&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;fourth&#34;</span>&gt;Task&lt;/<span style="color:#f92672">tab-pane</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">tabs</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">template</span>&gt;
+</span></span></code></pre></div><p>这里的<code>[1]...</code>不能是父组件<code>tabs</code>的default<code>slot</code>，而是其子组件的<code>tab-pane</code>插槽~，刚学会组件的童鞋可能会实现如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!--Tabs.vue--&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">h2</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;title&#34;</span>&gt;{{ title }}&lt;/<span style="color:#f92672">h2</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tab-wrapper&#34;</span> <span style="color:#a6e22e">ref</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;childs&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">slot</span>&gt;&lt;/<span style="color:#f92672">slot</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">setup</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ts&#34;</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">onMounted</span>, <span style="color:#a6e22e">ref</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;vue&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">props</span> <span style="color:#f92672">=</span> 
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">defineProps</span><span style="color:#f92672">&lt;</span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">string</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">active</span><span style="color:#f92672">:</span> Number,
+</span></span><span style="display:flex;"><span>}<span style="color:#f92672">&gt;</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">childs</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ref</span>(<span style="color:#66d9ef">null</span>); <span style="color:#75715e">// 获取refs 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">onMounted</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">active</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">radio</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">childs</span>.<span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">children</span>[<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">active</span>].<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#39;.tab-radio&#39;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">radio</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">radio</span>.<span style="color:#a6e22e">checked</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>; <span style="color:#75715e">// IDL 属性@https://developer.mozilla.org/zh-CN/docs/Web/HTML/Attributes
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// radio.setAttribute(&#39;checked&#39;, true);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>})
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">style</span> <span style="color:#a6e22e">scoped</span>&gt;
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">tab-wrapper</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">relative</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">overflow</span>: <span style="color:#66d9ef">visible</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">60</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">background-color</span>: <span style="color:#ae81ff">#33344a</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">title</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">color</span>: hsla(<span style="color:#ae81ff">160</span>, <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>, <span style="color:#ae81ff">37</span><span style="color:#66d9ef">%</span>, <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">text-align</span>: <span style="color:#66d9ef">center</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">font-weight</span>: <span style="color:#66d9ef">bold</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">padding-bottom</span>: <span style="color:#ae81ff">10</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">margin-bottom</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">style</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!--TabPane.vue--&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;radio&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tab-radio&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tab-radio&#34;</span> <span style="color:#a6e22e">:id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;id&#34;</span> <span style="color:#a6e22e">:checked</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;active&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">:for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;id&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tab-handler&#34;</span>&gt;{{ title }}&lt;/<span style="color:#f92672">label</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tab-content&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">&lt;!--slot name=&#34;default&#34; --&gt;</span>
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">slot</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;/<span style="color:#f92672">slot</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">setup</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ts&#34;</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">ref</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">defineProps</span><span style="color:#f92672">&lt;</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">string</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">active</span><span style="color:#f92672">:</span><span style="color:#66d9ef">boolean</span>,
+</span></span><span style="display:flex;"><span>}<span style="color:#f92672">&gt;</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * 生成一个用不重复的ID
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">GenNonDuplicateID</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">idStr</span> <span style="color:#f92672">=</span> Date.<span style="color:#a6e22e">now</span>().<span style="color:#a6e22e">toString</span>(<span style="color:#ae81ff">36</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">idStr</span> <span style="color:#f92672">+=</span> Math.<span style="color:#a6e22e">random</span>().<span style="color:#a6e22e">toString</span>(<span style="color:#ae81ff">36</span>).<span style="color:#a6e22e">substr</span>(<span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">idStr</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">id</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ref</span>(<span style="color:#a6e22e">GenNonDuplicateID</span>());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">style</span> <span style="color:#a6e22e">scoped</span>&gt;
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">tab-wrapper</span> .<span style="color:#a6e22e">tab-radio</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">none</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">tab-handler</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">relative</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">z-index</span>: <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">block</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">float</span>: <span style="color:#66d9ef">left</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">60</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">40</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#717181</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">cursor</span>: <span style="color:#66d9ef">pointer</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">18</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">line-height</span>: <span style="color:#ae81ff">60</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">transition</span>: <span style="color:#ae81ff">.3</span><span style="color:#66d9ef">s</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">transform</span>: scale(<span style="color:#ae81ff">.9</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* :not(p) */</span>
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">tab-radio</span>:<span style="color:#a6e22e">not</span><span style="color:#f92672">(</span>:<span style="color:#a6e22e">checked</span><span style="color:#f92672">)+</span>.<span style="color:#a6e22e">tab-handler</span>:<span style="color:#a6e22e">hover</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">relative</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">transition-property</span>: <span style="color:#66d9ef">all</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">transition-duration</span>: <span style="color:#ae81ff">0.2</span><span style="color:#66d9ef">s</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">transform</span>: scale(<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">transition-timing-function</span>: <span style="color:#66d9ef">linear</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">background-color</span>: <span style="color:#ae81ff">#ddd</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">black</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* 相邻兄弟选择器(+) */</span>
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">tab-radio</span>:<span style="color:#a6e22e">checked</span><span style="color:#f92672">+</span>.<span style="color:#a6e22e">tab-handler</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">whitesmoke</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">background-color</span>: hsla(<span style="color:#ae81ff">160</span>, <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>, <span style="color:#ae81ff">37</span><span style="color:#66d9ef">%</span>, <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">transform</span>: scale(<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">tab-radio</span>:<span style="color:#a6e22e">checked</span><span style="color:#f92672">+</span>.<span style="color:#a6e22e">tab-handler</span><span style="color:#f92672">+</span>.<span style="color:#a6e22e">tab-content</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">visibility</span>: <span style="color:#66d9ef">visible</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">opacity</span>: <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">transform</span>: scale(<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">tab-wrapper</span> .<span style="color:#a6e22e">tab-content</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">visibility</span>: <span style="color:#66d9ef">hidden</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">absolute</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">top</span>: <span style="color:#ae81ff">60</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">left</span>: <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">740</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">30</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#999</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">14</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">line-height</span>: <span style="color:#ae81ff">1.618</span><span style="color:#66d9ef">em</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">background-color</span>: <span style="color:#ae81ff">#fff</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">opacity</span>: <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">transition</span>: <span style="color:#66d9ef">transform</span> <span style="color:#ae81ff">.5</span><span style="color:#66d9ef">s</span>, <span style="color:#66d9ef">opacity</span> <span style="color:#ae81ff">.7</span><span style="color:#66d9ef">s</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">transform</span>: translateY(<span style="color:#ae81ff">20</span><span style="color:#66d9ef">px</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">style</span>&gt;
+</span></span></code></pre></div><p>这个代码虽然可用，仍然存在两个问题，第一是在使用了<code>input[type=radio]</code>作为tab切换的触发器，CSS比较复杂，第二是<code> const radio = childs.value.children[props.active].querySelector('.tab-radio')</code>比较丑陋::jack_o_lantern:外部容器基本是啥事也不干！</p>
+<hr>
+<p><strong>下面开始正文，利用高阶组件技术完成slot嵌套</strong>，这里重点代码在<code>父组件</code>！</p>
+<ul>
+<li>
+<p>第一步，父组件初始化，读取<code>default</code>插槽[defaultSlot]，自动获取<code>tab-pane</code>,并且将<code>currentTab</code>响应式注入到子组件：</p>
+</li>
+<li>
+<p>第二步，处理标签页点击事件，直接将数据currentTab传给所有<code>slot #default</code>中的tab-pane组件</p>
+</li>
+<li>
+<p>第三步，tab-pane组件自行显示或者隐藏，实现自动切换！</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!--tabs.vue--&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">div</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tab-contain&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">h2</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tab-title&#34;</span>&gt;{{ title }}&lt;/<span style="color:#f92672">h2</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tab-bar&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">&lt;!-- 渲染tab标签 --&gt;</span>
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">v-for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;(tab, index) in titles&#34;</span> <span style="color:#a6e22e">:key</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;index&#34;</span> <span style="color:#a6e22e">:class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{ &#39;active&#39;: activeTab === index }&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;selectTab(index)&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>                {{ tab.label }}
+</span></span><span style="display:flex;"><span>            &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!-- 渲染选中的内容 --&gt;</span>
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tab-panes&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">slot</span>&gt;&lt;/<span style="color:#f92672">slot</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">setup</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">ref</span>, <span style="color:#a6e22e">useSlots</span>, <span style="color:#a6e22e">provide</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">props</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">defineProps</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> String,
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">active</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> Number, <span style="color:#75715e">// 默认激活的tab索引
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">activeTab</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ref</span>(<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">active</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// const tabs = ref([]) // tab数据
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">titles</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ref</span>([])
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">currentTab</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ref</span>(<span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">slots</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useSlots</span>();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">defaultSlot</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">slots</span>.<span style="color:#66d9ef">default</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">index</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">tabPanelName</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;TabPane&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 遍历子组件，修改props
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">defaultSlot</span>.<span style="color:#a6e22e">forEach</span>((<span style="color:#a6e22e">vnode</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">vnode</span>.<span style="color:#a6e22e">type</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">tabPanelName</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">vnode</span>.<span style="color:#a6e22e">type</span>.<span style="color:#a6e22e">__name</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">tabPanelName</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">vnode</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">label</span>, <span style="color:#a6e22e">name</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">vnode</span>.<span style="color:#a6e22e">props</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">titles</span>.<span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">push</span>({ <span style="color:#a6e22e">label</span>, <span style="color:#a6e22e">name</span> })
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">activeTab</span>.<span style="color:#a6e22e">value</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">index</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">currentTab</span>.<span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">name</span>;
+</span></span><span style="display:flex;"><span>        }<span style="color:#75715e">// 修改props
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// tabs.value.push(vnode)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#f92672">++</span><span style="color:#a6e22e">index</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">provide</span>(<span style="color:#e6db74">&#39;currentTab&#39;</span>, <span style="color:#a6e22e">currentTab</span>) <span style="color:#75715e">// 在父组件中通过 provide 声明要传递的数据，并将其设置为响应式的
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">selectTab</span>(<span style="color:#a6e22e">index</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">activeTab</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">index</span>; <span style="color:#75715e">// 切换激活的tab
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">currentTab</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">titles</span>[<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">activeTab</span>].<span style="color:#a6e22e">name</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">index</span>, <span style="color:#a6e22e">currentTab</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">style</span> <span style="color:#a6e22e">scoped</span>&gt;
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">tab-contain</span> {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">tab-title</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">color</span>: hsla(<span style="color:#ae81ff">160</span>, <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>, <span style="color:#ae81ff">37</span><span style="color:#66d9ef">%</span>, <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">text-align</span>: <span style="color:#66d9ef">center</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">font-weight</span>: <span style="color:#66d9ef">bold</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">padding-bottom</span>: <span style="color:#ae81ff">10</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">margin-bottom</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">tab-bar</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">flex</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">60</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">white</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">background-color</span>: <span style="color:#ae81ff">#33344a</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">tab-bar</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">div</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">flex-basis</span>: <span style="color:#ae81ff">150</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">60</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">line-height</span>: <span style="color:#ae81ff">60</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">cursor</span>: <span style="color:#66d9ef">pointer</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">text-align</span>: <span style="color:#66d9ef">center</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">tab-bar</span> <span style="color:#f92672">div</span>.<span style="color:#a6e22e">active</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">background-color</span>: hsla(<span style="color:#ae81ff">160</span>, <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>, <span style="color:#ae81ff">37</span><span style="color:#66d9ef">%</span>, <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">tab-panes</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">relative</span>;    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">padding</span>: <span style="color:#66d9ef">auto</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#333</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">14</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">line-height</span>: <span style="color:#ae81ff">1.618</span><span style="color:#66d9ef">em</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">background-color</span>: <span style="color:#ae81ff">#fff</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">style</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!--tabPane.vue--&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- 这里使用类绑定实现隐藏/显示tabpane，也可以直接使用v-if+transition!--&gt;</span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">:class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{ &#39;active&#39;: currentTab === name }&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;panel&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">slot</span>&gt;&lt;/<span style="color:#f92672">slot</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">setup</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">inject</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">props</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">defineProps</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">label</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> String,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">require</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> String,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">require</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">currentTab</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">inject</span>(<span style="color:#e6db74">&#39;currentTab&#39;</span>) <span style="color:#75715e">// 在子组件中使用 inject 来接收这些数据。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">style</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;css&#34;</span> <span style="color:#a6e22e">scoped</span>&gt;
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">panel</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">padding</span>:<span style="color:#ae81ff">20</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">30</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">visibility</span>: <span style="color:#66d9ef">hidden</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">absolute</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#333</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">14</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">line-height</span>: <span style="color:#ae81ff">1.618</span><span style="color:#66d9ef">em</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">background-color</span>: <span style="color:#ae81ff">#fff</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">transition</span>: <span style="color:#66d9ef">transform</span> <span style="color:#ae81ff">.5</span><span style="color:#66d9ef">s</span>, <span style="color:#66d9ef">opacity</span> <span style="color:#ae81ff">.7</span><span style="color:#66d9ef">s</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">transform</span>: translateY(<span style="color:#ae81ff">20</span><span style="color:#66d9ef">px</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">active</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">visibility</span>: <span style="color:#66d9ef">visible</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">opacity</span>: <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">transform</span>: scale(<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">style</span>&gt;
+</span></span></code></pre></div><p>外部使用方式和·<code>el-tab/el-tab-Pane</code>基本一致，当然还能添加一个<code>tabClick</code>事件~</p>
+
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/js_module/">JavaScript 模块：CommonJS VS Es6</a></li>
+        
+        <li><a href="/post/ajax/">express 使用ajax</a></li>
+        
+        <li><a href="/post/express/">Express 框架开发web服务器</a></li>
+        
+        <li><a href="/post/nodejs_http/">Node.js HTTP服务器</a></li>
+        
+        <li><a href="/post/web-start/">Think in WEB</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='https://liudx1985.gitee.io/tags/web'>web</a></li>
+                
+                <li><a href='https://liudx1985.gitee.io/tags/vue'>vue</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+</div>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='//cn.bing.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="site" value="https://liudx1985.gitee.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/andriod/" title="Andriod开发从入门到放弃">Andriod开发从入门到放弃</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/electron/" title="electron-vite-vue开发指北">electron-vite-vue开发指北</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/vue3/" title="Vue3高阶组件技术">Vue3高阶组件技术</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/tesseractocr/" title="利用Tesseract对图片或pdf进行OCR">利用Tesseract对图片或pdf进行OCR</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/js_module/" title="JavaScript 模块：CommonJS VS Es6">JavaScript 模块：CommonJS VS Es6</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/js_generator/" title="Javascript迭代器、生成器、异步">Javascript迭代器、生成器、异步</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/pygui/" title="PySide6界面程序编写及打包">PySide6界面程序编写及打包</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/argsort/" title="Argsort 以及Rank的Javascript代码练习">Argsort 以及Rank的Javascript代码练习</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/css_animate/" title="CSS3动画入门">CSS3动画入门</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/mysql/" title="Mysql绿色安装方法">Mysql绿色安装方法</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li><a href="https://liudx1985.gitee.io/categories/ai/">AI (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/algorithm/">algorithm (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/c&#43;&#43;/">C&#43;&#43; (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/database/">Database (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/fp/">FP (3)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/math/">math (8)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/misc/">misc (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/programming/">Programming (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/python/">Python (3)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/se/">SE (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/test/">test (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/web/">web (9)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://liudx1985.gitee.io/tags/algorithm/">algorithm</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/bigdata/">bigdata</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/fp/">FP</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/gui/">GUI</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/haskell/">haskell</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/html/">html</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/java/">java</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/javascript/">javascript</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/js/">js</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/latex/">latex</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/math/">math</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/misc/">misc</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/mysql/">mysql</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/nodejs/">nodejs</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/program/">Program</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/python/">python</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/se/">SE</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/vue/">vue</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/web/">web</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/%E6%99%AE%E9%80%9A%E8%AF%9D/">普通话</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://ife.baidu.com/introduction.html" title="百度前端技术学园ife.baidu.com "> 百度前端技术学园ife.baidu.com  </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.runoob.com/" title="菜鸟教程 runoob.com "> 菜鸟教程 runoob.com </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://developer.mozilla.org/zh-CN/docs/Web" title="Web 开发者文档MDN "> Web 开发者文档MDN </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.liaoxuefeng.com/" title="廖雪峰的官方网站"> 廖雪峰的JAVA、python、JS教程</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.processon.com/" title="ProcessOn 在线流程图思维导图">ProcessOn 在线流程图思维导图</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://zhongguose.com/" title="中国色 - 中国传统颜色色卡">中国色 - 中国传统颜色色卡</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://liudx1985.gitee.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+    <div class="container">
+        &copy; 2024 <a href="https://liudx1985.gitee.io/">清风竹影 By 清风竹影</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/flysnow-org/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+
+
+
+
+</body>
+
+</html>

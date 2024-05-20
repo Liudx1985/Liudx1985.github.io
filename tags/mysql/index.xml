@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mysql on 清风竹影</title>
+    <link>https://liudx1985.gitee.io/tags/mysql/</link>
+    <description>Recent content in mysql on 清风竹影</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 01 Nov 2022 10:18:52 +0800</lastBuildDate><atom:link href="https://liudx1985.gitee.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mysql绿色安装方法</title>
+      <link>https://liudx1985.gitee.io/post/mysql/</link>
+      <pubDate>Tue, 01 Nov 2022 10:18:52 +0800</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/mysql/</guid>
+      <description>1. install   下载MySQLXX.zip, visitMySQL :: Download MySQL Community Server
+For further information on MySQL or additional documentation, visit http://dev.mysql.com/doc/
+  添加 MYSQL/bin到环境变量
+  在mysql根目录增加my.ini如下：
+[mysqld] #设置3306端口号 port=3306 #设置MySQL的安装目录 basedir=D:\Games\mysql-8.0.31 #设置MySQL数据库的数据存放目录 datadir=D:\Games\mysql-8.0.31\data #运行最大连接数 max_connections=200 #运行连接失败的次数。这也是为了防止有人从该主机试图攻击数据库系统 max_connect_errors=10 #服务端使用的字符集默认为utf-8 character-set-server=utf8 [mysql] #客户端使用的字符集默认为utf8 default-character-set=utf8 [client] #客户端默认端口号为3306 port=3306   以管理员身份打开命令行!,进入mysql/bin目录 执行
+# 安装服务 mysqld -remove MySQL mysqld --install mysql57 # 初始化data；这里，初始化会产生一个随机密码后面初次登录会使用！YD;W2Q9Tj,bs mysqld --initialize --console # 如果报错，试试这个 mysqld --initialize-insecure --console   开启mysql的服务net start mysql57</description>
+    </item>
+    
+  </channel>
+</rss>

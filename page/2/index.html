@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+	<meta name="generator" content="Hugo 0.96.0" />
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>清风竹影 | 前C&#43;&#43;码农 ，Python和Javascript练习两年半. 会耍一点Haskell、数据分析、略懂系统架构设计；</title>
+    <meta property="og:title" content="清风竹影 | 前C&#43;&#43;码农 ，Python和Javascript练习两年半. 会耍一点Haskell、数据分析、略懂系统架构设计；">
+    <meta property="og:type" content="website">
+    <meta name="Keywords" content="清风竹影,Javascript,c&#43;&#43;,Haskell,python,软件架构,数据分析,小程序">
+    <meta name="description" content="前C&#43;&#43;码农 ，Python和Javascript练习两年半. 会耍一点Haskell、数据分析、略懂系统架构设计；">
+    <meta property="og:url" content="https://liudx1985.gitee.io/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <link rel="alternate" type="application/rss+xml" href="https://liudx1985.gitee.io/index.xml" title="清风竹影" />
+    <meta name="MediaType" content="application/octet-stream">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link href="/kityminder/mindmap.css?_=1416390706100" type="text/css" rel="stylesheet" />
+    <link href="/kityminder/kityminder.core.css?_=1416390706100" type="text/css" rel="stylesheet" />
+    <script src="/kityminder/kity.min.js?_=1416390706100" charset="utf-8"></script>
+    <script src="/kityminder/kityminder.core.min.js?_=1416390706100" charset="utf-8"></script>
+    <script src="/kityminder/mindmap.min.js?_=1416390706100" charset="utf-8"></script>
+
+    
+
+
+    
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <h1>
+                        <a id="logo" href="https://liudx1985.gitee.io/">
+                            清风竹影
+                        </a>
+                    </h1>
+                
+                <p class="description">前C&#43;&#43;码农 ，Python和Javascript练习两年半. 会耍一点Haskell、数据分析、略懂系统架构设计；</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://liudx1985.gitee.io/">首页</a>
+                    
+                    <a  href="https://liudx1985.gitee.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://liudx1985.gitee.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://liudx1985.gitee.io/post/rg/" title="RIP-GREP 工具使用">RIP-GREP 工具使用</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2022年7月20日
+        </date>
+        
+        <div class="post-content">
+            1. 基本用法 rg &#34;text&#34; # 大小写敏感 rg -s &#34;Word&#34; # 大小写不敏感 rg -i &#34;Word&#34; 2. 搜索特定文件类型 rg -g &#34;*.py&#34; &#34;text&#34; rg -g &#34;*.{md,html}&#34; &#34;mysql&#34; 3.支持的类型,使用-t 搜索特定的文件类型 rg --type-list rg -t py &#34;test&#34; 4 搜索层次 rg &#34;main&#34; --max-depth=1 5 正则表达式内容 # 使用 -e REGEX 来指定正则表达式,如匹配数字 rg -e &#34;\d+\.\d+&#34; -C2 ……
+        </div>
+        <p class="readmore"><a href="https://liudx1985.gitee.io/post/rg/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://liudx1985.gitee.io/post/ajax/" title="express 使用ajax">express 使用ajax</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2022年4月22日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/web'>web</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1. 使用XMLHttpRequest 后台代码：
+const express = require(&#39;express&#39;) const app = express() app.use(express.static(&#34;public&#34;)) // 静态资源目录 // FOR:&#34;Content-type&#34;:&#34;application/x-www-form-urlencoded&#34; app.use(express.urlencoded({extended: false })); // FOR:&#34;Content-type&#34;:&#34;application/json&#34; // app.use(express.json()) app.post(&#39;/calc&#39;, (req, res) =&gt; { 	console.log(req.body) // MUST ADD app.use(...) 	setTimeout(()=&gt;res.send(`&lt;div style=&#34;background-color:tomato; border-radius:50%;width:${req.body.w}px;height:${req.body.h}px&#34;/&gt;`), 1000) }) app.listen(8080) 在public/index.html里面可以搞一个按钮来发送ajax请求（可以使用JQUERY）:
+&lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt;	&lt;meta charset=&#34;utf-8&#34;&gt;&lt;title&gt;&lt;/title&gt;  &lt;script src=&#34;https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js&#34;&gt;&lt;/script&gt; &lt;/head&gt; &lt;body&gt; 	&lt;form action=&#34;post&#34;&gt; 	&lt;div&gt;宽:&lt;input type=&#34;text&#34; id=&#34;w&#34; placeholder=&#34;input width&#34;&gt;&lt;/div&gt; 	&lt;div&gt;高:&lt;input type=&#34;text&#34; id=&#34;h&#34; placeholder=&#34;input height&#34;&gt;&lt;/div&gt; 	&lt;div&gt;&lt;input type=&#34;button&#34; id=&#34;calc&#34; onclick=&#34;Calc()&#34; value=&#34;calc&#34; /&gt;&lt;/div&gt; 	&lt;/form&gt;  &lt;div id=&#34;result&#34;&gt;&lt;/div&gt; &lt;/body&gt; &lt;script&gt; 	function Calc() { 	let xhr = new XMLHttpRequest() // 创建XHR 	let w = parseFloat(document.……
+        </div>
+        <p class="readmore"><a href="https://liudx1985.gitee.io/post/ajax/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://liudx1985.gitee.io/post/express/" title="Express 框架开发web服务器">Express 框架开发web服务器</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2022年4月7日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/web'>web</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1. 最简单版本 var express = require(&#39;express&#39;); var app = express(); app.get(&#39;/&#39;, (req, res, next) =&gt; {  res.send(&#34;welcome to express&#34;) })  var server = app.listen(8080) 启动后打开 http://localhost:8080
+2 中间件  Express 使用get/post/use(path,callback)中间件;第一个参数为路由，第二个参数为处理中的 callback既可以是router对象又可以是函数
+   2.1 将app.use第一个参数不设置，即可处理所有的消息：
+ // 这里就是常用的网站维护，一般放在代码顶部。  app.use((req, res, next) =&gt; {  if (webStop) res.send(&#34;维护中&#34;)  else next()  })   2.2 匹配404代码一般放在尾部,同样使用全部匹配。
+app.use((req, res, next) =&gt; {  res.send(&#34;404 - 页面不存在&#34;) // 页面不存在了 })   2.……
+        </div>
+        <p class="readmore"><a href="https://liudx1985.gitee.io/post/express/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://liudx1985.gitee.io/post/nodejs_http/" title="Node.js HTTP服务器">Node.js HTTP服务器</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2022年3月29日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/web'>web</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1. 最简单版本GET/POST/&hellip; const http = require(&#39;http&#39;) const hostname=&#39;localhost&#39; //`127.0.0.1` const port = 3000 const server = http.createServer((req, res) =&gt; {  if (req.method==&#39;GET&#39;){//处理POST请求  res.statusCode = 200  res.setHeader(&#39;Content-Type&#39;, &#39;text/plain&#39;)  res.end(&#39;你好世界\n&#39;)  }  else if (req.method==&#39;POST&#39;){//处理POST请求  ...  } }) server.listen(port, () =&gt; {  console.log(`服务器运行在 http://${hostname}:${port}/`) })  客户端地址 http://localhost:3000  2. 处理HTTP GET请求参数 ​	对于https://cn.bing.com/search?q=baidu&amp;cvid=9ad 这种URL，可从中拆分出pathname、querystring。
+ pathname: /search querystring : ?q=baidu&amp;cvid=0   需引入url模块……
+        </div>
+        <p class="readmore"><a href="https://liudx1985.gitee.io/post/nodejs_http/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://liudx1985.gitee.io/post/web-start/" title="Think in WEB">Think in WEB</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2021年11月20日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/web'>web</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            §0 HTML、CSS基础参考：    Web 开发技术 | MDN (mozilla.org)
+  墙裂推荐：6张思维导图，帮你搞定html、css（css画QQ企鹅） - 简书 (jianshu.com)
+      基本概念     常用HTML标签     常用CSS属性     表格和表单     浮动和定位     CSS3     §1 HTTP status code    状态码 状态码英文名称 中文描述     100 Continue 继续。客户端应继续其请求   101 Switching Protocols 切换协议。服务器根据客户端的请求切换协议。只能切换到更高级的协议，例如，切换到HTTP的新版本协议   200 OK 请求成功。一般用于GET与POST请求   201 Created 已创建。成功请求并创建了新的资源   202 Accepted 已接受。已经接受请求，但未处理完成   203 Non-Authoritative Information 非授权信息。请求成功。但返回的meta信息不在原始的服务器，而是一个副本   204 No Content 无内容。服务器成功处理，但未返回内容。在未更新网页的情况下，可确保浏览器继续显示当前文档   205 Reset Content 重置内容。服务器处理成功，用户终端（例如：浏览器）应重置文档视图。可通过此返回码清除浏览器的表单域   206 Partial Content 部分内容。服务器成功处理了部分GET请求   300 Multiple Choices 多种选择。请求的资源可包括多个位置，相应可返回一个资源特征与地址的列表用于用户终端（例如：浏览器）选择   301 Moved Permanently 永久移动。请求的资源已被永久的移动到新URI，返回信息会包括新的URI，浏览器会自动定向到新URI。今后任何新的请求都应使用新的URI代替   302 Found 临时移动。与301类似。但资源只是临时被移动。客户端应继续使用原有URI   303 See Other 查看其它地址。与301类似。使用GET和POST请求查看   304 Not Modified 未修改。所请求的资源未修改，服务器返回此状态码时，不会返回任何资源。客户端通常会缓存访问过的资源，通过提供一个头信息指出客户端希望只返回在指定日期之后修改的资源   305 Use Proxy 使用代理。所请求的资源必须通过代理访问   306 Unused 已经被废弃的HTTP状态码   307 Temporary Redirect 临时重定向。与302类似。使用GET请求重定向   400 Bad Request 客户端请求的语法错误，服务器无法理解   401 Unauthorized 请求要求用户的身份认证   402 Payment Required 保留，将来使用   403 Forbidden 服务器理解请求客户端的请求，但是拒绝执行此请求   404 Not Found 服务器无法根据客户端的请求找到资源（网页）。通过此代码，网站设计人员可设置&quot;您所请求的资源无法找到&quot;的个性页面   405 Method Not Allowed 客户端请求中的方法被禁止   406 Not Acceptable 服务器无法根据客户端请求的内容特性完成请求   407 Proxy Authentication Required 请求要求代理的身份认证，与401类似，但请求者应当使用代理进行授权   408 Request Time-out 服务器等待客户端发送的请求时间过长，超时   409 Conflict 服务器完成客户端的PUT请求是可能返回此代码，服务器处理请求时发生了冲突   410 Gone 客户端请求的资源已经不存在。410不同于404，如果资源以前有现在被永久删除了可使用410代码，网站设计人员可通过301代码指定资源的新位置   411 Length Required 服务器无法处理客户端发送的不带Content-Length的请求信息   412 Precondition Failed 客户端请求信息的先决条件错误   413 Request Entity Too Large 由于请求的实体过大，服务器无法处理，因此拒绝请求。为防止客户端的连续请求，服务器可能会关闭连接。如果只是服务器暂时无法处理，则会包含一个Retry-After的响应信息   414 Request-URI Too Large 请求的URI过长（URI通常为网址），服务器无法处理   415 Unsupported Media Type 服务器无法处理请求附带的媒体格式   416 Requested range not satisfiable 客户端请求的范围无效   417 Expectation Failed 服务器无法满足Expect的请求头信息   500 Internal Server Error 服务器内部错误，无法完成请求   501 Not Implemented 服务器不支持请求的功能，无法完成请求   502 Bad Gateway 充当网关或代理的服务器，从远端服务器接收到了一个无效的请求   503 Service Unavailable 由于超载或系统维护，服务器暂时的无法处理客户端的请求。延时的长度可包含在服务器的Retry-After头信息中   504 Gateway Time-out 充当网关或代理的服务器，未及时从远端服务器获取请求   505 HTTP Version not supported 服务器不支持请求的HTTP协议的版本，无法完成处理    §2 CSS Colors CSS 的颜色写法有color keywords|RGB|HSL - CSS color_value | MDN (mozilla.……
+        </div>
+        <p class="readmore"><a href="https://liudx1985.gitee.io/post/web-start/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://liudx1985.gitee.io/post/exclel%E5%87%BD%E6%95%B0/" title="excel常用的函数">excel常用的函数</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2021年11月15日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/math'>math</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            Excel函数 入门 $1 单元格和引用 ​	EXCEL表的每个单元格都有两个索引：
+ 行号，以数字标记，从1开始 列号，以字母标记，如A\B\C&hellip;（大小写不区分）  ​	单元格的引用有如下几种方式：
+ 同sheet（工作表）  中单元格可以用A1表示相对列（第一列第一行），还有一种方式是$a$1,表示绝对列和行 一列数据 A；一列某几行A1:A7；若干列A:D 一行数据$10:$10,如=SUM($1:$1)可以求出第一行所有值的和。 单元格区域 A1:B2   同一工作簿中不同工作表上的单元格引用  用sheet1!A1表示工作表sheet1的第一列第一行。   不同工作簿中的单元格引用  如果工作簿已打开,例：[会计报表.xls]!工资表!A1  如果工作簿已关闭：D:\工作目录\[会计报表.xls]工资表'!A1。其中“会计报表.xls”是工作簿名称，“工资表”为该工作簿中的工作表名称。“D:\工作目录\”为“会计报表.xls”这个工作簿的文件路径。    ​	绝对引用$A$1和相对引用A1：相对引用在复制单元格时会自动更新值，但绝对引用不会。两种方式可以混用。
+$2 关于公式 ​	公式是工作表中进行数值计算的等式。公式键入是以=开始的。简单的公式有加、减、乘、除等计算。例如　=3*6-2 、=A2+B16 、=C4/A6 &hellip;&hellip;
+​	复杂一些的公式可能包含函数 、引用、运算符 (有数学、比较、逻辑和引用运算符等）和常量 （不进行计算的值，因此也不会发生变化）。
+1. ROW / COLUMN函数 这两个函数返回引用的行号和列号，如 =ROW($A$1)返回1如 =COLUMN($B$2)返回2(注意不是B)
+2. IF函数  函数定义：根据条件满足与否返回不同的值
+使用格式：IF(logical_test,value_if_true,value_if_false)
+白话：IF(条件,与条件一样时运算这个,与条件不同时运算这个)
+ 如 IF(AND(C1&gt;80,D1&gt;80),&quot;优&quot;, &quot;不及格&quot;)，表示C1和D1均大于80时显示优，否则是不及格。
+3. INDEX ​	返回表或区域中的值或值的引用。函数INDEX()有两种形式：数组形式通常返回数值或数值数组；引用形式通常返回引用。	INDEX(array,Row_num,column_num) 返回数组中指定单元格或单元格数组的数值。 如=INDEX(A1:A6,1,1) 返回一个引用，是A1:A6这个区域数组的第一行第一列。……
+        </div>
+        <p class="readmore"><a href="https://liudx1985.gitee.io/post/exclel%E5%87%BD%E6%95%B0/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://liudx1985.gitee.io/post/vuejs/" title="Vue3 学习大纲">Vue3 学习大纲</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2021年9月8日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/web'>web</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            [TOC]
+1. 前端工程(Big Front End)   浏览器工作原理，HTML、CSS、JavaScript(ES6)
+ Web 开发技术 | MDN (mozilla.org) 菜鸟教程 - (runoob.com) ES6 入门教程 - ECMAScript 6入门 (ruanyifeng.com) W3Schools How TO - 实用的代码片段@HTML, CSS and JavaScript    数据-视图分离：MVC、MVVM
+ Vue.js (vuejs.org)    前端工程化：(npm、webpack)，组件技术，etc.
+ Vue3 教程 | 菜鸟教程 (runoob.com) 、VUE3 教程_w3cschool 指南 | webpack 中文网 (webpackjs.com) GitHub - su37josephxia/vue3-study: vue3学习的各种实验代码 前端面试指南之Vue面试题总结 - 掘金 (juejin.cn) vue3正式发布两年后，我才开始学—vue3+setup+ts（万字总结） - 掘金 (juejin.cn)    工具资源：……
+        </div>
+        <p class="readmore"><a href="https://liudx1985.gitee.io/post/vuejs/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://liudx1985.gitee.io/post/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90/" title="需求分析">需求分析</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2021年5月11日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/se'>SE</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1. 定义 ​	将用户非形式的需求表述转化为完整的需求定义，从而确定系统必须做什么的过程。
+注意区分用户提出的问题是原始需求(用户需求)，会存在冲突或缺乏可行性的需求，经过需求分析后，形成为&lt;&lt;需求规格说明书&gt;&gt;,需求各组成部分的形成过程见下图1-1  如何收集用户需求可参考相关文档等。
+ 2. 需求分析过程 graph LRREG[问题识别] --&gt; ANY[细化\分析] --&gt; DOC[需求规格说明书] --&gt; JUDGE[评审] 2.1 问题识别 ​	明确功能需求(做什么)、性能需求(要达到什么指标)、环境需求(如机型、操作系统等)、可靠性需求(不发生故障的概率）、安全保密需求、用户界面需求、资源使用需求(软件运行是所需的内存、CPU等)、软件成本消耗与开发进度需求、预先估计以后系统可能达到的目标。 ​	可归纳为：确定业务规则、功能需求、非功能需求、质量属性(五可六性)、系统约束(时间、预算、技术、人员、组织等)；确立各需求优先级；输出物为部分SRS内容(如需求清单等) ​
+2.2 需求分析1 ​	整体的系统分析主要借助{业务流程图},进行需求细化时用到的主要方法有:
+  功能分解方法：功能分解——功能、子功能、功能接口。
+  结构化分析方法 ：使用数据流图和数据词典
+  信息建模方法：常用于数据库管理系统，实体和关系图(ER图)为主要工具
+  面向对象的分析方法 : 使用用例图(User case)、类图、时序图等工具
+  2.3 编制需求规格说明书(SRS) ​	输出需求分析阶段性成果。详见第3部分
+2.4 评审/验证SRS ​	对功能需求的正确性（一致性），完整性和清晰性，以及其它需求给予评价（此部分略）。
+3. 编写 SRS 1). 确认角色-场景-需求 2). 绘制业务流程图、界面原型图 3). 根据业务流程图编制用例图 4). 编写功能需求项(通常为表格，含功能项、优先级、说明等)、非功能需求部分、风险(可选)等 5). 完成类图、时序图(*存疑，属设计阶段产物)
+3.1 绘制业务流程图 exp 1.……
+        </div>
+        <p class="readmore"><a href="https://liudx1985.gitee.io/post/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://liudx1985.gitee.io/post/maven-spring/" title="IDEA里使用 maven搭建一个spring工程">IDEA里使用 maven搭建一个spring工程</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2021年4月11日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/programming'>Programming</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            IDEA里使用 maven 1.1 修改maven国内源 ​	正常安装完IDEA后，maven是自动安装的，由于官方的源比较慢，需要先修改为国内的源(也可使用Maven 仓库 | 菜鸟教程 (runoob.com)的方法)
+  复制文件C:\Program Files\JetBrains\IntelliJ IDEA Educational Edition 2021.1\plugins\maven\lib\maven3\conf\settings.xml到C:\Users\&lt;当前用户名&gt;\.m2\settings.xml
+  打开新的settings.xml，找到mirrors节点，插入下面的代码（这里是阿里的源，其他国内源可自行baidu），保存
+&lt;mirror&gt;  &lt;id&gt;alimaven&lt;/id&gt;  &lt;name&gt;aliyun maven&lt;/name&gt;  &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public/&lt;/url&gt;  &lt;mirrorOf&gt;central&lt;/mirrorOf&gt; &lt;/mirror&gt;   打开IDEA.修改设置如图,注意那个setting.xml路径就是2的路径，最下面的文件夹是maven用于保存的本地包的位置：
+  2 IDEA中使用maven ​	新手可参考Maven 教程 | 菜鸟教程 (runoob.com)了解maven, 如果你使用过Python的 pip或者node的npm，maven就是java类似对应的工具。不过一般直接用IDEA的插件就可以省去使用maven命令行的麻烦。
+  新建一个maven-demo工程：
+  完成后在工程根目录下有一个pom.xml文件，这个是POM( Project Object Model，项目对象模型 ) 是 Maven 工程的基本工作单元，是一个XML文件，包含了项目的基本信息，用于描述项目如何构建，声明项目依赖，等等。参考Maven POM | 菜鸟教程 (runoob.com)
+  当我们修改了pom.xml时，如下面新增了junit 4.11的依赖
+  &lt;?……
+        </div>
+        <p class="readmore"><a href="https://liudx1985.gitee.io/post/maven-spring/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://liudx1985.gitee.io/post/%E6%99%AE%E9%80%9A%E8%AF%9D/" title="普通话">普通话</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2021年4月11日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/misc'>misc</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1&amp;2 普通话发音 1、n、l对比辨音:   n发音时，舌尖抵住上齿龈，软腭下降，打开鼻腔通路，气流振动声带，从鼻腔通过。如：“能耐”、“泥泞”的声母。
+  l发音时，舌尖抵住上齿龈，软腭上升，堵塞鼻腔通路，气流振动声带，从舌头两边通过。如“玲珑”、“嘹亮”的声母。
+  2、zh ch sh与z c s 第四题 ……
+        </div>
+        <p class="readmore"><a href="https://liudx1985.gitee.io/post/%E6%99%AE%E9%80%9A%E8%AF%9D/">阅读全文</a></p>
+    </article>
+    
+    
+
+
+
+<ol class="page-navigator">
+    
+    <li class="prev">
+        <a href="https://liudx1985.gitee.io/">上一页</a>
+    </li>
+    
+
+    
+    <li >
+        <a href="https://liudx1985.gitee.io/">1</a>
+    </li>
+    
+    <li  class="current">
+        <a href="https://liudx1985.gitee.io/page/2/">2</a>
+    </li>
+    
+    <li >
+        <a href="https://liudx1985.gitee.io/page/3/">3</a>
+    </li>
+    
+    <li >
+        <a href="https://liudx1985.gitee.io/page/4/">4</a>
+    </li>
+    
+
+    
+    <li class="next">
+        <a href="https://liudx1985.gitee.io/page/3/">下一页</a>
+    </li>
+    
+</ol>
+
+
+
+</div>
+
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='//cn.bing.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="site" value="https://liudx1985.gitee.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/andriod/" title="Andriod开发从入门到放弃">Andriod开发从入门到放弃</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/electron/" title="electron-vite-vue开发指北">electron-vite-vue开发指北</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/vue3/" title="Vue3高阶组件技术">Vue3高阶组件技术</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/tesseractocr/" title="利用Tesseract对图片或pdf进行OCR">利用Tesseract对图片或pdf进行OCR</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/js_module/" title="JavaScript 模块：CommonJS VS Es6">JavaScript 模块：CommonJS VS Es6</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/js_generator/" title="Javascript迭代器、生成器、异步">Javascript迭代器、生成器、异步</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/pygui/" title="PySide6界面程序编写及打包">PySide6界面程序编写及打包</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/argsort/" title="Argsort 以及Rank的Javascript代码练习">Argsort 以及Rank的Javascript代码练习</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/css_animate/" title="CSS3动画入门">CSS3动画入门</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/mysql/" title="Mysql绿色安装方法">Mysql绿色安装方法</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li><a href="https://liudx1985.gitee.io/categories/ai/">AI (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/algorithm/">algorithm (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/c&#43;&#43;/">C&#43;&#43; (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/database/">Database (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/fp/">FP (3)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/math/">math (8)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/misc/">misc (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/programming/">Programming (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/python/">Python (3)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/se/">SE (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/test/">test (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/web/">web (9)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://liudx1985.gitee.io/tags/algorithm/">algorithm</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/bigdata/">bigdata</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/fp/">FP</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/gui/">GUI</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/haskell/">haskell</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/html/">html</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/java/">java</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/javascript/">javascript</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/js/">js</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/latex/">latex</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/math/">math</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/misc/">misc</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/mysql/">mysql</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/nodejs/">nodejs</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/program/">Program</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/python/">python</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/se/">SE</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/vue/">vue</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/web/">web</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/%E6%99%AE%E9%80%9A%E8%AF%9D/">普通话</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://ife.baidu.com/introduction.html" title="百度前端技术学园ife.baidu.com "> 百度前端技术学园ife.baidu.com  </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.runoob.com/" title="菜鸟教程 runoob.com "> 菜鸟教程 runoob.com </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://developer.mozilla.org/zh-CN/docs/Web" title="Web 开发者文档MDN "> Web 开发者文档MDN </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.liaoxuefeng.com/" title="廖雪峰的官方网站"> 廖雪峰的JAVA、python、JS教程</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.processon.com/" title="ProcessOn 在线流程图思维导图">ProcessOn 在线流程图思维导图</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://zhongguose.com/" title="中国色 - 中国传统颜色色卡">中国色 - 中国传统颜色色卡</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://liudx1985.gitee.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+    <div class="container">
+        &copy; 2024 <a href="https://liudx1985.gitee.io/">清风竹影 By 清风竹影</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/flysnow-org/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+
+
+
+
+</body>
+
+</html>

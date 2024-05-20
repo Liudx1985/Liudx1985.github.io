@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>electron-vite-vue开发指北 | 清风竹影</title>
+    <meta property="og:title" content="electron-vite-vue开发指北 - 清风竹影">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2024-02-04T11:30:40&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2024-02-04T11:30:40&#43;08:00'>
+        
+    <meta name="Keywords" content="清风竹影,Javascript,c&#43;&#43;,Haskell,python,软件架构,数据分析,小程序">
+    <meta name="description" content="electron-vite-vue开发指北">
+        
+    <meta name="author" content="清风竹影">
+    <meta property="og:url" content="https://liudx1985.gitee.io/post/electron/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <meta name="MediaType" content="application/octet-stream">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link href="/kityminder/mindmap.css?_=1416390706100" type="text/css" rel="stylesheet" />
+    <link href="/kityminder/kityminder.core.css?_=1416390706100" type="text/css" rel="stylesheet" />
+    <script src="/kityminder/kity.min.js?_=1416390706100" charset="utf-8"></script>
+    <script src="/kityminder/kityminder.core.min.js?_=1416390706100" charset="utf-8"></script>
+    <script src="/kityminder/mindmap.min.js?_=1416390706100" charset="utf-8"></script>
+
+    
+
+
+    
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://liudx1985.gitee.io/">
+                        清风竹影
+                    </a>
+                
+                <p class="description">前C&#43;&#43;码农 ，Python和Javascript练习两年半. 会耍一点Haskell、数据分析、略懂系统架构设计；</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://liudx1985.gitee.io/">首页</a>
+                    
+                    <a  href="https://liudx1985.gitee.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://liudx1985.gitee.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">electron-vite-vue开发指北</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2024年2月4日
+        </date>
+        
+        
+        
+        <div class="post-content">
+            <h2 id="1-准备nodejs环境">1. 准备nodejs环境</h2>
+<ol>
+<li>
+<p>set up nvm via <a href="https://github.com/coreybutler/nvm-windows/releases">Releases · coreybutler/nvm-windows (github.com)</a></p>
+</li>
+<li>
+<p>config mirror</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">#设置npm_mirror:</span>
+</span></span><span style="display:flex;"><span>nvm npm_mirror https://npmmirror.com/mirrors/npm/
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#设置node_mirror:</span>
+</span></span><span style="display:flex;"><span>nvm node_mirror https://npmmirror.com/mirrors/node/
+</span></span></code></pre></div></li>
+<li>
+<p>install nodejs @<a href="https://nodejs.org/en/about/previous-releases">Previous Releases | Node.js (nodejs.org)</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>nvm uninstall 10.13.0 <span style="color:#75715e"># 删掉低版本的 10.13.0</span>
+</span></span><span style="display:flex;"><span>nvm list available#  check nodejs available @
+</span></span><span style="display:flex;"><span>nvm install 14.21.3 <span style="color:#75715e"># version 16.XX</span>
+</span></span><span style="display:flex;"><span>nvm install lts <span style="color:#75715e">#最新的 LTS 版本</span>
+</span></span><span style="display:flex;"><span>nvm install latest  <span style="color:#75715e"># 安装最新版本的 Node.js，也就是 Current 版本：</span>
+</span></span></code></pre></div></li>
+<li>
+<p>use nodejs</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>nvm list  <span style="color:#75715e"># 已安装管理的 node 版本；</span>
+</span></span><span style="display:flex;"><span>nvm use 14.21.3 <span style="color:#75715e">#!!!switch version</span>
+</span></span></code></pre></div></li>
+<li>
+<p>修改源：</p>
+<ol>
+<li>
+<p>安装<code>nrm</code>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>npm i nrm -g <span style="color:#75715e"># 安装源管理工具</span>
+</span></span><span style="display:flex;"><span>nrm ls aviable <span style="color:#75715e"># 列出可用源</span>
+</span></span><span style="display:flex;"><span>nrm use taobao  <span style="color:#75715e"># 切换taobao~</span>
+</span></span></code></pre></div></li>
+</ol>
+</li>
+<li>
+<p>设置<strong>ELECTRON_MIRROR</strong>加速发布包下载</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-SHELL" data-lang="SHELL"><span style="display:flex;"><span>   <span style="color:#75715e"># win系统可以设置`ELECTRON_MIRROR`全局变量[]，名称为ELECTRON_MIRROR，值为：http://npm.taobao.org/mirrors/electron/ 。</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#75715e"># 其他：使用命令行修改</span>
+</span></span><span style="display:flex;"><span>   npm config set registry https://registry.npm.taobao.org/ <span style="color:#75715e"># 等价于nrm use taobao</span>
+</span></span><span style="display:flex;"><span>   npm config set ELECTRON_MIRROR http://npm.taobao.org/mirrors/electron/ <span style="color:#75715e"># https://cdn.npm.taobao.org/dist/electron/</span>
+</span></span></code></pre></div></li>
+</ol>
+<h2 id="2-起飞">2 起飞</h2>
+<ol>
+<li>
+<p>初始化工程，参考：<a href="https://electron-vite.github.io/guide/getting-started.html">Getting Started | Electron⚡️Vite (electron-vite.github.io)</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">#重要！使用系统SHELL安装并执行命令！</span>
+</span></span><span style="display:flex;"><span>npm create vite@latest electron-vite-app <span style="color:#75715e"># 初始化vite</span>
+</span></span><span style="display:flex;"><span>npm install --save-dev @electron-forge/cli <span style="color:#75715e"># 安装forge打包工具</span>
+</span></span><span style="display:flex;"><span>npx electron-forge import <span style="color:#75715e"># 初始化</span>
+</span></span></code></pre></div><p><img src="proj.png" alt="image-20240204114921041"></p>
+<p><img src="vite-plugin-electron.png" alt="image-20240204120541439"></p>
+</li>
+<li>
+<p>修改源码，打包(dist文件得build之后再运行)：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>npm run dev   <span style="color:#75715e"># 开发模式预览！</span>
+</span></span><span style="display:flex;"><span>npm run build <span style="color:#75715e"># 生成dist目录，dist-electron目录,</span>
+</span></span><span style="display:flex;"><span>npm run make  <span style="color:#75715e"># 打包electron-vite-app\out\make\squirrel.windows\x64\electron-vite-app-28.0.0 Setup</span>
+</span></span></code></pre></div></li>
+<li>
+<p>安装（位置目录在：<code>C:\Users\xxx\AppData\Local\electron_vite_app\app-0.0.0\electron-vite-app.exe</code>)</p>
+</li>
+</ol>
+<p><img src="preview.png" alt="image-20240204115043193"></p>
+<hr>
+<p>参考文献：</p>
+<ul>
+<li>
+<p><input disabled="" type="checkbox"> <a href="https://juejin.cn/post/7085919755692933156">electron-vite-app插件</a></p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> <a href="https://www.electronjs.org/zh/docs/latest/tutorial/quick-start">快速入门</a></p>
+</li>
+</ul>
+
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/vue3/">Vue3高阶组件技术</a></li>
+        
+        <li><a href="/post/tesseractocr/">利用Tesseract对图片或pdf进行OCR</a></li>
+        
+        <li><a href="/post/js_module/">JavaScript 模块：CommonJS VS Es6</a></li>
+        
+        <li><a href="/post/js_generator/">Javascript迭代器、生成器、异步</a></li>
+        
+        <li><a href="/post/pygui/">PySide6界面程序编写及打包</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            没有标签
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+</div>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='//cn.bing.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="site" value="https://liudx1985.gitee.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/andriod/" title="Andriod开发从入门到放弃">Andriod开发从入门到放弃</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/electron/" title="electron-vite-vue开发指北">electron-vite-vue开发指北</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/vue3/" title="Vue3高阶组件技术">Vue3高阶组件技术</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/tesseractocr/" title="利用Tesseract对图片或pdf进行OCR">利用Tesseract对图片或pdf进行OCR</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/js_module/" title="JavaScript 模块：CommonJS VS Es6">JavaScript 模块：CommonJS VS Es6</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/js_generator/" title="Javascript迭代器、生成器、异步">Javascript迭代器、生成器、异步</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/pygui/" title="PySide6界面程序编写及打包">PySide6界面程序编写及打包</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/argsort/" title="Argsort 以及Rank的Javascript代码练习">Argsort 以及Rank的Javascript代码练习</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/css_animate/" title="CSS3动画入门">CSS3动画入门</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/mysql/" title="Mysql绿色安装方法">Mysql绿色安装方法</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li><a href="https://liudx1985.gitee.io/categories/ai/">AI (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/algorithm/">algorithm (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/c&#43;&#43;/">C&#43;&#43; (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/database/">Database (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/fp/">FP (3)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/math/">math (8)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/misc/">misc (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/programming/">Programming (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/python/">Python (3)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/se/">SE (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/test/">test (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/web/">web (9)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://liudx1985.gitee.io/tags/algorithm/">algorithm</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/bigdata/">bigdata</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/fp/">FP</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/gui/">GUI</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/haskell/">haskell</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/html/">html</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/java/">java</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/javascript/">javascript</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/js/">js</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/latex/">latex</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/math/">math</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/misc/">misc</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/mysql/">mysql</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/nodejs/">nodejs</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/program/">Program</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/python/">python</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/se/">SE</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/vue/">vue</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/web/">web</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/%E6%99%AE%E9%80%9A%E8%AF%9D/">普通话</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://ife.baidu.com/introduction.html" title="百度前端技术学园ife.baidu.com "> 百度前端技术学园ife.baidu.com  </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.runoob.com/" title="菜鸟教程 runoob.com "> 菜鸟教程 runoob.com </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://developer.mozilla.org/zh-CN/docs/Web" title="Web 开发者文档MDN "> Web 开发者文档MDN </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.liaoxuefeng.com/" title="廖雪峰的官方网站"> 廖雪峰的JAVA、python、JS教程</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.processon.com/" title="ProcessOn 在线流程图思维导图">ProcessOn 在线流程图思维导图</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://zhongguose.com/" title="中国色 - 中国传统颜色色卡">中国色 - 中国传统颜色色卡</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://liudx1985.gitee.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+    <div class="container">
+        &copy; 2024 <a href="https://liudx1985.gitee.io/">清风竹影 By 清风竹影</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/flysnow-org/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+
+
+
+
+</body>
+
+</html>

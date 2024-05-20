@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Python数据分析简介&amp;环境准备 | 清风竹影</title>
+    <meta property="og:title" content="Python数据分析简介&amp;环境准备 - 清风竹影">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2021-03-30T15:11:49&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2021-03-30T15:11:49&#43;08:00'>
+        
+    <meta name="Keywords" content="清风竹影,Javascript,c&#43;&#43;,Haskell,python,软件架构,数据分析,小程序">
+    <meta name="description" content="Python数据分析简介&amp;环境准备">
+        
+    <meta name="author" content="清风竹影">
+    <meta property="og:url" content="https://liudx1985.gitee.io/post/data-analyze/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <meta name="MediaType" content="application/octet-stream">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link href="/kityminder/mindmap.css?_=1416390706100" type="text/css" rel="stylesheet" />
+    <link href="/kityminder/kityminder.core.css?_=1416390706100" type="text/css" rel="stylesheet" />
+    <script src="/kityminder/kity.min.js?_=1416390706100" charset="utf-8"></script>
+    <script src="/kityminder/kityminder.core.min.js?_=1416390706100" charset="utf-8"></script>
+    <script src="/kityminder/mindmap.min.js?_=1416390706100" charset="utf-8"></script>
+
+    
+
+
+    
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://liudx1985.gitee.io/">
+                        清风竹影
+                    </a>
+                
+                <p class="description">前C&#43;&#43;码农 ，Python和Javascript练习两年半. 会耍一点Haskell、数据分析、略懂系统架构设计；</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://liudx1985.gitee.io/">首页</a>
+                    
+                    <a  href="https://liudx1985.gitee.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://liudx1985.gitee.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">Python数据分析简介&amp;环境准备</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2021年3月30日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/ai'>AI</a></span>
+            
+        </div>
+        
+        
+        
+        <div class="post-content">
+            <h2 id="1-概览">1 概览</h2>
+<ul>
+<li>
+<p>数据分析定义：数据分析是指用适当的<strong>统计分析</strong>方法对收集来的<em>大量数据</em>进行分析，提取有用信息和形成结论而对数据加以详细研究和概括总结的过程。</p>
+</li>
+<li>
+<p>思维<a href="https://zhuanlan.zhihu.com/p/58445725">导图</a></p>
+</li>
+<li>
+<p>数据分析完整流程：</p>
+<pre tabindex="0"><code class="language-flow" data-lang="flow">start=&gt;start: 明确分析目的
+fetch=&gt;operation: 数据获取
+pre_oper=&gt;operation: 数据预处理(清洗/转换)
+analyze=&gt;operation: 数据分析
+show=&gt;operation: 数据展现(报表、图表)
+report=&gt;end: 决策
+start(right)-&gt;fetch(right)-&gt;pre_oper-&gt;analyze-&gt;show(right)-&gt;report
+</code></pre><p><img src="process.png" alt="image-20210507160443358"></p>
+</li>
+<li>
+<p>主流数据分析语言:<a href="https://www.python.org/">python</a>以及相关的数据分析库[numpy]、<a href="https://www.scipy.org/">pandas</a>等。</p>
+</li>
+<li>
+<p>相关领域：数据挖掘、深度学习（机器学习)、人工智能等</p>
+</li>
+<li>
+<p>职业发展：算法工程师、数据分析员(师)、数据产品经理、ETL工程师、数据挖掘工程师；数据科学家等</p>
+</li>
+</ul>
+<h2 id="准备工作"><strong>准备工作</strong></h2>
+<p>​	课程使用<a href="https://www.anaconda.com/">anaconda</a>作为实验环境。Anaconda是一个开源的Python发行版本，其包含了conda、Python等180多个科学包及其依赖项。先下载<a href="https://www.anaconda.com/download/">Anaconda安装包</a>。推荐跟随Anaconda下载页面的Windows安装指导,;确认设置是否正确方法：打开命令行窗口（<code>cmd.exe</code>），输入<code>python</code>以打开Python解释器。可以看到类似下面的Anaconda版本的输出：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>C:\Users\wesm&gt;python
+</span></span><span style="display:flex;"><span>Python 3.5.2 |Anaconda 4.1.1 (64-bit)| (default, Jul  5 2016, 11:41:13)
+</span></span><span style="display:flex;"><span>[MSC v.1900 64 bit (AMD64)] on win32
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt;
+</span></span></code></pre></div><p>要退出shell，按Ctrl-D（Linux或macOS上），Ctrl-Z（Windows上），或输入命令<code>exit()</code>，再按Enter。</p>
+<p>​	我们主要使用<a href="https://jupyter.org/">jupyter-notebook</a>编写代码。</p>
+<p><strong>jupyter notebook起始目录修改方法</strong></p>
+<ol>
+<li><strong>打开anaconda SHELL，输入命令<code>jupyter notebook --generate-config</code>，将生成 jupyter_notebook_config.py文件</strong></li>
+<li><strong>打开上一步生成的文件:<code>C:\Users\liudx\.jupyter\jupyter_notebook_config.py</code>,找到<code>c.NotebookApp.notebook_dir</code> 前面的“#”符号（#表示注释的意思）,修改为起始目录</strong></li>
+<li>**重启jupyter notebook **</li>
+</ol>
+<h2 id="3-resources">3 resources</h2>
+<p><strong>1. 公开数据源</strong><a href="https://mp.weixin.qq.com/s/L2Z4-JrElkr0nCOC26vGHg">#参考#</a></p>
+<p><a href="http://archive.ics.uci.edu/"><strong>UCI</strong></a>：加州大学欧文分校开放的经典数据集，被很多机器学习实验室采用。经典且古老的机器学习、数据挖掘数据集，包含分类、聚类、回归等问题下的多个数据集。
+<a href="http://data.stats.gov.cn/index.htm"><strong>国家数据</strong></a>：数据来源于中国国家统计局，包含了我国经济民生等多个方面的数据。
+<a href="https://www.ceicdata.com/zh-hans"><strong>CEIC</strong></a>：超过128个国家的经济数据，能够精确查找GDP、CPI、进出口以及国际利率等深度数据。
+<a href="http://www.tjcn.org/"><strong>中国统计信息网</strong></a>：国家统计局的官方网站，汇集了海量的全国各级政府各年度的国民经济和社会发展统计信息。
+<a href="http://www.wuhandata.gov.cn/whData/directory.html"><strong>政务数据网站</strong></a>：现在各个省都在很大程度上地开放政务数据，比如北京、上海、广东、贵州等等，都有专门的数据开放网站，搜索比如“北京政务数据开放”。</p>
+<p><strong>2.学习资源</strong></p>
+<ul>
+<li>
+<p><input disabled="" type="checkbox"> <a href="https://www.jianshu.com/p/04d180d90a3f"><strong>《Python数据分析》</strong></a> :star::star::star::star::star:</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> <a href="https://zhuanlan.zhihu.com/p/69869004"><strong>朱卫军zhihu专栏</strong></a>: 汇总各种学习资源。:star::star::star:</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> <a href="https://www.liaoxuefeng.com/wiki/1016959663602400"><strong>廖雪峰Python教程</strong></a>:python基础教程，比较实用:star::star::star:</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> <a href="https://www.numpy.org.cn/"><strong>Numpy官方文档CN</strong></a>: 这是NumPy官方的中文文档，NumPy是用Python进行科学计算的基础软件包。</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> <a href="https://www.matplotlib.org.cn/"><strong>Matplotlib官方文档cn</strong></a>:Matplotlib中文网、Matplotlib官方中文文档。</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> <a href="https://cloud.tencent.com/edu/act/customTopics/Python"><strong>莫烦 Python 教程</strong></a>: 包括数据分析大部分内容，视频教程</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> <a href="https://www.pypandas.cn/"><strong>Pandas官方文档cn</strong></a>:Pandas中文网、Pandas官方中文文档。</p>
+</li>
+</ul>
+
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/fibnocci/">fibnocci</a></li>
+        
+        <li><a href="/post/latex/">Latex公式</a></li>
+        
+        <li><a href="/post/mpi/">MPI实践</a></li>
+        
+        <li><a href="/post/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%95%B0%E4%B9%98%E6%B3%95/">最小二乘法</a></li>
+        
+        <li><a href="/post/geometry01/">Think in geometry (part I)</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='https://liudx1985.gitee.io/tags/bigdata'>bigdata</a></li>
+                
+                <li><a href='https://liudx1985.gitee.io/tags/python'>python</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+</div>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='//cn.bing.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="site" value="https://liudx1985.gitee.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/andriod/" title="Andriod开发从入门到放弃">Andriod开发从入门到放弃</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/electron/" title="electron-vite-vue开发指北">electron-vite-vue开发指北</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/vue3/" title="Vue3高阶组件技术">Vue3高阶组件技术</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/tesseractocr/" title="利用Tesseract对图片或pdf进行OCR">利用Tesseract对图片或pdf进行OCR</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/js_module/" title="JavaScript 模块：CommonJS VS Es6">JavaScript 模块：CommonJS VS Es6</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/js_generator/" title="Javascript迭代器、生成器、异步">Javascript迭代器、生成器、异步</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/pygui/" title="PySide6界面程序编写及打包">PySide6界面程序编写及打包</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/argsort/" title="Argsort 以及Rank的Javascript代码练习">Argsort 以及Rank的Javascript代码练习</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/css_animate/" title="CSS3动画入门">CSS3动画入门</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/mysql/" title="Mysql绿色安装方法">Mysql绿色安装方法</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li><a href="https://liudx1985.gitee.io/categories/ai/">AI (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/algorithm/">algorithm (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/c&#43;&#43;/">C&#43;&#43; (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/database/">Database (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/fp/">FP (3)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/math/">math (8)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/misc/">misc (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/programming/">Programming (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/python/">Python (3)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/se/">SE (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/test/">test (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/web/">web (9)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://liudx1985.gitee.io/tags/algorithm/">algorithm</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/bigdata/">bigdata</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/fp/">FP</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/gui/">GUI</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/haskell/">haskell</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/html/">html</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/java/">java</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/javascript/">javascript</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/js/">js</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/latex/">latex</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/math/">math</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/misc/">misc</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/mysql/">mysql</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/nodejs/">nodejs</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/program/">Program</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/python/">python</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/se/">SE</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/vue/">vue</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/web/">web</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/%E6%99%AE%E9%80%9A%E8%AF%9D/">普通话</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://ife.baidu.com/introduction.html" title="百度前端技术学园ife.baidu.com "> 百度前端技术学园ife.baidu.com  </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.runoob.com/" title="菜鸟教程 runoob.com "> 菜鸟教程 runoob.com </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://developer.mozilla.org/zh-CN/docs/Web" title="Web 开发者文档MDN "> Web 开发者文档MDN </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.liaoxuefeng.com/" title="廖雪峰的官方网站"> 廖雪峰的JAVA、python、JS教程</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.processon.com/" title="ProcessOn 在线流程图思维导图">ProcessOn 在线流程图思维导图</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://zhongguose.com/" title="中国色 - 中国传统颜色色卡">中国色 - 中国传统颜色色卡</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://liudx1985.gitee.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+    <div class="container">
+        &copy; 2024 <a href="https://liudx1985.gitee.io/">清风竹影 By 清风竹影</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/flysnow-org/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+
+
+
+
+</body>
+
+</html>

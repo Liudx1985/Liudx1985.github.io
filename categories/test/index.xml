@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>test on 清风竹影</title>
+    <link>https://liudx1985.gitee.io/categories/test/</link>
+    <description>Recent content in test on 清风竹影</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 30 Apr 2019 20:30:00 +0000</lastBuildDate><atom:link href="https://liudx1985.gitee.io/categories/test/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>gcc gdb</title>
+      <link>https://liudx1985.gitee.io/post/gnu/</link>
+      <pubDate>Tue, 30 Apr 2019 20:30:00 +0000</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/gnu/</guid>
+      <description>1、GNU Assoc 1.1 GCC options std c++lib
+$ g++ -O2 -Wall -Wextra -pthread -I./include -std=C++11 prog.cc
+1.2 GDB usage Start  https://www.ibm.com/developerworks/cn/linux/sdk/gdb/index.html
+ gcc option: -g
+gcc -g a.c -o a
+**mount to remote server ** mount -t nfs -o nolock 10.82.20.97:/home/crash /tmp/crash
+gdb start:
+gdb exe [pid|-c core-dump-file]
+basical command  run ; start prog break 22 ; create a breakpoint at line 21 next ; step next line continue ; go exec print val ; display variable &amp;lsquo;val&amp;rsquo; info break ; display all break bt ; backtrace: display stack frames frame 1 ; switch to frame 1{current frame 0} set val=1 ; set variable &amp;lsquo;val&amp;rsquo; to 1 quit ; exit gdb  </description>
+    </item>
+    
+  </channel>
+</rss>

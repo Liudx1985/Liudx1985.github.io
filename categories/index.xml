@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on 清风竹影</title>
+    <link>https://liudx1985.gitee.io/categories/</link>
+    <description>Recent content in Categories on 清风竹影</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 05 Jan 2024 15:37:17 +0800</lastBuildDate><atom:link href="https://liudx1985.gitee.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>web</title>
+      <link>https://liudx1985.gitee.io/categories/web/</link>
+      <pubDate>Fri, 05 Jan 2024 15:37:17 +0800</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/categories/web/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AI</title>
+      <link>https://liudx1985.gitee.io/categories/ai/</link>
+      <pubDate>Sat, 21 Oct 2023 08:48:55 +0800</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/categories/ai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://liudx1985.gitee.io/categories/python/</link>
+      <pubDate>Wed, 12 Jul 2023 12:20:53 +0800</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/categories/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>algorithm</title>
+      <link>https://liudx1985.gitee.io/categories/algorithm/</link>
+      <pubDate>Tue, 23 May 2023 17:27:31 +0800</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/categories/algorithm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Database</title>
+      <link>https://liudx1985.gitee.io/categories/database/</link>
+      <pubDate>Tue, 01 Nov 2022 10:18:52 +0800</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/categories/database/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>math</title>
+      <link>https://liudx1985.gitee.io/categories/math/</link>
+      <pubDate>Mon, 15 Nov 2021 11:43:51 +0800</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/categories/math/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SE</title>
+      <link>https://liudx1985.gitee.io/categories/se/</link>
+      <pubDate>Tue, 11 May 2021 09:00:49 +0000</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/categories/se/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>misc</title>
+      <link>https://liudx1985.gitee.io/categories/misc/</link>
+      <pubDate>Sun, 11 Apr 2021 09:00:49 +0000</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/categories/misc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Programming</title>
+      <link>https://liudx1985.gitee.io/categories/programming/</link>
+      <pubDate>Sun, 11 Apr 2021 09:00:49 +0000</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/categories/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;</title>
+      <link>https://liudx1985.gitee.io/categories/c&#43;&#43;/</link>
+      <pubDate>Sat, 30 Jan 2021 15:11:49 +0000</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/categories/c&#43;&#43;/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>FP</title>
+      <link>https://liudx1985.gitee.io/categories/fp/</link>
+      <pubDate>Tue, 25 Jun 2019 10:20:32 +0000</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/categories/fp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>test</title>
+      <link>https://liudx1985.gitee.io/categories/test/</link>
+      <pubDate>Tue, 30 Apr 2019 20:30:00 +0000</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/categories/test/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

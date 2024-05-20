@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>misc on 清风竹影</title>
+    <link>https://liudx1985.gitee.io/tags/misc/</link>
+    <description>Recent content in misc on 清风竹影</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 15 Nov 2021 11:43:51 +0800</lastBuildDate><atom:link href="https://liudx1985.gitee.io/tags/misc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>excel常用的函数</title>
+      <link>https://liudx1985.gitee.io/post/exclel%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Mon, 15 Nov 2021 11:43:51 +0800</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/exclel%E5%87%BD%E6%95%B0/</guid>
+      <description>Excel函数 入门 $1 单元格和引用 ​	EXCEL表的每个单元格都有两个索引：
+ 行号，以数字标记，从1开始 列号，以字母标记，如A\B\C&amp;hellip;（大小写不区分）  ​	单元格的引用有如下几种方式：
+ 同sheet（工作表）  中单元格可以用A1表示相对列（第一列第一行），还有一种方式是$a$1,表示绝对列和行 一列数据 A；一列某几行A1:A7；若干列A:D 一行数据$10:$10,如=SUM($1:$1)可以求出第一行所有值的和。 单元格区域 A1:B2   同一工作簿中不同工作表上的单元格引用  用sheet1!A1表示工作表sheet1的第一列第一行。   不同工作簿中的单元格引用  如果工作簿已打开,例：[会计报表.xls]!工资表!A1  如果工作簿已关闭：D:\工作目录\[会计报表.xls]工资表&#39;!A1。其中“会计报表.xls”是工作簿名称，“工资表”为该工作簿中的工作表名称。“D:\工作目录\”为“会计报表.xls”这个工作簿的文件路径。    ​	绝对引用$A$1和相对引用A1：相对引用在复制单元格时会自动更新值，但绝对引用不会。两种方式可以混用。
+$2 关于公式 ​	公式是工作表中进行数值计算的等式。公式键入是以=开始的。简单的公式有加、减、乘、除等计算。例如　=3*6-2 、=A2+B16 、=C4/A6 &amp;hellip;&amp;hellip;
+​	复杂一些的公式可能包含函数 、引用、运算符 (有数学、比较、逻辑和引用运算符等）和常量 （不进行计算的值，因此也不会发生变化）。
+1. ROW / COLUMN函数 这两个函数返回引用的行号和列号，如 =ROW($A$1)返回1如 =COLUMN($B$2)返回2(注意不是B)
+2. IF函数  函数定义：根据条件满足与否返回不同的值
+使用格式：IF(logical_test,value_if_true,value_if_false)
+白话：IF(条件,与条件一样时运算这个,与条件不同时运算这个)
+ 如 IF(AND(C1&amp;gt;80,D1&amp;gt;80),&amp;quot;优&amp;quot;, &amp;quot;不及格&amp;quot;)，表示C1和D1均大于80时显示优，否则是不及格。
+3. INDEX ​	返回表或区域中的值或值的引用。函数INDEX()有两种形式：数组形式通常返回数值或数值数组；引用形式通常返回引用。	INDEX(array,Row_num,column_num) 返回数组中指定单元格或单元格数组的数值。 如=INDEX(A1:A6,1,1) 返回一个引用，是A1:A6这个区域数组的第一行第一列。</description>
+    </item>
+    
+    <item>
+      <title>Start 2019</title>
+      <link>https://liudx1985.gitee.io/post/hello-world/</link>
+      <pubDate>Fri, 11 Jan 2019 11:12:34 +0000</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/hello-world/</guid>
+      <description>© 2018 *All rights reserved by liudx .:smile: *
+==No body can live without H~2~0 and knowledge==
+1 Tools  MicroSoft® VScode用来写前端代码，推荐安装插件：Dracula Offical（主题）、Beautify、Auto Rename Tag、Bracket Pair Colorizer 2、Open in Brower、Vetur listary和everything一样，是一个强大的windows快速本地搜索工具 天若OCR是一个OCR工具 Windows剪贴工具Ditto ripgrep是windows下的grep命令行工具,使用方法:rg textor rg --maxdepth 1 text  2 Python Python:第三方库：scipy,matplotlib,fabric(remote batch),requests(network)
+  pip upgrade: $Python\Scripts\easy_install.exe pip==8.1.2 ,修改国内源：新建文件C:\Users\Admin\pip\pip.ini:
+[global] index-url = http://mirrors.aliyun.com/pypi/simple   Jupyter notebook:用于交互式编写python脚本,支持markdown语法，安装方法
+ $pip install jupyter -i https://pypi.tuna.tsinghua.edu.cn/simple;
+   jupyter notebook 起始目录修改方法：</description>
+    </item>
+    
+  </channel>
+</rss>

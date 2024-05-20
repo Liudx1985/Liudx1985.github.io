@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>algorithm on 清风竹影</title>
+    <link>https://liudx1985.gitee.io/categories/algorithm/</link>
+    <description>Recent content in algorithm on 清风竹影</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 23 May 2023 17:27:31 +0800</lastBuildDate><atom:link href="https://liudx1985.gitee.io/categories/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Argsort 以及Rank的Javascript代码练习</title>
+      <link>https://liudx1985.gitee.io/post/argsort/</link>
+      <pubDate>Tue, 23 May 2023 17:27:31 +0800</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/argsort/</guid>
+      <description>1 引言：argsort以及rank排序问题 $\P$ argsort-定义
+假设一个数组$a$由$$\underbrace{[x_0,x_1,\dots,x_i, \dots,x_n]}_{0\dots n乱序}$$构成,那么$b=argsort(a)$定义为：经过排序后a中元素（即$0..n$）的索引数组：
+$$ \underbrace{[a中第0大数的索引,\dots,a中第i大数的索引, \dots,a中第n大数的索引]}_{0\dots n} $$
+我们假设$a[i]= x$,由于$i是a中第x大的数$，那么$i在b中位置就是x$,${b[x]=i}$,如图所示：
+消去x,可得: $$ b[x]=b[a[i]]=i $$
+$\S$如果对a进行两次argsort，会发生神魔事情呢,这里由一个文章回答为什么对数列使用两次argsort后能得到原数列的rank数列？ - 知乎 (zhihu.com)，摘抄如下:
+ 对于一个从0~k-1组成序列a来说，执行argsort得到序列b就是b[a[i]]=i，再执行一次得到c就是c[b[j]]=j，代入j=a[i]得c[b[a[i]]]=a[i]，c[i]=a[i],所以一个rank序列两次argsort之后自然会变回原样
+ 结合上面的假设a是一个0&amp;hellip;n 乱序而来的数组，那么a里面存储的正好是数组a中各元素的排名。推广到任意乱序的序列S，我们只需要将S里的元素一一映射到$[(S_i,a_i)],a_i\in {0..n}$，然后对$S_i$排序,$argsort.argsort(a)=rank(a)$。
+2. Show me the code! // a[i],b[i] = &amp;gt; {...a[i]:b[i]...} zip = function (a, b) {  let r = []  for (let i in a) {  r.push([a[i], b[i]])  }  return r; } // argsort返回的是索引 r，[a[r[0]]..a[r[n]]] 就是将a排序好的数组 function argsort(arr, cmp = (a, b) =&amp;gt; a - b) {  let arr_ind = zip(arr, range(arr.</description>
+    </item>
+    
+    <item>
+      <title>Dynamic Programming</title>
+      <link>https://liudx1985.gitee.io/post/dynamic-programming/</link>
+      <pubDate>Tue, 15 Jan 2019 15:10:09 +0000</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/dynamic-programming/</guid>
+      <description>​	Dynamic programming is a math method for some special problems1,for any $n$ ,the problem can be reduce to sub problems recursively.the Fibonacci is a typical DP problem:
+ $$ fib(n) = fib(n-1) + fib(n-2) $$
+ ​	For a positive integer $n$ the result $fib(n)$ can be parted into two sub problems $fib(n-1)$ and $fib(n-2)$; for $n=0,1$ the result is 1 :
+fib n  | (n == 0) = a  | (n == 1) = b  | otherwise = fib (n - 1) + fib (n - 2)  where a = 1; b = 1 ​	or a more complex version:</description>
+    </item>
+    
+  </channel>
+</rss>

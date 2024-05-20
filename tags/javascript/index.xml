@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>javascript on 清风竹影</title>
+    <link>https://liudx1985.gitee.io/tags/javascript/</link>
+    <description>Recent content in javascript on 清风竹影</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 26 Jul 2023 16:42:51 +0800</lastBuildDate><atom:link href="https://liudx1985.gitee.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Javascript迭代器、生成器、异步</title>
+      <link>https://liudx1985.gitee.io/post/js_generator/</link>
+      <pubDate>Wed, 26 Jul 2023 16:42:51 +0800</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/js_generator/</guid>
+      <description>1 Javascript 迭代器 ES6 新增了一个新玩具iterator:迭代器iterator协议1主要规定了可迭代协议允许 JavaScript 对象定义或定制它们的迭代行为，例如，在一个 for..of 结构中，哪些值可以被遍历到。一些内置类型同时是内置的可迭代对象，并且有默认的迭代行为，比如 Array 或者 Map，而其他内置类型则不是（比如 Object）。下面是一个简单的fibonacci迭代器，可以无限生产一个数列1,1,2,3,5,8....
+/** * @description function *迭代器对象 * @returns a fibonacci iterable object */ const fib = {  [Symbol.iterator]() {  let n1 = 1, n2 = 1  return {  // 使迭代器编程iterable  [Symbol.iterator]() { return this; },  next() {  let c = n2;  n2 = n1  n1 = n1 + c  return { value: c, done: false };  },  return(v) {  console.</description>
+    </item>
+    
+  </channel>
+</rss>

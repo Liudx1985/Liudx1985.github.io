@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Programming on 清风竹影</title>
+    <link>https://liudx1985.gitee.io/categories/programming/</link>
+    <description>Recent content in Programming on 清风竹影</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 11 Apr 2021 09:00:49 +0000</lastBuildDate><atom:link href="https://liudx1985.gitee.io/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>IDEA里使用 maven搭建一个spring工程</title>
+      <link>https://liudx1985.gitee.io/post/maven-spring/</link>
+      <pubDate>Sun, 11 Apr 2021 09:00:49 +0000</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/maven-spring/</guid>
+      <description>IDEA里使用 maven 1.1 修改maven国内源 ​	正常安装完IDEA后，maven是自动安装的，由于官方的源比较慢，需要先修改为国内的源(也可使用Maven 仓库 | 菜鸟教程 (runoob.com)的方法)
+  复制文件C:\Program Files\JetBrains\IntelliJ IDEA Educational Edition 2021.1\plugins\maven\lib\maven3\conf\settings.xml到C:\Users\&amp;lt;当前用户名&amp;gt;\.m2\settings.xml
+  打开新的settings.xml，找到mirrors节点，插入下面的代码（这里是阿里的源，其他国内源可自行baidu），保存
+&amp;lt;mirror&amp;gt;  &amp;lt;id&amp;gt;alimaven&amp;lt;/id&amp;gt;  &amp;lt;name&amp;gt;aliyun maven&amp;lt;/name&amp;gt;  &amp;lt;url&amp;gt;http://maven.aliyun.com/nexus/content/groups/public/&amp;lt;/url&amp;gt;  &amp;lt;mirrorOf&amp;gt;central&amp;lt;/mirrorOf&amp;gt; &amp;lt;/mirror&amp;gt;   打开IDEA.修改设置如图,注意那个setting.xml路径就是2的路径，最下面的文件夹是maven用于保存的本地包的位置：
+  2 IDEA中使用maven ​	新手可参考Maven 教程 | 菜鸟教程 (runoob.com)了解maven, 如果你使用过Python的 pip或者node的npm，maven就是java类似对应的工具。不过一般直接用IDEA的插件就可以省去使用maven命令行的麻烦。
+  新建一个maven-demo工程：
+  完成后在工程根目录下有一个pom.xml文件，这个是POM( Project Object Model，项目对象模型 ) 是 Maven 工程的基本工作单元，是一个XML文件，包含了项目的基本信息，用于描述项目如何构建，声明项目依赖，等等。参考Maven POM | 菜鸟教程 (runoob.com)
+  当我们修改了pom.xml时，如下面新增了junit 4.11的依赖
+  &amp;lt;?</description>
+    </item>
+    
+    <item>
+      <title>Start 2019</title>
+      <link>https://liudx1985.gitee.io/post/hello-world/</link>
+      <pubDate>Fri, 11 Jan 2019 11:12:34 +0000</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/hello-world/</guid>
+      <description>© 2018 *All rights reserved by liudx .:smile: *
+==No body can live without H~2~0 and knowledge==
+1 Tools  MicroSoft® VScode用来写前端代码，推荐安装插件：Dracula Offical（主题）、Beautify、Auto Rename Tag、Bracket Pair Colorizer 2、Open in Brower、Vetur listary和everything一样，是一个强大的windows快速本地搜索工具 天若OCR是一个OCR工具 Windows剪贴工具Ditto ripgrep是windows下的grep命令行工具,使用方法:rg textor rg --maxdepth 1 text  2 Python Python:第三方库：scipy,matplotlib,fabric(remote batch),requests(network)
+  pip upgrade: $Python\Scripts\easy_install.exe pip==8.1.2 ,修改国内源：新建文件C:\Users\Admin\pip\pip.ini:
+[global] index-url = http://mirrors.aliyun.com/pypi/simple   Jupyter notebook:用于交互式编写python脚本,支持markdown语法，安装方法
+ $pip install jupyter -i https://pypi.tuna.tsinghua.edu.cn/simple;
+   jupyter notebook 起始目录修改方法：</description>
+    </item>
+    
+  </channel>
+</rss>

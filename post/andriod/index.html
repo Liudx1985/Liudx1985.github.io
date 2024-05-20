@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Andriod开发从入门到放弃 | 清风竹影</title>
+    <meta property="og:title" content="Andriod开发从入门到放弃 - 清风竹影">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2024-03-06T09:11:03&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2024-03-06T09:11:03&#43;08:00'>
+        
+    <meta name="Keywords" content="清风竹影,Javascript,c&#43;&#43;,Haskell,python,软件架构,数据分析,小程序">
+    <meta name="description" content="Andriod开发从入门到放弃">
+        
+    <meta name="author" content="清风竹影">
+    <meta property="og:url" content="https://liudx1985.gitee.io/post/andriod/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <meta name="MediaType" content="application/octet-stream">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link href="/kityminder/mindmap.css?_=1416390706100" type="text/css" rel="stylesheet" />
+    <link href="/kityminder/kityminder.core.css?_=1416390706100" type="text/css" rel="stylesheet" />
+    <script src="/kityminder/kity.min.js?_=1416390706100" charset="utf-8"></script>
+    <script src="/kityminder/kityminder.core.min.js?_=1416390706100" charset="utf-8"></script>
+    <script src="/kityminder/mindmap.min.js?_=1416390706100" charset="utf-8"></script>
+
+    
+
+
+    
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://liudx1985.gitee.io/">
+                        清风竹影
+                    </a>
+                
+                <p class="description">前C&#43;&#43;码农 ，Python和Javascript练习两年半. 会耍一点Haskell、数据分析、略懂系统架构设计；</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://liudx1985.gitee.io/">首页</a>
+                    
+                    <a  href="https://liudx1985.gitee.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://liudx1985.gitee.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">Andriod开发从入门到放弃</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2024年3月6日
+        </date>
+        
+        
+        
+        <div class="post-content">
+            <h2 id="1-安装">1 安装</h2>
+<ol>
+<li>安装android-studio,如android-studio-2020.3.1.26-windows.exe <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></li>
+<li>安装SDK！建议找比较完整的SDK目录压缩包下载</li>
+<li>第一步不装avd（andriod模拟器)，下载雷电模拟器来替代</li>
+<li>下载必要的依赖库okhttp-3.8.1.jar\okio-1.14.0.jar等（吐槽下JAVA这个服务器开发语言，居然没有好用的HTTP封装类，和C++没有标准的网络库一样，属实难崩）</li>
+<li>*安装postman等工具用于测试</li>
+</ol>
+<h2 id="2-配置">2 配置</h2>
+<ol>
+<li>首先配置SDK目录：</li>
+</ol>
+<p><img src="sdk.png" alt="image-20240306092330063"></p>
+<ol start="2">
+<li>
+<p>配置gradle（大坑一个，参考<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>）</p>
+<ol>
+<li>
+<p>step-1：修改hosts文件，附加：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span># dl.google.com fucking andriod
+</span></span><span style="display:flex;"><span>58.254.149.225 dl.google.com
+</span></span><span style="display:flex;"><span>220.181.174.97 dl.google.com
+</span></span><span style="display:flex;"><span>180.163.151.161 dl.google.com
+</span></span><span style="display:flex;"><span>220.181.174.33 dl.google.com
+</span></span><span style="display:flex;"><span>58.254.137.161 dl.google.com
+</span></span><span style="display:flex;"><span>203.208.39.193 dl.google.com
+</span></span></code></pre></div></li>
+<li>
+<p>step-2:创建 <code>C:\Users\Liudx1985\.gradle\init.gradle</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>allprojects{
+</span></span><span style="display:flex;"><span>    repositories {
+</span></span><span style="display:flex;"><span>        def ALIYUN_REPOSITORY_URL <span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">&#39;</span>https:<span style="color:#75715e">//maven.aliyun.com/repository/public&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        def ALIYUN_JCENTER_URL <span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">&#39;</span>https:<span style="color:#75715e">//maven.aliyun.com/repository/public&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        def ALIYUN_GOOGLE_URL <span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">&#39;</span>https:<span style="color:#75715e">//maven.aliyun.com/repository/google&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        def ALIYUN_GRADLE_PLUGIN_URL <span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">&#39;</span>https:<span style="color:#75715e">//maven.aliyun.com/repository/gradle-plugin&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        all { ArtifactRepository repo <span style="color:#f92672">-&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span>(repo instanceof MavenArtifactRepository){
+</span></span><span style="display:flex;"><span>                def url <span style="color:#f92672">=</span> repo.url.toString()
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> (url.startsWith(<span style="color:#960050;background-color:#1e0010">&#39;</span>https:<span style="color:#75715e">//repo1.maven.org/maven2/&#39;)) {
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                    project.logger.lifecycle <span style="color:#e6db74">&#34;Repository ${repo.url} replaced by $ALIYUN_REPOSITORY_URL.&#34;</span>
+</span></span><span style="display:flex;"><span>                    remove repo
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> (url.startsWith(<span style="color:#960050;background-color:#1e0010">&#39;</span>https:<span style="color:#75715e">//jcenter.bintray.com/&#39;)) {
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                    project.logger.lifecycle <span style="color:#e6db74">&#34;Repository ${repo.url} replaced by $ALIYUN_JCENTER_URL.&#34;</span>
+</span></span><span style="display:flex;"><span>                    remove repo
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> (url.startsWith(<span style="color:#960050;background-color:#1e0010">&#39;</span>https:<span style="color:#75715e">//dl.google.com/dl/android/maven2/&#39;)) {
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                    project.logger.lifecycle <span style="color:#e6db74">&#34;Repository ${repo.url} replaced by $ALIYUN_GOOGLE_URL.&#34;</span>
+</span></span><span style="display:flex;"><span>                    remove repo
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> (url.startsWith(<span style="color:#960050;background-color:#1e0010">&#39;</span>https:<span style="color:#75715e">//plugins.gradle.org/m2/&#39;)) {
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                    project.logger.lifecycle <span style="color:#e6db74">&#34;Repository ${repo.url} replaced by $ALIYUN_GRADLE_PLUGIN_URL.&#34;</span>
+</span></span><span style="display:flex;"><span>                    remove repo
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        maven { url ALIYUN_REPOSITORY_URL }
+</span></span><span style="display:flex;"><span>        maven { url ALIYUN_JCENTER_URL }
+</span></span><span style="display:flex;"><span>        maven { url ALIYUN_GOOGLE_URL }
+</span></span><span style="display:flex;"><span>        maven { url ALIYUN_GRADLE_PLUGIN_URL }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><blockquote>
+<p>如果gradle下载速度慢，可以修改工程根目录的<!-- raw HTML omitted -->/gradle/wrapper/gradle-wrapper.properties<!-- raw HTML omitted -->字段加速下载gradle-bin</p>
+<p><img src="gradle-version.png" alt="image-20240308115920730"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#75715e">#distributionUrl=https\://services.gradle.org/distributions/gradle-7.3.3-bin.zip</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">distributionUrl</span><span style="color:#f92672">=</span><span style="color:#e6db74">https://mirrors.cloud.tencent.com/gradle/gradle-7.3.3-bin.zip</span>
+</span></span></code></pre></div></blockquote>
+</li>
+</ol>
+</li>
+<li>
+<p>安装插件,如GsonFormatPlus(从JSON字符串自动生成Bean代码,方便后续解析json字符串)</p>
+<p><img src="Gsonformat.png" alt="image-20240306093408456"></p>
+<p><img src="Gsonfmt.png" alt=""></p>
+<blockquote>
+<p>先用postman拿到http请求返回BODY里的JSON字符串</p>
+<p>在类名上右键→选GsonFormatPlus，粘贴上面的JSON字符串→Setting设置Gson→OK即可产生出代码</p>
+</blockquote>
+</li>
+<li>
+<p>先进入雷电模拟器。新建一个测试andrio工程，选一个空activity，可以看到<code>emulator-5554</code>，运行app就可以在雷电模拟器看到程序自动运行了：</p>
+<p><img src="test.png" alt="image-0"></p>
+<p><img src="run!.png" alt="image-20240306095207385"></p>
+</li>
+</ol>
+<h2 id="3-开发代码">3 开发代码</h2>
+<ol>
+<li>
+<p>导入三方库：<img src="importLib.png" alt="image-20240306095755500"></p>
+<ol>
+<li>有jar格式的，先复制粘贴到根目录下libs目录，然后在./build.gradle里面加入dependencies的 <code>implementation(fileTree(&quot;libs&quot;))</code></li>
+<li>网络三方库，直接在上述的<code>build.gradle</code>里面使用包名字引入</li>
+<li>点击右上角的<!-- raw HTML omitted -->sync！<!-- raw HTML omitted -->同步代码配置【重要】</li>
+</ol>
+</li>
+<li>
+<p>增加andriod的网络权限 、.usesCleartextTraffic，供后续的HTTP请求使用<img src="permission.png" alt="image-20240306100223074"></p>
+</li>
+<li>
+<p>绑定各种android:id=&quot;@+id/<strong>welcome</strong>&quot;,为5做准备</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;TextView</span>
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">android:id=</span><span style="color:#e6db74">&#34;@+id/welcome&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">android:layout_width=</span><span style="color:#e6db74">&#34;wrap_content&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">android:layout_height=</span><span style="color:#e6db74">&#34;wrap_content&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">android:text=</span><span style="color:#e6db74">&#34;Hello World!&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">app:layout_constraintBottom_toBottomOf=</span><span style="color:#e6db74">&#34;parent&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">app:layout_constraintLeft_toLeftOf=</span><span style="color:#e6db74">&#34;parent&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">app:layout_constraintRight_toRightOf=</span><span style="color:#e6db74">&#34;parent&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">app:layout_constraintTop_toTopOf=</span><span style="color:#e6db74">&#34;parent&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span></code></pre></div></li>
+<li>
+<p>+HttpUtil.java封装类</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.example.fuckandriod<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.io.IOException<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> okhttp3.Call<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> okhttp3.Callback<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> okhttp3.MediaType<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> okhttp3.OkHttpClient<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> okhttp3.Request<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> okhttp3.RequestBody<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> okhttp3.Response<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HttpUtil</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">JsonHandler</span><span style="color:#f92672">{</span> <span style="color:#75715e">// 接口，用于HTTP返回数据的回调
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">handle</span><span style="color:#f92672">(</span>String body<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> String token<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">;</span> <span style="color:#75715e">// 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setToken</span><span style="color:#f92672">(</span>String t<span style="color:#f92672">){</span> <span style="color:#75715e">// 保存TOKEN，供后续自动设置HEADER[&#39;Authorization&#39;] = TOKEN!
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        token <span style="color:#f92672">=</span> t<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/***
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * Get request
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * @param url get URL
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * @param handler callback !
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>String url<span style="color:#f92672">,</span> JsonHandler handler<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        Request request <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Request<span style="color:#f92672">.</span><span style="color:#a6e22e">Builder</span><span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">url</span><span style="color:#f92672">(</span>url<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">addHeader</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Authorization&#34;</span><span style="color:#f92672">,</span> token<span style="color:#f92672">)</span> <span style="color:#75715e">// 设置HEADER[&#39;Authorization&#39;] = TOKEN!
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        OkHttpClient okHttpClient <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> OkHttpClient<span style="color:#f92672">.</span><span style="color:#a6e22e">Builder</span><span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        Call call <span style="color:#f92672">=</span> okHttpClient<span style="color:#f92672">.</span><span style="color:#a6e22e">newCall</span><span style="color:#f92672">(</span>request<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        call<span style="color:#f92672">.</span><span style="color:#a6e22e">enqueue</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Callback<span style="color:#f92672">()</span> <span style="color:#f92672">{</span><span style="color:#75715e">// 注意此处是异步的，也就是onResonpse内设置的成员&amp;变量，要避免在外部直接使用
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onFailure</span><span style="color:#f92672">(</span>Call call<span style="color:#f92672">,</span> IOException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onResponse</span><span style="color:#f92672">(</span>Call call<span style="color:#f92672">,</span> Response response<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IOException <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                handler<span style="color:#f92672">.</span><span style="color:#a6e22e">handle</span><span style="color:#f92672">(</span>response<span style="color:#f92672">.</span><span style="color:#a6e22e">body</span><span style="color:#f92672">().</span><span style="color:#a6e22e">string</span><span style="color:#f92672">());</span>               
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">});</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/***
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     *
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * @param url url to post
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * @param data JSON string
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * @param handler handler callback
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">post</span><span style="color:#f92672">(</span>String url<span style="color:#f92672">,</span> String data<span style="color:#f92672">,</span> JsonHandler handler<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        MediaType JSON <span style="color:#f92672">=</span> MediaType<span style="color:#f92672">.</span><span style="color:#a6e22e">parse</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;application/json; charset=utf-8&#34;</span><span style="color:#f92672">);</span> <span style="color:#75715e">// Json数据 Type
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        RequestBody body <span style="color:#f92672">=</span> RequestBody<span style="color:#f92672">.</span><span style="color:#a6e22e">create</span><span style="color:#f92672">(</span>JSON<span style="color:#f92672">,</span> data<span style="color:#f92672">);</span> <span style="color:#75715e">// 转换字符串为JSON
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        Request request <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Request<span style="color:#f92672">.</span><span style="color:#a6e22e">Builder</span><span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">url</span><span style="color:#f92672">(</span>url<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">addHeader</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Authorization&#34;</span><span style="color:#f92672">,</span> token<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">addHeader</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Content-Type&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;application/json;charset:utf-8&#34;</span><span style="color:#f92672">)</span><span style="color:#75715e">// post data format as JSON 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">post</span><span style="color:#f92672">(</span>body<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        OkHttpClient okHttpClient <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> OkHttpClient<span style="color:#f92672">.</span><span style="color:#a6e22e">Builder</span><span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        Call call <span style="color:#f92672">=</span> okHttpClient<span style="color:#f92672">.</span><span style="color:#a6e22e">newCall</span><span style="color:#f92672">(</span>request<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        call<span style="color:#f92672">.</span><span style="color:#a6e22e">enqueue</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Callback<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onFailure</span><span style="color:#f92672">(</span>Call call<span style="color:#f92672">,</span> IOException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onResponse</span><span style="color:#f92672">(</span>Call call<span style="color:#f92672">,</span> Response response<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IOException <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                handler<span style="color:#f92672">.</span><span style="color:#a6e22e">handle</span><span style="color:#f92672">(</span>response<span style="color:#f92672">.</span><span style="color:#a6e22e">body</span><span style="color:#f92672">().</span><span style="color:#a6e22e">string</span><span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">});</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>请求测试，注意这里面的beans类全部是用GsonFormatPlus插件生成！</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.example.fuckandriod<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> android.os.Bundle<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> android.util.Log<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> android.widget.TextView<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> androidx.appcompat.app.AppCompatActivity<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.google.gson.Gson<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MainActivity</span> <span style="color:#66d9ef">extends</span> AppCompatActivity <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onCreate</span><span style="color:#f92672">(</span>Bundle savedInstanceState<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">onCreate</span><span style="color:#f92672">(</span>savedInstanceState<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        setContentView<span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">layout</span><span style="color:#f92672">.</span><span style="color:#a6e22e">activity_main</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        login<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">getWeather</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>    
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//        String url = &#34;https://api.gumengya.com/Api/Weather?format=json&amp;city=北京市&amp;scene=1&#34;;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        String url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;http://10.199.1.96:8888/bs-weather-report/weather/area?area=北京市&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        HttpUtil<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>url<span style="color:#f92672">,</span> body <span style="color:#f92672">-&gt;</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            WeatherBean2 bean <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Gson<span style="color:#f92672">().</span><span style="color:#a6e22e">fromJson</span><span style="color:#f92672">(</span>body<span style="color:#f92672">,</span> WeatherBean2<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            runOnUiThread<span style="color:#f92672">(()</span> <span style="color:#f92672">-&gt;</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// set textview etc.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                TextView tv_tem <span style="color:#f92672">=</span> findViewById<span style="color:#f92672">(</span>R<span style="color:#f92672">.</span><span style="color:#a6e22e">id</span><span style="color:#f92672">.</span><span style="color:#a6e22e">welcome</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>                tv_tem<span style="color:#f92672">.</span><span style="color:#a6e22e">setText</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;温度：&#34;</span> <span style="color:#f92672">+</span> bean<span style="color:#f92672">.</span><span style="color:#a6e22e">getData</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getCurrentTemperature</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;°C&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">});</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">});</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">login</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        String jsonStr <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;{\&#34;username\&#34;:\&#34;admin\&#34;,\&#34;password\&#34;:\&#34;admin123\&#34;}&#34;</span><span style="color:#f92672">;</span> <span style="color:#75715e">// JSON 字符串！
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        String url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;http://10.199.1.96:8888/login&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        HttpUtil<span style="color:#f92672">.</span><span style="color:#a6e22e">post</span><span style="color:#f92672">(</span>url<span style="color:#f92672">,</span> jsonStr<span style="color:#f92672">,</span> body <span style="color:#f92672">-&gt;</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            LoginBean bean <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Gson<span style="color:#f92672">().</span><span style="color:#a6e22e">fromJson</span><span style="color:#f92672">(</span>body<span style="color:#f92672">,</span> LoginBean<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            String token <span style="color:#f92672">=</span> bean<span style="color:#f92672">.</span><span style="color:#a6e22e">getToken</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>            Log<span style="color:#f92672">.</span><span style="color:#a6e22e">d</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;GET-TOKEN: &#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;login: token&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            HttpUtil<span style="color:#f92672">.</span><span style="color:#a6e22e">setToken</span><span style="color:#f92672">(</span>token<span style="color:#f92672">);</span><span style="color:#75715e">// 存储TOKEN后在发送GET 请求天气数据！
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            getWeather<span style="color:#f92672">();</span> <span style="color:#75715e">// 注意此处是异步的，要避免在外部直接使用getWeather，不一定取到了token!!!
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#f92672">});</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p><img src="result.png" alt="image-20240306104112846"></p>
+</li>
+</ol>
+<hr>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><a href="https://zhuanlan.zhihu.com/p/456126708">Android Studio最详细安装及使用教程 - 知乎 (zhihu.com)</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p><a href="https://juejin.cn/post/7097207145371795492">Android Studio：Gradle、SDK配置全局代理 - 掘金 (juejin.cn)</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/electron/">electron-vite-vue开发指北</a></li>
+        
+        <li><a href="/post/vue3/">Vue3高阶组件技术</a></li>
+        
+        <li><a href="/post/tesseractocr/">利用Tesseract对图片或pdf进行OCR</a></li>
+        
+        <li><a href="/post/js_module/">JavaScript 模块：CommonJS VS Es6</a></li>
+        
+        <li><a href="/post/js_generator/">Javascript迭代器、生成器、异步</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            没有标签
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+</div>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='//cn.bing.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="site" value="https://liudx1985.gitee.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/andriod/" title="Andriod开发从入门到放弃">Andriod开发从入门到放弃</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/electron/" title="electron-vite-vue开发指北">electron-vite-vue开发指北</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/vue3/" title="Vue3高阶组件技术">Vue3高阶组件技术</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/tesseractocr/" title="利用Tesseract对图片或pdf进行OCR">利用Tesseract对图片或pdf进行OCR</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/js_module/" title="JavaScript 模块：CommonJS VS Es6">JavaScript 模块：CommonJS VS Es6</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/js_generator/" title="Javascript迭代器、生成器、异步">Javascript迭代器、生成器、异步</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/pygui/" title="PySide6界面程序编写及打包">PySide6界面程序编写及打包</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/argsort/" title="Argsort 以及Rank的Javascript代码练习">Argsort 以及Rank的Javascript代码练习</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/css_animate/" title="CSS3动画入门">CSS3动画入门</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/mysql/" title="Mysql绿色安装方法">Mysql绿色安装方法</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li><a href="https://liudx1985.gitee.io/categories/ai/">AI (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/algorithm/">algorithm (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/c&#43;&#43;/">C&#43;&#43; (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/database/">Database (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/fp/">FP (3)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/math/">math (8)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/misc/">misc (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/programming/">Programming (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/python/">Python (3)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/se/">SE (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/test/">test (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/web/">web (9)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://liudx1985.gitee.io/tags/algorithm/">algorithm</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/bigdata/">bigdata</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/fp/">FP</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/gui/">GUI</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/haskell/">haskell</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/html/">html</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/java/">java</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/javascript/">javascript</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/js/">js</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/latex/">latex</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/math/">math</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/misc/">misc</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/mysql/">mysql</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/nodejs/">nodejs</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/program/">Program</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/python/">python</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/se/">SE</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/vue/">vue</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/web/">web</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/%E6%99%AE%E9%80%9A%E8%AF%9D/">普通话</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://ife.baidu.com/introduction.html" title="百度前端技术学园ife.baidu.com "> 百度前端技术学园ife.baidu.com  </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.runoob.com/" title="菜鸟教程 runoob.com "> 菜鸟教程 runoob.com </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://developer.mozilla.org/zh-CN/docs/Web" title="Web 开发者文档MDN "> Web 开发者文档MDN </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.liaoxuefeng.com/" title="廖雪峰的官方网站"> 廖雪峰的JAVA、python、JS教程</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.processon.com/" title="ProcessOn 在线流程图思维导图">ProcessOn 在线流程图思维导图</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://zhongguose.com/" title="中国色 - 中国传统颜色色卡">中国色 - 中国传统颜色色卡</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://liudx1985.gitee.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+    <div class="container">
+        &copy; 2024 <a href="https://liudx1985.gitee.io/">清风竹影 By 清风竹影</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/flysnow-org/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+
+
+
+
+</body>
+
+</html>

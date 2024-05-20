@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on 清风竹影</title>
+    <link>https://liudx1985.gitee.io/categories/python/</link>
+    <description>Recent content in Python on 清风竹影</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 12 Jul 2023 12:20:53 +0800</lastBuildDate><atom:link href="https://liudx1985.gitee.io/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PySide6界面程序编写及打包</title>
+      <link>https://liudx1985.gitee.io/post/pygui/</link>
+      <pubDate>Wed, 12 Jul 2023 12:20:53 +0800</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/pygui/</guid>
+      <description>1. setup  安装Pyside6,建议使用tsinghua源anaconda | 镜像站使用帮助 | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror  # 创建env conda create --name gui # 激活env conda active gui # 安装PySide6框架~ pip install --upgrade pip pip install pyqt6-tools # 安装UI 设计工具，for QTDesigner, PyUIC pip install pyside6 # +打包工具+ pip install pyinstaller auto-py-to-exe   设置pyCharm解释器
+​	参考1 配置external Tools，在菜单中方便使用：目录类似:
+  C:\Users\37556\anaconda3\envs\gui\Lib\site-packages\PySide6\designer.exe
+  C:\Users\37556\anaconda3\envs\gui\Scripts\auto-py-to-exe.exe
+    2 编写代码 2.1 打开QtDesigner,设计界面： ​ 运行工具QtDesinger，设计一个界面led.</description>
+    </item>
+    
+    <item>
+      <title>python绘制参数方程的动画</title>
+      <link>https://liudx1985.gitee.io/post/py-animation/</link>
+      <pubDate>Mon, 29 Apr 2019 16:22:50 +0000</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/py-animation/</guid>
+      <description>© 2018 *All rights reserved by liudx .:smile:
+​	Python的matplotlib是一个功能强大的绘图库，可以很方便的绘制数学图形。官方给出了很多简单的实例，结合中文翻译的示例Tutorial，可以满足日常工作的大部分需求了。但是实际工作中，一些有趣的东西很难使用常规方程（笛卡尔坐标和极坐标）方式绘制，事实上，大部分工程上都是使用参数方程来描述曲线。本文给出一些参数方程绘制的实例，之后会扩展为动画形式绘制，可以看到这些复杂的方程是如何简单优美的绘制出来。
+1 参数方程绘制 ​	首先介绍下椭圆的参数方程：
+$$ \begin{cases} x = a \cdot \cos(t)\\ y = b \cdot \sin(t) \end{cases} $$
+​	其中$a,b$分别是椭圆的长轴、短轴。绘制椭圆的python代码如下:
+import matplotlib.pyplot as plt import numpy as np  fig = plt.figure() ax = plt.gca() #椭圆参数方程 r1 = 1.1 r2 = 1 t = np.linspace(0, np.pi*2, 1000) # 生成参数t的数组 x = r1 * np.cos(t) y = r2 * np.sin(t) plt.plot(x, y, color=&amp;#39;blue&amp;#39;, linewidth=2, label=&amp;#39;ellipse&amp;#39;) plt.</description>
+    </item>
+    
+    <item>
+      <title>python 迭代器和惰性计算、函数式编程基础</title>
+      <link>https://liudx1985.gitee.io/post/py-lazy/</link>
+      <pubDate>Tue, 19 Mar 2019 17:02:29 +0000</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/py-lazy/</guid>
+      <description>​	本文介绍了python 的生成器，构造一些有趣的惰性计算程序，可以作为python函数式的基础。
+1. iterator and generator ​	众所周知，python3里面的range返回是一个对象而不是列表，它的前身是python 2的xrange。python 2里面的range会生成一个列表，当这个列表很大时，会有严重的性能问题:
+for x in range(0,100000):  print(x) ​	可以使用iter(range(0,100000))将range对象转换为可迭代实例（iterator），下面的代码是和上面代码等价的：
+lst=iter(range(0,10)) while True:  try:  b = next(lst) # 调用lst.__next__()  print(b)  except StopIteration:  break ​	显而易见，其实python的for循环其实是个语法糖，首先隐式将list（可迭代对象）转换为list_iterator，然后不断调用迭代器的__next__函数，直到出现StopIteration为止；下面是一个迭代器的实例（注意内部函数__next__）：
+class fibonacci:  &amp;#39;&amp;#39;&amp;#39;To use this class like this for n in fibonacci(100): print(n, end=&amp;#39;,&amp;#39;) &amp;#39;&amp;#39;&amp;#39;  def __init__(self, max):  self.max = max   #可迭代对象实现了__iter__方法，str、list、set、dict、file、sockets等容器都有这个内部函数  def __iter__(self):  self.</description>
+    </item>
+    
+  </channel>
+</rss>

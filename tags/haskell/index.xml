@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>haskell on 清风竹影</title>
+    <link>https://liudx1985.gitee.io/tags/haskell/</link>
+    <description>Recent content in haskell on 清风竹影</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 25 Jun 2019 10:20:32 +0000</lastBuildDate><atom:link href="https://liudx1985.gitee.io/tags/haskell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>category</title>
+      <link>https://liudx1985.gitee.io/post/category/</link>
+      <pubDate>Tue, 25 Jun 2019 10:20:32 +0000</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/category/</guid>
+      <description>群论、范畴论入门  众所周知，数学的三大方向分别是代数、几何、分析，数相关的归于代数，如初等代数、数论、抽象代数-群论等；几何研究空间和形状，如解析几何、欧氏几何、非欧几何（黎曼几何）、拓扑学、微分几何(流形)等；分析则是数和形之间的纽带，主要包括微积分、实分析、复分析、泛函分析，以及在此基础上发展出的常微分、复变函数与积分变换等。另外概率论-统计、逻辑学、离散数学都可看做三大方向的复合学科。现代数学抽象化程度更高，为了将集合论、群论、向量空间与拓扑中有很多相似的概念统一地表示出来，发展出一门新的学科即范畴论(Category） 。
+1 群的基本概念1  群定义为满足如下条件的封闭集合G：
+ 定义一种二元代数运算$\forall a \in G, \exists f:a\mapsto b,b \in G$ 运算满足结合律:$f:a\mapsto b，g:b\mapsto c， f\circ g：a\mapsto c$ 存在单位元：$\exists e, f(e)= e$ 存在逆元：$\forall a \in G, f(a)=b,\exists f^{-1}(b)=a$   当集合满足1、2时，称为半群，满足1、2、3时称为幺半群(单位半群，$\frac{3}{4}$群)；如果1,2,3,4再附加一个交换律$ f\circ g= g\circ f$则称为Abel交换群。常见有的整数加法群(Z,0,+)、实数乘法群(Q,1,*)，以及S2(平面旋转群等)。整数加群是一个Abel交换群。
+2 偏序关系  偏序关系（partial order relation）的定义是集合P 与一个二元关系运算&amp;rsquo;$\le$&amp;lsquo;定义的，这个二元关系需要满足：
+ 自反性：$x\le x$ 反对称性：$x \le y 且y \le x \Rightarrow x = y$ 传递性：$x \le y 且y \le z \Rightarrow x \le z$   那么集合P 中的每个元素都可以对应一个范畴上的对象，$\le$ 对应态射，首先就满足了 范畴上每个对象都有id 映射，由于这个关系是可以传递的，所以它是可复合的，例如$f$ 为 $x \le y$，$g$ 为$y\le z$，那么$f \circ g$ 就得到了 $x\le z$，当然这种复合也是可结合的。</description>
+    </item>
+    
+    <item>
+      <title>fold and unfold</title>
+      <link>https://liudx1985.gitee.io/post/fold-and-unfold/</link>
+      <pubDate>Wed, 16 Jan 2019 14:14:33 +0000</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/fold-and-unfold/</guid>
+      <description>​	Haskell里面有两个著名的fold函数:foldr/foldl，这两个函数非常具有函数式编程的特点(递归)，几户所有的Haskell教程都会使用foldr/foldl来完成一些命令式语言的循环语句。还有个更少见的unfoldr函数,可以完成一些匪夷所思的操作。
+1 fold ​	几乎所有的函数式语言都有类似的函数，如Javascript的对应是reduce1reduceRight();Haskell的fold有两个版本，分别是foldr和foldl，两个函数主要区别在后缀上，一个从右折叠，一个从左折叠，位于Data.List,常见的教程里面定义的简单版本如下：
+foldr :: (a -&amp;gt; b -&amp;gt; b) -&amp;gt; b -&amp;gt; [a] -&amp;gt; b foldr step zero (x:xs) = step x (foldr step zero xs) foldr _ zero [] = zero  foldl :: (a -&amp;gt; b -&amp;gt; a) -&amp;gt; a -&amp;gt; [b] -&amp;gt; a foldl step zero (x:xs) = foldl step (step zero x) xs foldl _ zero [] = zero ​	fold的参数依次为step函数、初始值、列表，返回值为一个和初始值类型一样的值。注意foldr和foldl的step函数都是二元函数，foldr的step参数顺序为列表元素、折叠变量,foldl的刚好反过来！这点很容易搞混淆。一般我们直接使用预定义的就行，当然对于Data.Tree等可折叠的类型，foldr/foldl也可以适用，方法类似。
+​	众所周知，Haskell构造列表只能向头部插入元素：1:[2,3],连接链表也可以使用concat函数或者++：[1.</description>
+    </item>
+    
+    <item>
+      <title>Dynamic Programming</title>
+      <link>https://liudx1985.gitee.io/post/dynamic-programming/</link>
+      <pubDate>Tue, 15 Jan 2019 15:10:09 +0000</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/dynamic-programming/</guid>
+      <description>​	Dynamic programming is a math method for some special problems1,for any $n$ ,the problem can be reduce to sub problems recursively.the Fibonacci is a typical DP problem:
+ $$ fib(n) = fib(n-1) + fib(n-2) $$
+ ​	For a positive integer $n$ the result $fib(n)$ can be parted into two sub problems $fib(n-1)$ and $fib(n-2)$; for $n=0,1$ the result is 1 :
+fib n  | (n == 0) = a  | (n == 1) = b  | otherwise = fib (n - 1) + fib (n - 2)  where a = 1; b = 1 ​	or a more complex version:</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>python绘制参数方程的动画 | 清风竹影</title>
+    <meta property="og:title" content="python绘制参数方程的动画 - 清风竹影">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2019-04-29T16:22:50&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2019-04-29T16:22:50&#43;08:00'>
+        
+    <meta name="Keywords" content="清风竹影,Javascript,c&#43;&#43;,Haskell,python,软件架构,数据分析,小程序">
+    <meta name="description" content="python绘制参数方程的动画">
+        
+    <meta name="author" content="清风竹影">
+    <meta property="og:url" content="https://liudx1985.gitee.io/post/py-animation/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <meta name="MediaType" content="application/octet-stream">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link href="/kityminder/mindmap.css?_=1416390706100" type="text/css" rel="stylesheet" />
+    <link href="/kityminder/kityminder.core.css?_=1416390706100" type="text/css" rel="stylesheet" />
+    <script src="/kityminder/kity.min.js?_=1416390706100" charset="utf-8"></script>
+    <script src="/kityminder/kityminder.core.min.js?_=1416390706100" charset="utf-8"></script>
+    <script src="/kityminder/mindmap.min.js?_=1416390706100" charset="utf-8"></script>
+
+    
+
+
+    
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://liudx1985.gitee.io/">
+                        清风竹影
+                    </a>
+                
+                <p class="description">前C&#43;&#43;码农 ，Python和Javascript练习两年半. 会耍一点Haskell、数据分析、略懂系统架构设计；</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://liudx1985.gitee.io/">首页</a>
+                    
+                    <a  href="https://liudx1985.gitee.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://liudx1985.gitee.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">python绘制参数方程的动画</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2019年4月29日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/python'>Python</a></span>
+            
+        </div>
+        
+        
+        
+        <div class="post-content">
+            <p>© 2018 *<!-- raw HTML omitted -->All rights reserved by liudx .<!-- raw HTML omitted -->:smile:</p>
+<p>​		Python的<a href="https://matplotlib.org/index.html">matplotlib</a>是一个功能强大的绘图库，可以很方便的绘制数学图形。官方给出了很多简单的实例，结合中文翻译的示例<a href="http://reverland.org/python/2012/09/07/matplotlib-tutorial/">Tutorial</a>，可以满足日常工作的大部分需求了。但是实际工作中，一些有趣的东西很难使用常规方程（笛卡尔坐标和极坐标）方式绘制，事实上，大部分工程上都是使用参数方程来描述曲线。本文给出一些参数方程绘制的实例，之后会扩展为动画形式绘制，可以看到这些复杂的方程是如何简单优美的绘制出来。</p>
+<h2 id="1-参数方程绘制">1 参数方程绘制</h2>
+<p>​	首先介绍下椭圆的参数方程：</p>
+<p>$$
+\begin{cases}
+x = a \cdot \cos(t)\\
+y = b \cdot \sin(t)
+\end{cases}
+$$</p>
+<p>​	其中$a,b$分别是椭圆的长轴、短轴。绘制椭圆的python代码如下:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure()
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>gca()
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#椭圆参数方程</span>
+</span></span><span style="display:flex;"><span>r1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.1</span>
+</span></span><span style="display:flex;"><span>r2 <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>t <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#ae81ff">0</span>, np<span style="color:#f92672">.</span>pi<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1000</span>) <span style="color:#75715e"># 生成参数t的数组</span>
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> r1 <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>cos(t)
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> r2 <span style="color:#f92672">*</span> np<span style="color:#f92672">.</span>sin(t)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;blue&#39;</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;ellipse&#39;</span>)  
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;x&#39;</span>)  
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;y&#39;</span>)  
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>ylim(<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>)  
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>xlim(<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>,<span style="color:#ae81ff">1.5</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><p>​	结果如下:</p>
+<p><img src="ellipse.png" alt=""></p>
+<p>​</p>
+<p>​	下面我们来个复杂点的例子，绘制炮弹的弹道曲线（当然是理想情况的），我们先根据公式推算一把，首先我们设炮弹出口速度$v_0(m/s)$,向上仰角为$\theta$ °，时间为$t(s)$,  大炮的筒口初始坐标初始为(0,0)，则有：</p>
+<p>$$
+\begin{cases}
+x=v_0\cdot\sin(\theta)\cdot t \\
+y=v_0\cdot\cos(\theta)\cdot t - v_0\cdot\cos(\theta)\cdot g \cdot t^2
+\end{cases}
+$$</p>
+<p>​	对应python代码為：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">Parabolic</span>(v0, theta_x): <span style="color:#75715e"># 模拟炮弹飞行曲线</span>
+</span></span><span style="display:flex;"><span>    g <span style="color:#f92672">=</span> <span style="color:#ae81ff">9.80665</span> <span style="color:#75715e"># m/s^2</span>
+</span></span><span style="display:flex;"><span>    v0_x <span style="color:#f92672">=</span> v0<span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>cos(theta_x)
+</span></span><span style="display:flex;"><span>    v0_y <span style="color:#f92672">=</span> v0<span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>sin(theta_x)
+</span></span><span style="display:flex;"><span>    t_m <span style="color:#f92672">=</span> (v0_y <span style="color:#f92672">/</span> g) <span style="color:#75715e"># 飞行时间</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#h = g*t_m**2/2</span>
+</span></span><span style="display:flex;"><span>    t <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#ae81ff">0</span>, v0_x <span style="color:#f92672">*</span> t_m <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>, v0<span style="color:#f92672">*</span><span style="color:#ae81ff">1000</span>)
+</span></span><span style="display:flex;"><span>    x <span style="color:#f92672">=</span> v0_x <span style="color:#f92672">*</span> t
+</span></span><span style="display:flex;"><span>    y <span style="color:#f92672">=</span> v0_y <span style="color:#f92672">*</span>t <span style="color:#f92672">-</span> v0_y <span style="color:#f92672">*</span>g <span style="color:#f92672">*</span> t<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> x,y
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    linestyles <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;-&#39;</span>, <span style="color:#e6db74">&#39;--&#39;</span>, <span style="color:#e6db74">&#39;-.&#39;</span>, <span style="color:#e6db74">&#39;:&#39;</span>]
+</span></span><span style="display:flex;"><span>    x1, y1 <span style="color:#f92672">=</span> Parabolic(<span style="color:#ae81ff">100</span>, np<span style="color:#f92672">.</span>deg2rad(<span style="color:#ae81ff">45</span>))
+</span></span><span style="display:flex;"><span>    x2, y2 <span style="color:#f92672">=</span> Parabolic(<span style="color:#ae81ff">100</span>, np<span style="color:#f92672">.</span>deg2rad(<span style="color:#ae81ff">30</span>))
+</span></span><span style="display:flex;"><span>    x3, y3 <span style="color:#f92672">=</span> Parabolic(<span style="color:#ae81ff">100</span>, np<span style="color:#f92672">.</span>deg2rad(<span style="color:#ae81ff">60</span>))
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>plot(x1, y1, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, linestyle<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;--&#34;</span>,label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;45deg&#39;</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>plot(x2, y2, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;y&#39;</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, linestyle<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;-.&#34;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;30deg&#39;</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>plot(x3, y3, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;c&#39;</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, linestyle<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;:&#34;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;60deg&#39;</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;x&#39;</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;h&#39;</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>xlim(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">20</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>ylim(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">8</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>legend(loc<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;upper center&#39;</span>) 
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><p>​	为了方便示意，我分别绘制了初速为$100m/s$时，仰角为45°、30°、60°的炮弹落地曲线：</p>
+<p><img src="boom!.png" alt=""></p>
+<p>​	验证了我们高中物理中的一个结论：这货不就是抛物线嘛。</p>
+<h2 id="2-动画animationhttpsmatplotliborgapianimation_apihtml">2 动画<a href="https://matplotlib.org/api/animation_api.html">animation</a></h2>
+<p>​	看完静态的参数方程，还是不过瘾，我们来做个动画玩玩。首先是绘制一个<a href="https://zh.wikipedia.org/wiki/%E5%86%85%E6%97%8B%E8%BD%AE%E7%BA%BF">内旋轮</a>，引用下这位老哥的<a href="https://blog.csdn.net/u013180339/article/details/77002254">例子</a>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.animation <span style="color:#66d9ef">as</span> animation
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">6</span>)) <span style="color:#75715e"># 图像大小</span>
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>gca()
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>ln1, <span style="color:#f92672">=</span> ax<span style="color:#f92672">.</span>plot([], [], <span style="color:#e6db74">&#39;-&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;b&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>) <span style="color:#75715e"># 注意逗号，取出plot数据:plot return A list of Line2D objects representing the plotted data.</span>
+</span></span><span style="display:flex;"><span>ln2, <span style="color:#f92672">=</span> ax<span style="color:#f92672">.</span>plot([], [], <span style="color:#e6db74">&#39;-&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>theta <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>pi, <span style="color:#ae81ff">100</span>) <span style="color:#75715e"># 参数t的数组</span>
+</span></span><span style="display:flex;"><span>r_out <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#75715e"># 静态圆的半径</span>
+</span></span><span style="display:flex;"><span>r_in <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span> <span style="color:#75715e"># 动态圆的半径</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">init</span>():
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>set_xlim(<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>set_ylim(<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>    x_out <span style="color:#f92672">=</span> [r_out<span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>cos(theta[i]) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(theta))]
+</span></span><span style="display:flex;"><span>    y_out <span style="color:#f92672">=</span> [r_out<span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>sin(theta[i]) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(theta))]
+</span></span><span style="display:flex;"><span>    ln1<span style="color:#f92672">.</span>set_data(x_out, y_out) <span style="color:#75715e"># 静圆</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> ln1, <span style="color:#75715e"># 此处返回tuple</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">update</span>(i): <span style="color:#75715e"># 每次回调时，传入索引`0~range(len(theta))`,注意repeat时索引会归0</span>
+</span></span><span style="display:flex;"><span>    x_in <span style="color:#f92672">=</span> [(r_out<span style="color:#f92672">-</span>r_in)<span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>cos(theta[i])<span style="color:#f92672">+</span>r_in<span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>cos(theta[j]) <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(len(theta))]
+</span></span><span style="display:flex;"><span>    y_in <span style="color:#f92672">=</span> [(r_out<span style="color:#f92672">-</span>r_in)<span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>sin(theta[i])<span style="color:#f92672">+</span>r_in<span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>sin(theta[j]) <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(len(theta))]
+</span></span><span style="display:flex;"><span>    ln2<span style="color:#f92672">.</span>set_data(x_in, y_in) <span style="color:#75715e"># 动圆</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> ln2,
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ani <span style="color:#f92672">=</span> animation<span style="color:#f92672">.</span>FuncAnimation(fig, update, range(len(theta)), init_func<span style="color:#f92672">=</span>init, interval<span style="color:#f92672">=</span><span style="color:#ae81ff">30</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#ani.save(&#39;roll.gif&#39;, writer=&#39;imagemagick&#39;, fps=100)</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><p>​	看起来很不错，能动(这里发现了<code>init</code>函数可以绘制下静态的大圆ln1，<code>update</code>函数只对动圆<code>ln2</code>的plot对象数据进行更新)：</p>
+<p><img src="roll2circle.gif" alt=""></p>
+<p>​	最后研究下<a href="https://zh.wikipedia.org/wiki/%E6%91%86%E7%BA%BF">旋轮线</a>, 看看能否绘制出wiki页面上那个动画效果。先列出参数方程：
+$$
+旋轮线参数方程：
+\begin{cases}
+x = r\cdot(t-\sin t)    \\
+y = r \cdot (1-\cos t)
+\end{cases}
+\\
+圆心的坐标为:(t,r)
+$$
+​	经过观察摸索，发现需要绘制3部分，一个是滚动的圆，一个是摆线，还有个圆心到绘制曲线的支点。坐标都可直接从参数方程推算出来，不多说，直接上代码和注释吧：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#def wheel_line():</span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">2</span>))
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>gca()
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>ln, <span style="color:#f92672">=</span> ax<span style="color:#f92672">.</span>plot([], [], <span style="color:#e6db74">&#39;o-&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>) <span style="color:#75715e"># 圆心连线 @center -&gt; curve</span>
+</span></span><span style="display:flex;"><span>circle, <span style="color:#f92672">=</span> ax<span style="color:#f92672">.</span>plot([], [], <span style="color:#e6db74">&#39;-&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;b&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>) <span style="color:#75715e"># 滚动的圆</span>
+</span></span><span style="display:flex;"><span>curve, <span style="color:#f92672">=</span>  ax<span style="color:#f92672">.</span>plot([], [], <span style="color:#e6db74">&#39;-&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>) <span style="color:#75715e"># 摆线</span>
+</span></span><span style="display:flex;"><span>curve_x, curve_y <span style="color:#f92672">=</span> [], [] 
+</span></span><span style="display:flex;"><span>r <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>t <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#ae81ff">0</span>, math<span style="color:#f92672">.</span>pi<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1000</span>)
+</span></span><span style="display:flex;"><span>L <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span><span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>pi<span style="color:#f92672">*</span>r
+</span></span><span style="display:flex;"><span>theta <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#ae81ff">0</span>, L, <span style="color:#ae81ff">250</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">init</span>():
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>set_xlim(<span style="color:#f92672">-</span>r, L <span style="color:#f92672">+</span> r)
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>set_ylim(<span style="color:#ae81ff">0</span>, L<span style="color:#f92672">/</span><span style="color:#ae81ff">4</span> <span style="color:#f92672">+</span> r<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>    ln<span style="color:#f92672">.</span>set_data([<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>], [<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>])
+</span></span><span style="display:flex;"><span>    x_out <span style="color:#f92672">=</span> r<span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>cos(t)
+</span></span><span style="display:flex;"><span>    y_out <span style="color:#f92672">=</span> r<span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>sin(t) <span style="color:#f92672">+</span> r
+</span></span><span style="display:flex;"><span>    circle<span style="color:#f92672">.</span>set_data(x_out, y_out)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> circle,ln
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">update</span>(frame):
+</span></span><span style="display:flex;"><span>    tt <span style="color:#f92672">=</span> theta[frame]    <span style="color:#75715e"># 获取参数t</span>
+</span></span><span style="display:flex;"><span>    x<span style="color:#f92672">=</span>r<span style="color:#f92672">*</span>(tt<span style="color:#f92672">-</span>np<span style="color:#f92672">.</span>sin(tt))
+</span></span><span style="display:flex;"><span>    y<span style="color:#f92672">=</span>r<span style="color:#f92672">*</span>(<span style="color:#ae81ff">1</span><span style="color:#f92672">-</span>np<span style="color:#f92672">.</span>cos(tt))
+</span></span><span style="display:flex;"><span>    curve_x<span style="color:#f92672">.</span>append(x)
+</span></span><span style="display:flex;"><span>    curve_y<span style="color:#f92672">.</span>append(y)
+</span></span><span style="display:flex;"><span>    curve<span style="color:#f92672">.</span>set_data(curve_x, curve_y) <span style="color:#75715e"># 更新摆线</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> i <span style="color:#f92672">==</span> len(theta) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>:
+</span></span><span style="display:flex;"><span>        curve_x<span style="color:#f92672">.</span>clear()
+</span></span><span style="display:flex;"><span>        curve_y<span style="color:#f92672">.</span>clear()
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># update circle</span>
+</span></span><span style="display:flex;"><span>    x_out <span style="color:#f92672">=</span> r<span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>cos(t) <span style="color:#f92672">+</span> tt
+</span></span><span style="display:flex;"><span>    y_out <span style="color:#f92672">=</span> r<span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>sin(t) <span style="color:#f92672">+</span> r
+</span></span><span style="display:flex;"><span>    circle<span style="color:#f92672">.</span>set_data(x_out, y_out)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># new circle center @(tt,r)</span>
+</span></span><span style="display:flex;"><span>    ln<span style="color:#f92672">.</span>set_data([tt,x],[r,y])
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> curve,circle,ln
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ani <span style="color:#f92672">=</span> animation<span style="color:#f92672">.</span>FuncAnimation(fig, update, frames<span style="color:#f92672">=</span>range(len(theta)), init_func<span style="color:#f92672">=</span>init, interval<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>ani<span style="color:#f92672">.</span>save(<span style="color:#e6db74">&#39;roll.gif&#39;</span>, writer<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;imagemagick&#39;</span>, fps<span style="color:#f92672">=</span><span style="color:#ae81ff">60</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><p>​	大功告成:</p>
+<p><img src="roll.gif" alt=""></p>
+<p>旋轮线可以衍生出更复杂的最速降速曲线<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> (从A到B)：
+$$
+假设轮径r，高度2r的自由落体参数方程： \\
+F=\begin{cases}
+x = 0    \\
+y = 2r-\dfrac{1}{2}gt^2，t\in[0,2\sqrt{\dfrac{r}{g}}]
+\end{cases}
+\\
+旋轮线参数方程： \\
+C=\begin{cases}
+x = r\cdot(\theta-\sin \theta) \\
+y = 2r-r \cdot (1-\cos \theta)
+\end{cases},其中\theta=t\sqrt{\dfrac{g}{r}},t\in[0,\pi\sqrt{\dfrac{r}{g}}]\\
+\\
+A\rightarrow B直线L的坡度夹角为\alpha=\arctan(\dfrac{2}{\pi}) \\
+L=\begin{cases}
+x = \dfrac{1}{2}\sin(\alpha)\cos(\alpha)gt^2 \\
+y = 2r-\dfrac{1}{2}\sin(\alpha)^2gt^2 
+\end{cases},其中t\in[0,\pi\sqrt{\dfrac{R\sqrt{4+\pi^2}}{g\sin(\alpha)}}]\\
+\\
+$$</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 计算高度S自由落体时间</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">T</span>(h,a):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> math<span style="color:#f92672">.</span>sqrt(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>h<span style="color:#f92672">/</span>a);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ,自由落体‘TODO.最速降线brachistochrone 就是摆线</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># https://www.bilibili.com/video/av6385842/?vd_source=93e3ebd011b2d2f92c2ab3da9b5eba71</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># https://mathcurve.com/courbes2d/brachistochrone/brachistochrone.shtml</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">free_fall</span>():
+</span></span><span style="display:flex;"><span>    fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">3</span>))
+</span></span><span style="display:flex;"><span>    ax <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>gca()
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>set_aspect(<span style="color:#ae81ff">1</span>) <span style="color:#75715e"># x/y 等比例</span>
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>xaxis<span style="color:#f92672">.</span>set_ticks_position(<span style="color:#e6db74">&#39;bottom&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>spines[<span style="color:#e6db74">&#39;bottom&#39;</span>]<span style="color:#f92672">.</span>set_position((<span style="color:#e6db74">&#39;data&#39;</span>,<span style="color:#ae81ff">0</span>))
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>yaxis<span style="color:#f92672">.</span>set_ticks_position(<span style="color:#e6db74">&#39;left&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>spines[<span style="color:#e6db74">&#39;left&#39;</span>]<span style="color:#f92672">.</span>set_position((<span style="color:#e6db74">&#39;data&#39;</span>,<span style="color:#ae81ff">0</span>))
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>spines[<span style="color:#e6db74">&#39;top&#39;</span>]<span style="color:#f92672">.</span>set_color(<span style="color:#e6db74">&#39;none&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>spines[<span style="color:#e6db74">&#39;right&#39;</span>]<span style="color:#f92672">.</span>set_color(<span style="color:#e6db74">&#39;none&#39;</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;x&#39;</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;y&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>    L1, <span style="color:#f92672">=</span> ax<span style="color:#f92672">.</span>plot([], [], <span style="color:#e6db74">&#39;-&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;c&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">0.75</span>) <span style="color:#75715e"># 直线</span>
+</span></span><span style="display:flex;"><span>    F1, <span style="color:#f92672">=</span> ax<span style="color:#f92672">.</span>plot([], [], <span style="color:#e6db74">&#39;-&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">0.8</span>) <span style="color:#75715e"># 最速降线</span>
+</span></span><span style="display:flex;"><span>    free, <span style="color:#f92672">=</span> ax<span style="color:#f92672">.</span>plot([], [], <span style="color:#e6db74">&#39;-&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;b&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>) <span style="color:#75715e"># 自由落体 小球    </span>
+</span></span><span style="display:flex;"><span>    cL, <span style="color:#f92672">=</span> ax<span style="color:#f92672">.</span>plot([], [], <span style="color:#e6db74">&#39;-&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;c&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>) <span style="color:#75715e">#  直线L 小球</span>
+</span></span><span style="display:flex;"><span>    cF, <span style="color:#f92672">=</span> ax<span style="color:#f92672">.</span>plot([], [], <span style="color:#e6db74">&#39;-&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>) <span style="color:#75715e">#  最速降线 小球</span>
+</span></span><span style="display:flex;"><span>    theta <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#ae81ff">0</span>, np<span style="color:#f92672">.</span>pi<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">100</span>) <span style="color:#75715e"># for ball</span>
+</span></span><span style="display:flex;"><span>    R <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span> <span style="color:#75715e"># 半径</span>
+</span></span><span style="display:flex;"><span>    r_in <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.25</span>
+</span></span><span style="display:flex;"><span>    angle <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arctan(<span style="color:#ae81ff">2</span><span style="color:#f92672">/</span>np<span style="color:#f92672">.</span>pi) <span style="color:#75715e"># 直线坡度夹角</span>
+</span></span><span style="display:flex;"><span>    sin_k <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>sin(angle)
+</span></span><span style="display:flex;"><span>    cos_k <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>cos(angle)
+</span></span><span style="display:flex;"><span>    g <span style="color:#f92672">=</span> <span style="color:#ae81ff">9.8</span>
+</span></span><span style="display:flex;"><span>    L <span style="color:#f92672">=</span> math<span style="color:#f92672">.</span>sqrt(<span style="color:#ae81ff">4</span><span style="color:#f92672">+</span>np<span style="color:#f92672">.</span>pi<span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>pi) <span style="color:#f92672">*</span> R <span style="color:#75715e"># 斜面长度</span>
+</span></span><span style="display:flex;"><span>    t <span style="color:#f92672">=</span> T(L, g<span style="color:#f92672">*</span>sin_k) <span style="color:#75715e"># 沿着斜面下滑总时间。(sec)</span>
+</span></span><span style="display:flex;"><span>    tf <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>pi <span style="color:#f92672">*</span> math<span style="color:#f92672">.</span>sqrt(R<span style="color:#f92672">/</span>g) <span style="color:#75715e"># 摆线一半时间</span>
+</span></span><span style="display:flex;"><span>    ts <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">0</span>, t, <span style="color:#ae81ff">0.04</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">init</span>():
+</span></span><span style="display:flex;"><span>        ax<span style="color:#f92672">.</span>set_xlim(<span style="color:#f92672">-</span>R<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, np<span style="color:#f92672">.</span>pi<span style="color:#f92672">*</span>R<span style="color:#f92672">+</span>r_in<span style="color:#f92672">*</span><span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>        ax<span style="color:#f92672">.</span>set_ylim(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>R<span style="color:#f92672">+</span>r_in<span style="color:#f92672">*</span><span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># L is a line , y= 2R-2/pi*x       </span>
+</span></span><span style="display:flex;"><span>       
+</span></span><span style="display:flex;"><span>        x_L <span style="color:#f92672">=</span> [R<span style="color:#f92672">*</span>t <span style="color:#66d9ef">for</span> t <span style="color:#f92672">in</span> theta]
+</span></span><span style="display:flex;"><span>        y_L <span style="color:#f92672">=</span> [<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>R <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>x<span style="color:#f92672">/</span>np<span style="color:#f92672">.</span>pi <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> x_L]
+</span></span><span style="display:flex;"><span>        L1<span style="color:#f92672">.</span>set_data(x_L,y_L )
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 最速降线brachistochrone</span>
+</span></span><span style="display:flex;"><span>        θ <span style="color:#f92672">=</span> [math<span style="color:#f92672">.</span>sqrt(g<span style="color:#f92672">/</span>R)<span style="color:#f92672">*</span>j <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> ts]
+</span></span><span style="display:flex;"><span>        xf <span style="color:#f92672">=</span> R<span style="color:#f92672">*</span>(θ<span style="color:#f92672">-</span>np<span style="color:#f92672">.</span>sin(θ))
+</span></span><span style="display:flex;"><span>        yf <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>R<span style="color:#f92672">+</span>R<span style="color:#f92672">*</span>(np<span style="color:#f92672">.</span>cos(θ)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        F1<span style="color:#f92672">.</span>set_data(xf,yf)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> L1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">update</span>(i):
+</span></span><span style="display:flex;"><span>        t <span style="color:#f92672">=</span> ts[i]
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># solve 自由落体</span>
+</span></span><span style="display:flex;"><span>        x <span style="color:#f92672">=</span> [r_in<span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>cos(theta[j]) <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(len(theta))]
+</span></span><span style="display:flex;"><span>        y <span style="color:#f92672">=</span> [<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>R<span style="color:#f92672">-</span>g<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>t<span style="color:#f92672">*</span>t <span style="color:#f92672">+</span> r_in<span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>sin(theta[j]) <span style="color:#f92672">+</span>r_in <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(len(theta))]
+</span></span><span style="display:flex;"><span>        free<span style="color:#f92672">.</span>set_data(x,y)
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># solve L 小球：</span>
+</span></span><span style="display:flex;"><span>        x_L <span style="color:#f92672">=</span> [g<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>sin_k<span style="color:#f92672">*</span>cos_k<span style="color:#f92672">*</span>t<span style="color:#f92672">*</span>t<span style="color:#f92672">+</span>r_in<span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>cos(theta[j])<span style="color:#f92672">+</span>r_in<span style="color:#f92672">*</span><span style="color:#ae81ff">0.8</span> <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(len(theta))]
+</span></span><span style="display:flex;"><span>        y_L <span style="color:#f92672">=</span> [<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>R<span style="color:#f92672">-</span>g<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>sin_k<span style="color:#f92672">*</span>sin_k<span style="color:#f92672">*</span>t<span style="color:#f92672">*</span>t<span style="color:#f92672">+</span>r_in<span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>sin(theta[j])<span style="color:#f92672">+</span>r_in<span style="color:#f92672">*</span><span style="color:#ae81ff">0.8</span> <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(len(theta))]
+</span></span><span style="display:flex;"><span>        cL<span style="color:#f92672">.</span>set_data(x_L, y_L)
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># solve fase speed line</span>
+</span></span><span style="display:flex;"><span>        θ <span style="color:#f92672">=</span> math<span style="color:#f92672">.</span>sqrt(g<span style="color:#f92672">/</span>R)<span style="color:#f92672">*</span>t
+</span></span><span style="display:flex;"><span>        x_f <span style="color:#f92672">=</span> [R<span style="color:#f92672">*</span>(θ<span style="color:#f92672">-</span>np<span style="color:#f92672">.</span>sin(θ)) <span style="color:#f92672">+</span> r_in<span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>cos(theta[j])<span style="color:#f92672">+</span>r_in<span style="color:#f92672">*</span><span style="color:#ae81ff">0.8</span>  <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(len(theta))]
+</span></span><span style="display:flex;"><span>        y_f <span style="color:#f92672">=</span> [<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>R<span style="color:#f92672">+</span>R<span style="color:#f92672">*</span>(np<span style="color:#f92672">.</span>cos(θ)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) <span style="color:#f92672">+</span> r_in<span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>sin(theta[j])<span style="color:#f92672">+</span>r_in<span style="color:#f92672">*</span><span style="color:#ae81ff">0.8</span>  <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(len(theta))]
+</span></span><span style="display:flex;"><span>        cF<span style="color:#f92672">.</span>set_data(x_f,y_f)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> free,cF,cL
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ani <span style="color:#f92672">=</span> animation<span style="color:#f92672">.</span>FuncAnimation(fig, update, range(len(ts)), init_func<span style="color:#f92672">=</span>init, interval<span style="color:#f92672">=</span><span style="color:#ae81ff">40</span>)
+</span></span><span style="display:flex;"><span>    ani<span style="color:#f92672">.</span>save(<span style="color:#e6db74">&#39;roll2circle.gif&#39;</span>, writer<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;imagemagick&#39;</span>, fps<span style="color:#f92672">=</span><span style="color:#ae81ff">25</span>) <span style="color:#75715e"># 注意1秒25fps间隔40ms，正好1 sec</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><p><img src="down.gif" alt="down"></p>
+<h2 id="3-后记">3 后记</h2>
+<p>​	在摸索过程中，还是有很多坑需要注意的，最初那个摆线的例子，我没有计算好图形范围，画出来的圆是扁扁的，后来通过修改x/y比例<code> ax.set_aspect(1) # x/y 等比例</code>为相同比例解决的；保存动画那个<code>ani.save('roll.gif', writer='imagemagick', fps=60)</code>总是报错，经过查找资料，解决方案是安装<a href="http://www.imagemagick.org/script/download.php#macosx">imagemagic</a>，下载安装后第2节的例子都能顺利保存动图为gif。还有需要注意是的<code>save</code>函数里面的fps参数不能调太低，否则会出现动画卡顿的现象，太高又会出现动画速度很快的问题，这个参数需要配合<code>frames</code>即动画的总帧数，以及<code>FuncAnimation</code>里面的<code>interval</code>帧间隔时间参数(单位是ms)，总动画时间(秒)公式为：$frames * interval/1000+frames/fps$。
+​	读完这篇文章，相信绘制参数方程和动画不是一件难事吧:smile:。</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><a href="https://zhuanlan.zhihu.com/p/68140784">旋轮线-摆线-最速降线</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/py-lazy/">python 迭代器和惰性计算、函数式编程基础</a></li>
+        
+        <li><a href="/post/modulo/">同余和整除判定</a></li>
+        
+        <li><a href="/post/fold-and-unfold/">fold and unfold</a></li>
+        
+        <li><a href="/post/dynamic-programming/">Dynamic Programming</a></li>
+        
+        <li><a href="/post/hello-world/">Start 2019</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='https://liudx1985.gitee.io/tags/python'>Python</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+</div>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='//cn.bing.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="site" value="https://liudx1985.gitee.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/andriod/" title="Andriod开发从入门到放弃">Andriod开发从入门到放弃</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/electron/" title="electron-vite-vue开发指北">electron-vite-vue开发指北</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/vue3/" title="Vue3高阶组件技术">Vue3高阶组件技术</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/tesseractocr/" title="利用Tesseract对图片或pdf进行OCR">利用Tesseract对图片或pdf进行OCR</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/js_module/" title="JavaScript 模块：CommonJS VS Es6">JavaScript 模块：CommonJS VS Es6</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/js_generator/" title="Javascript迭代器、生成器、异步">Javascript迭代器、生成器、异步</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/pygui/" title="PySide6界面程序编写及打包">PySide6界面程序编写及打包</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/argsort/" title="Argsort 以及Rank的Javascript代码练习">Argsort 以及Rank的Javascript代码练习</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/css_animate/" title="CSS3动画入门">CSS3动画入门</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/mysql/" title="Mysql绿色安装方法">Mysql绿色安装方法</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li><a href="https://liudx1985.gitee.io/categories/ai/">AI (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/algorithm/">algorithm (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/c&#43;&#43;/">C&#43;&#43; (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/database/">Database (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/fp/">FP (3)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/math/">math (8)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/misc/">misc (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/programming/">Programming (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/python/">Python (3)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/se/">SE (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/test/">test (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/web/">web (9)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://liudx1985.gitee.io/tags/algorithm/">algorithm</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/bigdata/">bigdata</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/fp/">FP</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/gui/">GUI</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/haskell/">haskell</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/html/">html</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/java/">java</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/javascript/">javascript</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/js/">js</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/latex/">latex</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/math/">math</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/misc/">misc</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/mysql/">mysql</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/nodejs/">nodejs</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/program/">Program</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/python/">python</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/se/">SE</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/vue/">vue</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/web/">web</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/%E6%99%AE%E9%80%9A%E8%AF%9D/">普通话</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://ife.baidu.com/introduction.html" title="百度前端技术学园ife.baidu.com "> 百度前端技术学园ife.baidu.com  </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.runoob.com/" title="菜鸟教程 runoob.com "> 菜鸟教程 runoob.com </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://developer.mozilla.org/zh-CN/docs/Web" title="Web 开发者文档MDN "> Web 开发者文档MDN </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.liaoxuefeng.com/" title="廖雪峰的官方网站"> 廖雪峰的JAVA、python、JS教程</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.processon.com/" title="ProcessOn 在线流程图思维导图">ProcessOn 在线流程图思维导图</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://zhongguose.com/" title="中国色 - 中国传统颜色色卡">中国色 - 中国传统颜色色卡</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://liudx1985.gitee.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+    <div class="container">
+        &copy; 2024 <a href="https://liudx1985.gitee.io/">清风竹影 By 清风竹影</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/flysnow-org/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+
+
+
+
+</body>
+
+</html>

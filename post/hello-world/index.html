@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Start 2019 | 清风竹影</title>
+    <meta property="og:title" content="Start 2019 - 清风竹影">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2019-01-11T11:12:34&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2019-01-11T11:12:34&#43;08:00'>
+        
+    <meta name="Keywords" content="清风竹影,Javascript,c&#43;&#43;,Haskell,python,软件架构,数据分析,小程序">
+    <meta name="description" content="Start 2019">
+        
+    <meta name="author" content="清风竹影">
+    <meta property="og:url" content="https://liudx1985.gitee.io/post/hello-world/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <meta name="MediaType" content="application/octet-stream">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link href="/kityminder/mindmap.css?_=1416390706100" type="text/css" rel="stylesheet" />
+    <link href="/kityminder/kityminder.core.css?_=1416390706100" type="text/css" rel="stylesheet" />
+    <script src="/kityminder/kity.min.js?_=1416390706100" charset="utf-8"></script>
+    <script src="/kityminder/kityminder.core.min.js?_=1416390706100" charset="utf-8"></script>
+    <script src="/kityminder/mindmap.min.js?_=1416390706100" charset="utf-8"></script>
+
+    
+
+
+    
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://liudx1985.gitee.io/">
+                        清风竹影
+                    </a>
+                
+                <p class="description">前C&#43;&#43;码农 ，Python和Javascript练习两年半. 会耍一点Haskell、数据分析、略懂系统架构设计；</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://liudx1985.gitee.io/">首页</a>
+                    
+                    <a  href="https://liudx1985.gitee.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://liudx1985.gitee.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">Start 2019</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2019年1月11日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/programming'>Programming</a></span>
+            
+        </div>
+        
+        
+        
+        <div class="post-content">
+            <p>© 2018 *<!-- raw HTML omitted -->All rights reserved by liudx .<!-- raw HTML omitted -->:smile: *</p>
+<p>==No body can live without H~2~0 and knowledge==</p>
+<h2 id="1-tools">1 Tools</h2>
+<ul>
+<li>MicroSoft® VScode用来写前端代码，推荐安装插件：<code>Dracula Offical</code>（主题）、Beautify、Auto Rename Tag、Bracket Pair Colorizer 2、Open in Brower、Vetur</li>
+<li><a href="https://www.listary.com/">listary</a>和everything一样，是一个强大的windows快速本地搜索工具</li>
+<li><a href="https://tianruoocr.cn/">天若OCR</a>是一个OCR工具</li>
+<li><a href="https://ditto-cp.sourceforge.io/">Windows剪贴工具Ditto</a></li>
+<li>ripgrep是windows下的grep命令行工具,使用方法:<code>rg text</code>or <code>rg --maxdepth 1 text</code></li>
+</ul>
+<h2 id="2-python">2 Python</h2>
+<p>Python:第三方库：scipy,matplotlib,fabric(remote batch),requests(network)</p>
+<ul>
+<li>
+<p>pip upgrade: <code>$Python\Scripts\easy_install.exe pip==8.1.2 </code>,修改国内源：新建文件C:\Users\Admin\pip\pip.ini:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#66d9ef">[global]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">index-url</span> <span style="color:#f92672">=</span>  <span style="color:#e6db74">http://mirrors.aliyun.com/pypi/simple</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Jupyter notebook:用于交互式编写python脚本,支持markdown语法，安装方法</p>
+<blockquote>
+<p><code>$pip install jupyter -i https://pypi.tuna.tsinghua.edu.cn/simple</code>;</p>
+</blockquote>
+</li>
+<li>
+<p><strong>jupyter notebook 起始目录修改方法</strong>：</p>
+<ol>
+<li><strong>打开anaconda SHELL，输入命令<code>jupyter notebook --generate-config</code>，将生成 jupyter_notebook_config.py文件</strong></li>
+<li><strong>打开上一步生成的文件:<code>C:\Users\liudx\.jupyter\jupyter_notebook_config.py</code>,找到<code>c.NotebookApp.notebook_dir</code> 前面的“#”符号（#表示注释的意思）,修改为起始目录</strong></li>
+<li><strong>重启jupyter notebook</strong></li>
+</ol>
+</li>
+<li>
+<p>启动<code>jupyter notebook --no-browser</code>,访问 <code>http://localhost:8888</code></p>
+</li>
+<li>
+<p>new python3 notebook,save as *.ipynb file</p>
+<ul>
+<li><code>%magic</code>支持魔术命令如 <code>%run script.py</code>=<code>!python script.py</code></li>
+<li>引用系统命令eg:<code>!echo %cd%</code></li>
+<li><code>display(df) </code>美观打印DataFrame对象</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-博客工具hugogohugoorghttpswwwgohugoorg">3 博客工具<a href="https://www.gohugo.org/">Hugo(gohugo.org)</a></h2>
+<p>A blog system, can be integrated into github.io<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>, recommand <a href="https://themes.gohugo.io/hyde/">Hyde | Hugo Themes (gohugo.io)</a>( theme, if you want to suppoer letax, modify notice the head.html contains latex change for
+<code>$blog\themes\hyde\layouts\partials\head.html</code></p>
+<h2 id="4-typora-hearts">4 Typora ♥</h2>
+<p><a href="https://typora.io/">Typora — a markdown editor, markdown reader.</a> : 推荐使用主题Vue</p>
+<hr>
+<ul>
+<li>修改行宽度_@C:\Users\ADMIN\AppData\Roaming\Typora\themes\newsprint.css ==max-width: 1920px;==}</li>
+</ul>
+<hr>
+<p>Draw graph example:</p>
+<ul>
+<li>flow</li>
+</ul>
+<pre tabindex="0"><code class="language-flow" data-lang="flow">st=&gt;start: 开始框
+op=&gt;operation: 处理框
+cond=&gt;condition: 判断框(是或否?)
+sub1=&gt;subroutine: 子流程
+io=&gt;inputoutput: 输入输出框
+e=&gt;end: 结束框
+st-&gt;op-&gt;cond
+cond(yes)-&gt;io-&gt;e
+cond(no)-&gt;sub1(right)-&gt;op
+</code></pre><ul>
+<li>mermaid <a href="https://mermaidjs.github.io/">^</a></li>
+</ul>
+<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">graph TB
+    
+    subgraph *开源代码协议*
+    	open_source[他人修改源码后 &lt;br/&gt; 是否可以闭源?]-- no --&gt;add_with_same_lic[新增代码是否&lt;br/&gt;采用同样许可证?]
+    	open_source-- yes --&gt;mod_with_lic[每一个修改过的文件&lt;br&gt;是否都必须&lt;/br&gt;放置版权说明?]
+    	add_with_same_lic--no--&gt;mod_need_doc[是否需要对源码的&lt;br&gt;修改之处,&lt;/br&gt;提供说明文档?]    	
+    	mod_need_doc--no--&gt;LGPL(LGPL许可证)
+    	mod_need_doc--yes--&gt;Moz(Mozilla许可证)
+    	add_with_same_lic--yes--&gt;GPL(GPL许可证)
+    	mod_with_lic--no--&gt;sale_with_ownname[衍生软件的广告是否可以&lt;br/&gt;使用你的名字促销?]
+    	sale_with_ownname--no--&gt;BSD(BSD许可证)
+    	sale_with_ownname--yes--&gt;MIT(MIT许可证)
+    	mod_with_lic--yes--&gt;Apache(Apache许可证)
+    end
+
+    %% Notice following class def 
+     classDef green fill:#9f6,stroke:#333,stroke-width:2px;
+     classDef orange fill:#f96,stroke:#333,stroke-width:4px;
+     class open_source,add_with_same_lic,mod_with_lic,mod_need_doc,sale_with_ownname green
+     class LGPL,Moz,GPL,BSD,MIT,Apache orange
+</code></pre><pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">gantt
+        dateFormat  YYYY-MM-DD
+        title Adding GANTT diagram functionality to mermaid
+	section A section
+        Completed task            :done,    des1, 2014-01-06,2014-01-08
+        Active task               :active,  des2, 2014-01-09, 3d
+        Future task               :         des3, after des2, 5d
+        Future task2              :         des4, after des2, 7d
+	section Critical tasks
+        Completed task in the critical line :crit, done, 2014-01-06,24h
+        Implement parser and jison          :crit, done, after des1, 2d
+        Create tests for parser             :crit, active, 3d
+        Future task in critical line        :crit, 5d
+        Create tests for renderer           :after des3,2d
+        Add to mermaid                      :1d
+</code></pre><h2 id="5-latex-code">5 $\LaTeX$ Code</h2>
+<h3 id="1-二次方程求根公式">1. 二次方程求根公式:</h3>
+<blockquote>
+<p>$$
+x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}
+$$</p>
+</blockquote>
+<h3 id="2-三角和公式">2. 三角和公式:</h3>
+<blockquote>
+<p>$$
+\sin(\alpha+\beta) = \sin(\alpha)\cdot\cos(\beta)+\cos(\alpha)\cdot\sin(\beta)
+$$</p>
+</blockquote>
+<p>​	简单证明如下：</p>
+<p>​	平面上两个单位向量，与x轴正向夹角分别为$x$和$y$，则这两个向量分别为$\vec{\alpha}(\cos x,\sin x),\quad\vec{\beta}(\cos y,\sin y)$。则这两个向量的点积为$\cos x\cos y+\sin x\sin y$,而点积又可以表示为$|\vec{\alpha}|\cdot|\vec{\beta}|\cdot\cos|x-y|=\cos(x-y)$,于是我们得到了以下公式：</p>
+<p>$$
+\cos(x-y)=\cos x\cos y+\sin x\sin y \quad\quad (1)
+$$
+​	将(1)中的$\boldsymbol{y}$换成$\boldsymbol{-y}$得到：</p>
+<p>$$
+\cos(x+y)=\cos x\cos y-\sin x\sin y \quad\quad(2)
+$$
+​	将(1)中的$\boldsymbol{x}$用$\frac{\pi}{2} -x$代入，得到：</p>
+<p>$$
+\sin(x+y)=\sin x\cos y+\sin y\cos x\quad\quad(3)
+$$
+​	将(3)中的$\boldsymbol{y}$用$\boldsymbol{-y}$代入，得到:</p>
+<p>$$
+\sin(x-y)=\cos y\sin x-\cos x\sin y\quad\quad(4)
+$$</p>
+<h3 id="3-欧拉公式棣莫弗公式">3. 欧拉公式\棣莫弗公式:</h3>
+<blockquote>
+<p>$$
+z = r\cdot e^{2\pi i},\quad e^{ix}=cosx+isinx \to e^{i\pi}+1=0\\
+de\space Moivre&rsquo;s\space Formula: (cos(x)+isin(x))^n=cos(nx)+isin(nx) = e^{i(nx)},x \in C,n \in R
+$$</p>
+</blockquote>
+<h3 id="4-常用公式">4. 常用公式:</h3>
+<blockquote>
+<p>$$
+复数域C；实数域R；有理数域Q \
+自然常数：e =\lim_{x\to \infty}(1+1/x)^x，e^x =1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+\dots\\
+欧拉定理： a^{\psi(n)}\equiv 1\space mod(n)，(\psi(n)欧拉函数为小于n的素数个数);特别有a^{p-1}\equiv 1\space mod(p)，当p为素数，a&gt;2\\
+正太分布(高斯分布,probability\space density\space function)：p(x|\mu,\sigma^2)=\frac{1}{\sqrt{2\pi}\sigma}e^{\dfrac{-（x-\mu）^2}{2\sigma^2}}\\
+概率分布(或称CDF:累积分布,cumulative\space distribution\space  function):F_X(a) = P(x\le a)\\
+傅里叶变换：\hat{f}(\xi)=\int_{-\infty}^{\infty}{f(x)e^{-2\pi ix \xi}}dx,\xi \in R\\
+fourier逆变换:{f}(x)=\int_{-\infty}^{\infty}{\hat{f}(\xi)e^{2\pi i\xi x}}d\xi, x \in R\\
+离散傅里叶变换(DFT):X_k=\sum_{n=0}^{N-1}x_ne^{-i2\pi k\dfrac{n}{N}},k=0,1\dots,N-1,x_n \in C.\\
+离散余弦变换(DCT-II):f_m=\sum_{k=0}^{n-1}x_kcos\Big[\dfrac{\pi}{n}m(k+\frac{1}{2})\Big],k=0,1\dots,N-1,x_n \in C.\\
+Gamma function:\Gamma (x)=\int_{0}^{\infty}t^{x-1}e^{-t}dt = (x-1)!\\
+Beta Function:B(x,y)=\dfrac{\Gamma(x)\Gamma(y)}{\Gamma(x+y)}=\int_{0}^{1}{t^x(1-t)^y}dt
+$$</p>
+</blockquote>
+<h3 id="5-积分求导more-basical-equationhttpszhuanlanzhihucomp44016474">5. 积分\求导<a href="https://zhuanlan.zhihu.com/p/44016474">More Basical Equation</a></h3>
+<blockquote>
+<p>$$
+Dirak\space function:\delta(x)=\begin{cases}
+0,x=0 \\
+\infty,x \neq 0\end{cases} \quad s.t.\int_{-\infty}^{\infty}{\delta(x)}dx = 1 \\
+Hooke\space theroy:F=-kx=\dfrac {dx^2}{dt^2}
+$$</p>
+</blockquote>
+<h3 id="6-fibonacci若干性质">6. fibonacci若干性质</h3>
+<blockquote>
+<p>$$
+f(n)=f(n+1)-f(n-1)\\
+f(n)=[f(n+1)+f(n-2)]/2\\
+\sum_{i=1}^{n}{f^2(i)}=f(n)\cdot f(n-1)\\
+\lim_{x\to\infty}\frac{f(n)}{f(n+1)}=\frac{1-\sqrt{5}}{2}\approx 0.618
+$$</p>
+</blockquote>
+<h3 id="7matrix">7.MATRIX</h3>
+<p>​	假设单位向量$\overrightarrow{u}坐标为(\sin x,\cos x)$，旋转$\theta$后变为向量$\overrightarrow{u&rsquo;}坐标为(\sin y,\cos y)$,由内积和<a href="https://zh.wikipedia.org/wiki/%E5%8F%89%E7%A7%AF">外积</a>定义可得：</p>
+<p>$$
+\overrightarrow{u}\cdot\overrightarrow{u&rsquo;} = \cos \theta = \cos x \cos y + \sin x \sin y \quad\quad(5)\\
+\overrightarrow{u}\times\overrightarrow{u&rsquo;}=\sin \theta =
+\begin{vmatrix}
+i &amp; j &amp; k\\
+\cos x &amp; \sin x  &amp;0\\
+\cos y &amp; \sin y  &amp;0\\
+\end{vmatrix}=
+\cos x \sin y - \sin x \cos y \quad\quad(6)
+$$
+​	另有</p>
+<p>$$
+\sin^2 \theta + \cos^2 \theta = 1\quad\quad(7)
+$$</p>
+<p>​	由$(5)\cdot \sin x +(6)\cdot \cos x解得\sin y$;由$(5)\cdot \cos x -(6)\cdot \sin x解得\cos y$:
+$$
+\begin{cases}
+\sin y = \sin x\cdot\cos\theta+ \cos x\cdot \sin \theta\\
+\cos y = \cos x\cdot\cos\theta-\sin x\cdot\sin\theta
+\end{cases}
+$$
+​	即2维旋转矩阵(S2)：</p>
+<blockquote>
+<p>$$
+\begin{pmatrix} \cos y\\ \sin y \end{pmatrix}=\begin{vmatrix}
+\cos\theta &amp; -\sin\theta\\
+\sin\theta &amp; \cos\theta\\
+\end{vmatrix}\cdot
+\begin{pmatrix} \cos x\\ \sin x \end{pmatrix}\quad(8)
+$$
+​	同理可得三维旋转矩阵(S3)为:</p>
+</blockquote>
+<blockquote>
+<p>$$
+R_x(\omega)=\begin{bmatrix} 
+1 &amp; 0 &amp; 0\\
+0 &amp; cos\omega &amp; -sin\omega\\
+0 &amp; sin\omega &amp; cos\omega\\
+\end{bmatrix}，
+R_y(\phi)=\begin{bmatrix} 
+cos\phi &amp;0 &amp; -sin\phi\\
+0 &amp; 1 &amp; 0 \\
+sin\phi &amp;0 &amp; cos\phi\\
+\end{bmatrix}，
+R_z(\kappa)=\begin{bmatrix} 
+cos\kappa &amp; -sin\kappa &amp;0\\
+sin\kappa &amp; cos\kappa &amp;0\\
+0 &amp;0 &amp;1 \\
+\end{bmatrix}\\
+R=R_z(\kappa)\cdot R_y(\phi)\cdot R_x(\omega) = \begin{bmatrix} 
+cosϕ⋅cosκ&amp; −cosϕ⋅sinκ&amp;sinϕ\\
+cosω⋅sinκ+sinω⋅sinϕ⋅cosκ &amp; cosω⋅cosκ−sinω⋅sinϕ⋅sinκ &amp;−sinω⋅cosϕ \\
+sinω⋅sinκ−cosω⋅sinϕ⋅cosκ &amp; sinω⋅cosκ+cosω⋅sinϕcdotsinκ &amp;cosω⋅cosϕ\end{bmatrix}
+$$</p>
+</blockquote>
+<h3 id="8-riemann-function-zeta">8. Riemann Function (Zeta)</h3>
+<p>$$
+\zeta(s) = \sum_0^\infty \frac{1}{n^s}, s \in R\space and\space Real(s) &gt; 1\\
+specially,\zeta(2) = \frac{\pi^2}{6}
+$$</p>
+<h3 id="9系统可靠性realibality">9.系统可靠性(Realibality)</h3>
+<p>$$
+可靠度R=\begin{cases}R=\prod_i^nR_i,串联系统\\R=\prod_i^n(1-R_i),并联系统\end{cases}
+$$
+失效率$\lambda$与可靠度R关系为:
+$$
+R=e^{-\lambda t}
+$$</p>
+<h3 id="10-amdahl定律">10. Amdahl定律</h3>
+<p>$$
+F = \frac{1}{1-F_e + F_e/S},其中Fe为子系统占比，S为加速倍数，计算整个系统提升百分比
+$$</p>
+<!-- raw HTML omitted -->
+<p>其他待办事项：</p>
+<ul>
+<li><input disabled="" type="checkbox"> Using jupyter notebook, write more things using markdown &amp; LeTax</li>
+<li><input disabled="" type="checkbox"> <a href="http://www.matrix67.com/blog/archives/5100">跨越千年的RSA算法</a></li>
+</ul>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><a href="https://zhuanlan.zhihu.com/p/26625249">https://zhuanlan.zhihu.com/p/26625249</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/about/">关于</a></li>
+        
+        <li><a href="/archives/">归档</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='https://liudx1985.gitee.io/tags/misc'>misc</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+</div>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='//cn.bing.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="site" value="https://liudx1985.gitee.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/andriod/" title="Andriod开发从入门到放弃">Andriod开发从入门到放弃</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/electron/" title="electron-vite-vue开发指北">electron-vite-vue开发指北</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/vue3/" title="Vue3高阶组件技术">Vue3高阶组件技术</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/tesseractocr/" title="利用Tesseract对图片或pdf进行OCR">利用Tesseract对图片或pdf进行OCR</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/js_module/" title="JavaScript 模块：CommonJS VS Es6">JavaScript 模块：CommonJS VS Es6</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/js_generator/" title="Javascript迭代器、生成器、异步">Javascript迭代器、生成器、异步</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/pygui/" title="PySide6界面程序编写及打包">PySide6界面程序编写及打包</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/argsort/" title="Argsort 以及Rank的Javascript代码练习">Argsort 以及Rank的Javascript代码练习</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/css_animate/" title="CSS3动画入门">CSS3动画入门</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/mysql/" title="Mysql绿色安装方法">Mysql绿色安装方法</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li><a href="https://liudx1985.gitee.io/categories/ai/">AI (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/algorithm/">algorithm (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/c&#43;&#43;/">C&#43;&#43; (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/database/">Database (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/fp/">FP (3)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/math/">math (8)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/misc/">misc (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/programming/">Programming (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/python/">Python (3)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/se/">SE (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/test/">test (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/web/">web (9)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://liudx1985.gitee.io/tags/algorithm/">algorithm</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/bigdata/">bigdata</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/fp/">FP</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/gui/">GUI</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/haskell/">haskell</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/html/">html</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/java/">java</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/javascript/">javascript</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/js/">js</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/latex/">latex</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/math/">math</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/misc/">misc</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/mysql/">mysql</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/nodejs/">nodejs</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/program/">Program</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/python/">python</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/se/">SE</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/vue/">vue</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/web/">web</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/%E6%99%AE%E9%80%9A%E8%AF%9D/">普通话</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://ife.baidu.com/introduction.html" title="百度前端技术学园ife.baidu.com "> 百度前端技术学园ife.baidu.com  </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.runoob.com/" title="菜鸟教程 runoob.com "> 菜鸟教程 runoob.com </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://developer.mozilla.org/zh-CN/docs/Web" title="Web 开发者文档MDN "> Web 开发者文档MDN </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.liaoxuefeng.com/" title="廖雪峰的官方网站"> 廖雪峰的JAVA、python、JS教程</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.processon.com/" title="ProcessOn 在线流程图思维导图">ProcessOn 在线流程图思维导图</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://zhongguose.com/" title="中国色 - 中国传统颜色色卡">中国色 - 中国传统颜色色卡</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://liudx1985.gitee.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+    <div class="container">
+        &copy; 2024 <a href="https://liudx1985.gitee.io/">清风竹影 By 清风竹影</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/flysnow-org/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+
+
+
+
+</body>
+
+</html>

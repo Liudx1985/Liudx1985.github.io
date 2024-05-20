@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GUI on 清风竹影</title>
+    <link>https://liudx1985.gitee.io/tags/gui/</link>
+    <description>Recent content in GUI on 清风竹影</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 12 Jul 2023 12:20:53 +0800</lastBuildDate><atom:link href="https://liudx1985.gitee.io/tags/gui/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PySide6界面程序编写及打包</title>
+      <link>https://liudx1985.gitee.io/post/pygui/</link>
+      <pubDate>Wed, 12 Jul 2023 12:20:53 +0800</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/pygui/</guid>
+      <description>1. setup  安装Pyside6,建议使用tsinghua源anaconda | 镜像站使用帮助 | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror  # 创建env conda create --name gui # 激活env conda active gui # 安装PySide6框架~ pip install --upgrade pip pip install pyqt6-tools # 安装UI 设计工具，for QTDesigner, PyUIC pip install pyside6 # +打包工具+ pip install pyinstaller auto-py-to-exe   设置pyCharm解释器
+​	参考1 配置external Tools，在菜单中方便使用：目录类似:
+  C:\Users\37556\anaconda3\envs\gui\Lib\site-packages\PySide6\designer.exe
+  C:\Users\37556\anaconda3\envs\gui\Scripts\auto-py-to-exe.exe
+    2 编写代码 2.1 打开QtDesigner,设计界面： ​ 运行工具QtDesinger，设计一个界面led.</description>
+    </item>
+    
+  </channel>
+</rss>

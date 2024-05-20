@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>FP on 清风竹影</title>
+    <link>https://liudx1985.gitee.io/tags/fp/</link>
+    <description>Recent content in FP on 清风竹影</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 19 Mar 2019 17:02:29 +0000</lastBuildDate><atom:link href="https://liudx1985.gitee.io/tags/fp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>python 迭代器和惰性计算、函数式编程基础</title>
+      <link>https://liudx1985.gitee.io/post/py-lazy/</link>
+      <pubDate>Tue, 19 Mar 2019 17:02:29 +0000</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/py-lazy/</guid>
+      <description>​	本文介绍了python 的生成器，构造一些有趣的惰性计算程序，可以作为python函数式的基础。
+1. iterator and generator ​	众所周知，python3里面的range返回是一个对象而不是列表，它的前身是python 2的xrange。python 2里面的range会生成一个列表，当这个列表很大时，会有严重的性能问题:
+for x in range(0,100000):  print(x) ​	可以使用iter(range(0,100000))将range对象转换为可迭代实例（iterator），下面的代码是和上面代码等价的：
+lst=iter(range(0,10)) while True:  try:  b = next(lst) # 调用lst.__next__()  print(b)  except StopIteration:  break ​	显而易见，其实python的for循环其实是个语法糖，首先隐式将list（可迭代对象）转换为list_iterator，然后不断调用迭代器的__next__函数，直到出现StopIteration为止；下面是一个迭代器的实例（注意内部函数__next__）：
+class fibonacci:  &amp;#39;&amp;#39;&amp;#39;To use this class like this for n in fibonacci(100): print(n, end=&amp;#39;,&amp;#39;) &amp;#39;&amp;#39;&amp;#39;  def __init__(self, max):  self.max = max   #可迭代对象实现了__iter__方法，str、list、set、dict、file、sockets等容器都有这个内部函数  def __iter__(self):  self.</description>
+    </item>
+    
+    <item>
+      <title>fold and unfold</title>
+      <link>https://liudx1985.gitee.io/post/fold-and-unfold/</link>
+      <pubDate>Wed, 16 Jan 2019 14:14:33 +0000</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/fold-and-unfold/</guid>
+      <description>​	Haskell里面有两个著名的fold函数:foldr/foldl，这两个函数非常具有函数式编程的特点(递归)，几户所有的Haskell教程都会使用foldr/foldl来完成一些命令式语言的循环语句。还有个更少见的unfoldr函数,可以完成一些匪夷所思的操作。
+1 fold ​	几乎所有的函数式语言都有类似的函数，如Javascript的对应是reduce1reduceRight();Haskell的fold有两个版本，分别是foldr和foldl，两个函数主要区别在后缀上，一个从右折叠，一个从左折叠，位于Data.List,常见的教程里面定义的简单版本如下：
+foldr :: (a -&amp;gt; b -&amp;gt; b) -&amp;gt; b -&amp;gt; [a] -&amp;gt; b foldr step zero (x:xs) = step x (foldr step zero xs) foldr _ zero [] = zero  foldl :: (a -&amp;gt; b -&amp;gt; a) -&amp;gt; a -&amp;gt; [b] -&amp;gt; a foldl step zero (x:xs) = foldl step (step zero x) xs foldl _ zero [] = zero ​	fold的参数依次为step函数、初始值、列表，返回值为一个和初始值类型一样的值。注意foldr和foldl的step函数都是二元函数，foldr的step参数顺序为列表元素、折叠变量,foldl的刚好反过来！这点很容易搞混淆。一般我们直接使用预定义的就行，当然对于Data.Tree等可折叠的类型，foldr/foldl也可以适用，方法类似。
+​	众所周知，Haskell构造列表只能向头部插入元素：1:[2,3],连接链表也可以使用concat函数或者++：[1.</description>
+    </item>
+    
+  </channel>
+</rss>

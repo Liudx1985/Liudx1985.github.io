@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>category | 清风竹影</title>
+    <meta property="og:title" content="category - 清风竹影">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2019-06-25T10:20:32&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2019-06-25T10:20:32&#43;08:00'>
+        
+    <meta name="Keywords" content="清风竹影,Javascript,c&#43;&#43;,Haskell,python,软件架构,数据分析,小程序">
+    <meta name="description" content="category">
+        
+    <meta name="author" content="清风竹影">
+    <meta property="og:url" content="https://liudx1985.gitee.io/post/category/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <meta name="MediaType" content="application/octet-stream">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link href="/kityminder/mindmap.css?_=1416390706100" type="text/css" rel="stylesheet" />
+    <link href="/kityminder/kityminder.core.css?_=1416390706100" type="text/css" rel="stylesheet" />
+    <script src="/kityminder/kity.min.js?_=1416390706100" charset="utf-8"></script>
+    <script src="/kityminder/kityminder.core.min.js?_=1416390706100" charset="utf-8"></script>
+    <script src="/kityminder/mindmap.min.js?_=1416390706100" charset="utf-8"></script>
+
+    
+
+
+    
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://liudx1985.gitee.io/">
+                        清风竹影
+                    </a>
+                
+                <p class="description">前C&#43;&#43;码农 ，Python和Javascript练习两年半. 会耍一点Haskell、数据分析、略懂系统架构设计；</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://liudx1985.gitee.io/">首页</a>
+                    
+                    <a  href="https://liudx1985.gitee.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://liudx1985.gitee.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">category</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2019年6月25日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/math'>math</a></span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/fp'>FP</a></span>
+            
+        </div>
+        
+        
+        
+        <div class="post-content">
+            <h1 id="群论范畴论入门">群论、范畴论入门</h1>
+<p>      众所周知，数学的三大方向分别是<strong>代数</strong>、<strong>几何</strong>、<strong>分析</strong>，数相关的归于代数，如初等代数、数论、抽象代数-群论等；几何研究空间和形状，如解析几何、欧氏几何、非欧几何（黎曼几何）、拓扑学、微分几何(流形)等；分析则是数和形之间的纽带，主要包括微积分、实分析、复分析、泛函分析，以及在此基础上发展出的常微分、复变函数与积分变换等。另外概率论-统计、逻辑学、离散数学都可看做三大方向的复合学科。现代数学抽象化程度更高，为了将集合论、群论、向量空间与拓扑中有很多相似的概念统一地表示出来，发展出一门新的学科即范畴论(<em><strong>Category</strong></em>） 。</p>
+<h2 id="1-群的基本概念1">1 群的基本概念<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></h2>
+<p>      群定义为满足如下条件的封闭集合G：</p>
+<ol>
+<li>定义一种二元代数运算$\forall a \in G, \exists f:a\mapsto b,b \in G$</li>
+<li>运算满足结合律:$f:a\mapsto b，g:b\mapsto c， f\circ g：a\mapsto c$</li>
+<li>存在单位元：$\exists e, f(e)= e$</li>
+<li>存在逆元：$\forall a \in G, f(a)=b,\exists f^{-1}(b)=a$</li>
+</ol>
+<p>      当集合满足1、2时，称为<strong>半群</strong>，满足1、2、3时称为<strong>幺半群</strong>(单位半群，$\frac{3}{4}$群)；如果1,2,3,4再附加一个交换律$ f\circ g= g\circ f$则称为<strong>Abel交换群</strong>。常见有的整数加法群(Z,0,+)、实数乘法群(Q,1,*)，以及S2(平面旋转群等)。整数加群是一个Abel交换群。</p>
+<h2 id="2-偏序关系">2 偏序关系</h2>
+<p>      偏序关系（partial order relation）的定义是集合P 与一个二元关系运算&rsquo;$\le$&lsquo;定义的，这个二元关系需要满足：</p>
+<ol>
+<li>自反性：$x\le x$</li>
+<li>反对称性：$x \le y 且y \le x \Rightarrow x = y$</li>
+<li>传递性：$x \le y 且y \le z \Rightarrow x \le z$</li>
+</ol>
+<p>      那么集合P 中的每个元素都可以对应一个范畴上的对象，$\le$ 对应态射，首先就满足了 范畴上每个对象都有id 映射，由于这个关系是可以传递的，所以它是可复合的，例如$f$ 为  $x \le y$，$g$ 为$y\le z$，那么$f \circ g$ 就得到了 $x\le z$，当然这种复合也是可结合的。</p>
+<blockquote>
+<p><em>范畴并没有对态射、对象是什么做出明确的规定。只要能满足每个对象有id 态射，态射可复合，复合可结合这些性质。</em></p>
+</blockquote>
+<h2 id="3-范畴2">3 范畴<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></h2>
+<p>      范畴在群的定义上进一步抽象化，一个范畴C由下面两个要素构成：</p>
+<ol>
+<li>
+<p>一组对象Object:A,B,C&hellip;组成，记做$Ob(C)$.</p>
+<blockquote>
+<p>对象可以是任意的，可以为值，可以是类型，还可以是其他更高阶的数学对象，甚至对象可以是一个范畴.</p>
+</blockquote>
+</li>
+<li>
+<p>一组态射(Morphism,arrow),该范畴上<strong>全部态射集合</strong>记为$Arr(C)$,对应对象$A,B$，都可以得到一个态射的集合，记为$C(A,B)$，并且$A\neq A′ $且$B\neq B′ $ 时,C(A,B) 与C(A′,B′) 无交集.对于一个A 到B 的态射**$f$**，我们可以写成 :$f: A \mapsto B$，这些态射满足：</p>
+<ol>
+<li>
+<p>复合运算（Composite)，对于一对态射$f:A\mapsto B$ 与$g:B\mapsto C$（$g$ 的定义域与$f$ 的值域相等），存在一个复合的态射$g\circ f：A\mapsto C$,$\circ$ 是态射复合的运算符.</p>
+</li>
+<li>
+<p>态射的复合操作满足结合律（associativity），若$A, B, C, D \in Ob(C)$，那么态射$f : A \mapsto B, g : B \mapsto C,h : C \mapsto D$ 都有$g \circ (g \circ f) = (h \circ g) \circ f$.</p>
+</li>
+<li>
+<p>对于每一个对象$A \in Ob(C)$ 都存在一个单位态射（identity morphism）$1_A \in C(A,A)$ 使得对于任意的态射$f \in C(A,B) 与g \in(C,A) $都有:</p>
+<p>​			$$f \circ 1_A = f , 1_A \circ g = g$$     (<em>因为$1_A$ 分别是$f$ 与$g$ 右单位元与左单位元，所以$1_A$ 称为<strong>单位态射</strong></em>)</p>
+</li>
+</ol>
+</li>
+</ol>
+<p>      复习下高中阶段函数映射的相关定义,$集合A,B，映射f：A\mapsto B$：</p>
+<ul>
+<li>
+<p><strong>单射</strong>（injection）：如果$\forall a, b \in A, f(a) = f(b) \Rightarrow a = b$,那么则说$f$ 为单射函数。</p>
+<blockquote>
+<p>评论25.1.5. 如果一个函数是单射的，那么则说明定义域内不会有两个不同的值对应值域内
+同一个值。例如$f = x^2$ 就不是单射的，因为$+1$ 与$-1$ 都对应1，而$f(x) = x+1$ 则是单射的。</p>
+</blockquote>
+</li>
+<li>
+<p><strong>满射</strong>（surjection）：如果对于所有的$y \in B,\exists x \in A,st. f(x) = y$，那么则说$f$ 为满射。</p>
+<blockquote>
+<p>如果一个函数是满射的，那么所有值域中的值在定义域都会有至少一个原象。</p>
+</blockquote>
+</li>
+<li>
+<p><strong>双射</strong>（bijection）：如果函数$f$ 既是单射又是满射，那么$f$ 为双射。</p>
+<blockquote>
+<p>部分书籍称为<code>一一映射</code></p>
+</blockquote>
+</li>
+</ul>
+<p>      态射将上述三种函数映射在范畴论上的推广为：</p>
+<ul>
+<li>
+<p><strong>完全态射</strong>（epimorphism）：若$g\circ f = h \circ  f \Rightarrow g = h$，则$f$ 是完全态射。</p>
+<blockquote>
+<p>这种特性被称为右消除（right cancellation）或右可约。</p>
+</blockquote>
+</li>
+<li>
+<p><strong>单一态射</strong>（monomorphism）：若$f\circ g = f \circ  h \Rightarrow g = h$，则$f$ 是单一态射。</p>
+<blockquote>
+<p>这种特性被称为左消除（left cancellation）或者左可约。</p>
+</blockquote>
+</li>
+<li>
+<p><strong>同构态射</strong>（isomorphism）：若对于$f，\exists f^{-1},st.f \circ f^{-1} = id \space and\space f^{-1} \circ f = id$，则$f$ 为同构态射。</p>
+</li>
+</ul>
+<blockquote>
+<p>三种函数映射可看做是在集合范畴上的特例【单一态射-&gt;单射、完全态射-&gt;满射、同构态射~&gt;双射】.比如单一态射且完全态射被称为双态射（bimorphism），但它可能不是同构的。</p>
+</blockquote>
+<h2 id="4-函子functor-">4 函子(Functor )</h2>
+<p>    Functor 是<strong>范畴间的态射</strong>,定义为:C 与D 为范畴，那么函子$F : C \mapsto D$ 会把C 中的所有对象与态射对应到D上，并且保留了复合运算与单位元：</p>
+<ul>
+<li>F 既会映射对象又会映射态射:$F(f : A \mapsto B) = F(f) : F(A) \mapsto F(B)$</li>
+<li>保留了恒值映射:$F(id_A) = id_{F(A)}$</li>
+<li>在函子上保留了映射的复合:$F(g \circ _C f) = F(g) \circ _D F(f)$</li>
+</ul>
+<!-- raw HTML omitted -->
+<h2 id="参考文档">参考文档</h2>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>群\环\域https://blog.csdn.net/u013281331/article/details/28233961&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>Haskell函数式编程入门&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/gnu/">gcc gdb</a></li>
+        
+        <li><a href="/post/py-animation/">python绘制参数方程的动画</a></li>
+        
+        <li><a href="/post/modulo/">同余和整除判定</a></li>
+        
+        <li><a href="/post/py-lazy/">python 迭代器和惰性计算、函数式编程基础</a></li>
+        
+        <li><a href="/post/fold-and-unfold/">fold and unfold</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='https://liudx1985.gitee.io/tags/haskell'>haskell</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+</div>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='//cn.bing.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="site" value="https://liudx1985.gitee.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/andriod/" title="Andriod开发从入门到放弃">Andriod开发从入门到放弃</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/electron/" title="electron-vite-vue开发指北">electron-vite-vue开发指北</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/vue3/" title="Vue3高阶组件技术">Vue3高阶组件技术</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/tesseractocr/" title="利用Tesseract对图片或pdf进行OCR">利用Tesseract对图片或pdf进行OCR</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/js_module/" title="JavaScript 模块：CommonJS VS Es6">JavaScript 模块：CommonJS VS Es6</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/js_generator/" title="Javascript迭代器、生成器、异步">Javascript迭代器、生成器、异步</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/pygui/" title="PySide6界面程序编写及打包">PySide6界面程序编写及打包</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/argsort/" title="Argsort 以及Rank的Javascript代码练习">Argsort 以及Rank的Javascript代码练习</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/css_animate/" title="CSS3动画入门">CSS3动画入门</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/mysql/" title="Mysql绿色安装方法">Mysql绿色安装方法</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li><a href="https://liudx1985.gitee.io/categories/ai/">AI (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/algorithm/">algorithm (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/c&#43;&#43;/">C&#43;&#43; (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/database/">Database (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/fp/">FP (3)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/math/">math (8)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/misc/">misc (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/programming/">Programming (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/python/">Python (3)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/se/">SE (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/test/">test (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/web/">web (9)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://liudx1985.gitee.io/tags/algorithm/">algorithm</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/bigdata/">bigdata</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/fp/">FP</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/gui/">GUI</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/haskell/">haskell</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/html/">html</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/java/">java</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/javascript/">javascript</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/js/">js</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/latex/">latex</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/math/">math</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/misc/">misc</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/mysql/">mysql</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/nodejs/">nodejs</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/program/">Program</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/python/">python</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/se/">SE</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/vue/">vue</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/web/">web</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/%E6%99%AE%E9%80%9A%E8%AF%9D/">普通话</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://ife.baidu.com/introduction.html" title="百度前端技术学园ife.baidu.com "> 百度前端技术学园ife.baidu.com  </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.runoob.com/" title="菜鸟教程 runoob.com "> 菜鸟教程 runoob.com </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://developer.mozilla.org/zh-CN/docs/Web" title="Web 开发者文档MDN "> Web 开发者文档MDN </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.liaoxuefeng.com/" title="廖雪峰的官方网站"> 廖雪峰的JAVA、python、JS教程</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.processon.com/" title="ProcessOn 在线流程图思维导图">ProcessOn 在线流程图思维导图</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://zhongguose.com/" title="中国色 - 中国传统颜色色卡">中国色 - 中国传统颜色色卡</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://liudx1985.gitee.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+    <div class="container">
+        &copy; 2024 <a href="https://liudx1985.gitee.io/">清风竹影 By 清风竹影</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/flysnow-org/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+
+
+
+
+</body>
+
+</html>

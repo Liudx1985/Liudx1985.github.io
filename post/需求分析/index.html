@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>需求分析 | 清风竹影</title>
+    <meta property="og:title" content="需求分析 - 清风竹影">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2021-05-11T09:00:49&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2021-05-11T09:00:49&#43;08:00'>
+        
+    <meta name="Keywords" content="清风竹影,Javascript,c&#43;&#43;,Haskell,python,软件架构,数据分析,小程序">
+    <meta name="description" content="需求分析">
+        
+    <meta name="author" content="清风竹影">
+    <meta property="og:url" content="https://liudx1985.gitee.io/post/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <meta name="MediaType" content="application/octet-stream">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link href="/kityminder/mindmap.css?_=1416390706100" type="text/css" rel="stylesheet" />
+    <link href="/kityminder/kityminder.core.css?_=1416390706100" type="text/css" rel="stylesheet" />
+    <script src="/kityminder/kity.min.js?_=1416390706100" charset="utf-8"></script>
+    <script src="/kityminder/kityminder.core.min.js?_=1416390706100" charset="utf-8"></script>
+    <script src="/kityminder/mindmap.min.js?_=1416390706100" charset="utf-8"></script>
+
+    
+
+
+    
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://liudx1985.gitee.io/">
+                        清风竹影
+                    </a>
+                
+                <p class="description">前C&#43;&#43;码农 ，Python和Javascript练习两年半. 会耍一点Haskell、数据分析、略懂系统架构设计；</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://liudx1985.gitee.io/">首页</a>
+                    
+                    <a  href="https://liudx1985.gitee.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://liudx1985.gitee.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">需求分析</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2021年5月11日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/se'>SE</a></span>
+            
+        </div>
+        
+        
+        
+        <div class="post-content">
+            <h3 id="1-定义">1. 定义</h3>
+<p>​	将用户非形式的需求表述转化为完整的需求定义，从而确定系统必须<strong>做什么</strong>的过程。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>注意区分用户提出的问题是原始需求(用户需求)，会存在冲突或缺乏可行性的需求，经过需求分析后，形成为&lt;&lt;需求规格说明书&gt;&gt;,需求各组成部分的形成过程见下图1-1
+</span></span></code></pre></div><blockquote>
+<p>如何收集用户需求可参考相关<a href="https://cloud.tencent.com/developer/article/1576238">文档</a>等。</p>
+</blockquote>
+<p><img src="%E9%9C%80%E6%B1%82%E7%BB%84%E6%88%90.png" alt="image-20210408111157939"></p>
+<h3 id="2-需求分析过程">2. 需求分析过程</h3>
+<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">graph LR
+	REG[问题识别] --&gt; ANY[细化\分析] --&gt; DOC[需求规格说明书] --&gt; JUDGE[评审]
+</code></pre><h4 id="21-问题识别">2.1 问题识别</h4>
+<p>​	明确功能需求(做什么)、性能需求(要达到什么指标)、环境需求(如机型、操作系统等)、可靠性需求(不发生故障的概率）、安全保密需求、用户界面需求、资源使用需求(软件运行是所需的内存、CPU等)、软件成本消耗与开发进度需求、预先估计以后系统可能达到的目标。   <img src="%E9%9C%80%E6%B1%82%E5%88%86%E7%B1%BB.jpg" alt=""></p>
+<p>​	可归纳为：确定业务规则、功能需求、非功能需求、质量属性(五可六性)、系统约束(时间、预算、技术、人员、组织等)；确立各<strong>需求优先级</strong>；输出物为部分SRS内容(如需求清单等) 
+​</p>
+<h4 id="22-需求分析1">2.2 需求分析<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></h4>
+<p>​	整体的系统分析主要借助<!-- raw HTML omitted -->{业务流程图}<!-- raw HTML omitted -->,进行需求细化时用到的主要方法有:</p>
+<ul>
+<li>
+<p><strong>功能分解方法</strong>：功能分解——功能、子功能、功能接口。</p>
+</li>
+<li>
+<p><strong>结构化分析方法</strong> ：使用数据流图和数据词典</p>
+<p><img src="http://image.woshipm.com/wp-files/2020/07/kByfgFSB4NduUQr0x02a.png" alt="img"></p>
+</li>
+<li>
+<p><strong>信息建模方法</strong>：常用于数据库管理系统，实体和关系图(ER图)为主要工具</p>
+</li>
+<li>
+<p><strong>面向对象的分析方法</strong> : 使用<!-- raw HTML omitted -->用例图(User case)、类图、时序图<!-- raw HTML omitted -->等工具</p>
+</li>
+</ul>
+<h4 id="23-编制需求规格说明书srs">2.3 编制需求规格说明书(<strong>SRS</strong>)</h4>
+<p>​	输出需求分析阶段性成果。详见第3部分</p>
+<h4 id="24-评审验证srs">2.4 评审/验证SRS</h4>
+<p>​	对功能需求的<strong>正确性</strong>（一致性），<strong>完整性</strong>和<strong>清晰性</strong>，以及其它需求给予评价（此部分略）。</p>
+<h3 id="3-编写-srs">3. 编写 SRS</h3>
+<p>1). 确认<strong>角色-场景-需求</strong>
+2). 绘制业务流程图、界面原型图
+3). 根据业务流程图编制用例图
+4). 编写功能需求项(通常为表格，含<strong>功能项</strong>、优先级、说明等)、非功能需求部分、风险(可选)等
+5). 完成类图、时序图(*存疑，属设计阶段产物)</p>
+<h4 id="31-绘制业务流程图">3.1 绘制业务流程图</h4>
+<p><code>exp 1.购物流程图</code>单用户</p>
+<p><img src="https://pic1.zhimg.com/v2-5433c078d6edc3578c4d6212518ade98_b.png" alt="img"></p>
+<p><code>exp 2跨职能流程图</code> 多个角色（可参考OA报销流程图)</p>
+<p><img src="https://pic1.zhimg.com/v2-e667dc465770645853a1a11550172a68_b.jpg" alt=""></p>
+<p><img src="OA%E4%B8%9A%E5%8A%A1%E6%B5%81%E7%A8%8B.png" alt="image-20210408082407930"></p>
+<h4 id="32-绘制用例图2">3.2 绘制用例图<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></h4>
+<ul>
+<li>
+<p>角色（actor）:直接或间接使用这个系统的用户或系统、设备|也可能是客户端，业务系统</p>
+<p><img src="actor.png" alt="img"></p>
+</li>
+<li>
+<p>用例（use case）：角色能够执行的动作，表示系统的功能；如用户注册、添加购物车、支付等等。</p>
+<p><img src="usecase.png" alt="img"></p>
+</li>
+<li>
+<p>include ：一个用例（基础用例）包含另一个用例（新增用例）的场景。<!-- raw HTML omitted -->类似于在过程设计语言中，将程序的某一段算法封装成一个子过程，然后再从主程序中调用这一子过程。<!-- raw HTML omitted --></p>
+<p><img src="uc_include.png" alt="img"></p>
+</li>
+<li>
+<p>extends：独立并且可选的动作，扩展用例可以访问基用例的属性，因此它能根据基用例中扩展点的当前状态来判断是否执行自己。但是扩展用例对基用例不可见</p>
+<p><img src="uc_expand.png" alt="img"></p>
+</li>
+</ul>
+<h4 id="33--识别风险">3.3  识别风险</h4>
+<p>​	需求分析还包含风险识别，需求相关风险有：</p>
+<p><img src="%E9%9C%80%E6%B1%82%E9%A3%8E%E9%99%A9.png" alt="image-20210408093017562"></p>
+<hr>
+<h3 id="参考文档">参考文档</h3>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><a href="https://baike.baidu.com/item/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90/2012709">需求分析baidu词条</a>;&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p><a href="https://www.cnblogs.com/lcword/p/10472040.html">详解用例图</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/maven-spring/">IDEA里使用 maven搭建一个spring工程</a></li>
+        
+        <li><a href="/post/%E6%99%AE%E9%80%9A%E8%AF%9D/">普通话</a></li>
+        
+        <li><a href="/post/data-analyze/">Python数据分析简介&amp;环境准备</a></li>
+        
+        <li><a href="/post/latex/">Latex公式</a></li>
+        
+        <li><a href="/post/mpi/">MPI实践</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='https://liudx1985.gitee.io/tags/se'>SE</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+</div>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='//cn.bing.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="site" value="https://liudx1985.gitee.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/andriod/" title="Andriod开发从入门到放弃">Andriod开发从入门到放弃</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/electron/" title="electron-vite-vue开发指北">electron-vite-vue开发指北</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/vue3/" title="Vue3高阶组件技术">Vue3高阶组件技术</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/tesseractocr/" title="利用Tesseract对图片或pdf进行OCR">利用Tesseract对图片或pdf进行OCR</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/js_module/" title="JavaScript 模块：CommonJS VS Es6">JavaScript 模块：CommonJS VS Es6</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/js_generator/" title="Javascript迭代器、生成器、异步">Javascript迭代器、生成器、异步</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/pygui/" title="PySide6界面程序编写及打包">PySide6界面程序编写及打包</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/argsort/" title="Argsort 以及Rank的Javascript代码练习">Argsort 以及Rank的Javascript代码练习</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/css_animate/" title="CSS3动画入门">CSS3动画入门</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/mysql/" title="Mysql绿色安装方法">Mysql绿色安装方法</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li><a href="https://liudx1985.gitee.io/categories/ai/">AI (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/algorithm/">algorithm (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/c&#43;&#43;/">C&#43;&#43; (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/database/">Database (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/fp/">FP (3)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/math/">math (8)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/misc/">misc (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/programming/">Programming (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/python/">Python (3)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/se/">SE (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/test/">test (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/web/">web (9)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://liudx1985.gitee.io/tags/algorithm/">algorithm</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/bigdata/">bigdata</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/fp/">FP</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/gui/">GUI</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/haskell/">haskell</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/html/">html</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/java/">java</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/javascript/">javascript</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/js/">js</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/latex/">latex</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/math/">math</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/misc/">misc</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/mysql/">mysql</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/nodejs/">nodejs</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/program/">Program</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/python/">python</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/se/">SE</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/vue/">vue</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/web/">web</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/%E6%99%AE%E9%80%9A%E8%AF%9D/">普通话</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://ife.baidu.com/introduction.html" title="百度前端技术学园ife.baidu.com "> 百度前端技术学园ife.baidu.com  </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.runoob.com/" title="菜鸟教程 runoob.com "> 菜鸟教程 runoob.com </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://developer.mozilla.org/zh-CN/docs/Web" title="Web 开发者文档MDN "> Web 开发者文档MDN </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.liaoxuefeng.com/" title="廖雪峰的官方网站"> 廖雪峰的JAVA、python、JS教程</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.processon.com/" title="ProcessOn 在线流程图思维导图">ProcessOn 在线流程图思维导图</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://zhongguose.com/" title="中国色 - 中国传统颜色色卡">中国色 - 中国传统颜色色卡</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://liudx1985.gitee.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+    <div class="container">
+        &copy; 2024 <a href="https://liudx1985.gitee.io/">清风竹影 By 清风竹影</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/flysnow-org/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+
+
+
+
+</body>
+
+</html>

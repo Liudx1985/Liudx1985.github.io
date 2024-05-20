@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>python on 清风竹影</title>
+    <link>https://liudx1985.gitee.io/tags/python/</link>
+    <description>Recent content in python on 清风竹影</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 21 Oct 2023 08:48:55 +0800</lastBuildDate><atom:link href="https://liudx1985.gitee.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>利用Tesseract对图片或pdf进行OCR</title>
+      <link>https://liudx1985.gitee.io/post/tesseractocr/</link>
+      <pubDate>Sat, 21 Oct 2023 08:48:55 +0800</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/tesseractocr/</guid>
+      <description>1. 准备  下载OCR核心工具包Tesseract并安装，参考Tesseract OCR 下载及安装教程 （中英文语言包）_eng.traineddata下载-CSDN博客，注意中文语言包需要下载，如果不下载语言包，可能无法识别中文。 下载PDF转图片工具包Releases · oschwartz10612/poppler-windows (github.com);如果仅仅是OCR图片，可以不用下载这个 完成后，将上述两个的（tesseract.exe&amp;amp;pdfimages.exe）目录加入到电脑的环境变量PATH中：  2 安装python 依赖 下面安装Python 的依赖
+pip install pytesseract pip install pdf2image 3 识别图片 def ocr_image():  from PIL import Image  # 打开图片  image = Image.open(&amp;#39;demo.png&amp;#39;)  # 使用pytesseract进行OCR识别  text = pytesseract.image_to_string(image, lang=&amp;#39;chi_sim&amp;#39;) # lang设置为中文  # 输出识别结果  print(text) 4 识别pdf def ocr_pdf(pdf):  from pdf2image import convert_from_path  # 设置tesseract.exe的路径  pytesseract.pytesseract.tesseract_cmd = r&amp;#39;D:\Games\TesseractOCR5\tesseract.</description>
+    </item>
+    
+    <item>
+      <title>Argsort 以及Rank的Javascript代码练习</title>
+      <link>https://liudx1985.gitee.io/post/argsort/</link>
+      <pubDate>Tue, 23 May 2023 17:27:31 +0800</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/argsort/</guid>
+      <description>1 引言：argsort以及rank排序问题 $\P$ argsort-定义
+假设一个数组$a$由$$\underbrace{[x_0,x_1,\dots,x_i, \dots,x_n]}_{0\dots n乱序}$$构成,那么$b=argsort(a)$定义为：经过排序后a中元素（即$0..n$）的索引数组：
+$$ \underbrace{[a中第0大数的索引,\dots,a中第i大数的索引, \dots,a中第n大数的索引]}_{0\dots n} $$
+我们假设$a[i]= x$,由于$i是a中第x大的数$，那么$i在b中位置就是x$,${b[x]=i}$,如图所示：
+消去x,可得: $$ b[x]=b[a[i]]=i $$
+$\S$如果对a进行两次argsort，会发生神魔事情呢,这里由一个文章回答为什么对数列使用两次argsort后能得到原数列的rank数列？ - 知乎 (zhihu.com)，摘抄如下:
+ 对于一个从0~k-1组成序列a来说，执行argsort得到序列b就是b[a[i]]=i，再执行一次得到c就是c[b[j]]=j，代入j=a[i]得c[b[a[i]]]=a[i]，c[i]=a[i],所以一个rank序列两次argsort之后自然会变回原样
+ 结合上面的假设a是一个0&amp;hellip;n 乱序而来的数组，那么a里面存储的正好是数组a中各元素的排名。推广到任意乱序的序列S，我们只需要将S里的元素一一映射到$[(S_i,a_i)],a_i\in {0..n}$，然后对$S_i$排序,$argsort.argsort(a)=rank(a)$。
+2. Show me the code! // a[i],b[i] = &amp;gt; {...a[i]:b[i]...} zip = function (a, b) {  let r = []  for (let i in a) {  r.push([a[i], b[i]])  }  return r; } // argsort返回的是索引 r，[a[r[0]]..a[r[n]]] 就是将a排序好的数组 function argsort(arr, cmp = (a, b) =&amp;gt; a - b) {  let arr_ind = zip(arr, range(arr.</description>
+    </item>
+    
+    <item>
+      <title>Python数据分析简介&amp;环境准备</title>
+      <link>https://liudx1985.gitee.io/post/data-analyze/</link>
+      <pubDate>Tue, 30 Mar 2021 15:11:49 +0000</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/data-analyze/</guid>
+      <description>1 概览   数据分析定义：数据分析是指用适当的统计分析方法对收集来的大量数据进行分析，提取有用信息和形成结论而对数据加以详细研究和概括总结的过程。
+  思维导图
+  数据分析完整流程：
+start=&amp;gt;start: 明确分析目的fetch=&amp;gt;operation: 数据获取pre_oper=&amp;gt;operation: 数据预处理(清洗/转换)analyze=&amp;gt;operation: 数据分析show=&amp;gt;operation: 数据展现(报表、图表)report=&amp;gt;end: 决策start(right)-&amp;gt;fetch(right)-&amp;gt;pre_oper-&amp;gt;analyze-&amp;gt;show(right)-&amp;gt;report   主流数据分析语言:python以及相关的数据分析库[numpy]、pandas等。
+  相关领域：数据挖掘、深度学习（机器学习)、人工智能等
+  职业发展：算法工程师、数据分析员(师)、数据产品经理、ETL工程师、数据挖掘工程师；数据科学家等
+  准备工作 ​	课程使用anaconda作为实验环境。Anaconda是一个开源的Python发行版本，其包含了conda、Python等180多个科学包及其依赖项。先下载Anaconda安装包。推荐跟随Anaconda下载页面的Windows安装指导,;确认设置是否正确方法：打开命令行窗口（cmd.exe），输入python以打开Python解释器。可以看到类似下面的Anaconda版本的输出：
+C:\Users\wesm&amp;gt;python Python 3.5.2 |Anaconda 4.1.1 (64-bit)| (default, Jul 5 2016, 11:41:13) [MSC v.1900 64 bit (AMD64)] on win32 &amp;gt;&amp;gt;&amp;gt; 要退出shell，按Ctrl-D（Linux或macOS上），Ctrl-Z（Windows上），或输入命令exit()，再按Enter。
+​	我们主要使用jupyter-notebook编写代码。
+jupyter notebook起始目录修改方法
+ 打开anaconda SHELL，输入命令jupyter notebook --generate-config，将生成 jupyter_notebook_config.py文件 打开上一步生成的文件:C:\Users\liudx\.jupyter\jupyter_notebook_config.py,找到c.NotebookApp.notebook_dir 前面的“#”符号（#表示注释的意思）,修改为起始目录 **重启jupyter notebook **  3 resources 1.</description>
+    </item>
+    
+    <item>
+      <title>fibnocci</title>
+      <link>https://liudx1985.gitee.io/post/fibnocci/</link>
+      <pubDate>Sat, 30 Jan 2021 15:11:49 +0000</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/fibnocci/</guid>
+      <description>0 Fibonacci定义 ​	&amp;gt; $ f(n+1)=f(n)+f(n-1),\space n &amp;gt;= 1$
+1. $\sum(f(n)^2) = f(n)\cdot f(n+1)$ ​	面积之和相等:
+证明aka.绘图代码如下
+import matplotlib.pyplot as plt from matplotlib.path import Path import matplotlib.patches as patches import numpy as np  def fib(max): 	a, b = 1, 1; 	while a &amp;lt; max: 	yield a; 	a, b = b, a + b; 	verts = [  ] codes = [ # Path.MOVETO, # Path.</description>
+    </item>
+    
+    <item>
+      <title>python绘制参数方程的动画</title>
+      <link>https://liudx1985.gitee.io/post/py-animation/</link>
+      <pubDate>Mon, 29 Apr 2019 16:22:50 +0000</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/py-animation/</guid>
+      <description>© 2018 *All rights reserved by liudx .:smile:
+​	Python的matplotlib是一个功能强大的绘图库，可以很方便的绘制数学图形。官方给出了很多简单的实例，结合中文翻译的示例Tutorial，可以满足日常工作的大部分需求了。但是实际工作中，一些有趣的东西很难使用常规方程（笛卡尔坐标和极坐标）方式绘制，事实上，大部分工程上都是使用参数方程来描述曲线。本文给出一些参数方程绘制的实例，之后会扩展为动画形式绘制，可以看到这些复杂的方程是如何简单优美的绘制出来。
+1 参数方程绘制 ​	首先介绍下椭圆的参数方程：
+$$ \begin{cases} x = a \cdot \cos(t)\\ y = b \cdot \sin(t) \end{cases} $$
+​	其中$a,b$分别是椭圆的长轴、短轴。绘制椭圆的python代码如下:
+import matplotlib.pyplot as plt import numpy as np  fig = plt.figure() ax = plt.gca() #椭圆参数方程 r1 = 1.1 r2 = 1 t = np.linspace(0, np.pi*2, 1000) # 生成参数t的数组 x = r1 * np.cos(t) y = r2 * np.sin(t) plt.plot(x, y, color=&amp;#39;blue&amp;#39;, linewidth=2, label=&amp;#39;ellipse&amp;#39;) plt.</description>
+    </item>
+    
+    <item>
+      <title>python 迭代器和惰性计算、函数式编程基础</title>
+      <link>https://liudx1985.gitee.io/post/py-lazy/</link>
+      <pubDate>Tue, 19 Mar 2019 17:02:29 +0000</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/py-lazy/</guid>
+      <description>​	本文介绍了python 的生成器，构造一些有趣的惰性计算程序，可以作为python函数式的基础。
+1. iterator and generator ​	众所周知，python3里面的range返回是一个对象而不是列表，它的前身是python 2的xrange。python 2里面的range会生成一个列表，当这个列表很大时，会有严重的性能问题:
+for x in range(0,100000):  print(x) ​	可以使用iter(range(0,100000))将range对象转换为可迭代实例（iterator），下面的代码是和上面代码等价的：
+lst=iter(range(0,10)) while True:  try:  b = next(lst) # 调用lst.__next__()  print(b)  except StopIteration:  break ​	显而易见，其实python的for循环其实是个语法糖，首先隐式将list（可迭代对象）转换为list_iterator，然后不断调用迭代器的__next__函数，直到出现StopIteration为止；下面是一个迭代器的实例（注意内部函数__next__）：
+class fibonacci:  &amp;#39;&amp;#39;&amp;#39;To use this class like this for n in fibonacci(100): print(n, end=&amp;#39;,&amp;#39;) &amp;#39;&amp;#39;&amp;#39;  def __init__(self, max):  self.max = max   #可迭代对象实现了__iter__方法，str、list、set、dict、file、sockets等容器都有这个内部函数  def __iter__(self):  self.</description>
+    </item>
+    
+  </channel>
+</rss>

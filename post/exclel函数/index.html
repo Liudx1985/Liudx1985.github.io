@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>excel常用的函数 | 清风竹影</title>
+    <meta property="og:title" content="excel常用的函数 - 清风竹影">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2021-11-15T11:43:51&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2021-11-15T11:43:51&#43;08:00'>
+        
+    <meta name="Keywords" content="清风竹影,Javascript,c&#43;&#43;,Haskell,python,软件架构,数据分析,小程序">
+    <meta name="description" content="excel常用的函数">
+        
+    <meta name="author" content="清风竹影">
+    <meta property="og:url" content="https://liudx1985.gitee.io/post/exclel%E5%87%BD%E6%95%B0/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <meta name="MediaType" content="application/octet-stream">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link href="/kityminder/mindmap.css?_=1416390706100" type="text/css" rel="stylesheet" />
+    <link href="/kityminder/kityminder.core.css?_=1416390706100" type="text/css" rel="stylesheet" />
+    <script src="/kityminder/kity.min.js?_=1416390706100" charset="utf-8"></script>
+    <script src="/kityminder/kityminder.core.min.js?_=1416390706100" charset="utf-8"></script>
+    <script src="/kityminder/mindmap.min.js?_=1416390706100" charset="utf-8"></script>
+
+    
+
+
+    
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://liudx1985.gitee.io/">
+                        清风竹影
+                    </a>
+                
+                <p class="description">前C&#43;&#43;码农 ，Python和Javascript练习两年半. 会耍一点Haskell、数据分析、略懂系统架构设计；</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://liudx1985.gitee.io/">首页</a>
+                    
+                    <a  href="https://liudx1985.gitee.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://liudx1985.gitee.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">excel常用的函数</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2021年11月15日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/math'>math</a></span>
+            
+        </div>
+        
+        
+        
+        <div class="post-content">
+            <h2 id="excel函数-入门">Excel函数 入门</h2>
+<h2 id="1-单元格和引用">$1 单元格和引用</h2>
+<p>​	EXCEL表的每个单元格都有两个索引：</p>
+<ul>
+<li>行号，以数字标记，从1开始</li>
+<li>列号，以字母标记，如A\B\C&hellip;（大小写不区分）</li>
+</ul>
+<p><img src="row_col.png" alt=""></p>
+<p>​	<code>单元格的引用</code>有如下几种方式：</p>
+<ul>
+<li>同sheet（工作表）
+<ul>
+<li>中单元格可以用<code>A1</code>表示相对列（第一列第一行），还有一种方式是<code>$a$1</code>,表示绝对列和行</li>
+<li>一列数据 <code>A</code>；一列某几行<code>A1:A7</code>；若干列<code>A:D</code></li>
+<li>一行数据<code>$10:$10</code>,如<code>=SUM($1:$1)</code>可以求出第一行所有值的和。</li>
+<li>单元格区域 <code>A1:B2</code></li>
+</ul>
+</li>
+<li><strong>同一工作簿中不同工作表上的单元格引用</strong>
+<ul>
+<li>用<code>sheet1!A1</code>表示工作表sheet1的第一列第一行。</li>
+</ul>
+</li>
+<li><strong>不同工作簿中的单元格引用</strong>
+<ul>
+<li>如果工作簿已打开,例：<code>[会计报表.xls]!工资表!A1 </code></li>
+<li>如果工作簿已关闭：<code>D:\工作目录\[会计报表.xls]工资表'!A1</code>。其中“会计报表.xls”是工作簿名称，“工资表”为该工作簿中的工作表名称。“D:\工作目录\”为“会计报表.xls”这个工作簿的文件路径。</li>
+</ul>
+</li>
+</ul>
+<p>​	<!-- raw HTML omitted -->绝对引用<!-- raw HTML omitted --><code>$A$1</code>和<!-- raw HTML omitted -->相对引用<!-- raw HTML omitted --><code>A1</code>：相对引用在复制单元格时会自动更新值，但绝对引用不会。两种方式可以混用。</p>
+<p><img src="ref.png" alt=""></p>
+<h2 id="2-关于公式">$2 关于公式</h2>
+<p>​	公式是工作表中进行数值计算的等式。公式键入是以<!-- raw HTML omitted -->=<!-- raw HTML omitted -->开始的。简单的公式有加、减、乘、除等计算。例如　<code>=3*6-2 </code>、<code>=A2+B16 </code>、<code>=C4/A6</code> &hellip;&hellip;</p>
+<p>​	复杂一些的公式可能包含<code>函数</code> 、<code>引用</code>、<code>运算符</code> (有数学、比较、逻辑和引用运算符等）和<code>常量</code> （不进行计算的值，因此也不会发生变化）。</p>
+<h3 id="1-row--column函数">1. <strong>ROW</strong> / <strong>COLUMN</strong>函数</h3>
+<p>这两个函数返回引用的行号和列号，如 <code>=ROW($A$1)</code>返回1如 <code>=COLUMN($B$2)</code>返回2(注意不是B)</p>
+<h3 id="2-if函数">2. <strong>IF函数</strong></h3>
+<blockquote>
+<p>函数定义：根据条件满足与否返回不同的值</p>
+<p>使用格式：IF(logical_test,value_if_true,value_if_false)</p>
+<p>白话：IF(条件,与条件一样时运算这个,与条件不同时运算这个)</p>
+</blockquote>
+<p>如 <code>IF(AND(C1&gt;80,D1&gt;80),&quot;优&quot;, &quot;不及格&quot;)</code>，表示<code>C1和D1均大于80</code>时显示优，否则是不及格。</p>
+<h3 id="3-index"><strong>3. INDEX</strong></h3>
+<p>​	返回表或区域中的值或值的引用。函数INDEX()有两种形式：数组形式通常返回数值或数值数组；引用形式通常返回<!-- raw HTML omitted -->引用<!-- raw HTML omitted -->。		INDEX(<strong>array</strong>,Row_num,column_num) 返回数组中指定单元格或单元格数组的数值。 如<code>=INDEX(A1:A6,1,1)</code> 返回一个引用，是A1:A6这个区域数组的第一行第一列。</p>
+<h3 id="4-countifrangecriteria----sumifrangecriteriasum_range">4. <strong>COUNTIF</strong>(<strong>range</strong>,<strong>criteria</strong>)  、  <strong>SUMIF（range,criteria,sum_range）</strong></h3>
+<p><strong>COUNTIF</strong>(<strong>range</strong>,<strong>criteria</strong>) 返回区域中满足给定条件的单元格的<!-- raw HTML omitted -->个数<!-- raw HTML omitted -->。SUMIF判定条件类似COUNTIF，但是以<code>sum_range</code>区域来进行计算求和。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>A</th>
+<th>B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1</strong></td>
+<td>数据</td>
+<td>数据</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td>苹果</td>
+<td>32</td>
+</tr>
+<tr>
+<td>3</td>
+<td>柑桔</td>
+<td>54</td>
+</tr>
+<tr>
+<td>4</td>
+<td>桃</td>
+<td>75</td>
+</tr>
+<tr>
+<td>5</td>
+<td>苹果</td>
+<td>86</td>
+</tr>
+</tbody>
+</table>
+<p>根据上表列出公式：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>公式</strong></th>
+<th><strong>说明（结果）</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>=COUNTIF(A2:A5,&ldquo;苹果&rdquo;)</td>
+<td>计算第一列中苹果所在单元格的个数 (2)</td>
+</tr>
+<tr>
+<td></td>
+<td>=COUNTIF(B2:B5,&quot;&gt;55&quot;)</td>
+<td>计算第二列中值大于 55 的单元格个数 (2)</td>
+</tr>
+<tr>
+<td></td>
+<td>=SUMIF(A2:A5,&ldquo;苹果&rdquo;,B2:B5)</td>
+<td>计算第二列中值大于 55 的单元格个数 总和(118)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="5-matchlookup_valuelookup_arraymatch_type">5 <strong>MATCH(lookup_value,lookup_array,match_type)</strong></h3>
+<p>​	返回在指定方式下与指定数组匹配的数组中元素的<!-- raw HTML omitted -->相应位置<!-- raw HTML omitted -->。如果需要找出匹配元素的<strong>位置</strong>而不是匹配<strong>元素本身</strong>，则应该使用 MATCH 函数而不是 LOOKUP 函数。</p>
+<p>​	这个函数可以和INDEX配合使用，完成交叉索引功能，如我们有表A和新表B，当需要在新表的一列对照旧表的一列，找到旧表中的另外一列数据。</p>
+<blockquote>
+<p>=INDEX(计算机教师信息2020!A:P, MATCH(A1,计算机教师信息2020!B:B,0), 16)</p>
+</blockquote>
+<p>该公式中<code>index</code>函数给的行号是<code>MATCH(A2,计算机教师信息2020!B:B,0)</code>，表示查找当前工作表<code>A2</code>单元格在另外一个工作表<code>计算机教师信息2020</code>的<code>B</code>列中序号。返回值是<code>A2</code>对应在工作表<code>计算机教师信息2020</code>中的第16列的数据</p>
+<h3 id="6-vlookup">6 <strong>VLOOKUP</strong></h3>
+<blockquote>
+<p>**函数定义：**按照垂直方向搜索区域</p>
+<p>**使用格式：**VLOOKUP(lookup_value,table_array,col_index_num,range_lookup)</p>
+<p><strong>参数定义：</strong></p>
+<p>Lookup_value：为需要在数组第一列中查找的数值.Lookup_value可以为数值、引用或文本字符串.</p>
+<p>Table_array: 为需要在其中查找数据的数据表.可以使用对区域或区域名称的引用,例如数据库或列表.</p>
+<p>Col_index: 为table_array中待返回的匹配值的列序号. Col_index_num为1时,返回table_array第一列中的数值；col_index_num为2,返回table_array第二列中的数值,以此类推.如果col_index_num小于1,函数VLOOKUP返回错误值值#VALUE!；如果col_index_num大于table_array的列数, 函数VLOOKUP返回错误值#REF!.</p>
+<p>Range_lookup：为一逻辑值,指明函数VLOOKUP返回时是精确匹配还是近似匹配.如果为TRUE或省略,则返回近似匹配值.也就是说.如果找不到精确匹配值,则返回小于lookup_value的最大数值；如果range_value为FALSE,函数VLOOKUP将返回精确匹配值.如果找不到,则返回错误值#N/A.</p>
+</blockquote>
+<p>精确查找是<code>vlookup</code>最基本也是最常用的功能，如<code>=VLOOKUP(H5,B5:D13,3,0)</code>表示查找<code>H5</code>单元格，搜索范围在<code>B5:B13</code>中的<code>第3列</code>，使用精确匹配查找。</p>
+<p>该函数也可以完成交叉索引，如<code>=VLOOKUP(A2,计算机教师信息2020!B:P,15,FALSE)</code>查找<code>A2</code>在<code>'姓名-电话'!B:P</code>中某一行，返回此行的第16列*(B+15)*引用。和上节MATCH功能一样！</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>空格问题</td>
+<td>=VLOOKUP(CLEAN(C2),Sheet1!A2:D10,4,FALSE)</td>
+</tr>
+<tr>
+<td>数字格式问题</td>
+<td>转换格式</td>
+</tr>
+<tr>
+<td>莫名其妙无法匹配</td>
+<td>注意将索引列放在前面，如A,B,C 索引B的值，查找A，有时候会无法找到，互换A、B列</td>
+</tr>
+</tbody>
+</table>
+<h3 id="reference">Reference</h3>
+<hr>
+<ul>
+<li><input disabled="" type="checkbox"> <a href="https://zhuanlan.zhihu.com/p/94102393">重要的27个Excel函数公式 - 知乎 (zhihu.com)</a></li>
+</ul>
+
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/hello-world/">Start 2019</a></li>
+        
+        <li><a href="/post/vuejs/">Vue3 学习大纲</a></li>
+        
+        <li><a href="/post/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90/">需求分析</a></li>
+        
+        <li><a href="/post/maven-spring/">IDEA里使用 maven搭建一个spring工程</a></li>
+        
+        <li><a href="/post/%E6%99%AE%E9%80%9A%E8%AF%9D/">普通话</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='https://liudx1985.gitee.io/tags/misc'>misc</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+</div>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='//cn.bing.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="site" value="https://liudx1985.gitee.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/andriod/" title="Andriod开发从入门到放弃">Andriod开发从入门到放弃</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/electron/" title="electron-vite-vue开发指北">electron-vite-vue开发指北</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/vue3/" title="Vue3高阶组件技术">Vue3高阶组件技术</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/tesseractocr/" title="利用Tesseract对图片或pdf进行OCR">利用Tesseract对图片或pdf进行OCR</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/js_module/" title="JavaScript 模块：CommonJS VS Es6">JavaScript 模块：CommonJS VS Es6</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/js_generator/" title="Javascript迭代器、生成器、异步">Javascript迭代器、生成器、异步</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/pygui/" title="PySide6界面程序编写及打包">PySide6界面程序编写及打包</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/argsort/" title="Argsort 以及Rank的Javascript代码练习">Argsort 以及Rank的Javascript代码练习</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/css_animate/" title="CSS3动画入门">CSS3动画入门</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/mysql/" title="Mysql绿色安装方法">Mysql绿色安装方法</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li><a href="https://liudx1985.gitee.io/categories/ai/">AI (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/algorithm/">algorithm (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/c&#43;&#43;/">C&#43;&#43; (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/database/">Database (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/fp/">FP (3)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/math/">math (8)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/misc/">misc (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/programming/">Programming (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/python/">Python (3)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/se/">SE (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/test/">test (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/web/">web (9)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://liudx1985.gitee.io/tags/algorithm/">algorithm</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/bigdata/">bigdata</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/fp/">FP</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/gui/">GUI</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/haskell/">haskell</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/html/">html</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/java/">java</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/javascript/">javascript</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/js/">js</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/latex/">latex</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/math/">math</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/misc/">misc</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/mysql/">mysql</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/nodejs/">nodejs</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/program/">Program</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/python/">python</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/se/">SE</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/vue/">vue</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/web/">web</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/%E6%99%AE%E9%80%9A%E8%AF%9D/">普通话</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://ife.baidu.com/introduction.html" title="百度前端技术学园ife.baidu.com "> 百度前端技术学园ife.baidu.com  </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.runoob.com/" title="菜鸟教程 runoob.com "> 菜鸟教程 runoob.com </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://developer.mozilla.org/zh-CN/docs/Web" title="Web 开发者文档MDN "> Web 开发者文档MDN </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.liaoxuefeng.com/" title="廖雪峰的官方网站"> 廖雪峰的JAVA、python、JS教程</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.processon.com/" title="ProcessOn 在线流程图思维导图">ProcessOn 在线流程图思维导图</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://zhongguose.com/" title="中国色 - 中国传统颜色色卡">中国色 - 中国传统颜色色卡</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://liudx1985.gitee.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+    <div class="container">
+        &copy; 2024 <a href="https://liudx1985.gitee.io/">清风竹影 By 清风竹影</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/flysnow-org/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+
+
+
+
+</body>
+
+</html>

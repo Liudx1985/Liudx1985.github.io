@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C&#43;&#43; on 清风竹影</title>
+    <link>https://liudx1985.gitee.io/categories/c&#43;&#43;/</link>
+    <description>Recent content in C&#43;&#43; on 清风竹影</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 30 Jan 2021 15:11:49 +0000</lastBuildDate><atom:link href="https://liudx1985.gitee.io/categories/c++/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MPI实践</title>
+      <link>https://liudx1985.gitee.io/post/mpi/</link>
+      <pubDate>Sat, 30 Jan 2021 15:11:49 +0000</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/mpi/</guid>
+      <description>1. setup mpich2 mpiexec -remove to remove account for each computer node mpiexec -register to add account for each computer &amp;#39;node&amp;#39; mpiexec -validate to validate the account Notice ,you must create a account(username/password all same) for all nodes on windows.
+2. build boost.mpi 修改boost_1_47_0\tools\build\v2\tools\mpi.jam文件，修改的地方如下：
+ #local cluster_pack_path_native = &amp;#34;C:\\Program Files\\Microsoft Compute Cluster Pack&amp;#34; ;local cluster_pack_path_native = &amp;#34;D:\\Program Files\\MPICH2&amp;#34; ; ...options = &amp;lt;include&amp;gt;$(cluster_pack_path)/Include &amp;lt;address-model&amp;gt;64:&amp;lt;library-path&amp;gt;$(cluster_pack_path)/Lib/amd64&amp;lt;library-path&amp;gt;$(cluster_pack_path)/Lib&amp;lt;find-static-library&amp;gt;mpich2d&amp;lt;toolset&amp;gt;msvc:&amp;lt;define&amp;gt;_SECURE_SCL=0 找到 需要在boost_1_47_0\tools\build\v2\user-config.jam中加入（注意空格！！！）</description>
+    </item>
+    
+  </channel>
+</rss>

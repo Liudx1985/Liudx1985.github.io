@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>fibnocci | 清风竹影</title>
+    <meta property="og:title" content="fibnocci - 清风竹影">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2021-01-30T15:11:49&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2021-01-30T15:11:49&#43;08:00'>
+        
+    <meta name="Keywords" content="清风竹影,Javascript,c&#43;&#43;,Haskell,python,软件架构,数据分析,小程序">
+    <meta name="description" content="fibnocci">
+        
+    <meta name="author" content="清风竹影">
+    <meta property="og:url" content="https://liudx1985.gitee.io/post/fibnocci/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <meta name="MediaType" content="application/octet-stream">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link href="/kityminder/mindmap.css?_=1416390706100" type="text/css" rel="stylesheet" />
+    <link href="/kityminder/kityminder.core.css?_=1416390706100" type="text/css" rel="stylesheet" />
+    <script src="/kityminder/kity.min.js?_=1416390706100" charset="utf-8"></script>
+    <script src="/kityminder/kityminder.core.min.js?_=1416390706100" charset="utf-8"></script>
+    <script src="/kityminder/mindmap.min.js?_=1416390706100" charset="utf-8"></script>
+
+    
+
+
+    
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://liudx1985.gitee.io/">
+                        清风竹影
+                    </a>
+                
+                <p class="description">前C&#43;&#43;码农 ，Python和Javascript练习两年半. 会耍一点Haskell、数据分析、略懂系统架构设计；</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://liudx1985.gitee.io/">首页</a>
+                    
+                    <a  href="https://liudx1985.gitee.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://liudx1985.gitee.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">fibnocci</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2021年1月30日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/math'>math</a></span>
+            
+        </div>
+        
+        
+        
+        <div class="post-content">
+            <h2 id="0-fibonacci定义">0 Fibonacci定义</h2>
+<p>​	&gt; $ f(n+1)=f(n)+f(n-1),\space n &gt;= 1$</p>
+<h2 id="1-sumfn2--fncdot-fn1">1. $\sum(f(n)^2) = f(n)\cdot f(n+1)$</h2>
+<p>​	<strong>面积之和相等:</strong></p>
+<p><img src="area_eq.png" alt="image-20230526225541591"></p>
+<p>证明aka.绘图代码如下</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> matplotlib.path <span style="color:#f92672">import</span> Path
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.patches <span style="color:#66d9ef">as</span> patches
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fib</span>(max):
+</span></span><span style="display:flex;"><span>	a, b <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">while</span> a <span style="color:#f92672">&lt;</span> max:
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">yield</span> a;
+</span></span><span style="display:flex;"><span>		a, b <span style="color:#f92672">=</span> b, a <span style="color:#f92672">+</span> b;
+</span></span><span style="display:flex;"><span>		
+</span></span><span style="display:flex;"><span>verts <span style="color:#f92672">=</span> [    
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>codes <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Path.MOVETO,</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Path.LINETO,</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Path.MOVETO,</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Path.LINETO,</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Path.CLOSEPOLY,</span>
+</span></span><span style="display:flex;"><span>         ]
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure()
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+</span></span><span style="display:flex;"><span>max <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>
+</span></span><span style="display:flex;"><span>prev <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i, n <span style="color:#f92672">in</span> enumerate(fib(max)):    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (i <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">continue</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (i <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span>):
+</span></span><span style="display:flex;"><span>        rc <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>Rectangle((prev, <span style="color:#ae81ff">0</span>), n, n)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        rc <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>Rectangle((<span style="color:#ae81ff">0</span>, prev), n, n)
+</span></span><span style="display:flex;"><span>    prev <span style="color:#f92672">=</span> n
+</span></span><span style="display:flex;"><span>    sum <span style="color:#f92672">+=</span> n
+</span></span><span style="display:flex;"><span>    rc<span style="color:#f92672">.</span>set_fill(<span style="color:#66d9ef">False</span>) <span style="color:#75715e"># rectangle , edge size is n = fib(i)</span>
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>add_patch(rc)
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>set_xlim(<span style="color:#ae81ff">0</span>, sum)
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>set_ylim(<span style="color:#ae81ff">0</span>, sum)
+</span></span><span style="display:flex;"><span>    c_x <span style="color:#f92672">=</span> rc<span style="color:#f92672">.</span>get_x() <span style="color:#f92672">+</span> rc<span style="color:#f92672">.</span>get_width() <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>  <span style="color:#75715e"># center .x</span>
+</span></span><span style="display:flex;"><span>    c_y <span style="color:#f92672">=</span> rc<span style="color:#f92672">.</span>get_y() <span style="color:#f92672">+</span> rc<span style="color:#f92672">.</span>get_height() <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span> <span style="color:#75715e"># center .y</span>
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>text(c_x, c_y, str(n), fontsize <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><blockquote>
+<p>无穷可数数列（有理分数&amp;双射函数f(N*N)-&gt;N
+<img src="map_dual.png" alt="image-20230526230514982"></p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>max <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> k <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, max <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>):
+</span></span><span style="display:flex;"><span>    verts<span style="color:#f92672">.</span>append((<span style="color:#ae81ff">0</span>, k))
+</span></span><span style="display:flex;"><span>    codes<span style="color:#f92672">.</span>append(Path<span style="color:#f92672">.</span>MOVETO)
+</span></span><span style="display:flex;"><span>    verts<span style="color:#f92672">.</span>append((k, <span style="color:#ae81ff">0</span>))
+</span></span><span style="display:flex;"><span>    codes<span style="color:#f92672">.</span>append(Path<span style="color:#f92672">.</span>LINETO)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>k <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>):
+</span></span><span style="display:flex;"><span>        x <span style="color:#f92672">=</span> k <span style="color:#f92672">-</span> i
+</span></span><span style="display:flex;"><span>        y <span style="color:#f92672">=</span> i
+</span></span><span style="display:flex;"><span>        plt<span style="color:#f92672">.</span>plot([x], [y], <span style="color:#e6db74">&#39;ro&#39;</span>)
+</span></span><span style="display:flex;"><span>        ax<span style="color:#f92672">.</span>text(x, y, str(y) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;:&#39;</span> <span style="color:#f92672">+</span> str(x), fontsize <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>path <span style="color:#f92672">=</span> Path(verts, codes)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>patch <span style="color:#f92672">=</span> patches<span style="color:#f92672">.</span>PathPatch(path, facecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;orange&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>add_patch(patch)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlim(<span style="color:#ae81ff">0</span>, max)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylim(<span style="color:#ae81ff">0</span>, max)
+</span></span></code></pre></div><h2 id="2-fn2fn-12--f2n2">2. $f(n)^2+f(n-1)^2 = f(2*n+2)$</h2>
+<p>归纳法证明如下：
+n=1，2 上述等式成立，假设对于n-1,n上式成立:
+$$
+f(2n) = f(n)^2 + f(n-1)^2 \qquad\qquad(1) \\
+f(2n+2) = f(n + 1)^2 + f(n)^2 \qquad\qquad (2)\
+$$</p>
+<p>下面推导n+1的情况
+由假设得(2)-(1)：
+$$\begin{align}
+f(2\cdot n+1) &amp;= f(n+1)^2-f(n-1)^2      \qquad \qquad (3)
+\end{align}$$</p>
+<p>then:</p>
+<p>$$\begin{align}
+f(2\cdot n+3) &amp;= f(2n+1)+f(2n+2)\\
+&amp;= 2f(2n+1) + f(2n)\\
+&amp;= 2[f(n + 1)^2 - f(n-1)^2] + f(n)^2 + f(n-1)^2\\
+&amp;= 2[[f(n + 1) + f(n-1)] \cdot  [f(n + 1) - f(n-1)]] + f(n)^2 + f(n-1)^2\\
+&amp; = 2f(n)[f(n + 1) + f(n-1)] + f(n)^2 + f(n-1)^2\\
+&amp; = 2f(n)f(n + 1) + [f(n) + f(n-1)] ^ 2 \\
+&amp; = 2f(n)f(n + 1) + f(n+1)^2 +  f(n) ^2 - f(n) ^2\\
+&amp; = [f(n) + f(n + 1)] ^2 - f(n) ^2\\
+&amp;  = f(n+2)^2 - f(n)^2\\
+\end{align}$$</p>
+<p>then:</p>
+<p>$$\begin{align}
+f(2\cdot n+4) &amp;=  f(2\cdot n +3) + f(2n+2)\\
+&amp;= f(n+2)^2 - f(n)^2 + f(n + 1)^2 + f(n)^2\\
+&amp;= f(n + 1)^2 + f(n+2)^2
+\end{align}$$
+因此对于n + 1，结论成立 【Q.E.D】</p>
+<h2 id="3-fncdotfn-1fn1--f2cdot-n1">3. $f(n)\cdot[f(n-1)+f(n+1)] = f(2\cdot n+1)$</h2>
+<p>性质2证明已经包含。</p>
+<h2 id="4-黄金分割性质">4. 黄金分割性质</h2>
+<p>数列$\frac{f(n+1)}{f(n)}$ 收敛，且趋于一个值1.618($\dfrac{[1+\sqrt(5)]} {2}$)</p>
+<p>$$
+假设收敛，即对于足够大的n有：\\
+k=\frac{f(n)}{f(n+1)}=\frac{f(n+1)}{f(n+2)}\\
+let\space a = f(n), b=f(n+1)\Rightarrow b = k\cdot a;\\
+\frac{f(n)}{f(n+1)}=\frac{f(n+1)}{f(n+2)}\\
+\frac{a}{b} = \frac{b}{a+b}\\
+\frac{1}{k} = \frac{k}{1+k}\\
+1+k=k^2\\
+解得：k = \dfrac{[1+\sqrt(5)]} {2}\\
+显然另外一个解\dfrac{[1-\sqrt(5)]} {2}为负值,不适合。\\
+$$</p>
+
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/latex/">Latex公式</a></li>
+        
+        <li><a href="/post/mpi/">MPI实践</a></li>
+        
+        <li><a href="/post/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%95%B0%E4%B9%98%E6%B3%95/">最小二乘法</a></li>
+        
+        <li><a href="/post/geometry01/">Think in geometry (part I)</a></li>
+        
+        <li><a href="/post/modulo/">同余和整除判定</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='https://liudx1985.gitee.io/tags/math'>math</a></li>
+                
+                <li><a href='https://liudx1985.gitee.io/tags/python'>python</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+</div>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='//cn.bing.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="site" value="https://liudx1985.gitee.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/andriod/" title="Andriod开发从入门到放弃">Andriod开发从入门到放弃</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/electron/" title="electron-vite-vue开发指北">electron-vite-vue开发指北</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/vue3/" title="Vue3高阶组件技术">Vue3高阶组件技术</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/tesseractocr/" title="利用Tesseract对图片或pdf进行OCR">利用Tesseract对图片或pdf进行OCR</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/js_module/" title="JavaScript 模块：CommonJS VS Es6">JavaScript 模块：CommonJS VS Es6</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/js_generator/" title="Javascript迭代器、生成器、异步">Javascript迭代器、生成器、异步</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/pygui/" title="PySide6界面程序编写及打包">PySide6界面程序编写及打包</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/argsort/" title="Argsort 以及Rank的Javascript代码练习">Argsort 以及Rank的Javascript代码练习</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/css_animate/" title="CSS3动画入门">CSS3动画入门</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/mysql/" title="Mysql绿色安装方法">Mysql绿色安装方法</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li><a href="https://liudx1985.gitee.io/categories/ai/">AI (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/algorithm/">algorithm (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/c&#43;&#43;/">C&#43;&#43; (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/database/">Database (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/fp/">FP (3)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/math/">math (8)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/misc/">misc (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/programming/">Programming (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/python/">Python (3)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/se/">SE (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/test/">test (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/web/">web (9)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://liudx1985.gitee.io/tags/algorithm/">algorithm</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/bigdata/">bigdata</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/fp/">FP</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/gui/">GUI</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/haskell/">haskell</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/html/">html</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/java/">java</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/javascript/">javascript</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/js/">js</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/latex/">latex</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/math/">math</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/misc/">misc</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/mysql/">mysql</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/nodejs/">nodejs</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/program/">Program</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/python/">python</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/se/">SE</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/vue/">vue</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/web/">web</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/%E6%99%AE%E9%80%9A%E8%AF%9D/">普通话</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://ife.baidu.com/introduction.html" title="百度前端技术学园ife.baidu.com "> 百度前端技术学园ife.baidu.com  </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.runoob.com/" title="菜鸟教程 runoob.com "> 菜鸟教程 runoob.com </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://developer.mozilla.org/zh-CN/docs/Web" title="Web 开发者文档MDN "> Web 开发者文档MDN </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.liaoxuefeng.com/" title="廖雪峰的官方网站"> 廖雪峰的JAVA、python、JS教程</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.processon.com/" title="ProcessOn 在线流程图思维导图">ProcessOn 在线流程图思维导图</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://zhongguose.com/" title="中国色 - 中国传统颜色色卡">中国色 - 中国传统颜色色卡</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://liudx1985.gitee.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+    <div class="container">
+        &copy; 2024 <a href="https://liudx1985.gitee.io/">清风竹影 By 清风竹影</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/flysnow-org/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+
+
+
+
+</body>
+
+</html>

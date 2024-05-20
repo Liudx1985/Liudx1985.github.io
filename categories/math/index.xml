@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>math on 清风竹影</title>
+    <link>https://liudx1985.gitee.io/categories/math/</link>
+    <description>Recent content in math on 清风竹影</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 15 Nov 2021 11:43:51 +0800</lastBuildDate><atom:link href="https://liudx1985.gitee.io/categories/math/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>excel常用的函数</title>
+      <link>https://liudx1985.gitee.io/post/exclel%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Mon, 15 Nov 2021 11:43:51 +0800</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/exclel%E5%87%BD%E6%95%B0/</guid>
+      <description>Excel函数 入门 $1 单元格和引用 ​	EXCEL表的每个单元格都有两个索引：
+ 行号，以数字标记，从1开始 列号，以字母标记，如A\B\C&amp;hellip;（大小写不区分）  ​	单元格的引用有如下几种方式：
+ 同sheet（工作表）  中单元格可以用A1表示相对列（第一列第一行），还有一种方式是$a$1,表示绝对列和行 一列数据 A；一列某几行A1:A7；若干列A:D 一行数据$10:$10,如=SUM($1:$1)可以求出第一行所有值的和。 单元格区域 A1:B2   同一工作簿中不同工作表上的单元格引用  用sheet1!A1表示工作表sheet1的第一列第一行。   不同工作簿中的单元格引用  如果工作簿已打开,例：[会计报表.xls]!工资表!A1  如果工作簿已关闭：D:\工作目录\[会计报表.xls]工资表&#39;!A1。其中“会计报表.xls”是工作簿名称，“工资表”为该工作簿中的工作表名称。“D:\工作目录\”为“会计报表.xls”这个工作簿的文件路径。    ​	绝对引用$A$1和相对引用A1：相对引用在复制单元格时会自动更新值，但绝对引用不会。两种方式可以混用。
+$2 关于公式 ​	公式是工作表中进行数值计算的等式。公式键入是以=开始的。简单的公式有加、减、乘、除等计算。例如　=3*6-2 、=A2+B16 、=C4/A6 &amp;hellip;&amp;hellip;
+​	复杂一些的公式可能包含函数 、引用、运算符 (有数学、比较、逻辑和引用运算符等）和常量 （不进行计算的值，因此也不会发生变化）。
+1. ROW / COLUMN函数 这两个函数返回引用的行号和列号，如 =ROW($A$1)返回1如 =COLUMN($B$2)返回2(注意不是B)
+2. IF函数  函数定义：根据条件满足与否返回不同的值
+使用格式：IF(logical_test,value_if_true,value_if_false)
+白话：IF(条件,与条件一样时运算这个,与条件不同时运算这个)
+ 如 IF(AND(C1&amp;gt;80,D1&amp;gt;80),&amp;quot;优&amp;quot;, &amp;quot;不及格&amp;quot;)，表示C1和D1均大于80时显示优，否则是不及格。
+3. INDEX ​	返回表或区域中的值或值的引用。函数INDEX()有两种形式：数组形式通常返回数值或数值数组；引用形式通常返回引用。	INDEX(array,Row_num,column_num) 返回数组中指定单元格或单元格数组的数值。 如=INDEX(A1:A6,1,1) 返回一个引用，是A1:A6这个区域数组的第一行第一列。</description>
+    </item>
+    
+    <item>
+      <title>fibnocci</title>
+      <link>https://liudx1985.gitee.io/post/fibnocci/</link>
+      <pubDate>Sat, 30 Jan 2021 15:11:49 +0000</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/fibnocci/</guid>
+      <description>0 Fibonacci定义 ​	&amp;gt; $ f(n+1)=f(n)+f(n-1),\space n &amp;gt;= 1$
+1. $\sum(f(n)^2) = f(n)\cdot f(n+1)$ ​	面积之和相等:
+证明aka.绘图代码如下
+import matplotlib.pyplot as plt from matplotlib.path import Path import matplotlib.patches as patches import numpy as np  def fib(max): 	a, b = 1, 1; 	while a &amp;lt; max: 	yield a; 	a, b = b, a + b; 	verts = [  ] codes = [ # Path.MOVETO, # Path.</description>
+    </item>
+    
+    <item>
+      <title>Latex公式</title>
+      <link>https://liudx1985.gitee.io/post/latex/</link>
+      <pubDate>Sat, 30 Jan 2021 15:11:49 +0000</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/latex/</guid>
+      <description>$\LaTeX$ Symbol   $$ z = r\cdot e^{2\pi i} \quad \sqrt{x} \quad \frac{1}{2} $$ $$z = r\cdot e^{2\pi i} \quad \sqrt{x} \quad \frac{1}{2} $$
+  $$ \pm \quad \times \quad \div \quad \cdot \quad \cap \quad \cup \quad $$ $$ &amp;gt; \quad&amp;lt; \quad\geq \quad \leq \quad \neq \quad \approx \quad \equiv $$ $$ \pm \quad \times \quad \div \quad \cdot \quad \cap \quad \cup \\ \quad&amp;gt; \quad&amp;lt; \quad\geq \quad \leq \quad \neq \quad \approx \quad \equiv $$</description>
+    </item>
+    
+    <item>
+      <title>最小二乘法</title>
+      <link>https://liudx1985.gitee.io/post/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%95%B0%E4%B9%98%E6%B3%95/</link>
+      <pubDate>Thu, 30 Apr 2020 20:30:00 +0000</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%95%B0%E4%B9%98%E6%B3%95/</guid>
+      <description>Optimize Program 最小二乘法 OLS (https://zhuanlan.zhihu.com/p/38128785)  Define 1.要求函数$f$ 在$g$ 约束下的极值这种问题 $$ minmax\quad f(x)\ s.t.(subject\space to)\space g_i(x)=0 $$
+拉格朗日数乘法求极值 Example 1 $已知x&amp;gt;0,y&amp;gt;0, x+2y+2xy = 8, 求x+2y最小值$
+等同于求$L(x) = x+2y+\lambda(x+2y+2xy-8)$的最小值(无论$\lambda$取何值，后面部分都是0)，由极值条件有：
+$$ \begin{cases} L&amp;rsquo;_x=1+λ+2λ y = 0 \\ L&amp;rsquo;_y=2+2λ +2λ x = 0 \\ L&amp;rsquo;_λ= x+2y+2xy-8 = 0 \end{cases} \Rightarrow \begin{cases} x=2\\ y=1 \end{cases}\\ \therefore min(L(x)) = 4 $$</description>
+    </item>
+    
+    <item>
+      <title>Think in geometry (part I)</title>
+      <link>https://liudx1985.gitee.io/post/geometry01/</link>
+      <pubDate>Tue, 02 Jul 2019 15:11:49 +0000</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/geometry01/</guid>
+      <description>1. Geometry ​	几何学源自古代农业生产活动中发展的测量土地技术，欧几里得的《几何原本》是古典几何的集大成。中国古代很早就发现了勾股定理、掌握了割圆术等一系列几何学知识，可惜受制于封建统治阶级的意思形态，科学技术对没有对社会生产力产生直接的推动，近现代几何学一直为西方主导。随着数学三大基础方向的发展，代数学和几何学的融合，导致解析几何的产生，分析学在几何方向催生出曲面几何、拓扑学等。几何学自身也在蓬勃发展，在欧氏几何上发展出非欧几何（黎曼几何）、微分几何、分形等科学分支。本文主要记录一些笔者在解析几何的思考。
+2 Line in 2d ​	初中我们就学过平面的直线方程：
+$$ y = kx+b\quad\quad (1) $$
+​	老师会告诉我们这个公式(1)斜率是$k$，$b$是$y$轴偏移，但是很不幸的是，这个方程并不能表示所有的平面直线，像$x=1$这类与$x$轴平行的直线是没有办法写成(1)的，因为斜率不能为&amp;rsquo;$\infty $&amp;rsquo;!。所以在计算两点$A(x_1,y_1),B(x_1,y_1)$构成的直线时，我们需要分情况判断： $$ \begin{cases} x=x_1,\quad x_1=x_2 \\ y=\dfrac{y_1-y_2}{x_1-x_2}x+\dfrac{x_1y_2-x_2y_1}{x_1-x_2},\quad x_1\ne x_2 \end{cases} $$ ​	那么，有没有高级的方程，可以不用搞这么麻烦呢？答案是有的，高中老师告诉我们，直线有一般方程，可以统一描述所有直线： $$ ax+by+c = 0\quad\quad (2) $$ ​	这个方程倒是解决了上述问题，但是初次接触是不如（1）式直观，参数$a、b、c$在当时看来没有几何意义的，对比（1）里面的斜率和截距$k、b$就很直观，而且参数还多了一个。一般方程的几何意义在学习了向量之后才会比较明确，我们先回忆下向量相关的基础知识，向量也叫矢量，具有方向，一般第一次接触都是用笛卡尔坐标来描述，就是$x-o-y$轴上的分量来给定向量坐标，大部分高中生都默认这个为向量的定义，但其实向量在代数学中是和向量空间一起定义的，一组向量基构成一个向量空间，而向量是这些基的线性组合，由于向量空间具备封闭性，向量的线性组合仍然位于空间内，直观解释就是，将平面内的任意向量线性相加仍然在平面内，三维的向量$\bar{v}$在基坐标$(1,0,0)、(0,1,0)、(0,0,1)$的线性组合下仍然位于三维空间内，这个线性组合的系数正是向量坐标： $$ \vec{v} = x\cdot(1,0,0)+y\cdot(0,1,0)+z\cdot(0,0,1) $$ ​	向量具备一些基本性质，如线性性、交换性等，这些都是向量空间的基本性质，只不过限于初次接触时知识不够，没有办法了解，到后面学习了高等代数和向量空间，这些都是自然而然的结论。向量有两种重要的运算，即内积和外积，向量内积的定义为： $$ \vec{a}\cdot \vec{b} = |a|\cdot |b|cos&amp;lt;a,b&amp;gt;\quad \quad (3) $$ ​	内积是一个标量，其大小等于两个向量的长度积乘两向量夹角的余弦。向量长度定义为$\sqrt{x^2+y^2}$，几何意义就是距离坐标原点的距离（由勾股定理得）。内积也可以写成: $$ (a,b)\cdot(c,d) = ac+bd	\quad\quad (4) $$ ​	（3）和（4）是如何等价的？这个也困扰了我很久，直到我知道了欧拉公式： $$ e^{ix}=cosx+isinx \quad\quad (5) $$ ​	将$\vec{a}\cdot \vec{b}$写成$\vec{a}=r_1(\cos \alpha ,\sin \alpha)=r_1e^{i\alpha},\vec{b}=r_2(\cos \beta,\sin \beta)=r_2e^{i\beta}$，内积可以写成： $$ \vec{a}\cdot \vec{b} = r_1\cdot r_2\cdot e^{i(\alpha-\beta)} = r_1 cos\alpha \cdot r_2 cos\beta + r_1 sin\alpha \cdot r_2 sin\beta + i r_1 r_2sin(\alpha-\beta)\quad\quad (6) $$ ​	上式中的实数部分(位于平面内)正好就是$ac+bd$，虚数部分的含义有点迷，暂时也不用管了（这个是外积部分，在平面外）。</description>
+    </item>
+    
+    <item>
+      <title>category</title>
+      <link>https://liudx1985.gitee.io/post/category/</link>
+      <pubDate>Tue, 25 Jun 2019 10:20:32 +0000</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/category/</guid>
+      <description>群论、范畴论入门  众所周知，数学的三大方向分别是代数、几何、分析，数相关的归于代数，如初等代数、数论、抽象代数-群论等；几何研究空间和形状，如解析几何、欧氏几何、非欧几何（黎曼几何）、拓扑学、微分几何(流形)等；分析则是数和形之间的纽带，主要包括微积分、实分析、复分析、泛函分析，以及在此基础上发展出的常微分、复变函数与积分变换等。另外概率论-统计、逻辑学、离散数学都可看做三大方向的复合学科。现代数学抽象化程度更高，为了将集合论、群论、向量空间与拓扑中有很多相似的概念统一地表示出来，发展出一门新的学科即范畴论(Category） 。
+1 群的基本概念1  群定义为满足如下条件的封闭集合G：
+ 定义一种二元代数运算$\forall a \in G, \exists f:a\mapsto b,b \in G$ 运算满足结合律:$f:a\mapsto b，g:b\mapsto c， f\circ g：a\mapsto c$ 存在单位元：$\exists e, f(e)= e$ 存在逆元：$\forall a \in G, f(a)=b,\exists f^{-1}(b)=a$   当集合满足1、2时，称为半群，满足1、2、3时称为幺半群(单位半群，$\frac{3}{4}$群)；如果1,2,3,4再附加一个交换律$ f\circ g= g\circ f$则称为Abel交换群。常见有的整数加法群(Z,0,+)、实数乘法群(Q,1,*)，以及S2(平面旋转群等)。整数加群是一个Abel交换群。
+2 偏序关系  偏序关系（partial order relation）的定义是集合P 与一个二元关系运算&amp;rsquo;$\le$&amp;lsquo;定义的，这个二元关系需要满足：
+ 自反性：$x\le x$ 反对称性：$x \le y 且y \le x \Rightarrow x = y$ 传递性：$x \le y 且y \le z \Rightarrow x \le z$   那么集合P 中的每个元素都可以对应一个范畴上的对象，$\le$ 对应态射，首先就满足了 范畴上每个对象都有id 映射，由于这个关系是可以传递的，所以它是可复合的，例如$f$ 为 $x \le y$，$g$ 为$y\le z$，那么$f \circ g$ 就得到了 $x\le z$，当然这种复合也是可结合的。</description>
+    </item>
+    
+    <item>
+      <title>同余和整除判定</title>
+      <link>https://liudx1985.gitee.io/post/modulo/</link>
+      <pubDate>Mon, 08 Apr 2019 10:40:01 +0000</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/modulo/</guid>
+      <description>1. 同余(congruence modulo) ​	同余是指两个整数a、b，若它们除以整数m所得的余数相等，则称a与b对于模m同余或a同余于b模m。同余的符号是$\equiv$。常用的记法是 $$ a\equiv c\space mod(n) $$ ​	一般默认$n$为非零整数，$a、c$为非负整数，当然，对于所有的整数，同余的定义和相关性质都是成立的。 $$ 10\equiv 3\space mod\space 7\\ 1\equiv 10\space mod\space 3 $$
+2.同余的性质及证明方法 ​	同余基本性质有反身性，对称性，传递性和线性可加性,分别如下: $$ a\equiv a\space mod(n) \\ a\equiv b\space mod(n) \Leftrightarrow b\equiv a\space mod(n) \\ a\equiv b\space mod(n)，b\equiv c\space mod(n) \Rightarrow b\equiv c\space mod(n) \\ a\equiv b\space mod(n)，c\equiv d\space mod(n) \Rightarrow a\pm c\equiv b\pm d\space mod(n) \\ a\equiv b\space mod(n)，c\equiv d\space mod(n) \Rightarrow ac\equiv bd\space mod(n) $$</description>
+    </item>
+    
+    <item>
+      <title>Dynamic Programming</title>
+      <link>https://liudx1985.gitee.io/post/dynamic-programming/</link>
+      <pubDate>Tue, 15 Jan 2019 15:10:09 +0000</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/dynamic-programming/</guid>
+      <description>​	Dynamic programming is a math method for some special problems1,for any $n$ ,the problem can be reduce to sub problems recursively.the Fibonacci is a typical DP problem:
+ $$ fib(n) = fib(n-1) + fib(n-2) $$
+ ​	For a positive integer $n$ the result $fib(n)$ can be parted into two sub problems $fib(n-1)$ and $fib(n-2)$; for $n=0,1$ the result is 1 :
+fib n  | (n == 0) = a  | (n == 1) = b  | otherwise = fib (n - 1) + fib (n - 2)  where a = 1; b = 1 ​	or a more complex version:</description>
+    </item>
+    
+  </channel>
+</rss>

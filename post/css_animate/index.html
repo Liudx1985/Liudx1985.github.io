@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>CSS3动画入门 | 清风竹影</title>
+    <meta property="og:title" content="CSS3动画入门 - 清风竹影">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2023-04-18T10:12:04&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2023-04-18T10:12:04&#43;08:00'>
+        
+    <meta name="Keywords" content="清风竹影,Javascript,c&#43;&#43;,Haskell,python,软件架构,数据分析,小程序">
+    <meta name="description" content="CSS3动画入门">
+        
+    <meta name="author" content="清风竹影">
+    <meta property="og:url" content="https://liudx1985.gitee.io/post/css_animate/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <meta name="MediaType" content="application/octet-stream">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link href="/kityminder/mindmap.css?_=1416390706100" type="text/css" rel="stylesheet" />
+    <link href="/kityminder/kityminder.core.css?_=1416390706100" type="text/css" rel="stylesheet" />
+    <script src="/kityminder/kity.min.js?_=1416390706100" charset="utf-8"></script>
+    <script src="/kityminder/kityminder.core.min.js?_=1416390706100" charset="utf-8"></script>
+    <script src="/kityminder/mindmap.min.js?_=1416390706100" charset="utf-8"></script>
+
+    
+
+
+    
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://liudx1985.gitee.io/">
+                        清风竹影
+                    </a>
+                
+                <p class="description">前C&#43;&#43;码农 ，Python和Javascript练习两年半. 会耍一点Haskell、数据分析、略懂系统架构设计；</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://liudx1985.gitee.io/">首页</a>
+                    
+                    <a  href="https://liudx1985.gitee.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://liudx1985.gitee.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">CSS3动画入门</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2023年4月18日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://liudx1985.gitee.io/categories/web'>web</a></span>
+            
+        </div>
+        
+        
+        
+        <div class="post-content">
+            <h2 id="1-css-3-动画简介">1 CSS 3 动画简介</h2>
+<p>​	我们平时看到的动画是由一张一张静态的画面拼接而成的，我们通常用帧数来体现出动画效果的好与坏。 每一帧都是静止的图象，快速连续地显示帧便形成了运动的假象。 高的帧率可以得到更流畅、更逼真的动画。<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<p>​	<img src="frames.webp" alt=""></p>
+<p>​	css中实现动画有两种方式：过渡动画<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions"> transitions</a>|自定义动画<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/animation">animation</a>;两者均可以通过元素的旋转(rotate)，缩放(scale)，倾斜（skew)或平移<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/translate">translate</a>（*也可使用较复杂的矩阵API：(<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/transform">transform</a>)）、颜色(color|background)、透明度(opcaticy)完成帧动画效果。下列示例是一个旋转的实例，可查阅MDN文档学习其他位置变换属性、颜色背景等。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>            #arrow-right{
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">inline-block</span>; <span style="color:#75715e">/*修改未行内元素、可修改高&amp;宽*/</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">margin</span>:<span style="color:#ae81ff">4</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">10</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">10</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">border-right</span>:<span style="color:#ae81ff">2</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#66d9ef">black</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">border-bottom</span>:<span style="color:#ae81ff">2</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#66d9ef">black</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">transform-origin</span>: <span style="color:#ae81ff">0</span><span style="color:#66d9ef">%</span> <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;   <span style="color:#75715e">/*中心*/</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">transform</span>: rotate(<span style="color:#ae81ff">-45</span><span style="color:#66d9ef">deg</span>);   <span style="color:#75715e">/*然后逆时针旋转45°*/</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            #arrow-left{
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">inline-block</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">margin</span>:<span style="color:#ae81ff">4</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">10</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">10</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">border-top</span>:<span style="color:#ae81ff">2</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#66d9ef">black</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">border-left</span>:<span style="color:#ae81ff">2</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#66d9ef">black</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">transform</span>: rotate(<span style="color:#ae81ff">-45</span><span style="color:#66d9ef">deg</span>);      <span style="color:#75715e">/*原地逆时针旋转45°*/</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">row</span>{
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">margin</span>:<span style="color:#ae81ff">4</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">flex</span>; <span style="color:#75715e">/*flex 布局*/</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">justify-content</span>:<span style="color:#66d9ef">start</span>; <span style="color:#75715e">/*元素从左侧排列,常用的还有center|space-around|space-between..*/</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">align-items</span>: <span style="color:#66d9ef">center</span>;<span style="color:#75715e">/*子元素按垂直居中对齐*/</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;row&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;arrow-left&#39;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt; &lt;<span style="color:#f92672">span</span>&gt; Left &lt;/<span style="color:#f92672">span</span>&gt;
+</span></span><span style="display:flex;"><span>         &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>         &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;row&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;arrow-right&#39;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt; &lt;<span style="color:#f92672">span</span>&gt;Right&lt;/<span style="color:#f92672">span</span>&gt;
+</span></span><span style="display:flex;"><span>         &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><p>​	完成后生成左、右箭头，当然这个是没有动画效果的，因为它是对元素立即生效的。</p>
+<p><img src="trans.png" alt="image-20230418105449069"></p>
+<h3 id="11-transitions">1.1 transitions</h3>
+<p><strong>transition属性的作用是补充中间帧（你只需要告诉它开始怎么样，结束怎么样，过程动画它会自动补齐）,需要配合<code>transform</code>、<code>translate</code>等属性一起完成动画效果。</strong></p>
+<p><img src="transition.jpg" alt=""></p>
+<blockquote>
+<p>transition: <em>property duration timing-function delay</em>;</p>
+<table>
+<thead>
+<tr>
+<th><em><a href="https://www.runoob.com/cssref/css3-pr-transition-property.html">transition-property</a></em></th>
+<th>指定CSS属性的name，transition效果：none、transform、all、等等</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em><a href="https://www.runoob.com/cssref/css3-pr-transition-duration.html">transition-duration</a></em></td>
+<td>transition效果需要指定多少秒或毫秒才能完成</td>
+</tr>
+<tr>
+<td><em><a href="https://www.runoob.com/cssref/css3-pr-transition-timing-function.html">transition-timing-function</a></em></td>
+<td>指定transition效果的转速曲线,常用 <code>linear</code></td>
+</tr>
+<tr>
+<td><em><a href="https://www.runoob.com/cssref/css3-pr-transition-delay.html">transition-delay</a></em></td>
+<td>定义transition效果开始的时候</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>​	类似上面那个箭头实例，我们加上鼠标悬停的动画效果，代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">close</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">cursor</span>: <span style="color:#66d9ef">pointer</span>; <span style="color:#75715e">/*使鼠标指针显示为手型*/</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">block</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">30</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">30</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">border-right</span>: <span style="color:#ae81ff">2</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#66d9ef">black</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">border-top</span>: <span style="color:#ae81ff">2</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#66d9ef">black</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">20</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">line-height</span>: <span style="color:#ae81ff">32</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">background</span>: <span style="color:#ae81ff">#fff</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#8b8ab3</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">text-align</span>: <span style="color:#66d9ef">center</span>;        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">transform</span>: rotate(<span style="color:#ae81ff">45</span><span style="color:#66d9ef">deg</span>); <span style="color:#75715e">/*原地逆时针旋转45°*/</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">close</span>:<span style="color:#a6e22e">hover</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">transform</span>: rotate(<span style="color:#ae81ff">135</span><span style="color:#66d9ef">deg</span>); <span style="color:#75715e">/*原地逆时针旋转135°*/</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">transition</span>: <span style="color:#66d9ef">transform</span> <span style="color:#ae81ff">1</span><span style="color:#66d9ef">s</span> <span style="color:#66d9ef">linear</span>; <span style="color:#75715e">/*图标在1秒内匀速旋转135。*/</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;close&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><h3 id="12-animation2">1.2 animation<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></h3>
+<p><strong>CSS animations</strong>动画包括两个部分：描述动画的样式规则和用于指定动画开始、结束以及中间点样式的关键帧（@keyframes）。</p>
+<p><img src="mind.png" alt=""></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">box</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">50</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">50</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">background-color</span>: <span style="color:#66d9ef">pink</span>; <span style="color:#75715e">/*初始未粉色*/</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">animation-name</span>: test; <span style="color:#75715e">/*动画名称*/</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">animation-duration</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">s</span>; <span style="color:#75715e">/*1s动画循环*/</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">animation-iteration-count</span>: <span style="color:#66d9ef">infinite</span>; <span style="color:#75715e">/*无限播放*/</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  @<span style="color:#66d9ef">keyframes</span> <span style="color:#f92672">test</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">50</span><span style="color:#f92672">%</span> { <span style="color:#75715e">/*0.5s的关键帧，注意可以自行增加其他百分比的关键字*/</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">px</span>;  <span style="color:#75715e">/*变大2倍*/</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">50</span><span style="color:#66d9ef">%</span>;  <span style="color:#75715e">/*边框改为圆形*/</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">background-color</span>: <span style="color:#66d9ef">skyblue</span>;<span style="color:#75715e">/*颜色变为*/</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;box&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">body</span>&gt;
+</span></span></code></pre></div><p>生成效果如下：</p>
+<p><img src="animate.gif" alt=""></p>
+<h2 id="2-vue-配合animatecss-3的高级动画">2 vue 配合animate.css <sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>的高级动画</h2>
+<p>​	一般在开发时可使用<code>animate.css</code>完成动画效果；配合vue的过渡·<code>transition</code>·的示例如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">http-equiv</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;X-UA-Compatible&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;IE=edge&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://unpkg.com/vue@2&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">link</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css&#34;</span>
+</span></span><span style="display:flex;"><span>    /&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">box</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">450</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">220</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">background-size</span>: <span style="color:#66d9ef">cover</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">background-repeat</span>: <span style="color:#66d9ef">no-repeat</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">background-image</span>: url(<span style="color:#e6db74">./1.webp</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">margin</span>: <span style="color:#ae81ff">2</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">4</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">box-shadow</span>: <span style="color:#ae81ff">0</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">0</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">15</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">lightgreen</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">/* .fade-enter-active,.fade-leave-active {
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        transition: all 5s ease-out;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      }
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      .fade-enter,.fade-leave-to{
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        opacity: 0;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        transform: scale(0.5) rotate(-360deg);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      }
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      .fade-enter-to,.fade-leave{
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        opacity: 1;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      } */</span>
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;demo&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">transition</span> <span style="color:#a6e22e">appear</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">appear-active-class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;animate__animated animate__bounceInDown&#34;</span>
+</span></span><span style="display:flex;"><span>        &gt;&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;box&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">transition</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">button</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;show=!show&#34;</span>&gt;{{show?&#39;hide&#39;:&#39;Show!&#39;}}&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">&lt;!-- &lt;transition name=&#34;fade&#34;&gt;&lt;/transition&gt; --&gt;</span>
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">transition</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">enter-active-class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;animate__animated animate__flipInY&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">leave-active-class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;animate__animated animate__flipOutY&#34;</span>
+</span></span><span style="display:flex;"><span>      &gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;box&#34;</span> <span style="color:#a6e22e">v-if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;show&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">transition</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">vm</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">el</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;#demo&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">show</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span> },
+</span></span><span style="display:flex;"><span>      });
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><p><img src="animate2.gif" alt=""></p>
+<hr>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><a href="https://zhuanlan.zhihu.com/p/19855108#%E5%85%B3%E9%94%AE%E5%B8%A7%E5%8A%A8%E7%94%BB">逐帧动画和关键帧动画 - 知乎 (zhihu.com)</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p><a href="https://juejin.cn/post/6970883520168198158#heading-0">CSS3-animation动画详解 - 掘金 (juejin.cn)</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3" role="doc-endnote">
+<p><a href="https://animate.style/">Animate.css | A cross-browser library of CSS animations.</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/mysql/">Mysql绿色安装方法</a></li>
+        
+        <li><a href="/post/rg/">RIP-GREP 工具使用</a></li>
+        
+        <li><a href="/post/ajax/">express 使用ajax</a></li>
+        
+        <li><a href="/post/express/">Express 框架开发web服务器</a></li>
+        
+        <li><a href="/post/nodejs_http/">Node.js HTTP服务器</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            没有标签
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+</div>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='//cn.bing.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="site" value="https://liudx1985.gitee.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/andriod/" title="Andriod开发从入门到放弃">Andriod开发从入门到放弃</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/electron/" title="electron-vite-vue开发指北">electron-vite-vue开发指北</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/vue3/" title="Vue3高阶组件技术">Vue3高阶组件技术</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/tesseractocr/" title="利用Tesseract对图片或pdf进行OCR">利用Tesseract对图片或pdf进行OCR</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/js_module/" title="JavaScript 模块：CommonJS VS Es6">JavaScript 模块：CommonJS VS Es6</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/js_generator/" title="Javascript迭代器、生成器、异步">Javascript迭代器、生成器、异步</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/pygui/" title="PySide6界面程序编写及打包">PySide6界面程序编写及打包</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/argsort/" title="Argsort 以及Rank的Javascript代码练习">Argsort 以及Rank的Javascript代码练习</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/css_animate/" title="CSS3动画入门">CSS3动画入门</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/mysql/" title="Mysql绿色安装方法">Mysql绿色安装方法</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li><a href="https://liudx1985.gitee.io/categories/ai/">AI (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/algorithm/">algorithm (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/c&#43;&#43;/">C&#43;&#43; (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/database/">Database (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/fp/">FP (3)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/math/">math (8)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/misc/">misc (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/programming/">Programming (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/python/">Python (3)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/se/">SE (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/test/">test (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/web/">web (9)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://liudx1985.gitee.io/tags/algorithm/">algorithm</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/bigdata/">bigdata</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/fp/">FP</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/gui/">GUI</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/haskell/">haskell</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/html/">html</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/java/">java</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/javascript/">javascript</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/js/">js</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/latex/">latex</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/math/">math</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/misc/">misc</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/mysql/">mysql</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/nodejs/">nodejs</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/program/">Program</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/python/">python</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/se/">SE</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/vue/">vue</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/web/">web</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/%E6%99%AE%E9%80%9A%E8%AF%9D/">普通话</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://ife.baidu.com/introduction.html" title="百度前端技术学园ife.baidu.com "> 百度前端技术学园ife.baidu.com  </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.runoob.com/" title="菜鸟教程 runoob.com "> 菜鸟教程 runoob.com </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://developer.mozilla.org/zh-CN/docs/Web" title="Web 开发者文档MDN "> Web 开发者文档MDN </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.liaoxuefeng.com/" title="廖雪峰的官方网站"> 廖雪峰的JAVA、python、JS教程</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.processon.com/" title="ProcessOn 在线流程图思维导图">ProcessOn 在线流程图思维导图</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://zhongguose.com/" title="中国色 - 中国传统颜色色卡">中国色 - 中国传统颜色色卡</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://liudx1985.gitee.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+    <div class="container">
+        &copy; 2024 <a href="https://liudx1985.gitee.io/">清风竹影 By 清风竹影</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/flysnow-org/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+
+
+
+
+</body>
+
+</html>

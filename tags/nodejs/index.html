@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>nodejs | 清风竹影</title>
+    <meta property="og:title" content="nodejs - 清风竹影">
+    <meta property="og:type" content="article">
+        
+        
+    <meta name="Keywords" content="清风竹影,Javascript,c&#43;&#43;,Haskell,python,软件架构,数据分析,小程序">
+    <meta name="description" content="nodejs">
+        
+    <meta name="author" content="清风竹影">
+    <meta property="og:url" content="https://liudx1985.gitee.io/tags/nodejs/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <link rel="alternate" type="application/rss+xml" href="https://liudx1985.gitee.io/tags/nodejs/index.xml" title="清风竹影" />
+    <meta name="MediaType" content="application/octet-stream">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link href="/kityminder/mindmap.css?_=1416390706100" type="text/css" rel="stylesheet" />
+    <link href="/kityminder/kityminder.core.css?_=1416390706100" type="text/css" rel="stylesheet" />
+    <script src="/kityminder/kity.min.js?_=1416390706100" charset="utf-8"></script>
+    <script src="/kityminder/kityminder.core.min.js?_=1416390706100" charset="utf-8"></script>
+    <script src="/kityminder/mindmap.min.js?_=1416390706100" charset="utf-8"></script>
+
+    
+
+
+    
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://liudx1985.gitee.io/">
+                        清风竹影
+                    </a>
+                
+                <p class="description">前C&#43;&#43;码农 ，Python和Javascript练习两年半. 会耍一点Haskell、数据分析、略懂系统架构设计；</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="https://liudx1985.gitee.io/">首页</a>
+                    
+                    <a  href="https://liudx1985.gitee.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://liudx1985.gitee.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <h3 class="archive-title">
+        包含标签
+        <span class="keyword">nodejs</span>
+        的文章
+    </h3>
+    
+
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://liudx1985.gitee.io/post/js_module/">JavaScript 模块：CommonJS VS Es6</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2023年9月20日
+        </date>
+        
+        <div class="post-meta meta-category">
+            |
+            
+            <a href='https://liudx1985.gitee.io/categories/web'>web</a>
+            
+        </div>
+        
+        <div class="post-content">
+            [TOC]
+JavaScript 模块有两种：CommonJS和ES6模块化规范12：
+1. CommonJS 模块规范 node.js的默认方式，使用exports(aka. global.module.exports) 对象导出，使用require 函数导入，下面是一个简单的示例（上面是模块，下面是调用）：
+// circle.js const PI = 3.1415 function area(r) {  return PI * r * r } // exports exports.PI = PI exports.area = area // 也可以写成下面的方式： exports.PI = 3.14;exports.area=(r)=&gt; PI * r * r // 或者：exports = {PI, area} // main.js const circle = require(&#34;./circle.js&#34;)// 就是上面模块的exports对象。 console.log(circle.PI) console.log(circle.area(5))  // 或者，结合对象解构赋值写成 const {area,PI} = require(&#39;./circle&#39;) // 可省略.js console.log(PI) console.log(area(5)) 2 ES6模块规范 ​	ES6新增export、import 关键字用于支持模块化。注意前后台都可以使用ES6模块，有一些细微的不同。……
+            <p class="readmore"><a href="https://liudx1985.gitee.io/post/js_module/">阅读全文</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://liudx1985.gitee.io/post/js_generator/">Javascript迭代器、生成器、异步</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2023年7月26日
+        </date>
+        
+        <div class="post-meta meta-category">
+            |
+            
+            <a href='https://liudx1985.gitee.io/categories/web'>web</a>
+            
+        </div>
+        
+        <div class="post-content">
+            1 Javascript 迭代器 ES6 新增了一个新玩具iterator:迭代器iterator协议1主要规定了可迭代协议允许 JavaScript 对象定义或定制它们的迭代行为，例如，在一个 for..of 结构中，哪些值可以被遍历到。一些内置类型同时是内置的可迭代对象，并且有默认的迭代行为，比如 Array 或者 Map，而其他内置类型则不是（比如 Object）。下面是一个简单的fibonacci迭代器，可以无限生产一个数列1,1,2,3,5,8....
+/** * @description function *迭代器对象 * @returns a fibonacci iterable object */ const fib = {  [Symbol.iterator]() {  let n1 = 1, n2 = 1  return {  // 使迭代器编程iterable  [Symbol.iterator]() { return this; },  next() {  let c = n2;  n2 = n1  n1 = n1 + c  return { value: c, done: false };  },  return(v) {  console.……
+            <p class="readmore"><a href="https://liudx1985.gitee.io/post/js_generator/">阅读全文</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://liudx1985.gitee.io/post/ajax/">express 使用ajax</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2022年4月22日
+        </date>
+        
+        <div class="post-meta meta-category">
+            |
+            
+            <a href='https://liudx1985.gitee.io/categories/web'>web</a>
+            
+        </div>
+        
+        <div class="post-content">
+            1. 使用XMLHttpRequest 后台代码：
+const express = require(&#39;express&#39;) const app = express() app.use(express.static(&#34;public&#34;)) // 静态资源目录 // FOR:&#34;Content-type&#34;:&#34;application/x-www-form-urlencoded&#34; app.use(express.urlencoded({extended: false })); // FOR:&#34;Content-type&#34;:&#34;application/json&#34; // app.use(express.json()) app.post(&#39;/calc&#39;, (req, res) =&gt; { 	console.log(req.body) // MUST ADD app.use(...) 	setTimeout(()=&gt;res.send(`&lt;div style=&#34;background-color:tomato; border-radius:50%;width:${req.body.w}px;height:${req.body.h}px&#34;/&gt;`), 1000) }) app.listen(8080) 在public/index.html里面可以搞一个按钮来发送ajax请求（可以使用JQUERY）:
+&lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt;	&lt;meta charset=&#34;utf-8&#34;&gt;&lt;title&gt;&lt;/title&gt;  &lt;script src=&#34;https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js&#34;&gt;&lt;/script&gt; &lt;/head&gt; &lt;body&gt; 	&lt;form action=&#34;post&#34;&gt; 	&lt;div&gt;宽:&lt;input type=&#34;text&#34; id=&#34;w&#34; placeholder=&#34;input width&#34;&gt;&lt;/div&gt; 	&lt;div&gt;高:&lt;input type=&#34;text&#34; id=&#34;h&#34; placeholder=&#34;input height&#34;&gt;&lt;/div&gt; 	&lt;div&gt;&lt;input type=&#34;button&#34; id=&#34;calc&#34; onclick=&#34;Calc()&#34; value=&#34;calc&#34; /&gt;&lt;/div&gt; 	&lt;/form&gt;  &lt;div id=&#34;result&#34;&gt;&lt;/div&gt; &lt;/body&gt; &lt;script&gt; 	function Calc() { 	let xhr = new XMLHttpRequest() // 创建XHR 	let w = parseFloat(document.……
+            <p class="readmore"><a href="https://liudx1985.gitee.io/post/ajax/">阅读全文</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://liudx1985.gitee.io/post/express/">Express 框架开发web服务器</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2022年4月7日
+        </date>
+        
+        <div class="post-meta meta-category">
+            |
+            
+            <a href='https://liudx1985.gitee.io/categories/web'>web</a>
+            
+        </div>
+        
+        <div class="post-content">
+            1. 最简单版本 var express = require(&#39;express&#39;); var app = express(); app.get(&#39;/&#39;, (req, res, next) =&gt; {  res.send(&#34;welcome to express&#34;) })  var server = app.listen(8080) 启动后打开 http://localhost:8080
+2 中间件  Express 使用get/post/use(path,callback)中间件;第一个参数为路由，第二个参数为处理中的 callback既可以是router对象又可以是函数
+   2.1 将app.use第一个参数不设置，即可处理所有的消息：
+ // 这里就是常用的网站维护，一般放在代码顶部。  app.use((req, res, next) =&gt; {  if (webStop) res.send(&#34;维护中&#34;)  else next()  })   2.2 匹配404代码一般放在尾部,同样使用全部匹配。
+app.use((req, res, next) =&gt; {  res.send(&#34;404 - 页面不存在&#34;) // 页面不存在了 })   2.……
+            <p class="readmore"><a href="https://liudx1985.gitee.io/post/express/">阅读全文</a></p>
+        </div>
+    </article>
+    
+
+    
+
+
+
+
+
+</div>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='//cn.bing.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="site" value="https://liudx1985.gitee.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/andriod/" title="Andriod开发从入门到放弃">Andriod开发从入门到放弃</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/electron/" title="electron-vite-vue开发指北">electron-vite-vue开发指北</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/vue3/" title="Vue3高阶组件技术">Vue3高阶组件技术</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/tesseractocr/" title="利用Tesseract对图片或pdf进行OCR">利用Tesseract对图片或pdf进行OCR</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/js_module/" title="JavaScript 模块：CommonJS VS Es6">JavaScript 模块：CommonJS VS Es6</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/js_generator/" title="Javascript迭代器、生成器、异步">Javascript迭代器、生成器、异步</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/pygui/" title="PySide6界面程序编写及打包">PySide6界面程序编写及打包</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/argsort/" title="Argsort 以及Rank的Javascript代码练习">Argsort 以及Rank的Javascript代码练习</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/css_animate/" title="CSS3动画入门">CSS3动画入门</a>
+    </li>
+    
+    <li>
+        <a href="https://liudx1985.gitee.io/post/mysql/" title="Mysql绿色安装方法">Mysql绿色安装方法</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li><a href="https://liudx1985.gitee.io/categories/ai/">AI (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/algorithm/">algorithm (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/c&#43;&#43;/">C&#43;&#43; (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/database/">Database (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/fp/">FP (3)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/math/">math (8)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/misc/">misc (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/programming/">Programming (2)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/python/">Python (3)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/se/">SE (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/test/">test (1)</a></li>
+    
+    <li><a href="https://liudx1985.gitee.io/categories/web/">web (9)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://liudx1985.gitee.io/tags/algorithm/">algorithm</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/bigdata/">bigdata</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/fp/">FP</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/gui/">GUI</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/haskell/">haskell</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/html/">html</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/java/">java</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/javascript/">javascript</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/js/">js</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/latex/">latex</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/math/">math</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/misc/">misc</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/mysql/">mysql</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/nodejs/">nodejs</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/program/">Program</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/python/">python</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/se/">SE</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/vue/">vue</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/web/">web</a>
+    
+    <a href="https://liudx1985.gitee.io/tags/%E6%99%AE%E9%80%9A%E8%AF%9D/">普通话</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://ife.baidu.com/introduction.html" title="百度前端技术学园ife.baidu.com "> 百度前端技术学园ife.baidu.com  </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.runoob.com/" title="菜鸟教程 runoob.com "> 菜鸟教程 runoob.com </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://developer.mozilla.org/zh-CN/docs/Web" title="Web 开发者文档MDN "> Web 开发者文档MDN </a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.liaoxuefeng.com/" title="廖雪峰的官方网站"> 廖雪峰的JAVA、python、JS教程</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.processon.com/" title="ProcessOn 在线流程图思维导图">ProcessOn 在线流程图思维导图</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://zhongguose.com/" title="中国色 - 中国传统颜色色卡">中国色 - 中国传统颜色色卡</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://liudx1985.gitee.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+    <div class="container">
+        &copy; 2024 <a href="https://liudx1985.gitee.io/">清风竹影 By 清风竹影</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/flysnow-org/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+
+
+
+
+</body>
+
+</html>

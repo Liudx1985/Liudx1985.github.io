@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>web on 清风竹影</title>
+    <link>https://liudx1985.gitee.io/categories/web/</link>
+    <description>Recent content in web on 清风竹影</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 05 Jan 2024 15:37:17 +0800</lastBuildDate><atom:link href="https://liudx1985.gitee.io/categories/web/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vue3高阶组件技术</title>
+      <link>https://liudx1985.gitee.io/post/vue3/</link>
+      <pubDate>Fri, 05 Jan 2024 15:37:17 +0800</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/vue3/</guid>
+      <description>1.Props | Vue.js (vuejs.org) ​	父组件需要向子组件注入数据，可以使用props，类似于attrs:&amp;lt;comp label=&amp;quot;xxxx&amp;quot;&amp;gt;
+ 特别注意！
+  props是单向从父到子数据流，如果是子组件修改父组件属性，需要用#3 event
+  props在子组件是只读的，意味我们无法修改props！
+   &amp;lt;script setup&amp;gt;  const props = defineProps([&amp;#39;foo&amp;#39;]) console.log(props.foo)  const props2 = defineProps({  label: {  type: String,  require: true,  },  name: {  type: String,  require: true,  }  }) &amp;lt;/script&amp;gt; 通常prop的玩法是： 1，通过父组件直接修改props绑定的变量，子组件内props自动更新界面！2、初始化给内部的原生组件，然后在原生组件事件里把prop值更新回去，所谓的v-model模式。
+PS,如果我们要强行额外写入属性怎么办呢，可以利用provide\inject跨层级传输接口依赖注入 | Vue.js (vuejs.org)！:
+provide(&amp;#39;currentTab&amp;#39;, currentTab) # 父组件写变量 inject(&amp;#34;currentTab&amp;#34;) # 子组件注入变量，注意，这个变量是Ref，并不位于props! 2.</description>
+    </item>
+    
+    <item>
+      <title>JavaScript 模块：CommonJS VS Es6</title>
+      <link>https://liudx1985.gitee.io/post/js_module/</link>
+      <pubDate>Wed, 20 Sep 2023 19:10:36 +0800</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/js_module/</guid>
+      <description>[TOC]
+JavaScript 模块有两种：CommonJS和ES6模块化规范12：
+1. CommonJS 模块规范 node.js的默认方式，使用exports(aka. global.module.exports) 对象导出，使用require 函数导入，下面是一个简单的示例（上面是模块，下面是调用）：
+// circle.js const PI = 3.1415 function area(r) {  return PI * r * r } // exports exports.PI = PI exports.area = area // 也可以写成下面的方式： exports.PI = 3.14;exports.area=(r)=&amp;gt; PI * r * r // 或者：exports = {PI, area} // main.js const circle = require(&amp;#34;./circle.js&amp;#34;)// 就是上面模块的exports对象。 console.log(circle.PI) console.log(circle.area(5))  // 或者，结合对象解构赋值写成 const {area,PI} = require(&amp;#39;./circle&amp;#39;) // 可省略.js console.log(PI) console.log(area(5)) 2 ES6模块规范 ​	ES6新增export、import 关键字用于支持模块化。注意前后台都可以使用ES6模块，有一些细微的不同。</description>
+    </item>
+    
+    <item>
+      <title>Javascript迭代器、生成器、异步</title>
+      <link>https://liudx1985.gitee.io/post/js_generator/</link>
+      <pubDate>Wed, 26 Jul 2023 16:42:51 +0800</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/js_generator/</guid>
+      <description>1 Javascript 迭代器 ES6 新增了一个新玩具iterator:迭代器iterator协议1主要规定了可迭代协议允许 JavaScript 对象定义或定制它们的迭代行为，例如，在一个 for..of 结构中，哪些值可以被遍历到。一些内置类型同时是内置的可迭代对象，并且有默认的迭代行为，比如 Array 或者 Map，而其他内置类型则不是（比如 Object）。下面是一个简单的fibonacci迭代器，可以无限生产一个数列1,1,2,3,5,8....
+/** * @description function *迭代器对象 * @returns a fibonacci iterable object */ const fib = {  [Symbol.iterator]() {  let n1 = 1, n2 = 1  return {  // 使迭代器编程iterable  [Symbol.iterator]() { return this; },  next() {  let c = n2;  n2 = n1  n1 = n1 + c  return { value: c, done: false };  },  return(v) {  console.</description>
+    </item>
+    
+    <item>
+      <title>CSS3动画入门</title>
+      <link>https://liudx1985.gitee.io/post/css_animate/</link>
+      <pubDate>Tue, 18 Apr 2023 10:12:04 +0800</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/css_animate/</guid>
+      <description>1 CSS 3 动画简介 ​	我们平时看到的动画是由一张一张静态的画面拼接而成的，我们通常用帧数来体现出动画效果的好与坏。 每一帧都是静止的图象，快速连续地显示帧便形成了运动的假象。 高的帧率可以得到更流畅、更逼真的动画。1
+​	​	css中实现动画有两种方式：过渡动画transitions|自定义动画animation;两者均可以通过元素的旋转(rotate)，缩放(scale)，倾斜（skew)或平移translate（*也可使用较复杂的矩阵API：(transform)）、颜色(color|background)、透明度(opcaticy)完成帧动画效果。下列示例是一个旋转的实例，可查阅MDN文档学习其他位置变换属性、颜色背景等。
+&amp;lt;html&amp;gt;  &amp;lt;head&amp;gt;  &amp;lt;style&amp;gt;  #arrow-right{  display: inline-block; /*修改未行内元素、可修改高&amp;amp;宽*/  margin:4px;  width: 10px;  height: 10px;  border-right:2px solid black;  border-bottom:2px solid black;  transform-origin: 0% 100%; /*中心*/  transform: rotate(-45deg); /*然后逆时针旋转45°*/  }   #arrow-left{  display: inline-block;  margin:4px;  width: 10px;  height: 10px;  border-top:2px solid black;  border-left:2px solid black;  transform: rotate(-45deg); /*原地逆时针旋转45°*/  }  .</description>
+    </item>
+    
+    <item>
+      <title>express 使用ajax</title>
+      <link>https://liudx1985.gitee.io/post/ajax/</link>
+      <pubDate>Fri, 22 Apr 2022 16:01:22 +0800</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/ajax/</guid>
+      <description>1. 使用XMLHttpRequest 后台代码：
+const express = require(&amp;#39;express&amp;#39;) const app = express() app.use(express.static(&amp;#34;public&amp;#34;)) // 静态资源目录 // FOR:&amp;#34;Content-type&amp;#34;:&amp;#34;application/x-www-form-urlencoded&amp;#34; app.use(express.urlencoded({extended: false })); // FOR:&amp;#34;Content-type&amp;#34;:&amp;#34;application/json&amp;#34; // app.use(express.json()) app.post(&amp;#39;/calc&amp;#39;, (req, res) =&amp;gt; { 	console.log(req.body) // MUST ADD app.use(...) 	setTimeout(()=&amp;gt;res.send(`&amp;lt;div style=&amp;#34;background-color:tomato; border-radius:50%;width:${req.body.w}px;height:${req.body.h}px&amp;#34;/&amp;gt;`), 1000) }) app.listen(8080) 在public/index.html里面可以搞一个按钮来发送ajax请求（可以使用JQUERY）:
+&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt;	&amp;lt;meta charset=&amp;#34;utf-8&amp;#34;&amp;gt;&amp;lt;title&amp;gt;&amp;lt;/title&amp;gt;  &amp;lt;script src=&amp;#34;https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; 	&amp;lt;form action=&amp;#34;post&amp;#34;&amp;gt; 	&amp;lt;div&amp;gt;宽:&amp;lt;input type=&amp;#34;text&amp;#34; id=&amp;#34;w&amp;#34; placeholder=&amp;#34;input width&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; 	&amp;lt;div&amp;gt;高:&amp;lt;input type=&amp;#34;text&amp;#34; id=&amp;#34;h&amp;#34; placeholder=&amp;#34;input height&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; 	&amp;lt;div&amp;gt;&amp;lt;input type=&amp;#34;button&amp;#34; id=&amp;#34;calc&amp;#34; onclick=&amp;#34;Calc()&amp;#34; value=&amp;#34;calc&amp;#34; /&amp;gt;&amp;lt;/div&amp;gt; 	&amp;lt;/form&amp;gt;  &amp;lt;div id=&amp;#34;result&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;script&amp;gt; 	function Calc() { 	let xhr = new XMLHttpRequest() // 创建XHR 	let w = parseFloat(document.</description>
+    </item>
+    
+    <item>
+      <title>Express 框架开发web服务器</title>
+      <link>https://liudx1985.gitee.io/post/express/</link>
+      <pubDate>Thu, 07 Apr 2022 14:13:35 +0800</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/express/</guid>
+      <description>1. 最简单版本 var express = require(&amp;#39;express&amp;#39;); var app = express(); app.get(&amp;#39;/&amp;#39;, (req, res, next) =&amp;gt; {  res.send(&amp;#34;welcome to express&amp;#34;) })  var server = app.listen(8080) 启动后打开 http://localhost:8080
+2 中间件  Express 使用get/post/use(path,callback)中间件;第一个参数为路由，第二个参数为处理中的 callback既可以是router对象又可以是函数
+   2.1 将app.use第一个参数不设置，即可处理所有的消息：
+ // 这里就是常用的网站维护，一般放在代码顶部。  app.use((req, res, next) =&amp;gt; {  if (webStop) res.send(&amp;#34;维护中&amp;#34;)  else next()  })   2.2 匹配404代码一般放在尾部,同样使用全部匹配。
+app.use((req, res, next) =&amp;gt; {  res.send(&amp;#34;404 - 页面不存在&amp;#34;) // 页面不存在了 })   2.</description>
+    </item>
+    
+    <item>
+      <title>Node.js HTTP服务器</title>
+      <link>https://liudx1985.gitee.io/post/nodejs_http/</link>
+      <pubDate>Tue, 29 Mar 2022 15:08:14 +0800</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/nodejs_http/</guid>
+      <description>1. 最简单版本GET/POST/&amp;hellip; const http = require(&amp;#39;http&amp;#39;) const hostname=&amp;#39;localhost&amp;#39; //`127.0.0.1` const port = 3000 const server = http.createServer((req, res) =&amp;gt; {  if (req.method==&amp;#39;GET&amp;#39;){//处理POST请求  res.statusCode = 200  res.setHeader(&amp;#39;Content-Type&amp;#39;, &amp;#39;text/plain&amp;#39;)  res.end(&amp;#39;你好世界\n&amp;#39;)  }  else if (req.method==&amp;#39;POST&amp;#39;){//处理POST请求  ...  } }) server.listen(port, () =&amp;gt; {  console.log(`服务器运行在 http://${hostname}:${port}/`) })  客户端地址 http://localhost:3000  2. 处理HTTP GET请求参数 ​	对于https://cn.bing.com/search?q=baidu&amp;amp;cvid=9ad 这种URL，可从中拆分出pathname、querystring。
+ pathname: /search querystring : ?q=baidu&amp;amp;cvid=0   需引入url模块</description>
+    </item>
+    
+    <item>
+      <title>Think in WEB</title>
+      <link>https://liudx1985.gitee.io/post/web-start/</link>
+      <pubDate>Sat, 20 Nov 2021 16:23:51 +0800</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/web-start/</guid>
+      <description>§0 HTML、CSS基础参考：    Web 开发技术 | MDN (mozilla.org)
+  墙裂推荐：6张思维导图，帮你搞定html、css（css画QQ企鹅） - 简书 (jianshu.com)
+      基本概念     常用HTML标签     常用CSS属性     表格和表单     浮动和定位     CSS3     §1 HTTP status code    状态码 状态码英文名称 中文描述     100 Continue 继续。客户端应继续其请求   101 Switching Protocols 切换协议。服务器根据客户端的请求切换协议。只能切换到更高级的协议，例如，切换到HTTP的新版本协议   200 OK 请求成功。一般用于GET与POST请求   201 Created 已创建。成功请求并创建了新的资源   202 Accepted 已接受。已经接受请求，但未处理完成   203 Non-Authoritative Information 非授权信息。请求成功。但返回的meta信息不在原始的服务器，而是一个副本   204 No Content 无内容。服务器成功处理，但未返回内容。在未更新网页的情况下，可确保浏览器继续显示当前文档   205 Reset Content 重置内容。服务器处理成功，用户终端（例如：浏览器）应重置文档视图。可通过此返回码清除浏览器的表单域   206 Partial Content 部分内容。服务器成功处理了部分GET请求   300 Multiple Choices 多种选择。请求的资源可包括多个位置，相应可返回一个资源特征与地址的列表用于用户终端（例如：浏览器）选择   301 Moved Permanently 永久移动。请求的资源已被永久的移动到新URI，返回信息会包括新的URI，浏览器会自动定向到新URI。今后任何新的请求都应使用新的URI代替   302 Found 临时移动。与301类似。但资源只是临时被移动。客户端应继续使用原有URI   303 See Other 查看其它地址。与301类似。使用GET和POST请求查看   304 Not Modified 未修改。所请求的资源未修改，服务器返回此状态码时，不会返回任何资源。客户端通常会缓存访问过的资源，通过提供一个头信息指出客户端希望只返回在指定日期之后修改的资源   305 Use Proxy 使用代理。所请求的资源必须通过代理访问   306 Unused 已经被废弃的HTTP状态码   307 Temporary Redirect 临时重定向。与302类似。使用GET请求重定向   400 Bad Request 客户端请求的语法错误，服务器无法理解   401 Unauthorized 请求要求用户的身份认证   402 Payment Required 保留，将来使用   403 Forbidden 服务器理解请求客户端的请求，但是拒绝执行此请求   404 Not Found 服务器无法根据客户端的请求找到资源（网页）。通过此代码，网站设计人员可设置&amp;quot;您所请求的资源无法找到&amp;quot;的个性页面   405 Method Not Allowed 客户端请求中的方法被禁止   406 Not Acceptable 服务器无法根据客户端请求的内容特性完成请求   407 Proxy Authentication Required 请求要求代理的身份认证，与401类似，但请求者应当使用代理进行授权   408 Request Time-out 服务器等待客户端发送的请求时间过长，超时   409 Conflict 服务器完成客户端的PUT请求是可能返回此代码，服务器处理请求时发生了冲突   410 Gone 客户端请求的资源已经不存在。410不同于404，如果资源以前有现在被永久删除了可使用410代码，网站设计人员可通过301代码指定资源的新位置   411 Length Required 服务器无法处理客户端发送的不带Content-Length的请求信息   412 Precondition Failed 客户端请求信息的先决条件错误   413 Request Entity Too Large 由于请求的实体过大，服务器无法处理，因此拒绝请求。为防止客户端的连续请求，服务器可能会关闭连接。如果只是服务器暂时无法处理，则会包含一个Retry-After的响应信息   414 Request-URI Too Large 请求的URI过长（URI通常为网址），服务器无法处理   415 Unsupported Media Type 服务器无法处理请求附带的媒体格式   416 Requested range not satisfiable 客户端请求的范围无效   417 Expectation Failed 服务器无法满足Expect的请求头信息   500 Internal Server Error 服务器内部错误，无法完成请求   501 Not Implemented 服务器不支持请求的功能，无法完成请求   502 Bad Gateway 充当网关或代理的服务器，从远端服务器接收到了一个无效的请求   503 Service Unavailable 由于超载或系统维护，服务器暂时的无法处理客户端的请求。延时的长度可包含在服务器的Retry-After头信息中   504 Gateway Time-out 充当网关或代理的服务器，未及时从远端服务器获取请求   505 HTTP Version not supported 服务器不支持请求的HTTP协议的版本，无法完成处理    §2 CSS Colors CSS 的颜色写法有color keywords|RGB|HSL - CSS color_value | MDN (mozilla.</description>
+    </item>
+    
+    <item>
+      <title>Vue3 学习大纲</title>
+      <link>https://liudx1985.gitee.io/post/vuejs/</link>
+      <pubDate>Wed, 08 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/vuejs/</guid>
+      <description>[TOC]
+1. 前端工程(Big Front End)   浏览器工作原理，HTML、CSS、JavaScript(ES6)
+ Web 开发技术 | MDN (mozilla.org) 菜鸟教程 - (runoob.com) ES6 入门教程 - ECMAScript 6入门 (ruanyifeng.com) W3Schools How TO - 实用的代码片段@HTML, CSS and JavaScript    数据-视图分离：MVC、MVVM
+ Vue.js (vuejs.org)    前端工程化：(npm、webpack)，组件技术，etc.
+ Vue3 教程 | 菜鸟教程 (runoob.com) 、VUE3 教程_w3cschool 指南 | webpack 中文网 (webpackjs.com) GitHub - su37josephxia/vue3-study: vue3学习的各种实验代码 前端面试指南之Vue面试题总结 - 掘金 (juejin.cn) vue3正式发布两年后，我才开始学—vue3+setup+ts（万字总结） - 掘金 (juejin.cn)    工具资源：</description>
+    </item>
+    
+  </channel>
+</rss>

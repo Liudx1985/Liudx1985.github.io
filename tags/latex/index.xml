@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>latex on 清风竹影</title>
+    <link>https://liudx1985.gitee.io/tags/latex/</link>
+    <description>Recent content in latex on 清风竹影</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 30 Jan 2021 15:11:49 +0000</lastBuildDate><atom:link href="https://liudx1985.gitee.io/tags/latex/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Latex公式</title>
+      <link>https://liudx1985.gitee.io/post/latex/</link>
+      <pubDate>Sat, 30 Jan 2021 15:11:49 +0000</pubDate>
+      
+      <guid>https://liudx1985.gitee.io/post/latex/</guid>
+      <description>$\LaTeX$ Symbol   $$ z = r\cdot e^{2\pi i} \quad \sqrt{x} \quad \frac{1}{2} $$ $$z = r\cdot e^{2\pi i} \quad \sqrt{x} \quad \frac{1}{2} $$
+  $$ \pm \quad \times \quad \div \quad \cdot \quad \cap \quad \cup \quad $$ $$ &amp;gt; \quad&amp;lt; \quad\geq \quad \leq \quad \neq \quad \approx \quad \equiv $$ $$ \pm \quad \times \quad \div \quad \cdot \quad \cap \quad \cup \\ \quad&amp;gt; \quad&amp;lt; \quad\geq \quad \leq \quad \neq \quad \approx \quad \equiv $$</description>
+    </item>
+    
+  </channel>
+</rss>
